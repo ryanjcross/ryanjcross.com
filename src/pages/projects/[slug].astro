@@ -6,10 +6,14 @@ const projects = {
 };
 
 export function getStaticPaths() {
-  return Object.entries(projects).map(([slug, project]) => ({ params: { slug }, props: { project } }));
+  return [
+    { params: { slug: "stampede-sky" } },
+    { params: { slug: "kairos-power" } },
+    { params: { slug: "cu-boulder" } },
+  ];
 }
 
-const { project } = Astro.props;
+const project = projects[Astro.params.slug];
 ---
 
 <!doctype html>
