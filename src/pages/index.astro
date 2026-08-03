@@ -5,29 +5,29 @@ const projects = [
     eyebrow: "Senior Design · Propulsion",
     title: "Stampede Sky",
     summary:
-      "Propulsion and integrated test engineering for a CU Boulder aerospace senior design team—turning subsystem decisions into hardware that can be evaluated as a complete vehicle.",
+      "Propulsion and integrated test work for a CU Boulder aerospace senior design team, connecting subsystem decisions with full vehicle evaluation.",
     tags: ["Propulsion", "Integrated Test", "Systems Engineering"],
     href: "https://www.colorado.edu/aerospace/academics/undergraduates/senior-design-projects/2025-2026/stampede-sky",
-    accent: "orange",
+    accent: "teal",
   },
   {
     number: "02",
-    eyebrow: "Research · Machine Learning",
-    title: "What wastewater can tell us",
+    eyebrow: "Industry · Test Engineering",
+    title: "Kairos Power",
     summary:
-      "Research exploring whether community demographics can help predict pharmaceutical loads in wastewater—an aerospace engineer’s first step into environmental data science.",
-    tags: ["Machine Learning", "Environmental Data", "Research"],
-    href: "https://www.linkedin.com/in/ryan-cross-/",
+      "A test engineering internship supporting the work of an engineering company developing advanced nuclear technology.",
+    tags: ["Test Engineering", "Engineering", "Nuclear Technology"],
+    href: "https://www.kairospower.com/",
     accent: "blue",
   },
   {
     number: "03",
-    eyebrow: "Industry · Test Engineering",
-    title: "Testing for a cleaner energy future",
+    eyebrow: "Education · Aerospace Engineering",
+    title: "CU Boulder",
     summary:
-      "A test engineering internship at Kairos Power, contributing to the iterative engineering culture behind advanced nuclear energy systems.",
-    tags: ["Test Engineering", "Nuclear Energy", "Hardware"],
-    href: "https://www.kairospower.com/",
+      "Aerospace engineering studies at the University of Colorado Boulder, with graduation expected in 2026.",
+    tags: ["Aerospace Engineering", "Class of 2026", "Boulder"],
+    href: "https://www.colorado.edu/aerospace/",
     accent: "yellow",
   },
 ];
@@ -46,17 +46,17 @@ const capabilities = [
     <meta name="viewport" content="width=device-width" />
     <meta
       name="description"
-      content="Ryan Cross is an aerospace engineer focused on propulsion, test, and the systems that move ambitious ideas into the real world."
+      content="Ryan Cross is an aerospace engineering student at CU Boulder with experience in propulsion and test engineering."
     />
-    <meta property="og:title" content="Ryan Cross — Aerospace Engineer" />
+    <meta property="og:title" content="Ryan Cross | Aerospace Engineering" />
     <meta
       property="og:description"
-      content="Aerospace engineering, integrated testing, and energy innovation."
+      content="Aerospace engineering, propulsion, and test engineering."
     />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#f0eee8" />
     <link rel="icon" href="/favicon.svg" />
-    <title>Ryan Cross — Aerospace Engineer</title>
+    <title>Ryan Cross | Aerospace Engineering</title>
   </head>
   <body>
     <header class="site-header">
@@ -83,8 +83,8 @@ const capabilities = [
           Learn fast.
         </h1>
         <p class="hero-copy">
-          I’m Ryan—an aerospace engineer working across propulsion, integrated testing,
-          and energy technology. I like the point where a good idea meets the real world.
+          I’m Ryan. I’m an aerospace engineering student at CU Boulder with experience
+          in propulsion and test engineering.
         </p>
         <div class="hero-actions">
           <a class="button button-primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a>
@@ -160,8 +160,8 @@ const capabilities = [
           <h2 id="about-title">Curious by default.<br /><em>Rigorous by practice.</em></h2>
           <p>
             I’m completing my aerospace engineering degree at the University of
-            Colorado Boulder. My work has taken me from propulsion and integrated test
-            to advanced nuclear energy and environmental machine learning.
+            Colorado Boulder. My experience includes propulsion and integrated test
+            work on Stampede Sky and a test engineering internship at Kairos Power.
           </p>
           <p>
             Different domains, same motivation: understand the system, ask the useful
@@ -213,7 +213,7 @@ const capabilities = [
     --ink: #171914;
     --muted: #686b61;
     --line: #c9c8bf;
-    --orange: #f05a28;
+    --teal: #126e67;
     --blue: #5e80ff;
     --yellow: #ebc83e;
   }
@@ -282,7 +282,7 @@ const capabilities = [
     letter-spacing: .16em;
   }
   .hero-kicker { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
-  .hero-kicker span, .status span { width: 7px; height: 7px; background: var(--orange); border-radius: 50%; }
+  .hero-kicker span, .status span { width: 7px; height: 7px; background: var(--teal); border-radius: 50%; }
   h1, .section-heading h2, .about-copy h2, .contact-section h2 {
     position: relative;
     margin: 0;
@@ -292,7 +292,7 @@ const capabilities = [
     letter-spacing: -.055em;
     line-height: .76;
   }
-  h1 em, h2 em { color: var(--orange); font-weight: 400; }
+  h1 em, h2 em { color: var(--teal); font-weight: 400; }
   .hero-copy {
     position: relative;
     max-width: 490px;
@@ -321,7 +321,7 @@ const capabilities = [
   .orbit-two { inset: 80px; }
   .orbit-core {
     position: absolute; inset: 150px; display: grid; place-items: center;
-    color: white; background: var(--orange); border-radius: 50%; font-weight: 600;
+    color: white; background: var(--teal); border-radius: 50%; font-weight: 600;
   }
   .orbit-one::before, .orbit-one::after { content: ""; position: absolute; background: rgba(23,25,20,.22); }
   .orbit-one::before { height: 1px; width: 520px; top: 50%; left: -50px; }
@@ -368,7 +368,7 @@ const capabilities = [
   .project-card.in-view { opacity: 1; transform: none; }
   .project-number { align-self: start; font: 11px monospace; }
   .project-graphic { position: relative; height: 240px; overflow: hidden; background: #dddcd5; }
-  .project-shape { position: absolute; width: 140px; height: 140px; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%); border: 35px solid var(--orange); }
+  .project-shape { position: absolute; width: 140px; height: 140px; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%); border: 35px solid var(--teal); }
   .blue .project-shape { border-radius: 0; border: 0; background: var(--blue); transform: translate(-50%,-50%) rotate(45deg); }
   .yellow .project-shape { border: 0; width: 180px; height: 100px; border-radius: 100% 0; background: var(--yellow); transform: translate(-50%,-50%) rotate(-25deg); }
   .project-lines { position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 32px, rgba(23,25,20,.14) 33px 34px); mix-blend-mode: multiply; }
@@ -394,7 +394,7 @@ const capabilities = [
   .education strong { font-family: "Instrument Serif", serif; font-size: 24px; font-weight: 400; }
   .education p { color: var(--muted); font-size: 13px; }
 
-  .contact-section { position: relative; overflow: hidden; min-height: 680px; padding: 100px clamp(24px, 8vw, 130px); color: white; background: var(--orange); display: flex; flex-direction: column; justify-content: center; }
+  .contact-section { position: relative; overflow: hidden; min-height: 680px; padding: 100px clamp(24px, 8vw, 130px); color: white; background: var(--teal); display: flex; flex-direction: column; justify-content: center; }
   .contact-section h2 { z-index: 1; font-size: clamp(67px, 9vw, 130px); line-height: .83; margin: 40px 0; }
   .contact-section h2 em { color: var(--ink); }
   .button-light { position: relative; z-index: 1; align-self: flex-start; background: white; color: var(--ink); }
