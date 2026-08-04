@@ -12,7 +12,7 @@ const projects = [
   <body>
     <header class="site-header"><a class="brand" href="#home"><span class="brand-mark">RC</span> Ryan Cross</a><nav aria-label="Primary navigation"><a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav><a class="resume-cta" href="/resume">Resume <span>↗</span></a></header>
     <main>
-      <section class="home section" id="home"><img class="flow-art" src="/images/flow-visualization.png" alt="Abstract blue flow visualization" /><div class="portrait home-photo"><img src="/images/ryan-hiking.jpg" alt="Ryan Cross hiking in the mountains" /></div><div class="intro"><h1>Ryan <em>Cross</em></h1><p class="eyebrow">Aerospace engineering portfolio</p></div><a class="section-arrow" href="#about" aria-label="Scroll to About">↓</a></section>
+      <section class="home section" id="home"><img class="flow-art" src="/images/flow-visualization.png" alt="Abstract blue flow visualization" /><div class="portrait home-photo"><img src="/images/ryan-hiking.jpg" alt="Ryan Cross hiking in the mountains" /><div class="aero-overlay" aria-hidden="true"><span class="aero-orbit"></span><span class="aero-path"></span><span class="aero-label">FLIGHT PATH · 40.015° N · 105.270° W</span><span class="aero-satellite"></span></div></div><div class="intro"><h1>Ryan <em>Cross</em></h1><p class="eyebrow">Aerospace engineering portfolio</p></div><a class="section-arrow" href="#about" aria-label="Scroll to About">↓</a></section>
       <section class="resume section" id="resume"><div class="section-banner resume-banner" aria-hidden="true"><span>01 / Resume</span></div><div class="section-heading"><p class="eyebrow">/ Resume</p><h2>Built through<br /><em>curiosity and rigor.</em></h2></div><div class="resume-grid"><div><span class="label">Currently</span><h3>Aerospace Engineering<br />CU Boulder</h3><p>Graduating 2026</p></div><div><span class="label">Focus</span><p>Propulsion, test engineering, systems integration, and using real hardware to turn questions into evidence.</p></div><div><span class="label">Experience</span><p>Integrated test work on Stampede Sky and a test engineering internship at Kairos Power.</p></div></div><a class="text-link" href="mailto:ryanc31415@gmail.com?subject=Resume%20request">Request my full resume <span>↗</span></a></section>
       <section class="projects section" id="projects"><div class="section-banner projects-banner" aria-hidden="true"><span>03 / Projects</span></div><div class="section-heading"><p class="eyebrow">/ Selected projects</p><h2>Ideas under<br /><em>real-world pressure.</em></h2></div><div class="project-grid">{projects.map((project) => (<a class={`project-card ${project.accent}`} href={project.href}><div class="project-image" aria-hidden="true"><span>{project.number}</span></div><p class="eyebrow">{project.type}</p><h3>{project.title}</h3><span class="project-link">View project →</span></a>))}</div></section>
       <section class="about section" id="about"><div class="section-banner about-banner" aria-hidden="true"><span>02 / About</span></div><div class="about-grid"><div class="portrait about-photo" role="img" aria-label="Space for an About photo of Ryan Cross"><span>About photo</span></div><div><p class="eyebrow">/ About me</p><h2>Curious by default.<br /><em>Rigorous by practice.</em></h2><p>I’m completing my aerospace engineering degree at the University of Colorado Boulder. My experience includes propulsion and integrated test work on Stampede Sky and a test engineering internship at Kairos Power.</p><p>Different domains, same motivation: understand the system, ask the useful question, and build evidence strong enough to move forward.</p></div></div></section>
@@ -85,15 +85,23 @@ const projects = [
   /* Minimal section-to-section navigation; regular scrolling remains unchanged. */
   .section-arrow { position: absolute; z-index: 4; bottom: 6vh; left: 50%; display: grid; place-items: center; width: 34px; height: 34px; transform: translateX(-50%); border: 1px solid rgba(242,240,232,.6); border-radius: 50%; color: var(--ink); font-size: 18px; line-height: 1; transition: transform .2s, background .2s; }
   .section-arrow:hover { transform: translateX(-50%) translateY(4px); background: rgba(242,240,232,.16); }
-  .section-arrow-dark { left: auto; right: clamp(24px, 6vw, 100px); bottom: 42px; transform: none; }
-  .section-arrow-dark:hover { transform: translateY(4px); }
+  .section-arrow-dark { left: 50%; right: auto; bottom: 42px; transform: translateX(-50%); }
+  .section-arrow-dark:hover { transform: translateX(-50%) translateY(4px); }
   .contact .section-arrow { display: none; }
-  /* Engineering overlay: datum grid, centerline and measurement rings. */
+  /* Aerospace overlay: a flight trajectory, orbital track and satellite marker. */
   .home-photo > img { position: absolute; inset: 0; z-index: 0; }
-  .home-photo::before, .home-photo::after { display: block; content: ""; position: absolute; z-index: 1; pointer-events: none; }
-  .home-photo::before { inset: 0; width: auto; height: auto; aspect-ratio: auto; border: 0; border-radius: 0; background-image: linear-gradient(rgba(91,229,207,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(91,229,207,.16) 1px, transparent 1px); background-size: 58px 58px; mix-blend-mode: screen; }
-  .home-photo::after { width: min(43vw, 620px); aspect-ratio: 1; right: -8vw; top: 50%; left: auto; transform: translateY(-50%); border: 1px solid rgba(91,229,207,.65); border-radius: 50%; background: repeating-radial-gradient(circle, transparent 0 74px, rgba(145,168,255,.35) 75px 76px); }
+  .home-photo::before, .home-photo::after { display: none; }
+  .aero-overlay { position: absolute; z-index: 1; inset: 0; overflow: hidden; pointer-events: none; color: var(--teal); }
+  .aero-overlay::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(91,229,207,.13) 1px, transparent 1px), linear-gradient(90deg, rgba(91,229,207,.13) 1px, transparent 1px); background-size: 64px 64px; mix-blend-mode: screen; }
+  .aero-orbit { position: absolute; width: min(54vw, 790px); aspect-ratio: 1.5; right: -7vw; top: 15%; border: 1px solid rgba(145,168,255,.8); border-radius: 50%; transform: rotate(-18deg); }
+  .aero-orbit::before { content: ""; position: absolute; width: 8px; height: 8px; top: 5%; left: 23%; border-radius: 50%; background: var(--teal); box-shadow: 0 0 16px var(--teal); }
+  .aero-path { position: absolute; width: 92%; top: 55%; left: -8%; border-top: 1px dashed rgba(91,229,207,.9); transform: rotate(-12deg); }
+  .aero-path::after { content: ""; position: absolute; right: 1%; top: -5px; width: 9px; height: 9px; border: 1px solid var(--teal); border-radius: 50%; background: #0d0f0e; }
+  .aero-label { position: absolute; right: 7%; bottom: 13%; padding: 8px 10px; border: 1px solid rgba(91,229,207,.52); background: rgba(5,7,6,.72); font: 10px/1.2 monospace; letter-spacing: .1em; }
+  .aero-satellite { position: absolute; left: 12%; top: 23%; width: 18px; height: 12px; border: 1px solid var(--teal); background: rgba(5,7,6,.7); transform: rotate(-18deg); }
+  .aero-satellite::before, .aero-satellite::after { content: ""; position: absolute; top: 2px; width: 18px; height: 6px; border: 1px solid rgba(91,229,207,.8); background: rgba(145,168,255,.2); }
+  .aero-satellite::before { right: 20px; }.aero-satellite::after { left: 20px; }
   .home-photo { background: #050706; }
   .home .intro { text-shadow: 0 4px 24px rgba(0,0,0,.75); }
-  @media(max-width:850px) { .section-arrow-dark { right: 24px; bottom: 28px; } .home-photo::before { background-size: 36px 36px; } .home-photo::after { width: 70vw; right: -28vw; } }
+  @media(max-width:850px) { .section-arrow-dark { right: auto; bottom: 28px; } .aero-overlay::before { background-size: 42px 42px; } .aero-orbit { width: 95vw; right: -35vw; } .aero-label { right: 5%; bottom: 14%; font-size: 8px; } }
 </style>
