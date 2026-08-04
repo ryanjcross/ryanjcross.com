@@ -57,16 +57,17 @@ const projects = [
   .scroll-work { left: calc(var(--portrait-width) + (100% - var(--portrait-width)) / 2); }
   @media(max-width:850px) { .home { --portrait-width: clamp(145px, 27vw, 250px); } .flow-art, .home::after { height: 70svh; } .home-photo { height: 70svh; } .home .intro { top: 24svh; } }
   @media(max-width:520px) { .home { --portrait-width: 105px; } .flow-art, .home::after { height: 67svh; } .home-photo { height: 67svh; } .home .intro { top: 23svh; } .brand .brand-mark { width: 26px; height: 26px; } }
-  /* Full-screen flow image with a horizontal portrait strip. */
+  /* Full-screen flow image with a wide portrait panel over its top portion. */
   .home { --portrait-width: 0px; }
   .flow-art { inset: 0; width: 100%; height: 100svh; object-position: center; }
   .home::after { inset: 0; width: 100%; height: 100svh; background: linear-gradient(90deg, rgba(0,0,0,.3), transparent 55%), linear-gradient(0deg, rgba(0,0,0,.7), transparent 58%); }
   .home .intro { top: 31svh; left: 50%; width: min(1000px, 86vw); }
   .home .intro h1 { white-space: nowrap; font-size: clamp(78px, 11vw, 190px); }
-  .home-photo { top: auto; bottom: 0; left: 0; right: 0; width: 100%; height: 24svh; min-height: 0; border: 1px solid var(--line); border-width: 1px 0 0; background: rgba(5,7,6,.91); transform: none; }
-  .home-photo::before { width: 35%; aspect-ratio: 4 / 1; border-radius: 50%; }
-  .home-photo::after { width: 16%; aspect-ratio: 3 / 1; border-radius: 50%; }
-  .scroll-work { bottom: 27svh; left: 50%; }
-  @media(max-width:850px) { .flow-art, .home::after { height: 100svh; } .home .intro { top: 27svh; } .home-photo { height: 23svh; } .scroll-work { bottom: 26svh; } }
-  @media(max-width:520px) { .flow-art, .home::after { height: 100svh; } .home .intro { top: 26svh; } .home .intro h1 { font-size: clamp(55px, 16vw, 92px); } .home-photo { height: 22svh; } .scroll-work { bottom: 25svh; } }
+  .home-photo { top: 0; bottom: auto; left: 0; right: 0; width: 100%; height: 75svh; min-height: 0; border: 0; background: rgba(5,7,6,.76); transform: none; }
+  .home-photo::before { width: 34%; aspect-ratio: 1; }
+  .home-photo::after { width: 16%; aspect-ratio: 1; }
+  .home .intro { z-index: 3; }
+  .scroll-work { bottom: 7svh; left: 50%; }
+  @media(max-width:850px) { .flow-art, .home::after { height: 100svh; } .home .intro { top: 27svh; } .home-photo { height: 75svh; } .scroll-work { bottom: 7svh; } }
+  @media(max-width:520px) { .flow-art, .home::after { height: 100svh; } .home .intro { top: 26svh; } .home .intro h1 { font-size: clamp(55px, 16vw, 92px); } .home-photo { height: 75svh; } .scroll-work { bottom: 7svh; } }
 </style>
