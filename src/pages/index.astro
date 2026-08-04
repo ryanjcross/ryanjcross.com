@@ -12,7 +12,7 @@ const projects = [
   <body>
     <header class="site-header"><a class="brand" href="#home"><span class="brand-mark">RC</span> Ryan Cross</a><nav aria-label="Primary navigation"><a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav><a class="resume-cta" href="/resume">Resume <span>↗</span></a></header>
     <main>
-      <section class="home section" id="home"><div class="portrait home-photo"><img src="/images/ryan-hiking.jpg" alt="Ryan Cross hiking in the mountains" /></div><div class="intro"><div class="aircraft-title"><svg viewBox="0 0 640 260" aria-hidden="true"><path class="jet-body" d="M20 148c7-23 30-34 67-36l111-7 12-42c5-18 20-27 42-27h65c21 0 35 11 40 31l9 38 104 7 59-30h27l-35 37 70 6 23-53h22l-10 57 14 14-14 14 10 57h-22l-23-53-70 6 35 37h-27l-59-30-104 7-9 38c-5 20-19 31-40 31h-65c-22 0-37-9-42-27l-12-42-111-7c-37-2-60-13-67-36Z" /><path class="jet-windows" d="M50 136h115m52-43h121m69 38 59 4" /><circle class="jet-cockpit" cx="49" cy="137" r="4" /></svg><h1>Ryan <em>Cross</em></h1></div><p class="eyebrow">Aerospace engineer</p></div><a class="section-arrow" href="#about" aria-label="Scroll to About">↓</a></section>
+      <section class="home section" id="home"><div class="portrait home-photo"><img src="/images/ryan-hiking.jpg" alt="Ryan Cross hiking in the mountains" /></div><div class="intro"><div class="name-lockup"><h1>Ryan <em>Cross</em></h1></div><p class="eyebrow">Aerospace engineer</p></div><a class="section-arrow" href="#about" aria-label="Scroll to About">↓</a></section>
       <section class="resume section" id="resume"><div class="section-banner resume-banner" aria-hidden="true"><span>01 / Resume</span></div><div class="section-heading"><p class="eyebrow">/ Resume</p><h2>Built through<br /><em>curiosity and rigor.</em></h2></div><div class="resume-grid"><div><span class="label">Currently</span><h3>Aerospace Engineering<br />CU Boulder</h3><p>Graduating 2026</p></div><div><span class="label">Focus</span><p>Propulsion, test engineering, systems integration, and using real hardware to turn questions into evidence.</p></div><div><span class="label">Experience</span><p>Integrated test work on Stampede Sky and a test engineering internship at Kairos Power.</p></div></div><a class="text-link" href="mailto:ryanc31415@gmail.com?subject=Resume%20request">Request my full resume <span>↗</span></a></section>
       <section class="projects section" id="projects"><div class="section-banner projects-banner" aria-hidden="true"><span>03 / Projects</span></div><div class="section-heading"><p class="eyebrow">/ Selected projects</p><h2>Ideas under<br /><em>real-world pressure.</em></h2></div><div class="project-grid">{projects.map((project) => (<a class={`project-card ${project.accent}`} href={project.href}><div class="project-image" aria-hidden="true"><span>{project.number}</span></div><p class="eyebrow">{project.type}</p><h3>{project.title}</h3><span class="project-link">View project →</span></a>))}</div></section>
       <section class="about section" id="about"><div class="section-banner about-banner" aria-hidden="true"><span>02 / About</span></div><div class="about-grid"><div class="portrait about-photo" role="img" aria-label="Space for an About photo of Ryan Cross"><span>About photo</span></div><div><p class="eyebrow">/ About me</p><h2>Curious by default.<br /><em>Rigorous by practice.</em></h2><p>I’m completing my aerospace engineering degree at the University of Colorado Boulder. My experience includes propulsion and integrated test work on Stampede Sky and a test engineering internship at Kairos Power.</p><p>Different domains, same motivation: understand the system, ask the useful question, and build evidence strong enough to move forward.</p></div></div></section>
@@ -104,15 +104,11 @@ const projects = [
   .home-photo { background: #050706; }
   .home .intro { text-shadow: 0 4px 24px rgba(0,0,0,.75); }
   @media(max-width:850px) { .section-arrow-dark { right: auto; bottom: 28px; } .aero-overlay::before { background-size: 42px 42px; } .aero-orbit { width: 95vw; right: -35vw; } .aero-label { right: 5%; bottom: 14%; font-size: 8px; } }
-  /* Modern top-down aircraft title lockup. */
+  /* Clean centered name lockup. */
   .home .intro { top: 18svh; }
-  .aircraft-title { position: relative; width: min(620px, 78vw); height: clamp(110px, 15vw, 170px); margin: 0 auto; display: grid; place-items: center; }
-  .aircraft-title svg { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 8px 20px rgba(0,0,0,.45)); }
-  .aircraft-title path { fill: rgba(5,7,6,.42); stroke: rgba(91,229,207,.92); stroke-width: 2; stroke-linejoin: round; }
-  .aircraft-title .jet-windows { fill: none; stroke: rgba(234,248,245,.72); stroke-width: 2; stroke-linecap: round; }
-  .aircraft-title .jet-cockpit { fill: var(--teal); }
-  .home .intro .aircraft-title h1 { position: relative; z-index: 1; margin: 0; transform: translateY(3px); white-space: nowrap; color: var(--ink); font-size: clamp(34px, 5.5vw, 76px); line-height: 1; letter-spacing: -.06em; }
-  .home .intro .aircraft-title h1 em { color: inherit; font-style: normal; }
+  .name-lockup { width: min(620px, 86vw); margin: 0 auto; }
+  .home .intro .name-lockup h1 { margin: 0; white-space: nowrap; color: var(--ink); font-size: clamp(48px, 7vw, 100px); line-height: 1; letter-spacing: -.06em; }
+  .home .intro .name-lockup h1 em { color: inherit; font-style: normal; }
   .home .intro .eyebrow { margin-top: 18px; color: #eff4f0; }
-  @media(max-width:700px) { .home .intro { top: 19svh; } .aircraft-title { width: 90vw; height: 100px; } .home .intro .aircraft-title h1 { font-size: clamp(28px, 8vw, 50px); } }
+  @media(max-width:700px) { .home .intro { top: 19svh; } .home .intro .name-lockup h1 { font-size: clamp(40px, 11vw, 70px); } }
 </style>
