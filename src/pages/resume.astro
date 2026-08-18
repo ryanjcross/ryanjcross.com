@@ -18,6 +18,8 @@
   .brand b, .brand i { top: 8px; }
   .brand b { left: 6px; }
   .brand i { left: 16px; }
+  header { grid-template-columns: 1fr auto 1fr; }
+  header nav { grid-column: 2; justify-self: center; }
   nav { font-size: 13px; }
   @media(max-width:600px) { .brand span { width: 34px; height: 32px; } .brand b, .brand i { top: 7px; } .brand b { left: 5px; } .brand i { left: 15px; } nav { font-size: 11px; } }
 </style>
