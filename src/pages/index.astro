@@ -12,7 +12,7 @@ const projects = [
   <body>
     <header class="site-header"><a class="brand logo-only" href="/" aria-label="Ryan Cross, home"><span class="brand-mark"><b>R</b><i>C</i></span></a><nav aria-label="Primary navigation"><a href="/">Home</a><a href="/about">About</a><a href="/resume">Resume</a><a href="/projects">Projects</a><a href="/contact">Contact</a></nav></header>
     <main>
-      <section class="home section" id="home"><div class="portrait home-photo"><img src="/images/ryan-in-cirque.jpg" alt="Ryan Cross in an alpine cirque" /></div><div class="intro"><div class="name-lockup"><h1>Ryan <em>Cross</em></h1></div><p class="eyebrow">Aerospace engineer</p></div><div class="summary-preview"><p class="home-summary">Summary</p><div class="summary-items"><p><span>Focus</span> Propulsion &amp; integrated test</p><p><span>Approach</span> Design, test, iterate</p><p><span>Based in</span> Boulder, Colorado</p></div></div></section>
+      <section class="home section" id="home"><div class="portrait home-photo"><img src="/images/ryan-summit.jpeg" alt="Ryan Cross overlooking an alpine valley" /></div><div class="intro"><div class="name-lockup"><h1>Ryan <em>Cross</em></h1></div><p class="eyebrow">Aerospace engineer</p></div><div class="summary-preview"><p class="home-summary">Summary</p><div class="summary-items"><p><span>Focus</span> Propulsion &amp; integrated test</p><p><span>Approach</span> Design, test, iterate</p><p><span>Based in</span> Boulder, Colorado</p></div></div></section>
       <section class="resume section" id="resume"><div class="section-banner resume-banner" aria-hidden="true"><span>01 / Resume</span></div><div class="section-heading"><p class="eyebrow">/ Resume</p><h2>Built through<br /><em>curiosity and rigor.</em></h2></div><div class="resume-grid"><div><span class="label">Currently</span><h3>Aerospace Engineering<br />CU Boulder</h3><p>Graduating 2026</p></div><div><span class="label">Focus</span><p>Propulsion, test engineering, systems integration, and using real hardware to turn questions into evidence.</p></div><div><span class="label">Experience</span><p>Integrated test work on Stampede Sky and a test engineering internship at Kairos Power.</p></div></div><a class="text-link" href="mailto:ryanc31415@gmail.com?subject=Resume%20request">Request my full resume <span>↗</span></a></section>
       <section class="projects section" id="projects"><div class="section-banner projects-banner" aria-hidden="true"><span>03 / Projects</span></div><div class="section-heading"><p class="eyebrow">/ Selected projects</p><h2>Ideas under<br /><em>real-world pressure.</em></h2></div><div class="project-grid">{projects.map((project) => (<a class={`project-card ${project.accent}`} href={project.href}><div class="project-image" aria-hidden="true"><span>{project.number}</span></div><p class="eyebrow">{project.type}</p><h3>{project.title}</h3><span class="project-link">View project →</span></a>))}</div></section>
       <section class="about section" id="about"><div class="section-banner about-banner" aria-hidden="true"><span>02 / About</span></div><div class="about-grid"><div class="portrait about-photo" role="img" aria-label="Space for an About photo of Ryan Cross"><span>About photo</span></div><div><p class="eyebrow">/ About me</p><h2>Curious by default.<br /><em>Rigorous by practice.</em></h2><p>I’m completing my aerospace engineering degree at the University of Colorado Boulder. My experience includes propulsion and integrated test work on Stampede Sky and a test engineering internship at Kairos Power.</p><p>Different domains, same motivation: understand the system, ask the useful question, and build evidence strong enough to move forward.</p></div></div></section>
@@ -113,9 +113,9 @@ const projects = [
   @media(max-width:700px) { .home .intro { top: 19svh; } .home .intro .name-lockup h1 { font-size: clamp(40px, 11vw, 70px); } }
   /* Square, dimensional RC monogram for the fixed header. */
   .site-header .logo-only { gap: 0; }
-  .site-header .brand .brand-mark { position: relative; width: 43px; height: 40px; overflow: hidden; border-radius: 0; transform: none; background: #0d0f0e; border-color: var(--teal); text-shadow: none; box-shadow: none; }
-  .site-header .brand .brand-mark b, .site-header .brand .brand-mark i { position: absolute; top: 10px; color: #e9faf5; font: 800 17px/1 "DM Sans", sans-serif; font-style: normal; text-shadow: 1px 1px 0 #126e67, 2px 2px 0 #08453d, 3px 3px 4px rgba(0,0,0,.5); }
-  .site-header .brand .brand-mark b { left: 8px; }.site-header .brand .brand-mark i { left: 18px; }
+  .site-header .brand .brand-mark { position: relative; width: 36px; height: 34px; overflow: hidden; border-radius: 0; transform: none; background: #0d0f0e; border-color: var(--teal); text-shadow: none; box-shadow: none; }
+  .site-header .brand .brand-mark b, .site-header .brand .brand-mark i { position: absolute; top: 8px; color: #e9faf5; font: 800 17px/1 "DM Sans", sans-serif; font-style: normal; text-shadow: 1px 1px 0 #126e67, 2px 2px 0 #08453d, 3px 3px 4px rgba(0,0,0,.5); }
+  .site-header .brand .brand-mark b { left: 6px; }.site-header .brand .brand-mark i { left: 16px; }
   footer { justify-content: center; }
   .home-photo > img { object-position: center center; }
   #about .about-grid .eyebrow, #projects .section-heading > .eyebrow, #contact .contact-grid .eyebrow { display: none; }
@@ -131,15 +131,15 @@ const projects = [
   #resume, #about, #projects, #contact { display: none !important; }
   .home { min-height: 100svh; }
   .home-photo { top: calc(74px + clamp(18px, 4vw, 72px)); right: clamp(18px, 4vw, 72px); bottom: 25svh; left: clamp(18px, 4vw, 72px); width: auto; height: auto !important; }
-  .home-photo > img { object-position: center 62%; transform: scale(1.04); }
+  .home-photo > img { object-position: center 59%; transform: scale(1.04); }
   .home .intro { top: 34svh; }
-  .summary-preview { position: absolute; z-index: 4; top: 75svh; left: clamp(18px, 4vw, 72px); right: clamp(18px, 4vw, 72px); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 20px 24px; background: rgba(13,15,14,.97); border-top: 1px solid var(--line); }
-  .home-summary { flex: 0 0 auto; margin: 0; color: var(--teal); font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
-  .summary-items { display: flex; justify-content: flex-end; gap: clamp(18px, 4vw, 56px); }
-  .summary-items p { margin: 0; color: var(--ink); font-size: 12px; }
+  .summary-preview { position: absolute; z-index: 4; top: 75svh; left: clamp(18px, 4vw, 72px); right: clamp(18px, 4vw, 72px); display: grid; justify-items: center; gap: 17px; padding: 24px; background: rgba(13,15,14,.97); border-top: 1px solid var(--line); text-align: center; }
+  .home-summary { margin: 0; color: var(--teal); font: 400 clamp(30px, 3vw, 46px)/.9 "Instrument Serif",serif; letter-spacing: -.04em; }
+  .summary-items { display: flex; justify-content: center; gap: clamp(22px, 5vw, 72px); }
+  .summary-items p { margin: 0; color: var(--ink); font-size: 13px; }
   .summary-items span { display: block; margin-bottom: 4px; color: var(--muted); font-size: 9px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
   .home-next { display: none; }
   .site-header nav { font-size: 13px; }
-  @media(max-width:850px) { .home-photo { top: 86px; right: 18px; bottom: 27svh; left: 18px; } .home .intro { top: 31svh; } .summary-preview { top: 73svh; padding: 16px 18px; } .summary-items { gap: 18px; } }
-  @media(max-width:600px) { .home-photo { top: 82px; right: 14px; bottom: 31svh; left: 14px; } .home .intro { top: 29svh; } .summary-preview { top: 69svh; display: block; } .summary-items { justify-content: space-between; margin-top: 13px; gap: 8px; } .summary-items p { font-size: 10px; } .site-header nav { font-size: 11px; } }
+  @media(max-width:850px) { .home-photo { top: 86px; right: 18px; bottom: 27svh; left: 18px; } .home .intro { top: 31svh; } .summary-preview { top: 73svh; padding: 18px; } .summary-items { gap: 18px; } }
+  @media(max-width:600px) { .home-photo { top: 82px; right: 14px; bottom: 31svh; left: 14px; } .home .intro { top: 29svh; } .summary-preview { top: 69svh; padding: 16px 12px; } .summary-items { justify-content: space-between; width: 100%; gap: 8px; } .summary-items p { font-size: 10px; } .site-header nav { font-size: 11px; } }
 </style>
