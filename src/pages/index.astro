@@ -115,7 +115,7 @@ const projects = [
   .site-header .logo-only { gap: 0; }
   .site-header .brand .brand-mark { position: relative; width: 43px; height: 40px; overflow: hidden; border-radius: 0; transform: none; background: #0d0f0e; border-color: var(--teal); text-shadow: none; box-shadow: none; }
   .site-header .brand .brand-mark b, .site-header .brand .brand-mark i { position: absolute; top: 10px; color: #e9faf5; font: 800 17px/1 "DM Sans", sans-serif; font-style: normal; text-shadow: 1px 1px 0 #126e67, 2px 2px 0 #08453d, 3px 3px 4px rgba(0,0,0,.5); }
-  .site-header .brand .brand-mark b { left: 8px; }.site-header .brand .brand-mark i { left: 20px; }
+  .site-header .brand .brand-mark b { left: 8px; }.site-header .brand .brand-mark i { left: 18px; }
   footer { justify-content: center; }
   .home-photo > img { object-position: center center; }
   #about .about-grid .eyebrow, #projects .section-heading > .eyebrow, #contact .contact-grid .eyebrow { display: none; }
@@ -130,7 +130,7 @@ const projects = [
   /* Homepage now stands alone; the other sections live on their own pages. */
   #resume, #about, #projects, #contact { display: none !important; }
   .home { min-height: 100svh; }
-  .home-photo { inset: 84px clamp(18px, 4vw, 72px) 25svh; width: auto; height: auto !important; }
+  .home-photo { top: calc(74px + clamp(18px, 4vw, 72px)); right: clamp(18px, 4vw, 72px); bottom: 25svh; left: clamp(18px, 4vw, 72px); width: auto; height: auto !important; }
   .home-photo > img { object-position: center 62%; transform: scale(1.04); }
   .home .intro { top: 34svh; }
   .summary-preview { position: absolute; z-index: 4; top: 75svh; left: clamp(18px, 4vw, 72px); right: clamp(18px, 4vw, 72px); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 20px 24px; background: rgba(13,15,14,.97); border-top: 1px solid var(--line); }
@@ -139,6 +139,7 @@ const projects = [
   .summary-items p { margin: 0; color: var(--ink); font-size: 12px; }
   .summary-items span { display: block; margin-bottom: 4px; color: var(--muted); font-size: 9px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
   .home-next { display: none; }
-  @media(max-width:850px) { .home-photo { inset: 78px 18px 27svh; } .home .intro { top: 31svh; } .summary-preview { top: 73svh; padding: 16px 18px; } .summary-items { gap: 18px; } }
-  @media(max-width:600px) { .home-photo { inset: 78px 14px 31svh; } .home .intro { top: 29svh; } .summary-preview { top: 69svh; display: block; } .summary-items { justify-content: space-between; margin-top: 13px; gap: 8px; } .summary-items p { font-size: 10px; } }
+  .site-header nav { font-size: 13px; }
+  @media(max-width:850px) { .home-photo { top: 86px; right: 18px; bottom: 27svh; left: 18px; } .home .intro { top: 31svh; } .summary-preview { top: 73svh; padding: 16px 18px; } .summary-items { gap: 18px; } }
+  @media(max-width:600px) { .home-photo { top: 82px; right: 14px; bottom: 31svh; left: 14px; } .home .intro { top: 29svh; } .summary-preview { top: 69svh; display: block; } .summary-items { justify-content: space-between; margin-top: 13px; gap: 8px; } .summary-items p { font-size: 10px; } .site-header nav { font-size: 11px; } }
 </style>
