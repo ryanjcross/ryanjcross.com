@@ -6,7 +6,7 @@
   <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width" /><meta name="description" content="Ryan Cross resume." /><link rel="icon" href="/favicon.svg" /><title>Resume | Ryan Cross</title></head>
   <body>
     <header><a class="brand" href="/" aria-label="Home"><span><b>R</b><i>C</i></span></a><nav aria-label="Primary navigation"><a href="/">Home</a><a href="/about">About</a><a href="/projects">Projects</a><a href="/resume" aria-current="page">Resume</a><a href="/contact">Contact</a></nav></header>
-    <main><img class="resume-image" src="/images/ryan-cross-resume.png" alt="Ryan Cross résumé" /><div class="resume-actions"><a class="home-button" href="/">Home</a><a class="download" href="/Ryan-Cross-Resume.pdf" download>Download PDF</a></div></main>
+    <main><img class="resume-image" src="/images/ryan-cross-resume.png" alt="Ryan Cross résumé" /><div class="resume-actions"><a class="home-button" href="/">Home</a><a class="download" href="/Ryan-Cross-Resume.pdf" download>Download PDF</a></div></main><footer class="site-footer"><div></div><div class="footer-socials"><a href="https://www.linkedin.com/in/ryan-cross-/" target="_blank" rel="noreferrer"><span class="footer-linkedin-logo">in</span> LinkedIn</a><a href="mailto:ryanc31415@gmail.com">ryanc31415@gmail.com</a></div><p>© {new Date().getFullYear()} Ryan Cross</p></footer>
   </body>
 </html>
 
@@ -22,4 +22,5 @@
   header nav { grid-column: 2; justify-self: center; }
   nav { font-size: 13px; }
   @media(max-width:600px) { .brand span { width: 34px; height: 32px; } .brand b, .brand i { top: 7px; } .brand b { left: 5px; } .brand i { left: 15px; } nav { font-size: 11px; } }
+  .site-footer{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:28px clamp(24px,4vw,72px);background:#080a09;color:var(--muted);font-size:11px}.site-footer .footer-socials{display:flex;grid-column:2;gap:28px;font-size:16px}.site-footer .footer-socials a{display:inline-flex;align-items:center;gap:9px}.site-footer p{grid-column:3;justify-self:end;margin:0}.footer-linkedin-logo{display:grid;place-items:center;width:23px;height:23px;background:#0a66c2;color:#fff;font:700 15px/1 "DM Sans",sans-serif;letter-spacing:-.08em}@media(max-width:600px){.site-footer{grid-template-columns:1fr;gap:14px;text-align:center}.site-footer .footer-socials,.site-footer p{grid-column:1;justify-self:center}.site-footer .footer-socials{gap:18px;font-size:13px}.footer-linkedin-logo{width:20px;height:20px;font-size:13px}}
 </style>
