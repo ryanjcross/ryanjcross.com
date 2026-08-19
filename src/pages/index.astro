@@ -290,4 +290,6 @@ const projects = [
   /* The journey artwork and its joins now share the SVG's exact frame. */
   .summary-timeline{background:#0d0f0e!important}
   @media(min-width:1000px){.milestone-track::before{display:none!important}.timeline-svg{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1500 460'%3E%3Cg fill='none' stroke='%2348cbb9' stroke-width='3' stroke-linecap='round'%3E%3Cline x1='197.5' y1='197.5' x2='243.5' y2='172.5'/%3E%3Cline x1='408.5' y1='172.5' x2='454.5' y2='197.5'/%3E%3Cline x1='619.5' y1='197.5' x2='665.5' y2='172.5'/%3E%3Cline x1='830.5' y1='172.5' x2='876.5' y2='197.5'/%3E%3Cline x1='1041.5' y1='197.5' x2='1087.5' y2='172.5'/%3E%3Cline x1='1252.5' y1='172.5' x2='1298.5' y2='197.5'/%3E%3C/g%3E%3C/svg%3E") center/100% 100% no-repeat!important;transform:translate(-24px,24px)}}
+  /* Taller hero with the title centered inside the photo itself. */
+  @media(min-width:1000px){:root{--home-photo-height:70svh}.home .intro{top:calc((var(--home-header) + var(--home-photo-height)) / 2);transform:translate(-50%,-50%)}.home-photo>img{object-position:center 45%}.site-header nav{font-size:14px}}
 </style>
