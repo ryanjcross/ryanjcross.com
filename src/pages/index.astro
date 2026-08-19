@@ -283,4 +283,6 @@ const projects = [
   .timeline-labels .timeline-caption{fill:#a8aaa3;font:400 10px/1 "DM Sans",sans-serif;letter-spacing:0}
   @media(min-width:1000px){.summary-timeline{padding-top:30px!important}.summary-heading{margin-bottom:12px!important}.timeline-svg{width:min(1700px,94vw)}.projects-button{margin-top:8px!important}}
   @media(max-width:999px){.timeline-svg{width:100%;min-width:680px}.milestone-track{overflow-x:auto!important;padding:0 20px!important}.timeline-labels text{font-size:16px}.timeline-labels .timeline-caption{font-size:11px}}
+  /* Balanced summary screen: title, journey, and action share the available height. */
+  @media(min-width:1000px){.summary-timeline{display:grid!important;grid-template-rows:auto 1fr auto;align-items:stretch;height:calc(100svh - var(--home-header))!important;min-height:0!important;padding:58px clamp(24px,3vw,64px) 36px!important;box-sizing:border-box}.summary-heading{align-self:start;margin:0!important}.milestone-track{display:grid!important;place-items:center}.timeline-svg{width:min(1900px,96vw)}.projects-button{align-self:end;margin:0 auto!important}.timeline-hexes polygon{stroke-width:3}.timeline-labels line{stroke-width:3}}
 </style>
