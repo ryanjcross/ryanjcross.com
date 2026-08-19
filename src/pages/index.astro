@@ -213,4 +213,6 @@ const projects = [
   .home .intro { top:29svh; }
   @media(min-width:1000px) { .summary-timeline { height:100svh; min-height:650px; display:flex; flex-direction:column; } .summary-timeline .timeline { flex:1; align-content:center; } .timeline-node::after { display:none !important; } .timeline-entry:not(:last-child) { border-right:0; padding-right:0; } }
   @media(max-width:850px) { .home .intro { top:27svh; } }
+  /* Keep the photo and Summary as two back-to-back title-page screens. */
+  @media(min-width:1000px) { .summary-timeline { padding-top:30px; padding-bottom:26px; justify-content:flex-start; } .summary-heading { margin-bottom:18px; } .summary-timeline .timeline { flex:0 0 auto; } .projects-button { margin-top:20px; } }
 </style>
