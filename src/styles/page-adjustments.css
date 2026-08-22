@@ -39,6 +39,18 @@
   justify-content: center;
 }
 
+@media (min-width: 851px) {
+  html:has(.contact-page),
+  body:has(.contact-page) {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .contact-page {
+    height: calc(100dvh - 74px);
+  }
+}
+
 @media (max-width: 850px) {
   .site-header nav {
     font-size: 12px;
