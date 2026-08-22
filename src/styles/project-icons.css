@@ -34,3 +34,27 @@
 .project-card[href="/projects/cu-boulder"] .project-image {
   background: url("/images/kashmir-world-foundation.png") center / cover no-repeat;
 }
+
+.project-card[href="/projects/project-04"] .project-image,
+.project-card[href="/projects/project-05"] .project-image,
+.project-card[href="/projects/project-06"] .project-image,
+.project-card[href="/projects/project-07"] .project-image,
+.project-card[href="/projects/project-08"] .project-image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.project-card[href="/projects/project-04"] .project-image { background-image: url("/images/design-build-fly-01.webp"); }
+.project-card[href="/projects/project-05"] .project-image { background-image: url("/images/design-build-fly-02.webp"); }
+.project-card[href="/projects/project-06"] .project-image { background-image: url("/images/design-build-fly-03.webp"); }
+.project-card[href="/projects/project-07"] .project-image { background-image: url("/images/design-build-fly-04.webp"); }
+.project-card[href="/projects/project-08"] .project-image { background-image: url("/images/design-build-fly-05.webp"); }
+
+.project-card[href="/projects/project-04"] .project-image::before,
+.project-card[href="/projects/project-05"] .project-image::before,
+.project-card[href="/projects/project-06"] .project-image::before,
+.project-card[href="/projects/project-07"] .project-image::before,
+.project-card[href="/projects/project-08"] .project-image::before {
+  display: none;
+}
