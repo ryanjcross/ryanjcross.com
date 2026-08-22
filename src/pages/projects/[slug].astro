@@ -6,8 +6,14 @@ const projects = {
   "project-04": { number: "04", eyebrow: "In development", title: "Project 04", paragraphs: ["A new project page reserved for upcoming portfolio work.", "Project details, imagery, and outcomes will be added here as the work develops."], tags: ["Coming Soon"], accent: "teal" },
   "project-05": { number: "05", eyebrow: "In development", title: "Project 05", paragraphs: ["A new project page reserved for upcoming portfolio work.", "Project details, imagery, and outcomes will be added here as the work develops."], tags: ["Coming Soon"], accent: "blue" },
   "project-06": { number: "06", eyebrow: "In development", title: "Project 06", paragraphs: ["A new project page reserved for upcoming portfolio work.", "Project details, imagery, and outcomes will be added here as the work develops."], tags: ["Coming Soon"], accent: "gold" },
+  "project-07": { number: "07", eyebrow: "In development", title: "Project 07", paragraphs: ["A new project page reserved for upcoming portfolio work.", "Project details, imagery, and outcomes will be added here as the work develops."], tags: ["Coming Soon"], accent: "teal" },
+  "project-08": { number: "08", eyebrow: "In development", title: "Project 08", paragraphs: ["A new project page reserved for upcoming portfolio work.", "Project details, imagery, and outcomes will be added here as the work develops."], tags: ["Coming Soon"], accent: "blue" },
+  "project-09": { number: "09", eyebrow: "In development", title: "Project 09", paragraphs: ["A new project page reserved for upcoming portfolio work.", "Project details, imagery, and outcomes will be added here as the work develops."], tags: ["Coming Soon"], accent: "gold" },
 };
-export function getStaticPaths() { return Object.keys(projects).map((slug) => ({ params: { slug } })); }
+export function getStaticPaths() {
+  return ["stampede-sky", "kairos-power", "cu-boulder", "project-04", "project-05", "project-06", "project-07", "project-08", "project-09"]
+    .map((slug) => ({ params: { slug } }));
+}
 const project = projects[Astro.params.slug];
 ---
 
