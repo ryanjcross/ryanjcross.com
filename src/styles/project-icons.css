@@ -16,3 +16,11 @@
 .project-description + .project-link {
   margin-top: 28px;
 }
+
+.project-card[href="/projects/kairos-power"] .project-image {
+  background: url("/images/kairos-power.png") center / cover no-repeat;
+}
+
+.project-card[href="/projects/kairos-power"] .project-image::before {
+  display: none;
+}
