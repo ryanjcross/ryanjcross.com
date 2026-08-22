@@ -18,9 +18,14 @@
 }
 
 .project-card[href="/projects/kairos-power"] .project-image {
-  background: url("/images/kairos-power.png") center / cover no-repeat;
+  background: url("/images/kairos-power.png") center top / cover no-repeat;
 }
 
-.project-card[href="/projects/kairos-power"] .project-image::before {
+.project-card[href="/projects/kairos-power"] .project-image::before,
+.project-card[href="/projects/stampede-sky"] .project-image::before {
   display: none;
+}
+
+.project-card[href="/projects/stampede-sky"] .project-image {
+  background: url("/images/sierra-space-dream-chaser.jpg") center / cover no-repeat;
 }
