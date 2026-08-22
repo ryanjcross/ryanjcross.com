@@ -35,17 +35,14 @@
   background: url("/images/kashmir-world-foundation.png") center / cover no-repeat;
 }
 
-.project-card[href="/projects/project-04"] .project-image,
-.project-card[href="/projects/project-05"] .project-image {
+.project-card[href="/projects/project-04"] .project-image {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .project-card[href="/projects/project-04"] .project-image { background-image: url("/images/design-build-fly-01.webp"); }
-.project-card[href="/projects/project-05"] .project-image { background-image: url("/images/tornado-drifter-dynamics.webp"); }
 
-.project-card[href="/projects/project-04"] .project-image::before,
-.project-card[href="/projects/project-05"] .project-image::before {
+.project-card[href="/projects/project-04"] .project-image::before {
   display: none;
 }
