@@ -22,10 +22,15 @@
 }
 
 .project-card[href="/projects/kairos-power"] .project-image::before,
-.project-card[href="/projects/stampede-sky"] .project-image::before {
+.project-card[href="/projects/stampede-sky"] .project-image::before,
+.project-card[href="/projects/cu-boulder"] .project-image::before {
   display: none;
 }
 
 .project-card[href="/projects/stampede-sky"] .project-image {
   background: url("/images/sierra-space-dream-chaser.jpg") center / cover no-repeat;
+}
+
+.project-card[href="/projects/cu-boulder"] .project-image {
+  background: url("/images/kashmir-world-foundation.png") center / cover no-repeat;
 }
