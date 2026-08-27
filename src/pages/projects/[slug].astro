@@ -103,14 +103,31 @@ const project = projects[Astro.params.slug];
         <article class="project-row">
           <div class="project-copy">
             <p>{project.paragraphs[0]}</p>
+            {Astro.params.slug === "project-04" && <p>{project.paragraphs[1]}</p>}
           </div>
           <figure class="project-media"><img src={project.image} alt={project.imageAlt} /></figure>
         </article>
 
-        <article class="project-row">
-          <figure class="project-media second-media"><img src={project.secondImage} alt={project.secondImageAlt} /></figure>
-          <div class="project-copy"><p>{project.paragraphs[1]}</p></div>
-        </article>
+        {Astro.params.slug === "project-04" ? (
+          <>
+            <section class="year-comparison" aria-label="Design Build Fly aircraft designs by year">
+              <figure class="year-card">
+                <img src="/images/dbf-2025-design.png" alt="2025 Design Build Fly aircraft model" />
+                <figcaption><strong>2025</strong><p>Design Build Fly aircraft configuration for the 2025 competition cycle.</p></figcaption>
+              </figure>
+              <figure class="year-card">
+                <img src="/images/dbf-2026-design.png" alt="2026 Design Build Fly aircraft model" />
+                <figcaption><strong>2026</strong><p>Design Build Fly aircraft configuration for the 2026 competition cycle.</p></figcaption>
+              </figure>
+            </section>
+            <figure class="team-feature"><img src={project.secondImage} alt={project.secondImageAlt} /></figure>
+          </>
+        ) : (
+          <article class="project-row">
+            <figure class="project-media second-media"><img src={project.secondImage} alt={project.secondImageAlt} /></figure>
+            <div class="project-copy"><p>{project.paragraphs[1]}</p></div>
+          </article>
+        )}
       </section>
     </main>
   </body>
@@ -134,21 +151,28 @@ const project = projects[Astro.params.slug];
   .project-hero>img{width:100%;height:100%;object-fit:cover;object-position:var(--hero-position);filter:saturate(.88)}
   .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,8,.18),rgba(7,9,8,.68))}
   h1{position:absolute;z-index:2;top:50%;left:50%;width:min(92%,1100px);margin:0;transform:translate(-50%,-50%);color:var(--ink);font:400 clamp(48px,6.5vw,92px)/.9 "Instrument Serif",serif;letter-spacing:-.055em;text-align:center;text-shadow:0 4px 26px rgba(0,0,0,.75)}
-  .project-nav{width:min(1200px,calc(100% - 48px));margin:20px auto 0}
+  .project-nav{width:min(1200px,calc(100% - 48px));margin:20px auto 0;display:grid;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr);gap:clamp(32px,6vw,82px)}
   .back{display:flex;align-items:center;justify-content:center;width:max-content;min-width:160px;padding:17px 23px;border:1px solid var(--teal);color:var(--ink);font-size:13px;font-weight:600;transition:background .2s,color .2s}
+  .project-nav .back{justify-self:center}
   .back:hover{background:var(--teal);color:var(--bg)}
 
-  .project-content{width:min(1200px,calc(100% - 48px));margin:0 auto;padding:18px 0 clamp(38px,5vw,72px)}
+  .project-content{width:min(1200px,calc(100% - 48px));margin:0 auto;padding:6px 0 clamp(38px,5vw,72px)}
   .project-row{display:grid;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr);gap:clamp(32px,6vw,82px);align-items:center;padding:clamp(24px,3.5vw,44px) 0}
+  .project-row:first-child{padding-top:12px}
   .project-copy p{margin:0;color:var(--muted);font-size:clamp(16px,1.35vw,20px);line-height:1.62}
+  .project-copy p+p{margin-top:16px}
   .project-media{height:clamp(230px,27vw,360px);margin:0;overflow:hidden;background:#222925;border:1px solid var(--line)}
   .project-media img{width:100%;height:100%;object-fit:cover;object-position:var(--project-position)}
   .second-media img{object-position:var(--second-position)}
-  .project-project-04 .project-row:first-child .project-media img{transform:scale(1.22);transform-origin:50% 52%}
+  .project-project-04 .project-row:first-child .project-media img{transform:scale(1.32);transform-origin:50% 52%}
+  .year-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:12px 0 28px}
+  .year-card{margin:0}.year-card>img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#303030;border:1px solid var(--line)}
+  .year-card figcaption{padding-top:14px}.year-card strong{display:block;color:var(--ink);font-size:15px;font-weight:600}.year-card figcaption p{margin:8px 0 0;color:var(--muted);font-size:14px;line-height:1.55}
+  .team-feature{width:min(900px,100%);margin:18px auto 0;overflow:hidden;background:#222925}.team-feature img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:var(--second-position)}
 
   @media(max-width:720px){
     .site-header{height:68px;padding:0 18px}.brand-mark{width:34px;height:32px}.brand-mark b,.brand-mark i{top:7px}.brand-mark b{left:5px}.brand-mark i{left:15px}.site-header nav{gap:10px;font-size:11px}
     .project-hero{height:clamp(260px,38svh,360px)}h1{font-size:clamp(42px,13vw,65px)}
-    .project-nav,.project-content{width:min(100% - 36px,620px)}.project-nav{margin-top:16px}.back{min-width:0;padding:15px 18px;font-size:12px}.project-content{padding:10px 0 34px}.project-row{grid-template-columns:1fr;gap:22px;padding:30px 0}.project-media{height:240px}
+    .project-nav,.project-content{width:min(100% - 36px,620px)}.project-nav{grid-template-columns:1fr;margin-top:16px}.back{min-width:0;padding:15px 18px;font-size:12px}.project-content{padding:4px 0 34px}.project-row{grid-template-columns:1fr;gap:22px;padding:30px 0}.project-row:first-child{padding-top:10px}.project-media{height:240px}.year-comparison{grid-template-columns:1fr;gap:28px;padding-top:10px}.team-feature{margin-top:8px}
   }
 </style>
