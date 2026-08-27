@@ -7,6 +7,9 @@ const projects = {
       "The experience strengthened my ability to understand complex systems, connect subsystem work to program-level goals, and help engineering teams make well-supported decisions.",
     ],
     tags: ["Systems Engineering", "Dream Chaser", "Aerospace"],
+    heroImage: "/images/sierra-space-dream-chaser.jpg",
+    heroAlt: "Sierra Space Dream Chaser spacecraft",
+    heroPosition: "center",
     image: "/images/sierra-space-dream-chaser.jpg",
     imageAlt: "Sierra Space Dream Chaser spacecraft",
     imagePosition: "center",
@@ -18,6 +21,9 @@ const projects = {
       "Working around complex hardware strengthened the habits I bring to every project: understand the system, make testing practical, and communicate results that help a team move forward.",
     ],
     tags: ["Test Engineering", "Engineering", "Nuclear Technology"],
+    heroImage: "/images/kairos-power.png",
+    heroAlt: "Kairos Power engineering facility",
+    heroPosition: "center top",
     image: "/images/kairos-power.png",
     imageAlt: "Kairos Power engineering facility",
     imagePosition: "center top",
@@ -29,6 +35,9 @@ const projects = {
       "The experience strengthened my ability to connect aerodynamic theory with real project constraints while contributing within an interdisciplinary team.",
     ],
     tags: ["Aerodynamics", "Aerospace", "Engineering"],
+    heroImage: "/images/kashmir-world-foundation.png",
+    heroAlt: "Snow leopard representing Kashmir World Foundation's conservation work",
+    heroPosition: "center",
     image: "/images/kashmir-world-foundation.png",
     imageAlt: "Snow leopard representing Kashmir World Foundation's conservation work",
     imagePosition: "center",
@@ -40,6 +49,9 @@ const projects = {
       "The project brought together aerodynamic performance, propulsion decisions, and flight testing in a fast-moving team environment.",
     ],
     tags: ["Propulsion", "Aircraft Design", "Flight Test"],
+    heroImage: "/images/design-build-fly-team.webp",
+    heroAlt: "Design Build Fly team with their aircraft",
+    heroPosition: "center 58%",
     image: "/images/design-build-fly-01.webp",
     imageAlt: "Design Build Fly aircraft in flight",
     imagePosition: "center",
@@ -71,9 +83,9 @@ const project = projects[Astro.params.slug];
       </nav>
     </header>
 
-    <main style={`--project-position:${project.imagePosition}`}>
+    <main style={`--hero-position:${project.heroPosition};--project-position:${project.imagePosition}`}>
       <section class="project-hero">
-        <img src={project.image} alt={project.imageAlt} />
+        <img src={project.heroImage} alt={project.heroAlt} />
         <div class="hero-shade" aria-hidden="true"></div>
         <a class="back" href="/projects">← Back to projects</a>
         <h1>{project.title}</h1>
@@ -89,8 +101,8 @@ const project = projects[Astro.params.slug];
         </article>
 
         <article class="project-row">
-          <div class="project-copy"><p>{project.paragraphs[1]}</p></div>
           <figure class="project-media"><img src={project.image} alt="" /></figure>
+          <div class="project-copy"><p>{project.paragraphs[1]}</p></div>
         </article>
       </section>
     </main>
@@ -112,7 +124,7 @@ const project = projects[Astro.params.slug];
   .site-header nav a:hover,.site-header nav a[aria-current="page"]{color:var(--teal)}
 
   .project-hero{position:relative;height:clamp(300px,38svh,470px);overflow:hidden;background:#17201c;border-bottom:1px solid var(--line)}
-  .project-hero>img{width:100%;height:100%;object-fit:cover;object-position:var(--project-position);filter:saturate(.88)}
+  .project-hero>img{width:100%;height:100%;object-fit:cover;object-position:var(--hero-position);filter:saturate(.88)}
   .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,8,.18),rgba(7,9,8,.68))}
   h1{position:absolute;z-index:2;top:50%;left:50%;width:min(92%,1100px);margin:0;transform:translate(-50%,-50%);color:var(--ink);font:400 clamp(48px,6.5vw,92px)/.9 "Instrument Serif",serif;letter-spacing:-.055em;text-align:center;text-shadow:0 4px 26px rgba(0,0,0,.75)}
   .back{position:absolute;z-index:3;top:24px;left:clamp(20px,4vw,72px);padding:11px 15px;border:1px solid rgba(242,240,232,.35);background:#0e100fbd;font-size:12px;font-weight:600;transition:background .2s,color .2s}
