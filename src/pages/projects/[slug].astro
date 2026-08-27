@@ -6,13 +6,15 @@ const projects = {
       "During my systems engineering internship at Sierra Space, I supported aerospace work through structured analysis, cross-functional coordination, and clear technical communication.",
       "The experience strengthened my ability to understand complex systems, connect subsystem work to program-level goals, and help engineering teams make well-supported decisions.",
     ],
-    tags: ["Systems Engineering", "Dream Chaser", "Aerospace"],
     heroImage: "/images/sierra-space-dream-chaser.jpg",
     heroAlt: "Sierra Space Dream Chaser spacecraft",
     heroPosition: "center",
     image: "/images/sierra-space-dream-chaser.jpg",
     imageAlt: "Sierra Space Dream Chaser spacecraft",
     imagePosition: "center",
+    secondImage: "/images/sierra-space-dream-chaser.jpg",
+    secondImageAlt: "Sierra Space Dream Chaser spacecraft",
+    secondImagePosition: "center",
   },
   "kairos-power": {
     title: "Kairos Power",
@@ -20,13 +22,15 @@ const projects = {
       "During my test engineering internship at Kairos Power, I supported an engineering team developing advanced nuclear technology. The experience emphasized disciplined testing and the value of clear, useful data.",
       "Working around complex hardware strengthened the habits I bring to every project: understand the system, make testing practical, and communicate results that help a team move forward.",
     ],
-    tags: ["Test Engineering", "Engineering", "Nuclear Technology"],
     heroImage: "/images/kairos-power.png",
     heroAlt: "Kairos Power engineering facility",
     heroPosition: "center top",
     image: "/images/kairos-power.png",
     imageAlt: "Kairos Power engineering facility",
     imagePosition: "center top",
+    secondImage: "/images/kairos-power.png",
+    secondImageAlt: "Kairos Power engineering facility",
+    secondImagePosition: "center top",
   },
   "cu-boulder": {
     title: "Kashmir World Foundation",
@@ -34,13 +38,15 @@ const projects = {
       "During my aerodynamics internship with Kashmir World Foundation, I applied aerospace fundamentals to practical engineering questions and supported technical work through analysis and clear communication.",
       "The experience strengthened my ability to connect aerodynamic theory with real project constraints while contributing within an interdisciplinary team.",
     ],
-    tags: ["Aerodynamics", "Aerospace", "Engineering"],
     heroImage: "/images/kashmir-world-foundation.png",
     heroAlt: "Snow leopard representing Kashmir World Foundation's conservation work",
     heroPosition: "center",
     image: "/images/kashmir-world-foundation.png",
     imageAlt: "Snow leopard representing Kashmir World Foundation's conservation work",
     imagePosition: "center",
+    secondImage: "/images/kashmir-world-foundation.png",
+    secondImageAlt: "Snow leopard representing Kashmir World Foundation's conservation work",
+    secondImagePosition: "center",
   },
   "project-04": {
     title: "Design Build Fly",
@@ -48,13 +54,15 @@ const projects = {
       "As Propulsion Lead for Design Build Fly, I supported the development and integration of the aircraft’s propulsion system through analysis, testing, and hands-on engineering.",
       "The project brought together aerodynamic performance, propulsion decisions, and flight testing in a fast-moving team environment.",
     ],
-    tags: ["Propulsion", "Aircraft Design", "Flight Test"],
-    heroImage: "/images/design-build-fly-team.webp",
-    heroAlt: "Design Build Fly team with their aircraft",
-    heroPosition: "center 58%",
+    heroImage: "/images/design-build-fly-banner.webp",
+    heroAlt: "Design Build Fly team gathered with their aircraft",
+    heroPosition: "center 68%",
     image: "/images/design-build-fly-01.webp",
     imageAlt: "Design Build Fly aircraft in flight",
     imagePosition: "center",
+    secondImage: "/images/design-build-fly-outreach.webp",
+    secondImageAlt: "Ryan Cross discussing Design Build Fly at a student outreach event",
+    secondImagePosition: "center 58%",
   },
 };
 
@@ -83,7 +91,7 @@ const project = projects[Astro.params.slug];
       </nav>
     </header>
 
-    <main style={`--hero-position:${project.heroPosition};--project-position:${project.imagePosition}`}>
+    <main style={`--hero-position:${project.heroPosition};--project-position:${project.imagePosition};--second-position:${project.secondImagePosition}`}>
       <section class="project-hero">
         <img src={project.heroImage} alt={project.heroAlt} />
         <div class="hero-shade" aria-hidden="true"></div>
@@ -95,13 +103,12 @@ const project = projects[Astro.params.slug];
         <article class="project-row">
           <div class="project-copy">
             <p>{project.paragraphs[0]}</p>
-            <ul>{project.tags.map((tag) => <li>{tag}</li>)}</ul>
           </div>
           <figure class="project-media"><img src={project.image} alt={project.imageAlt} /></figure>
         </article>
 
         <article class="project-row">
-          <figure class="project-media"><img src={project.image} alt="" /></figure>
+          <figure class="project-media second-media"><img src={project.secondImage} alt={project.secondImageAlt} /></figure>
           <div class="project-copy"><p>{project.paragraphs[1]}</p></div>
         </article>
       </section>
@@ -136,8 +143,7 @@ const project = projects[Astro.params.slug];
   .project-copy p{margin:0;color:var(--muted);font-size:clamp(17px,1.45vw,21px);line-height:1.75}
   .project-media{height:clamp(260px,33vw,440px);margin:0;overflow:hidden;background:#222925;border:1px solid var(--line)}
   .project-media img{width:100%;height:100%;object-fit:cover;object-position:var(--project-position)}
-  ul{display:flex;flex-wrap:wrap;gap:8px;margin:30px 0 0;padding:0;list-style:none}
-  li{padding:7px 9px;border:1px solid var(--line);font-size:9px;letter-spacing:.08em;text-transform:uppercase}
+  .second-media img{object-position:var(--second-position)}
 
   @media(max-width:720px){
     .site-header{height:68px;padding:0 18px}.brand-mark{width:34px;height:32px}.brand-mark b,.brand-mark i{top:7px}.brand-mark b{left:5px}.brand-mark i{left:15px}.site-header nav{gap:10px;font-size:11px}
