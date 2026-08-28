@@ -28,13 +28,22 @@ const projects = [
       if (sixthArtwork) {
         const graduatePhoto = document.createElementNS("http://www.w3.org/2000/svg", "image");
         graduatePhoto.setAttribute("href", "/images/first-day-graduate-school.jpeg");
-        graduatePhoto.setAttribute("x", "1060");
-        graduatePhoto.setAttribute("y", "30");
-        graduatePhoto.setAttribute("width", "220");
-        graduatePhoto.setAttribute("height", "190");
-        graduatePhoto.setAttribute("preserveAspectRatio", "xMidYMid slice");
+        graduatePhoto.setAttribute("x", "1048");
+        graduatePhoto.setAttribute("y", "38");
+        graduatePhoto.setAttribute("width", "244");
+        graduatePhoto.setAttribute("height", "211");
+        graduatePhoto.setAttribute("preserveAspectRatio", "xMidYMin slice");
         graduatePhoto.setAttribute("clip-path", "url(#timeline-photo-6)");
         sixthArtwork.replaceWith(graduatePhoto);
+      }
+      const finalArtwork = timelineSvg?.querySelector(".timeline-hexes image:last-of-type");
+      if (finalArtwork) {
+        const futureMarker = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        futureMarker.setAttribute("x", "1381");
+        futureMarker.setAttribute("y", "254");
+        futureMarker.setAttribute("class", "future-marker");
+        futureMarker.textContent = "…";
+        finalArtwork.replaceWith(futureMarker);
       }
       const timelineLabels = timelineSvg?.querySelectorAll(".timeline-labels > g");
       const setSvgLines = (element: SVGTextElement | undefined, lines: string[]) => {
@@ -49,13 +58,14 @@ const projects = [
           element.append(span);
         });
       };
-      const setMilestone = (index: number, title: string[], description: string[]) => {
+      const setMilestone = (index: number, title: string[], description: string[], descriptionY?: string) => {
         const labels = timelineLabels?.[index]?.querySelectorAll("text");
         setSvgLines(labels?.[0] as SVGTextElement | undefined, title);
+        if (descriptionY && labels?.[1]) labels[1].setAttribute("y", descriptionY);
         setSvgLines(labels?.[1] as SVGTextElement | undefined, description);
       };
       setMilestone(4, ["College Graduation"], ["Ecstatic to graduate alongside members", "of my Design, Build, Fly team. I recognize", "my accomplishments, but my work isn’t done."]);
-      setMilestone(5, ["First Day of", "Graduate School"], ["Passionate to learn more about fluid analysis,", "getting ready to jump into real-world engineering."]);
+      setMilestone(5, ["First Day of", "Graduate School"], ["Passionate to learn more about fluid analysis,", "getting ready to jump into real-world engineering."], "318");
       document.querySelector('#contact-form')?.addEventListener('submit', (event) => {
         event.preventDefault();
         const form = event.currentTarget as HTMLFormElement;
@@ -311,6 +321,7 @@ const projects = [
   .timeline-svg{display:block;width:min(1700px,94vw);height:auto;margin:0 auto;overflow:visible}
   .timeline-links line{stroke:url(#timeline-teal);stroke-width:2;stroke-linecap:round;vector-effect:non-scaling-stroke}
   .timeline-hexes polygon{fill:none;stroke:url(#timeline-teal);stroke-width:2;vector-effect:non-scaling-stroke}
+  .timeline-hexes .future-marker{fill:var(--teal);font:600 52px/1 "DM Sans",sans-serif;text-anchor:middle}
   .timeline-labels line{stroke:url(#timeline-teal);stroke-width:2;vector-effect:non-scaling-stroke}
   .timeline-labels circle{fill:url(#timeline-teal)}
   .timeline-labels text{fill:#48cbb9;font:600 15px/1 "DM Sans",sans-serif;letter-spacing:-.025em;text-anchor:middle}
