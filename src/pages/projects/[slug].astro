@@ -52,12 +52,12 @@ const projects = {
     title: "Design Build Fly",
     paragraphs: [
       "Every year, AIAA challenges students to show their creativity and technical expertise through the Design Build Fly competition. Rules are released each September with competition taking place in April.",
-      "I participated on the CU team for two years, joining as a member of the avionics team and stepping up to lead the propulsion design and implementation team.",
+      "I participated on the CU team for two years, joining as a member of the avionics team, then stepping up to lead the propulsion design and implementation team.",
     ],
     heroImage: "/images/design-build-fly-aircraft-banner.webp",
     heroAlt: "Design Build Fly aircraft on the runway",
     heroPosition: "center 62%",
-    image: "/images/design-build-fly-outreach.webp",
+    image: "/images/design-build-fly-outreach-new.jpeg",
     imageAlt: "Ryan Cross explaining Design Build Fly at a student outreach event",
     imagePosition: "center 43%",
     secondImage: "/images/design-build-fly-team.webp",
@@ -111,11 +111,14 @@ const project = projects[Astro.params.slug];
             <section class="year-comparison" aria-label="Design Build Fly aircraft designs by year">
               <figure class="year-card">
                 <div class="year-image"><strong>2025</strong><img src="/images/dbf-2025-design.png" alt="2025 Design Build Fly aircraft model" /></div>
-                <figcaption><p>Design Build Fly aircraft configuration for the 2025 competition cycle.</p></figcaption>
+                <figcaption class="year-story">
+                  <p>When I first started, I didn’t know the first thing about RC aircraft design. Terms like <em>ESC</em> and <em>receiver</em> frightened me. So I learned.</p>
+                  <p>I helped configure the avionics for our first prototype—now I know that an ESC regulates the power to the motor. I developed walls and floors for the fuselage in OnShape—now I know how to navigate CAD. I fabricated components using 3D printers, laser cutters, and CNC machines—now I know how to bring design to life with CAM techniques.</p>
+                  <p>My first year on CU DBF was my first exposure to applied, real world engineering. Following competition, I was left wanting more.</p>
+                </figcaption>
               </figure>
               <figure class="year-card">
                 <div class="year-image"><strong>2026</strong><img src="/images/dbf-2026-design.png" alt="2026 Design Build Fly aircraft model" /></div>
-                <figcaption><p>Design Build Fly aircraft configuration for the 2026 competition cycle.</p></figcaption>
               </figure>
             </section>
             <section class="team-gallery" aria-label="Design Build Fly team photos">
@@ -166,7 +169,7 @@ const project = projects[Astro.params.slug];
   .year-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:4px 0 28px}
   .year-card{margin:0}.year-image{text-align:center}.year-image img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#303030;border:1px solid var(--line)}
   .year-image strong{display:block;margin:0 0 12px;color:var(--ink);font:600 clamp(22px,2.2vw,30px)/1 "DM Sans",sans-serif}
-  .year-card figcaption{padding-top:14px}.year-card figcaption p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+  .year-card figcaption{padding-top:14px}.year-card .year-story p{margin:0;color:var(--ink);font-size:clamp(16px,1.35vw,20px);line-height:1.62}.year-card .year-story p+p{margin-top:16px}
   .team-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:18px}.team-feature{margin:0;overflow:hidden;background:#222925}.team-feature img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:var(--second-position)}
 
   @media(max-width:720px){
