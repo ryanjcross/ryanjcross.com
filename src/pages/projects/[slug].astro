@@ -141,10 +141,18 @@ const project = projects[Astro.params.slug];
                   </div>
                 </div>
                 <div class="dbf-pair">
-                  <div class="dbf-copy"><p>I love DBF</p></div>
+                  <div class="dbf-copy">
+                    <p>I took initiative to develop the power system for our aircraft. I improved upon a MATLAB optimization code, working with the aerodynamics team to determine the best motor and propeller combination. I validated this combination with a thrust test stand, involving new members with the hands on setup and calibration. Seeing the correlation between the model and hardware test data was invaluable.</p>
+                    <p>Not only was I learning, but I was able to enhance the learning of other future engineers and leaders who would continue to build the team beyond my time there.</p>
+                  </div>
                   <figure class="team-feature"><img src="/images/dbf-team-2026.webp" alt="Design Build Fly team gathered with their aircraft" /></figure>
                 </div>
               </section>
+              <blockquote class="dbf-testimonial">
+                <p>Ryan Cross, I just wanted to add something real quick here. You mentioned that you’re “not perfect” and that you sometimes struggle to keep everyone satisfied—but honestly, I think you’re doing a great job as Propulsion Lead. The support you give, the time you put in, and the friendly environment you create make a huge difference for all of us. It’s been really reassuring and motivating to work under someone who’s approachable and genuinely cares about keeping things moving in the right direction.</p>
+                <p>Leadership isn’t about being perfect; it’s about showing up, communicating, and giving your team confidence—and you’re nailing that. So kudos to you for everything you’ve done and continue to do. We appreciate it.</p>
+                <footer>— Dinuka Hannadige</footer>
+              </blockquote>
             </section>
           </>
         ) : (
@@ -195,6 +203,10 @@ const project = projects[Astro.params.slug];
   .dbf-copy p+p{margin-top:16px}
   .year-card{margin:0}.year-image{text-align:center}.year-image img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#303030;border:1px solid var(--line)}
   .team-feature{margin:0;overflow:hidden;background:#222925}.team-feature img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:var(--second-position)}
+  .dbf-testimonial{width:min(900px,100%);margin:28px auto 0;padding:clamp(26px,4vw,48px);border-top:1px solid rgba(167,170,160,.38);border-bottom:1px solid rgba(167,170,160,.38);text-align:center}
+  .dbf-testimonial p{margin:0;color:var(--ink);font:400 clamp(19px,2vw,27px)/1.55 "Instrument Serif",serif}
+  .dbf-testimonial p+p{margin-top:18px}
+  .dbf-testimonial footer{margin-top:22px;color:var(--teal);font-size:14px;font-weight:600;letter-spacing:.04em}
 
   @media(max-width:720px){
     .site-header{height:68px;padding:0 18px}.brand-mark{width:34px;height:32px}.brand-mark b,.brand-mark i{top:7px}.brand-mark b{left:5px}.brand-mark i{left:15px}.site-header nav{gap:10px;font-size:11px}
