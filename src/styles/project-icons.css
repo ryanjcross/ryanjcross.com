@@ -4,6 +4,14 @@
   border-width: 15px;
 }
 
+.project-card {
+  min-height: 410px;
+}
+
+.project-image {
+  height: 242px;
+}
+
 .gold .project-image::before {
   width: 78px;
   height: 41px;

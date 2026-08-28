@@ -32,9 +32,9 @@ const projects = [
         photoTimeline.innerHTML = `
           <figure class="photo-milestone"><img src="/images/timeline-hex-01.webp" alt="Ryan exploring outdoors" /><figcaption><h3>Built Outdoors</h3><p>Curiosity starts with exploration.</p></figcaption></figure>
           <figure class="photo-milestone"><img src="/images/ryan-summit.jpeg" alt="Ryan at CU Boulder" /><figcaption><h3>CU Boulder</h3><p>Aerospace engineering foundation.</p></figcaption></figure>
+          <figure class="photo-milestone future-photo-milestone"><img src="/images/ryan-in-field.jpg" alt="Ryan looking toward the mountains" /><figcaption><h3>Whatever my future holds…</h3><p>Excited for the journey ahead.</p></figcaption></figure>
           <figure class="photo-milestone"><img src="/images/timeline-hex-05.webp" alt="Ryan graduating with members of the Design, Build, Fly team" /><figcaption><h3>College Graduation</h3><p>Ecstatic to graduate alongside members of my Design, Build, Fly team. I recognize my accomplishments, but my work isn’t done.</p></figcaption></figure>
-          <figure class="photo-milestone graduate-milestone"><img src="/images/first-day-graduate-school.jpeg" alt="Ryan on his first day of graduate school" /><figcaption><h3>First Day of Graduate School</h3><p>Passionate to learn more about fluid analysis, getting ready to jump into real-world engineering.</p></figcaption></figure>
-          <figure class="photo-milestone future-photo-milestone"><img src="/images/ryan-in-field.jpg" alt="Ryan looking toward the mountains" /><figcaption><h3>Whatever my future holds…</h3><p>Excited for the journey ahead.</p></figcaption></figure>`;
+          <figure class="photo-milestone graduate-milestone"><img src="/images/first-day-graduate-school.jpeg" alt="Ryan on his first day of graduate school" /><figcaption><h3>First Day of Graduate School</h3><p>Passionate to learn more about fluid analysis, getting ready to jump into real-world engineering.</p></figcaption></figure>`;
         timelineHost.insertBefore(photoTimeline, timelineSvg);
       }
       const sixthArtwork = timelineSvg?.querySelector(".timeline-hexes rect");
@@ -362,14 +362,17 @@ const projects = [
   .timeline-links line{stroke:url(#timeline-teal);stroke-width:2;stroke-linecap:round;vector-effect:non-scaling-stroke}
   .timeline-hexes polygon{fill:none;stroke:url(#timeline-teal);stroke-width:2;vector-effect:non-scaling-stroke}
   .timeline-hexes .future-marker{fill:var(--teal);font:600 76px/1 "DM Sans",sans-serif;text-anchor:middle}
-  .photo-timeline{--photo-h:clamp(120px,10vw,190px);position:relative;z-index:2;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(22px,3vw,54px);width:min(1500px,92vw);margin:0 auto;padding-top:18px}
-  .photo-timeline::before{content:"";position:absolute;z-index:0;top:calc(18px + var(--photo-h) + 42px);left:3%;right:3%;height:2px;background:linear-gradient(90deg,#176d67,#a7fff0)}
+  .photo-timeline{--photo-h:clamp(120px,10vw,190px);position:relative;z-index:2;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(22px,3vw,54px);width:min(1180px,88vw);margin:0 auto;padding-top:18px}
+  .photo-timeline::before{display:none}
   .photo-milestone{position:relative;z-index:1;min-width:0;margin:0;text-align:center}
-  .photo-milestone::after{content:"";position:absolute;top:var(--photo-h);left:50%;width:2px;height:42px;background:var(--teal);transform:translateX(-50%)}
+  .photo-milestone{grid-column:span 2}
+  .photo-milestone:nth-child(4){grid-column:2/span 2}
+  .photo-milestone:nth-child(5){grid-column:4/span 2}
+  .photo-milestone::after{content:"";position:absolute;top:var(--photo-h);left:50%;width:2px;height:28px;background:var(--teal);transform:translateX(-50%)}
   .photo-milestone>img,.future-question{display:block;width:100%;height:var(--photo-h);border:1px solid rgba(91,229,207,.7);border-radius:12px;background:#17221f;object-fit:cover;box-shadow:0 8px 22px rgba(0,0,0,.28)}
   .graduate-milestone>img{object-position:center 42%}
   .future-question{display:grid;place-items:center;color:var(--teal);font:600 clamp(54px,6vw,92px)/1 "DM Sans",sans-serif}
-  .photo-milestone figcaption{padding:72px 4px 0}
+  .photo-milestone figcaption{padding:48px 4px 0}
   .photo-milestone h3{margin:0;color:#48cbb9;font:600 clamp(13px,1.15vw,17px)/1.2 "DM Sans",sans-serif;letter-spacing:-.025em}
   .photo-milestone p{margin:9px auto 0;color:#b8bbb4;font-size:clamp(11px,.85vw,13px);line-height:1.45}
   .timeline-svg{display:none!important}
@@ -379,13 +382,14 @@ const projects = [
   .timeline-labels .timeline-caption{fill:#a8aaa3;font:400 12px/1 "DM Sans",sans-serif;letter-spacing:0}
   @media(min-width:1000px){.summary-timeline{padding-top:30px!important}.summary-heading{margin-bottom:12px!important}.timeline-svg{width:min(1700px,94vw)}.projects-button{margin-top:8px!important}}
   @media(max-width:999px){.timeline-svg{width:100%;min-width:680px}.milestone-track{overflow-x:auto!important;padding:0 20px!important}.timeline-labels text{font-size:16px}.timeline-labels .timeline-caption{font-size:13px}}
-  @media(max-width:999px){.photo-timeline{--photo-h:150px;grid-template-columns:repeat(5,190px);width:max-content;gap:28px;padding:18px 18px 24px}.photo-timeline::before{top:210px}.photo-milestone p{font-size:12px}}
+  @media(max-width:999px){.photo-timeline{--photo-h:150px;grid-template-columns:repeat(5,190px);width:max-content;gap:28px;padding:18px 18px 24px}.photo-milestone,.photo-milestone:nth-child(4),.photo-milestone:nth-child(5){grid-column:auto}.photo-milestone p{font-size:12px}}
   /* Balanced summary screen: title, journey, and action share the available height. */
   @media(min-width:1000px){.summary-timeline{display:grid!important;grid-template-rows:auto 1fr auto;align-items:stretch;height:calc(100svh - var(--home-header))!important;min-height:0!important;padding:58px clamp(24px,3vw,64px) 36px!important;box-sizing:border-box}.summary-heading{align-self:start;margin:0!important}.milestone-track{display:grid!important;place-items:center}.timeline-svg{width:min(1900px,96vw)}.projects-button{align-self:end;margin:0 auto!important}.timeline-hexes polygon{stroke-width:3}.timeline-labels line{stroke-width:3}}
   @media(min-width:1000px){.summary-timeline{padding-bottom:104px!important}.summary-heading{width:min(800px,100%)!important;justify-self:center!important;text-align:center!important}.milestone-track{position:relative;isolation:isolate}.milestone-track::before{content:""!important;display:block!important;position:absolute!important;z-index:0!important;top:50%!important;left:50%!important;right:auto!important;bottom:auto!important;width:min(1900px,96vw)!important;height:auto!important;aspect-ratio:1500/460!important;transform:translate(-50%,-50%)!important;border:0!important;border-radius:0!important;opacity:1!important;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1500 460'%3E%3Cg fill='none' stroke='%2348cbb9' stroke-width='3' stroke-linecap='round'%3E%3Cline x1='186.5' y1='204' x2='254.5' y2='166'/%3E%3Cline x1='397.5' y1='166' x2='465.5' y2='204'/%3E%3Cline x1='608.5' y1='204' x2='676.5' y2='166'/%3E%3Cline x1='819.5' y1='166' x2='887.5' y2='204'/%3E%3Cline x1='1030.5' y1='204' x2='1098.5' y2='166'/%3E%3Cline x1='1241.5' y1='166' x2='1309.5' y2='204'/%3E%3C/g%3E%3C/svg%3E") center/100% 100% no-repeat!important}.timeline-svg{position:relative;z-index:1}.projects-button{position:relative;z-index:2}}
   @media(min-width:1000px){.milestone-track{justify-items:center!important}.timeline-svg{justify-self:center!important;align-self:center!important}.milestone-track::before{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1500 460'%3E%3Cg fill='none' stroke='%2348cbb9' stroke-width='3' stroke-linecap='round'%3E%3Cline x1='197.5' y1='197.5' x2='243.5' y2='172.5'/%3E%3Cline x1='408.5' y1='172.5' x2='454.5' y2='197.5'/%3E%3Cline x1='619.5' y1='197.5' x2='665.5' y2='172.5'/%3E%3Cline x1='830.5' y1='172.5' x2='876.5' y2='197.5'/%3E%3Cline x1='1041.5' y1='197.5' x2='1087.5' y2='172.5'/%3E%3Cline x1='1252.5' y1='172.5' x2='1298.5' y2='197.5'/%3E%3C/g%3E%3C/svg%3E") center/100% 100% no-repeat!important}}
   /* The journey artwork and its joins now share the SVG's exact frame. */
   .summary-timeline{background:#0d0f0e!important}
+  @media(min-width:1000px){.summary-timeline{height:auto!important;min-height:calc(100svh - var(--home-header))!important}.milestone-track{height:auto!important;min-height:620px}.photo-timeline{align-self:center}}
   .project-card[href="/projects/flow-visualization"] .project-image{background:url("/images/flow-visualization.png") center/cover no-repeat}
   .project-card[href="/projects/flow-visualization"] .project-image::before{display:none}
   @media(min-width:1000px){.projects .project-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.projects .project-card{grid-column:span 2}.projects .project-card:nth-child(4){grid-column:2/span 2}.projects .project-card:nth-child(5){grid-column:4/span 2}}
