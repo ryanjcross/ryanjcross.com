@@ -51,8 +51,8 @@ const projects = {
   "project-04": {
     title: "Design Build Fly",
     paragraphs: [
-      "As Propulsion Lead for Design Build Fly, I supported the development and integration of the aircraft’s propulsion system through analysis, testing, and hands-on engineering.",
-      "The project brought together aerodynamic performance, propulsion decisions, and flight testing in a fast-moving team environment.",
+      "Every year, AIAA challenges students to show their creativity and technical expertise through the Design Build Fly competition. Rules are released each September, giving teams free reign on aircraft design and fabrication so long as they meet the specified requirements for competition in April.",
+      "I participated on the team for two years, joining as a member of the avionics team and graduating to lead the power system analysis, design, and implementation team. Pictured is the annual club fair, where I engaged with interested students to answer questions and encourage club involvement.",
     ],
     heroImage: "/images/design-build-fly-aircraft-banner.webp",
     heroAlt: "Design Build Fly aircraft on the runway",
@@ -97,8 +97,6 @@ const project = projects[Astro.params.slug];
         <div class="hero-shade" aria-hidden="true"></div>
         <h1>{project.title}</h1>
       </section>
-      <div class="project-nav"><a class="back" href="/projects">← Back to Projects</a></div>
-
       <section class="project-content" aria-label={`${project.title} project details`}>
         <article class="project-row">
           <div class="project-copy">
@@ -154,15 +152,10 @@ const project = projects[Astro.params.slug];
   .project-hero>img{width:100%;height:100%;object-fit:cover;object-position:var(--hero-position);filter:saturate(.88)}
   .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,8,.18),rgba(7,9,8,.68))}
   h1{position:absolute;z-index:2;top:50%;left:50%;width:min(92%,1100px);margin:0;transform:translate(-50%,-50%);color:var(--ink);font:400 clamp(48px,6.5vw,92px)/.9 "Instrument Serif",serif;letter-spacing:-.055em;text-align:center;text-shadow:0 4px 26px rgba(0,0,0,.75)}
-  .project-nav{width:min(1200px,calc(100% - 48px));margin:20px auto 0;display:grid;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr);gap:clamp(32px,6vw,82px)}
-  .back{display:flex;align-items:center;justify-content:center;width:max-content;min-width:160px;padding:17px 23px;border:1px solid var(--ink);color:var(--ink);font-size:13px;font-weight:600;transition:background .2s,color .2s}
-  .project-nav .back{justify-self:start}
-  .back:hover{background:var(--ink);color:var(--bg)}
-
-  .project-content{width:min(1200px,calc(100% - 48px));margin:0 auto;padding:6px 0 clamp(38px,5vw,72px)}
+  .project-content{width:min(1200px,calc(100% - 48px));margin:0 auto;padding:0 0 clamp(38px,5vw,72px)}
   .project-row{display:grid;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr);gap:clamp(32px,6vw,82px);align-items:center;padding:clamp(24px,3.5vw,44px) 0}
-  .project-row:first-child{padding-top:12px}
-  .project-copy p{margin:0;color:var(--muted);font-size:clamp(16px,1.35vw,20px);line-height:1.62}
+  .project-row:first-child{padding-top:clamp(18px,2.5vw,30px)}
+  .project-copy p{margin:0;color:var(--ink);font-size:clamp(16px,1.35vw,20px);line-height:1.62}
   .project-copy p+p{margin-top:16px}
   .project-media{height:clamp(230px,27vw,360px);margin:0;overflow:hidden;background:#222925;border:1px solid var(--line)}
   .project-media img{width:100%;height:100%;object-fit:cover;object-position:var(--project-position)}
@@ -178,6 +171,6 @@ const project = projects[Astro.params.slug];
   @media(max-width:720px){
     .site-header{height:68px;padding:0 18px}.brand-mark{width:34px;height:32px}.brand-mark b,.brand-mark i{top:7px}.brand-mark b{left:5px}.brand-mark i{left:15px}.site-header nav{gap:10px;font-size:11px}
     .project-hero{height:clamp(260px,38svh,360px)}h1{font-size:clamp(42px,13vw,65px)}
-    .project-nav,.project-content{width:min(100% - 36px,620px)}.project-nav{grid-template-columns:1fr;margin-top:16px}.back{min-width:0;padding:15px 18px;font-size:12px}.project-content{padding:4px 0 34px}.project-row{grid-template-columns:1fr;gap:22px;padding:30px 0}.project-row:first-child{padding-top:10px}.project-media{height:240px}.project-project-04 .project-row:first-child .project-media{width:86%}.year-comparison{grid-template-columns:1fr;gap:28px;padding-top:10px}.team-gallery{grid-template-columns:1fr;gap:18px;margin-top:8px}
+    .project-content{width:min(100% - 36px,620px);padding:0 0 34px}.project-row{grid-template-columns:1fr;gap:22px;padding:30px 0}.project-row:first-child{padding-top:18px}.project-media{height:240px}.project-project-04 .project-row:first-child .project-media{width:86%}.year-comparison{grid-template-columns:1fr;gap:28px;padding-top:10px}.team-gallery{grid-template-columns:1fr;gap:18px;margin-top:8px}
   }
 </style>
