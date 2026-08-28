@@ -23,6 +23,39 @@ const projects = [
     <script>
       const projectsButton = document.querySelector(".projects-button");
       if (projectsButton) projectsButton.innerHTML = 'Explore Projects <span>→</span>';
+      const timelineSvg = document.querySelector(".timeline-svg");
+      const sixthArtwork = timelineSvg?.querySelector(".timeline-hexes rect");
+      if (sixthArtwork) {
+        const graduatePhoto = document.createElementNS("http://www.w3.org/2000/svg", "image");
+        graduatePhoto.setAttribute("href", "/images/first-day-graduate-school.jpeg");
+        graduatePhoto.setAttribute("x", "1060");
+        graduatePhoto.setAttribute("y", "30");
+        graduatePhoto.setAttribute("width", "220");
+        graduatePhoto.setAttribute("height", "190");
+        graduatePhoto.setAttribute("preserveAspectRatio", "xMidYMid slice");
+        graduatePhoto.setAttribute("clip-path", "url(#timeline-photo-6)");
+        sixthArtwork.replaceWith(graduatePhoto);
+      }
+      const timelineLabels = timelineSvg?.querySelectorAll(".timeline-labels > g");
+      const setSvgLines = (element: SVGTextElement | undefined, lines: string[]) => {
+        if (!element) return;
+        const x = element.getAttribute("x") ?? "0";
+        element.textContent = "";
+        lines.forEach((line, lineIndex) => {
+          const span = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+          span.setAttribute("x", x);
+          span.setAttribute("dy", lineIndex === 0 ? "0" : "14");
+          span.textContent = line;
+          element.append(span);
+        });
+      };
+      const setMilestone = (index: number, title: string[], description: string[]) => {
+        const labels = timelineLabels?.[index]?.querySelectorAll("text");
+        setSvgLines(labels?.[0] as SVGTextElement | undefined, title);
+        setSvgLines(labels?.[1] as SVGTextElement | undefined, description);
+      };
+      setMilestone(4, ["College Graduation"], ["Ecstatic to graduate alongside members", "of my Design, Build, Fly team. I recognize", "my accomplishments, but my work isn’t done."]);
+      setMilestone(5, ["First Day of", "Graduate School"], ["Passionate to learn more about fluid analysis,", "getting ready to jump into real-world engineering."]);
       document.querySelector('#contact-form')?.addEventListener('submit', (event) => {
         event.preventDefault();
         const form = event.currentTarget as HTMLFormElement;
