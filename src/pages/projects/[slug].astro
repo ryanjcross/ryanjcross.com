@@ -112,11 +112,11 @@ const project = projects[Astro.params.slug];
           <>
             <section class="year-comparison" aria-label="Design Build Fly aircraft designs by year">
               <figure class="year-card">
-                <div class="year-image"><img src="/images/dbf-2025-design.png" alt="2025 Design Build Fly aircraft model" /><strong>2025</strong></div>
+                <div class="year-image"><strong>2025</strong><img src="/images/dbf-2025-design.png" alt="2025 Design Build Fly aircraft model" /></div>
                 <figcaption><p>Design Build Fly aircraft configuration for the 2025 competition cycle.</p></figcaption>
               </figure>
               <figure class="year-card">
-                <div class="year-image"><img src="/images/dbf-2026-design.png" alt="2026 Design Build Fly aircraft model" /><strong>2026</strong></div>
+                <div class="year-image"><strong>2026</strong><img src="/images/dbf-2026-design.png" alt="2026 Design Build Fly aircraft model" /></div>
                 <figcaption><p>Design Build Fly aircraft configuration for the 2026 competition cycle.</p></figcaption>
               </figure>
             </section>
@@ -155,9 +155,9 @@ const project = projects[Astro.params.slug];
   .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,8,.18),rgba(7,9,8,.68))}
   h1{position:absolute;z-index:2;top:50%;left:50%;width:min(92%,1100px);margin:0;transform:translate(-50%,-50%);color:var(--ink);font:400 clamp(48px,6.5vw,92px)/.9 "Instrument Serif",serif;letter-spacing:-.055em;text-align:center;text-shadow:0 4px 26px rgba(0,0,0,.75)}
   .project-nav{width:min(1200px,calc(100% - 48px));margin:20px auto 0;display:grid;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr);gap:clamp(32px,6vw,82px)}
-  .back{display:flex;align-items:center;justify-content:center;width:max-content;min-width:160px;padding:17px 23px;border:1px solid var(--teal);color:var(--ink);font-size:13px;font-weight:600;transition:background .2s,color .2s}
-  .project-nav .back{justify-self:center}
-  .back:hover{background:var(--teal);color:var(--bg)}
+  .back{display:flex;align-items:center;justify-content:center;width:max-content;min-width:160px;padding:17px 23px;border:1px solid var(--ink);color:var(--ink);font-size:13px;font-weight:600;transition:background .2s,color .2s}
+  .project-nav .back{justify-self:start}
+  .back:hover{background:var(--ink);color:var(--bg)}
 
   .project-content{width:min(1200px,calc(100% - 48px));margin:0 auto;padding:6px 0 clamp(38px,5vw,72px)}
   .project-row{display:grid;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr);gap:clamp(32px,6vw,82px);align-items:center;padding:clamp(24px,3.5vw,44px) 0}
@@ -170,8 +170,8 @@ const project = projects[Astro.params.slug];
   .project-project-04 .project-row:first-child .project-media{width:78%;justify-self:center}
   .project-project-04 .project-row:first-child .project-media img{transform:none}
   .year-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:12px 0 28px}
-  .year-card{margin:0}.year-image{position:relative}.year-image img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#303030;border:1px solid var(--line)}
-  .year-image strong{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font:600 clamp(30px,4vw,52px)/1 "DM Sans",sans-serif;text-shadow:0 3px 16px rgba(0,0,0,.9)}
+  .year-card{margin:0}.year-image{text-align:center}.year-image img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#303030;border:1px solid var(--line)}
+  .year-image strong{display:block;margin:0 0 12px;color:var(--ink);font:600 clamp(22px,2.2vw,30px)/1 "DM Sans",sans-serif}
   .year-card figcaption{padding-top:14px}.year-card figcaption p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
   .team-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:18px}.team-feature{margin:0;overflow:hidden;background:#222925}.team-feature img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:var(--second-position)}
 
