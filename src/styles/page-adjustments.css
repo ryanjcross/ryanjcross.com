@@ -11,16 +11,17 @@
 
 .page-heading {
   padding-top: 0;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .page-heading::before {
   content: "";
   display: grid;
   place-items: center;
-  width: 100vw;
+  width: 100%;
   height: clamp(300px, 38svh, 470px);
   margin: 0 0 clamp(42px, 5vw, 60px);
-  margin-left: calc(50% - 50vw);
   border: 1px solid var(--line);
   background-position: center;
   background-size: cover;
@@ -38,11 +39,23 @@ body:has(.project-grid) .page-heading::before {
 
 body:has(.page-heading > .copy) .page-heading::before {
   content: "About me";
-  background-image: linear-gradient(rgba(7, 9, 8, .18), rgba(7, 9, 8, .5)), url("/images/home-hero-mountain.webp");
+  background-image: linear-gradient(rgba(7, 9, 8, .18), rgba(7, 9, 8, .5)), url("/images/about-ski-banner.jpeg");
 }
 
 .page-heading > h1 {
   display: none;
+}
+
+.page-heading > .project-grid {
+  width: min(1400px, calc(100% - 48px));
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.page-heading > .copy {
+  width: min(680px, calc(100% - 48px));
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .page-heading > h1,

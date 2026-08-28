@@ -46,3 +46,29 @@
 .project-card[href="/projects/project-04"] .project-image::before {
   display: none;
 }
+
+.project-card[href="/projects/flow-visualization"] .project-image {
+  background: url("/images/flow-visualization.png") center / cover no-repeat;
+}
+
+.project-card[href="/projects/flow-visualization"] .project-image::before {
+  display: none;
+}
+
+@media (min-width: 1000px) {
+  .project-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .project-card {
+    grid-column: span 2;
+  }
+
+  .project-card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .project-card:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+}

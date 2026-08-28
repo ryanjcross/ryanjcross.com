@@ -64,10 +64,26 @@ const projects = {
     secondImageAlt: "Original Design Build Fly crew with their aircraft in Tucson",
     secondImagePosition: "center 60%",
   },
+  "flow-visualization": {
+    title: "Flow Visualization",
+    paragraphs: [
+      "Student Project",
+      "",
+    ],
+    heroImage: "/images/flow-visualization.png",
+    heroAlt: "Flow visualization student project",
+    heroPosition: "center",
+    image: "/images/flow-visualization.png",
+    imageAlt: "Flow visualization student project",
+    imagePosition: "center",
+    secondImage: "/images/flow-visualization.png",
+    secondImageAlt: "Flow visualization student project",
+    secondImagePosition: "center",
+  },
 };
 
 export function getStaticPaths() {
-  return ["stampede-sky", "kairos-power", "cu-boulder", "project-04"]
+  return ["stampede-sky", "kairos-power", "cu-boulder", "project-04", "flow-visualization"]
     .map((slug) => ({ params: { slug } }));
 }
 
@@ -156,12 +172,12 @@ const project = projects[Astro.params.slug];
               <a class="back-to-projects" href="/projects">Back to Projects</a>
             </section>
           </>
-        ) : (
+        ) : project.paragraphs[1] ? (
           <article class="project-row">
             <figure class="project-media second-media"><img src={project.secondImage} alt={project.secondImageAlt} /></figure>
             <div class="project-copy"><p>{project.paragraphs[1]}</p></div>
           </article>
-        )}
+        ) : null}
       </section>
     </main>
     <footer class="site-footer"><div></div><div class="footer-socials"><a href="https://www.linkedin.com/in/ryan-cross-/" target="_blank" rel="noreferrer"><span class="footer-linkedin-logo">in</span> LinkedIn</a><a href="mailto:ryanc31415@gmail.com">ryanc31415@gmail.com</a></div><p>© {new Date().getFullYear()} Ryan Cross</p></footer>
@@ -195,7 +211,7 @@ const project = projects[Astro.params.slug];
   .project-media img{width:100%;height:100%;object-fit:cover;object-position:var(--project-position)}
   .second-media img{object-position:var(--second-position)}
   .project-project-04 .project-row:first-child{grid-template-columns:minmax(0,.95fr) minmax(340px,1.05fr);transform:translateY(6px)}
-  .project-project-04 .project-content{padding-bottom:14px}
+  .project-project-04 .project-content{padding-bottom:12px}
   .project-project-04 .project-row:first-child .project-media{width:78%;height:clamp(215px,24vw,325px);justify-self:center}
   .project-project-04 .project-row:first-child .project-media img{transform:none}
   .dbf-story{display:grid;gap:32px;padding:4px 0 28px}
