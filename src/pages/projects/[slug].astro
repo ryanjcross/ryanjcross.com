@@ -51,13 +51,13 @@ const projects = {
   "project-04": {
     title: "Design Build Fly",
     paragraphs: [
-      "Every year, AIAA challenges students to show their creativity and technical expertise through the Design Build Fly competition. Rules are released each September with competition taking place in April.",
+      "Every year, AIAA challenges students to show their creativity and technical expertise through the Design Build Fly competition. Rules are released in September with competition taking place in April.",
       "I participated on the CU team for two years, joining as a member of the avionics team, then stepping up to lead the propulsion design and implementation team.",
     ],
     heroImage: "/images/design-build-fly-aircraft-banner.webp",
     heroAlt: "Design Build Fly aircraft on the runway",
     heroPosition: "center 62%",
-    image: "/images/design-build-fly-outreach-new.jpeg",
+    image: "/images/design-build-fly-outreach.webp",
     imageAlt: "Ryan Cross explaining Design Build Fly at a student outreach event",
     imagePosition: "center 43%",
     secondImage: "/images/design-build-fly-team.webp",
@@ -108,22 +108,34 @@ const project = projects[Astro.params.slug];
 
         {Astro.params.slug === "project-04" ? (
           <>
-            <section class="year-comparison" aria-label="Design Build Fly aircraft designs by year">
-              <figure class="year-card">
-                <div class="year-image"><strong>2025</strong><img src="/images/dbf-2025-design.png" alt="2025 Design Build Fly aircraft model" /></div>
-                <figcaption class="year-story">
+            <section class="dbf-story" aria-label="Design Build Fly experience by year">
+              <div class="dbf-pair">
+                <figure class="year-card">
+                  <div class="year-image"><strong>2025</strong><img src="/images/dbf-2025-design.png" alt="2025 Design Build Fly aircraft model" /></div>
+                </figure>
+                <div class="dbf-copy">
                   <p>When I first started, I didn’t know the first thing about RC aircraft design. Terms like <em>ESC</em> and <em>receiver</em> frightened me. So I learned.</p>
-                  <p>I helped configure the avionics for our first prototype—now I know that an ESC regulates the power to the motor. I developed walls and floors for the fuselage in OnShape—now I know how to navigate CAD. I fabricated components using 3D printers, laser cutters, and CNC machines—now I know how to bring design to life with CAM techniques.</p>
+                </div>
+              </div>
+              <div class="dbf-pair">
+                <div class="dbf-copy">
+                  <p>I helped configure the avionics for our first prototype—now I know that an ESC regulates the power to the motor. I developed walls and floors for the fuselage in OnShape—now I know how to navigate CAD. I fabricated components using 3D printers, laser cutters, and CNC machines—now I know how to bring design to life with CAM.</p>
                   <p>My first year on CU DBF was my first exposure to applied, real world engineering. Following competition, I was left wanting more.</p>
-                </figcaption>
-              </figure>
-              <figure class="year-card">
-                <div class="year-image"><strong>2026</strong><img src="/images/dbf-2026-design.png" alt="2026 Design Build Fly aircraft model" /></div>
-              </figure>
-            </section>
-            <section class="team-gallery" aria-label="Design Build Fly team photos">
-              <figure class="team-feature"><img src={project.secondImage} alt={project.secondImageAlt} /></figure>
-              <figure class="team-feature"><img src="/images/dbf-team-2026.webp" alt="Design Build Fly team gathered with their aircraft" /></figure>
+                </div>
+                <figure class="team-feature"><img src={project.secondImage} alt={project.secondImageAlt} /></figure>
+              </div>
+              <div class="dbf-pair dbf-2026">
+                <figure class="year-card">
+                  <div class="year-image"><strong>2026</strong><img src="/images/dbf-2026-design.png" alt="2026 Design Build Fly aircraft model" /></div>
+                </figure>
+                <div class="dbf-copy">
+                  <p>Becoming a leader in engineering can be daunting: one must have technical <em>and</em> interpersonal skills to succeed. In learning and applying both skillsets through DBF, the club I had developed a passion for over the last year, I became energized.</p>
+                </div>
+              </div>
+              <div class="dbf-pair">
+                <div class="dbf-copy"><p>I love DBF</p></div>
+                <figure class="team-feature"><img src="/images/dbf-team-2026.webp" alt="Design Build Fly team gathered with their aircraft" /></figure>
+              </div>
             </section>
           </>
         ) : (
@@ -166,15 +178,18 @@ const project = projects[Astro.params.slug];
   .project-project-04 .project-row:first-child{grid-template-columns:minmax(0,.95fr) minmax(340px,1.05fr)}
   .project-project-04 .project-row:first-child .project-media{width:78%;height:clamp(215px,24vw,325px);justify-self:center}
   .project-project-04 .project-row:first-child .project-media img{transform:none}
-  .year-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:4px 0 28px}
+  .dbf-story{display:grid;gap:24px;padding:4px 0 28px}
+  .dbf-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:center}
+  .dbf-2026{margin-top:18px}
+  .dbf-copy p{margin:0;color:var(--ink);font-size:clamp(16px,1.35vw,20px);line-height:1.62}
+  .dbf-copy p+p{margin-top:16px}
   .year-card{margin:0}.year-image{text-align:center}.year-image img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#303030;border:1px solid var(--line)}
   .year-image strong{display:block;margin:0 0 12px;color:var(--ink);font:600 clamp(22px,2.2vw,30px)/1 "DM Sans",sans-serif}
-  .year-card figcaption{padding-top:14px}.year-card .year-story p{margin:0;color:var(--ink);font-size:clamp(16px,1.35vw,20px);line-height:1.62}.year-card .year-story p+p{margin-top:16px}
-  .team-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:18px}.team-feature{margin:0;overflow:hidden;background:#222925}.team-feature img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:var(--second-position)}
+  .team-feature{margin:0;overflow:hidden;background:#222925}.team-feature img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:var(--second-position)}
 
   @media(max-width:720px){
     .site-header{height:68px;padding:0 18px}.brand-mark{width:34px;height:32px}.brand-mark b,.brand-mark i{top:7px}.brand-mark b{left:5px}.brand-mark i{left:15px}.site-header nav{gap:10px;font-size:11px}
     .project-hero{height:clamp(260px,38svh,360px)}h1{font-size:clamp(42px,13vw,65px)}
-    .project-content{width:min(100% - 36px,620px);padding:8px 0 34px}.project-row{grid-template-columns:1fr;gap:22px;padding:30px 0}.project-row:first-child{padding-top:18px}.project-media{height:240px}.project-project-04 .project-row:first-child{grid-template-columns:1fr}.project-project-04 .project-row:first-child .project-media{width:86%;height:220px}.year-comparison{grid-template-columns:1fr;gap:28px;padding-top:10px}.team-gallery{grid-template-columns:1fr;gap:18px;margin-top:8px}
+    .project-content{width:min(100% - 36px,620px);padding:8px 0 34px}.project-row{grid-template-columns:1fr;gap:22px;padding:30px 0}.project-row:first-child{padding-top:18px}.project-media{height:240px}.project-project-04 .project-row:first-child{grid-template-columns:1fr}.project-project-04 .project-row:first-child .project-media{width:86%;height:220px}.dbf-story{gap:28px;padding-top:10px}.dbf-pair{grid-template-columns:1fr;gap:18px}.dbf-2026{margin-top:8px}
   }
 </style>
