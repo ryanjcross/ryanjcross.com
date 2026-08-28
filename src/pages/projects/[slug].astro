@@ -149,10 +149,11 @@ const project = projects[Astro.params.slug];
                 </div>
               </section>
               <blockquote class="dbf-testimonial">
-                <p>Ryan Cross, I just wanted to add something real quick here. You mentioned that you’re “not perfect” and that you sometimes struggle to keep everyone satisfied—but honestly, I think you’re doing a great job as Propulsion Lead. The support you give, the time you put in, and the friendly environment you create make a huge difference for all of us. It’s been really reassuring and motivating to work under someone who’s approachable and genuinely cares about keeping things moving in the right direction.</p>
+                <p>@Ryan Cross, I just wanted to add something real quick here. You mentioned that you’re “not perfect” and that you sometimes struggle to keep everyone satisfied—but honestly, I think you’re doing a great job as Propulsion Lead. The support you give, the time you put in, and the friendly environment you create make a huge difference for all of us. It’s been really reassuring and motivating to work under someone who’s approachable and genuinely cares about keeping things moving in the right direction.</p>
                 <p>Leadership isn’t about being perfect; it’s about showing up, communicating, and giving your team confidence—and you’re nailing that. So kudos to you for everything you’ve done and continue to do. We appreciate it.</p>
                 <footer>— Dinuka Hannadige</footer>
               </blockquote>
+              <a class="back-to-projects" href="/projects">Back to Projects</a>
             </section>
           </>
         ) : (
@@ -207,6 +208,8 @@ const project = projects[Astro.params.slug];
   .dbf-testimonial p{margin:0;color:var(--ink);font:400 clamp(19px,2vw,27px)/1.55 "Instrument Serif",serif}
   .dbf-testimonial p+p{margin-top:18px}
   .dbf-testimonial footer{margin-top:22px;color:var(--teal);font-size:14px;font-weight:600;letter-spacing:.04em}
+  .back-to-projects{display:block;width:max-content;margin:0 auto;padding:12px 22px;border:1px solid var(--teal);color:var(--teal);font-size:14px;font-weight:600;transition:background .2s ease,color .2s ease}
+  .back-to-projects:hover{background:var(--teal);color:var(--bg)}
 
   @media(max-width:720px){
     .site-header{height:68px;padding:0 18px}.brand-mark{width:34px;height:32px}.brand-mark b,.brand-mark i{top:7px}.brand-mark b{left:5px}.brand-mark i{left:15px}.site-header nav{gap:10px;font-size:11px}
