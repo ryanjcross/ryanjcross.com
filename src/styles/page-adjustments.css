@@ -34,7 +34,7 @@
 
 body:has(.project-grid) .page-heading::before {
   content: "Projects";
-  background-image: linear-gradient(rgba(7, 9, 8, .2), rgba(7, 9, 8, .48)), url("/images/design-build-fly-aircraft-banner.webp");
+  background-image: linear-gradient(rgba(7, 9, 8, .12), rgba(7, 9, 8, .38)), url("/images/projects-flow-banner.png");
 }
 
 body:has(.page-heading > .copy) .page-heading::before {
