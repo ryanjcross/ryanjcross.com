@@ -415,14 +415,6 @@ const projects = [
     margin-inline: auto !important;
     text-align: center !important;
   }
-  .summary-timeline .summary-heading::after {
-    content: "";
-    display: block;
-    width: 34px;
-    height: 2px;
-    margin: 13px auto 0;
-    background: var(--teal);
-  }
   .summary-timeline .milestone-track {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) !important;
@@ -444,7 +436,8 @@ const projects = [
     display: none !important;
   }
   .summary-timeline .photo-timeline {
-    position: static !important;
+    position: relative !important;
+    z-index: 1;
     display: grid !important;
     grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
     gap: clamp(6px, .65vw, 12px) !important;
@@ -465,16 +458,29 @@ const projects = [
     width: auto !important;
     margin: 0 !important;
     text-align: center !important;
+    transition: transform .25s ease, z-index 0s linear .25s;
   }
   .summary-timeline .photo-milestone > img {
     display: block !important;
     width: 100% !important;
-    height: clamp(128px, 11vw, 200px) !important;
+    height: clamp(170px, 14vw, 255px) !important;
     border: 1px solid rgba(91, 229, 207, .34) !important;
     border-radius: 5px !important;
     background: #17221f !important;
     object-fit: cover !important;
     box-shadow: 0 9px 24px rgba(0, 0, 0, .28) !important;
+    transition: border-color .25s ease, box-shadow .25s ease;
+  }
+  @media (hover: hover) {
+    .summary-timeline .photo-milestone:hover {
+      z-index: 3;
+      transform: translateY(-6px) scale(1.03);
+      transition-delay: 0s;
+    }
+    .summary-timeline .photo-milestone:hover > img {
+      border-color: var(--teal) !important;
+      box-shadow: 0 15px 34px rgba(0, 0, 0, .42) !important;
+    }
   }
   .summary-timeline .graduate-milestone > img {
     object-position: center 38% !important;

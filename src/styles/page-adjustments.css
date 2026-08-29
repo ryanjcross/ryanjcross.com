@@ -68,6 +68,27 @@ body:has(.page-heading > .copy) .page-heading::before {
   margin-bottom: clamp(60px, 7vw, 92px);
 }
 
+/* A quieter contact palette: muted teal-gray instead of the bright accent fill. */
+.contact-page {
+  background: #304743;
+  color: var(--ink);
+}
+
+.contact-page input,
+.contact-page textarea {
+  border-bottom-color: rgba(242, 240, 232, .38);
+  color: var(--ink);
+}
+
+.contact-page .socials a {
+  border-bottom-color: rgba(242, 240, 232, .4);
+}
+
+.contact-page .button {
+  background: #101513;
+  color: var(--ink);
+}
+
 .contact-page .contact-form-section,
 .contact-page .contact-info {
   width: 100%;
