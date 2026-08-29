@@ -30,11 +30,14 @@ const projects = [
         const photoTimeline = document.createElement("div");
         photoTimeline.className = "photo-timeline";
         photoTimeline.innerHTML = `
-          <figure class="photo-milestone"><img src="/images/timeline-hex-01.webp" alt="Ryan exploring outdoors" /><figcaption><h3>Built Outdoors</h3><p>Curiosity starts with exploration.</p></figcaption></figure>
-          <figure class="photo-milestone"><img src="/images/ryan-summit.jpeg" alt="Ryan at CU Boulder" /><figcaption><h3>CU Boulder</h3><p>Aerospace engineering foundation.</p></figcaption></figure>
-          <figure class="photo-milestone future-photo-milestone"><img src="/images/ryan-in-field.jpg" alt="Ryan looking toward the mountains" /><figcaption><h3>Whatever my future holds…</h3><p>Excited for the journey ahead.</p></figcaption></figure>
-          <figure class="photo-milestone"><img src="/images/timeline-hex-05.webp" alt="Ryan graduating with members of the Design, Build, Fly team" /><figcaption><h3>College Graduation</h3><p>Ecstatic to graduate alongside members of my Design, Build, Fly team. I recognize my accomplishments, but my work isn’t done.</p></figcaption></figure>
-          <figure class="photo-milestone graduate-milestone"><img src="/images/first-day-graduate-school.jpeg" alt="Ryan on his first day of graduate school" /><figcaption><h3>First Day of Graduate School</h3><p>Passionate to learn more about fluid analysis, getting ready to jump into real-world engineering.</p></figcaption></figure>`;
+          <figure class="photo-milestone"><img src="/images/timeline-hex-01.webp" alt="Ryan exploring outdoors" /><figcaption><span class="moment-number">01</span><h3>Built Outdoors</h3><p>Curiosity starts with exploration.</p></figcaption></figure>
+          <figure class="photo-milestone"><img src="/images/ryan-summit.jpeg" alt="Ryan in the mountains near CU Boulder" /><figcaption><span class="moment-number">02</span><h3>CU Boulder</h3><p>An aerospace engineering foundation.</p></figcaption></figure>
+          <figure class="photo-milestone"><img src="/images/design-build-fly-team.webp" alt="Ryan with the Design, Build, Fly team" /><figcaption><span class="moment-number">03</span><h3>Design, Build, Fly</h3><p>Hands-on engineering and leadership.</p></figcaption></figure>
+          <figure class="photo-milestone"><img src="/images/sierra-space-dream-chaser.jpg" alt="Sierra Space Dream Chaser spacecraft" /><figcaption><span class="moment-number">04</span><h3>Sierra Space</h3><p>Systems engineering in aerospace.</p></figcaption></figure>
+          <figure class="photo-milestone"><img src="/images/kairos-power.png" alt="Kairos Power engineering project" /><figcaption><span class="moment-number">05</span><h3>Kairos Power</h3><p>Turning clear data into useful decisions.</p></figcaption></figure>
+          <figure class="photo-milestone"><img src="/images/timeline-hex-05.webp" alt="Ryan graduating with members of the Design, Build, Fly team" /><figcaption><span class="moment-number">06</span><h3>College Graduation</h3><p>Years of hard work, growth, and teamwork.</p></figcaption></figure>
+          <figure class="photo-milestone graduate-milestone"><img src="/images/first-day-graduate-school.jpeg" alt="Ryan on his first day of graduate school" /><figcaption><span class="moment-number">07</span><h3>First Day of Graduate School</h3><p>Ready to deepen my understanding of fluid analysis.</p></figcaption></figure>
+          <figure class="photo-milestone future-photo-milestone"><img src="/images/ryan-in-field.jpg" alt="Ryan looking toward the mountains" /><figcaption><span class="moment-number">08</span><h3>Whatever Comes Next</h3><p>Excited for the journey ahead.</p></figcaption></figure>`;
         timelineHost.insertBefore(photoTimeline, timelineSvg);
       }
       const sixthArtwork = timelineSvg?.querySelector(".timeline-hexes rect");
@@ -396,4 +399,175 @@ const projects = [
   /* Taller hero with the title centered inside the photo itself. */
   @media(min-width:1000px){:root{--home-photo-height:75svh}.home .intro{top:calc((var(--home-header) + var(--home-photo-height)) / 2);transform:translate(-50%,-50%)}.home-photo>img{object-position:center 56%}.site-header nav{font-size:14px}}
   .project-image::before{width:58px;height:58px;border-width:15px}.gold .project-image::before{width:78px;height:41px}.project-description{margin:12px 0 0}.project-link{margin-top:28px}.project-card[href="/projects/kairos-power"] .project-image{background:url("/images/kairos-power.png") center top/cover no-repeat}.project-card[href="/projects/kairos-power"] .project-image::before,.project-card[href="/projects/stampede-sky"] .project-image::before,.project-card[href="/projects/cu-boulder"] .project-image::before,.project-card[href="/projects/project-04"] .project-image::before{display:none}.project-card[href="/projects/stampede-sky"] .project-image{background:url("/images/sierra-space-dream-chaser.jpg") center/cover no-repeat}.project-card[href="/projects/cu-boulder"] .project-image{background:url("/images/kashmir-world-foundation.png") center/cover no-repeat}.project-card[href="/projects/project-04"] .project-image{background:url("/images/design-build-fly-01.webp") center/cover no-repeat}
+
+  /* Centered full-width moments strip. */
+  .summary-timeline {
+    box-sizing: border-box !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    background: #0d0f0e !important;
+  }
+  .summary-timeline .summary-heading {
+    width: 100% !important;
+    max-width: none !important;
+    margin-inline: auto !important;
+    text-align: center !important;
+  }
+  .summary-timeline .summary-heading::after {
+    content: "";
+    display: block;
+    width: 34px;
+    height: 2px;
+    margin: 13px auto 0;
+    background: var(--teal);
+  }
+  .summary-timeline .milestone-track {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    place-items: center !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  .summary-timeline .milestone-track::before,
+  .summary-timeline .photo-timeline::before,
+  .summary-timeline .photo-milestone::after {
+    display: none !important;
+  }
+  .summary-timeline .timeline-svg {
+    display: none !important;
+  }
+  .summary-timeline .photo-timeline {
+    position: static !important;
+    display: grid !important;
+    grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
+    gap: clamp(6px, .65vw, 12px) !important;
+    box-sizing: border-box !important;
+    width: min(1760px, 96vw) !important;
+    max-width: none !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+  .summary-timeline .photo-milestone,
+  .summary-timeline .photo-milestone:nth-child(4),
+  .summary-timeline .photo-milestone:nth-child(5) {
+    position: static !important;
+    grid-column: auto !important;
+    min-width: 0 !important;
+    width: auto !important;
+    margin: 0 !important;
+    text-align: center !important;
+  }
+  .summary-timeline .photo-milestone > img {
+    display: block !important;
+    width: 100% !important;
+    height: clamp(128px, 11vw, 200px) !important;
+    border: 1px solid rgba(91, 229, 207, .34) !important;
+    border-radius: 5px !important;
+    background: #17221f !important;
+    object-fit: cover !important;
+    box-shadow: 0 9px 24px rgba(0, 0, 0, .28) !important;
+  }
+  .summary-timeline .graduate-milestone > img {
+    object-position: center 38% !important;
+  }
+  .summary-timeline .photo-milestone figcaption {
+    padding: 15px 4px 0 !important;
+  }
+  .summary-timeline .moment-number {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--teal);
+    font: 700 clamp(11px, .8vw, 13px)/1 "DM Sans", sans-serif;
+    letter-spacing: .04em;
+  }
+  .summary-timeline .photo-milestone h3 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 2.55em;
+    margin: 0 !important;
+    color: #48cbb9 !important;
+    font: 600 clamp(11px, .9vw, 15px)/1.28 "DM Sans", sans-serif !important;
+    letter-spacing: -.02em !important;
+  }
+  .summary-timeline .photo-milestone p {
+    max-width: 17ch;
+    margin: 8px auto 0 !important;
+    color: #b8bbb4 !important;
+    font-size: clamp(10px, .72vw, 12px) !important;
+    line-height: 1.42 !important;
+  }
+
+  @media (min-width: 1000px) {
+    .summary-timeline {
+      display: grid !important;
+      grid-template-rows: auto 1fr auto !important;
+      align-items: stretch !important;
+      height: calc(100svh - var(--home-header)) !important;
+      min-height: 680px !important;
+      padding: 38px 0 104px !important;
+    }
+    .summary-timeline .summary-heading {
+      align-self: start !important;
+      margin: 0 0 24px !important;
+    }
+    .summary-timeline .summary-heading h2 {
+      font-size: clamp(38px, 4vw, 58px) !important;
+    }
+    .summary-timeline .projects-button {
+      align-self: end !important;
+      margin: 30px auto 0 !important;
+    }
+  }
+
+  @media (max-width: 999px) {
+    .summary-timeline {
+      min-height: 0 !important;
+      padding: 56px 20px 76px !important;
+    }
+    .summary-timeline .summary-heading {
+      margin: 0 auto 38px !important;
+    }
+    .summary-timeline .photo-timeline {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 34px 12px !important;
+      width: min(900px, 96vw) !important;
+    }
+    .summary-timeline .photo-milestone > img {
+      height: clamp(150px, 22vw, 210px) !important;
+    }
+    .summary-timeline .projects-button {
+      margin: 46px auto 0 !important;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .summary-timeline {
+      padding-inline: 14px !important;
+    }
+    .summary-timeline .photo-timeline {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 34px 10px !important;
+      width: 100% !important;
+    }
+    .summary-timeline .photo-milestone > img {
+      height: clamp(145px, 50vw, 210px) !important;
+    }
+    .summary-timeline .photo-milestone h3 {
+      min-height: 0;
+      font-size: 13px !important;
+    }
+    .summary-timeline .photo-milestone p {
+      font-size: 11px !important;
+    }
+  }
 </style>
