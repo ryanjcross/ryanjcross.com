@@ -5,11 +5,11 @@
 }
 
 .project-card {
-  min-height: 410px;
+  min-height: 390px;
 }
 
 .project-image {
-  height: 242px;
+  height: 225px;
 }
 
 .gold .project-image::before {
