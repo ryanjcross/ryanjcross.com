@@ -47,7 +47,7 @@ body:has(.page-heading > .copy) .page-heading::before {
 }
 
 .page-heading > .project-grid {
-  width: min(1160px, calc(100% - 48px));
+  width: min(1400px, calc(100% - 48px));
   margin-right: auto;
   margin-left: auto;
 }
