@@ -30,14 +30,14 @@ const projects = [
         const photoTimeline = document.createElement("div");
         photoTimeline.className = "photo-timeline";
         photoTimeline.innerHTML = `
-          <figure class="photo-milestone"><img src="/images/timeline-hex-01.webp" alt="Ryan exploring outdoors" /><figcaption><span class="moment-number">01</span><h3>Built Outdoors</h3><p>Curiosity starts with exploration.</p></figcaption></figure>
-          <figure class="photo-milestone"><img src="/images/ryan-summit.jpeg" alt="Ryan in the mountains near CU Boulder" /><figcaption><span class="moment-number">02</span><h3>CU Boulder</h3><p>An aerospace engineering foundation.</p></figcaption></figure>
-          <figure class="photo-milestone"><img src="/images/design-build-fly-team.webp" alt="Ryan with the Design, Build, Fly team" /><figcaption><span class="moment-number">03</span><h3>Design, Build, Fly</h3><p>Hands-on engineering and leadership.</p></figcaption></figure>
-          <figure class="photo-milestone"><img src="/images/sierra-space-dream-chaser.jpg" alt="Sierra Space Dream Chaser spacecraft" /><figcaption><span class="moment-number">04</span><h3>Sierra Space</h3><p>Systems engineering in aerospace.</p></figcaption></figure>
-          <figure class="photo-milestone"><img src="/images/kairos-power.png" alt="Kairos Power engineering project" /><figcaption><span class="moment-number">05</span><h3>Kairos Power</h3><p>Turning clear data into useful decisions.</p></figcaption></figure>
-          <figure class="photo-milestone"><img src="/images/timeline-hex-05.webp" alt="Ryan graduating with members of the Design, Build, Fly team" /><figcaption><span class="moment-number">06</span><h3>College Graduation</h3><p>Years of hard work, growth, and teamwork.</p></figcaption></figure>
-          <figure class="photo-milestone graduate-milestone"><img src="/images/first-day-graduate-school.jpeg" alt="Ryan on his first day of graduate school" /><figcaption><span class="moment-number">07</span><h3>First Day of Graduate School</h3><p>Ready to deepen my understanding of fluid analysis.</p></figcaption></figure>
-          <figure class="photo-milestone future-photo-milestone"><img src="/images/ryan-in-field.jpg" alt="Ryan looking toward the mountains" /><figcaption><span class="moment-number">08</span><h3>Whatever Comes Next</h3><p>Excited for the journey ahead.</p></figcaption></figure>`;
+          <figure class="photo-milestone"><div class="moment-year"><span>2012</span></div><img src="/images/arizona-cardinals-fan.jpg" alt="Ryan attending an Arizona Cardinals game as a child" /><figcaption><span class="moment-number">01</span><h3>Arizona Cardinals Fan</h3><p>A lifelong loyalty that started early.</p></figcaption></figure>
+          <figure class="photo-milestone"><div class="moment-year"><span>2021</span></div><img src="/images/ryan-summit.jpeg" alt="Ryan in the mountains near CU Boulder" /><figcaption><span class="moment-number">02</span><h3>CU Boulder</h3><p>An aerospace engineering foundation.</p></figcaption></figure>
+          <figure class="photo-milestone"><div class="moment-year"><span>2023</span></div><img src="/images/design-build-fly-team.webp" alt="Ryan with the Design, Build, Fly team" /><figcaption><span class="moment-number">03</span><h3>Design, Build, Fly</h3><p>Hands-on engineering and leadership.</p></figcaption></figure>
+          <figure class="photo-milestone"><div class="moment-year"><span>2024</span></div><img src="/images/sierra-space-dream-chaser.jpg" alt="Sierra Space Dream Chaser spacecraft" /><figcaption><span class="moment-number">04</span><h3>Sierra Space</h3><p>Systems engineering in aerospace.</p></figcaption></figure>
+          <figure class="photo-milestone"><div class="moment-year"><span>2025</span></div><img src="/images/kairos-power.png" alt="Kairos Power engineering project" /><figcaption><span class="moment-number">05</span><h3>Kairos Power</h3><p>Turning clear data into useful decisions.</p></figcaption></figure>
+          <figure class="photo-milestone"><div class="moment-year"><span>2025</span></div><img src="/images/timeline-hex-05.webp" alt="Ryan graduating with members of the Design, Build, Fly team" /><figcaption><span class="moment-number">06</span><h3>College Graduation</h3><p>Years of hard work, growth, and teamwork.</p></figcaption></figure>
+          <figure class="photo-milestone graduate-milestone"><div class="moment-year"><span>2025</span></div><img src="/images/first-day-graduate-school.jpeg" alt="Ryan on his first day of graduate school" /><figcaption><span class="moment-number">07</span><h3>First Day of Graduate School</h3><p>Ready to deepen my understanding of fluid analysis.</p></figcaption></figure>
+          <figure class="photo-milestone future-photo-milestone"><div class="moment-year"><span>Future</span></div><img src="/images/ryan-in-field.jpg" alt="Ryan looking toward the mountains" /><figcaption><span class="moment-number">08</span><h3>Whatever Comes Next</h3><p>Excited for the journey ahead.</p></figcaption></figure>`;
         timelineHost.insertBefore(photoTimeline, timelineSvg);
       }
       const sixthArtwork = timelineSvg?.querySelector(".timeline-hexes rect");
@@ -428,7 +428,6 @@ const projects = [
     overflow: visible !important;
   }
   .summary-timeline .milestone-track::before,
-  .summary-timeline .photo-timeline::before,
   .summary-timeline .photo-milestone::after {
     display: none !important;
   }
@@ -448,6 +447,17 @@ const projects = [
     margin: 0 auto !important;
     padding: 0 !important;
     transform: none !important;
+  }
+  .summary-timeline .photo-timeline::before {
+    content: "";
+    display: block !important;
+    position: absolute;
+    z-index: 0;
+    top: 29px;
+    right: 6.25%;
+    left: 6.25%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(91,229,207,.3), var(--teal), rgba(91,229,207,.3));
   }
   .summary-timeline .photo-milestone,
   .summary-timeline .photo-milestone:nth-child(4),
@@ -470,6 +480,26 @@ const projects = [
     object-fit: cover !important;
     box-shadow: 0 9px 24px rgba(0, 0, 0, .28) !important;
     transition: border-color .25s ease, box-shadow .25s ease;
+  }
+  .summary-timeline .moment-year {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 58px;
+    color: var(--teal);
+    font: 700 clamp(12px, .85vw, 14px)/1 "DM Sans", sans-serif;
+    letter-spacing: .04em;
+  }
+  .summary-timeline .moment-year::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    margin-top: 11px;
+    border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 0 4px #0d0f0e;
   }
   @media (hover: hover) {
     .summary-timeline .photo-milestone:hover {
@@ -509,7 +539,7 @@ const projects = [
     max-width: 17ch;
     margin: 8px auto 0 !important;
     color: #b8bbb4 !important;
-    font-size: clamp(10px, .72vw, 12px) !important;
+    font-size: clamp(12px, .88vw, 15px) !important;
     line-height: 1.42 !important;
   }
 
@@ -520,7 +550,7 @@ const projects = [
       align-items: stretch !important;
       height: calc(100svh - var(--home-header)) !important;
       min-height: 680px !important;
-      padding: 38px 0 104px !important;
+      padding: 38px 0 112px !important;
     }
     .summary-timeline .summary-heading {
       align-self: start !important;
