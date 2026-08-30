@@ -30,7 +30,7 @@ const projects = [
         const photoTimeline = document.createElement("div");
         photoTimeline.className = "photo-timeline";
         photoTimeline.innerHTML = `
-          <figure class="photo-milestone"><div class="moment-year"><span>2012</span></div><img src="/images/arizona-cardinals-fan.jpg" alt="Ryan attending an Arizona Cardinals game as a child" /><figcaption><span class="moment-number">01</span><h3>Arizona Cardinals Fan</h3><p>A lifelong loyalty that started early.</p></figcaption></figure>
+          <figure class="photo-milestone"><div class="moment-year"><span>2012</span></div><img src="/images/arizona-cardinals-fan.jpg" alt="Ryan attending an Arizona Cardinals game as a child" /><figcaption><span class="moment-number">01</span><h3>Arizona Cardinals Fan</h3><p>Hardest job I've ever had</p></figcaption></figure>
           <figure class="photo-milestone"><div class="moment-year"><span>2021</span></div><div class="moment-photo-placeholder" aria-label="Photo placeholder"></div><figcaption><span class="moment-number">02</span><h3>CU Boulder</h3><p>An aerospace engineering foundation.</p></figcaption></figure>
           <figure class="photo-milestone"><div class="moment-year"><span>2023</span></div><div class="moment-photo-placeholder" aria-label="Photo placeholder"></div><figcaption><span class="moment-number">03</span><h3>Design, Build, Fly</h3><p>Hands-on engineering and leadership.</p></figcaption></figure>
           <figure class="photo-milestone"><div class="moment-year"><span>2024</span></div><div class="moment-photo-placeholder" aria-label="Photo placeholder"></div><figcaption><span class="moment-number">04</span><h3>Sierra Space</h3><p>Systems engineering in aerospace.</p></figcaption></figure>
@@ -398,7 +398,7 @@ const projects = [
   @media(min-width:1000px){.milestone-track::before{display:none!important}.timeline-svg{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1500 460'%3E%3Cg fill='none' stroke='%2348cbb9' stroke-width='3' stroke-linecap='round'%3E%3Cline x1='197.5' y1='197.5' x2='243.5' y2='172.5'/%3E%3Cline x1='408.5' y1='172.5' x2='454.5' y2='197.5'/%3E%3Cline x1='619.5' y1='197.5' x2='665.5' y2='172.5'/%3E%3Cline x1='830.5' y1='172.5' x2='876.5' y2='197.5'/%3E%3Cline x1='1041.5' y1='197.5' x2='1087.5' y2='172.5'/%3E%3Cline x1='1252.5' y1='172.5' x2='1298.5' y2='197.5'/%3E%3C/g%3E%3C/svg%3E") center/100% 100% no-repeat!important;transform:translate(-24px,24px)}}
   /* Taller hero with the title centered inside the photo itself. */
   @media(min-width:1000px){:root{--home-photo-height:75svh}.home .intro{top:calc((var(--home-header) + var(--home-photo-height)) / 2);transform:translate(-50%,-50%)}.home-photo>img{object-position:center 56%}.site-header nav{font-size:14px}}
-  .project-image::before{width:58px;height:58px;border-width:15px}.gold .project-image::before{width:78px;height:41px}.project-card h3,.project-description{text-align:center}.project-description{margin:12px 0 0;font-size:13px}.project-link{margin-top:28px}.project-card[href="/projects/kairos-power"] .project-image{background:url("/images/kairos-power-icon.png") center 52%/cover no-repeat}.project-card[href="/projects/kairos-power"] .project-image::before,.project-card[href="/projects/stampede-sky"] .project-image::before,.project-card[href="/projects/cu-boulder"] .project-image::before,.project-card[href="/projects/project-04"] .project-image::before{display:none}.project-card[href="/projects/stampede-sky"] .project-image{background:url("/images/sierra-space-dream-chaser.jpg") center/cover no-repeat}.project-card[href="/projects/cu-boulder"] .project-image{background:url("/images/kashmir-aircraft-concept.png") center/cover no-repeat}.project-card[href="/projects/project-04"] .project-image{background:url("/images/design-build-fly-01.webp") center/cover no-repeat}
+  .project-image::before{width:58px;height:58px;border-width:15px}.gold .project-image::before{width:78px;height:41px}.project-card h3,.project-description{text-align:center}.project-description{margin:12px 0 0;font-size:13px}.project-link{margin-top:28px}.project-card[href="/projects/kairos-power"] .project-image{background:url("/images/kairos-power-icon.png") center 52%/cover no-repeat}.project-card[href="/projects/kairos-power"] .project-image::before,.project-card[href="/projects/stampede-sky"] .project-image::before,.project-card[href="/projects/cu-boulder"] .project-image::before,.project-card[href="/projects/project-04"] .project-image::before{display:none}.project-card[href="/projects/stampede-sky"] .project-image{background:url("/images/sierra-space-icon.png") center/cover no-repeat}.project-card[href="/projects/cu-boulder"] .project-image{background:url("/images/kashmir-aircraft-concept.png") center/cover no-repeat}.project-card[href="/projects/project-04"] .project-image{background:url("/images/design-build-fly-01.webp") center/cover no-repeat}
 
   /* Centered full-width moments strip. */
   .summary-timeline {
@@ -566,6 +566,9 @@ const projects = [
     }
     .summary-timeline .summary-heading h2 {
       font-size: clamp(38px, 4vw, 58px) !important;
+    }
+    .summary-timeline .milestone-track {
+      transform: translateY(18px);
     }
     .summary-timeline .projects-button {
       align-self: end !important;
