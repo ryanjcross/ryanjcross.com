@@ -1,4 +1,4 @@
-<script is:inline type="module">
+<script is:inline>
   const storageKey = "ryan-cloudflare-analytics-disabled";
   const url = new URL(window.location.href);
   const setting = url.searchParams.get("analytics");
@@ -22,9 +22,8 @@
   }
 
   if (!analyticsDisabled) {
-    const beacon = document.createElement("script");
-    beacon.type = "module";
-    beacon.src = "https://static.cloudflareinsights.com/beacon.min.js?token=ce167feb54174b43a8f4292bc1726431";
-    document.body.append(beacon);
+    document.write(
+      '<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon=\'{"token":"ce167feb54174b43a8f4292bc1726431"}\'><\/script>',
+    );
   }
 </script>
