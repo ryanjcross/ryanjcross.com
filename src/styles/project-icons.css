@@ -32,7 +32,7 @@
 }
 
 .project-card[href="/projects/kairos-power"] .project-image {
-  background: url("/images/kairos-power-icon.png") center / cover no-repeat;
+  background: url("/images/kairos-power-icon.png") center 52% / cover no-repeat;
 }
 
 .project-card[href="/projects/kairos-power"] .project-image::before,

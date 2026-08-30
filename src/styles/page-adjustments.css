@@ -34,6 +34,7 @@
 
 body:has(.project-grid) .page-heading::before {
   content: "Projects";
+  margin-bottom: clamp(32px, 4vw, 46px);
   background-image: linear-gradient(rgba(7, 9, 8, .12), rgba(7, 9, 8, .38)), url("/images/projects-flow-banner.png");
 }
 
