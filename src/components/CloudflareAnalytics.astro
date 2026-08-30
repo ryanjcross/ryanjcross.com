@@ -1,6 +1,30 @@
-<script
-  is:inline
-  type="module"
-  src="https://static.cloudflareinsights.com/beacon.min.js"
-  data-cf-beacon='{"token":"ce167feb54174b43a8f4292bc1726431"}'
-></script>
+<script is:inline type="module">
+  const storageKey = "ryan-cloudflare-analytics-disabled";
+  const url = new URL(window.location.href);
+  const setting = url.searchParams.get("analytics");
+  let analyticsDisabled = setting === "off";
+
+  try {
+    if (setting === "off") {
+      window.localStorage.setItem(storageKey, "true");
+    } else if (setting === "on") {
+      window.localStorage.removeItem(storageKey);
+    } else {
+      analyticsDisabled = window.localStorage.getItem(storageKey) === "true";
+    }
+  } catch {
+    // The one-page opt-out still works if browser storage is unavailable.
+  }
+
+  if (setting === "off" || setting === "on") {
+    url.searchParams.delete("analytics");
+    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+  }
+
+  if (!analyticsDisabled) {
+    const beacon = document.createElement("script");
+    beacon.type = "module";
+    beacon.src = "https://static.cloudflareinsights.com/beacon.min.js?token=ce167feb54174b43a8f4292bc1726431";
+    document.body.append(beacon);
+  }
+</script>
