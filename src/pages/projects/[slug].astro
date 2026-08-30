@@ -1,4 +1,6 @@
 ---
+import CloudflareAnalytics from "../../components/CloudflareAnalytics.astro";
+
 const projects = {
   "stampede-sky": {
     title: "Sierra Space",
@@ -210,6 +212,7 @@ const project = projects[Astro.params.slug];
       </section>
     </main>
     <footer class="site-footer"><div></div><div class="footer-socials"><a href="https://www.linkedin.com/in/ryan-cross-/" target="_blank" rel="noreferrer"><span class="footer-linkedin-logo">in</span> LinkedIn</a><a href="mailto:ryanc31415@gmail.com">ryanc31415@gmail.com</a></div><p>© {new Date().getFullYear()} Ryan Cross</p></footer>
+    <CloudflareAnalytics />
   </body>
 </html>
 

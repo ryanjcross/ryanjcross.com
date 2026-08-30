@@ -1,4 +1,6 @@
 ---
+import CloudflareAnalytics from "../components/CloudflareAnalytics.astro";
+
 const projects = [
   { number: "01", title: "Sierra Space", type: "Systems Engineering Intern", href: "/projects/stampede-sky", accent: "teal" },
   { number: "02", title: "Kashmir World Foundation", type: "Aerodynamics Intern", href: "/projects/cu-boulder", accent: "gold" },
@@ -128,6 +130,7 @@ const projects = [
         section.append(link);
       });
     </script>
+    <CloudflareAnalytics />
   </body>
 </html>
 
