@@ -187,9 +187,14 @@ const project = projects[Astro.params.slug];
               </div>
             </article>
             <article class="project-row kwf-mesh-row">
-              <div class="project-copy"><p>In CFD, reliable solutions come from a well-defined domain and mesh. I set up both OpenFOAM and SimScale to use steady-state RANS with the k–ω SST turbulence model. Local hardware constraints limited the OpenFOAM mesh to approximately 3.2 million cells. SimScale's cloud-based resources enabled a substantially refined 80-million-cell mesh. Near-wall inflation layers and y<sup>+</sup> verification were used to ensure adequate resolution of the boundary layer.</p></div>
-              <figure class="kwf-mesh-image"><img src="/images/eagle-ray-openfoam-y-plus-v5.png" alt="Eagle Ray OpenFOAM y-plus visualization with a color scale from 0 to 30" loading="lazy" /></figure>
-              <figure class="kwf-mesh-image"><img src="/images/eagle-ray-simscale-y-plus-v4.png" alt="Eagle Ray aircraft CFD surface y-plus visualization with color scale" loading="lazy" /></figure>
+              <div class="project-copy">
+                <p>In CFD, reliable solutions come from a well-defined domain and mesh.</p>
+                <p>To speed up the solver, I modeled half of the aircraft with a symmetry boundary condition along the x-z plane.</p>
+                <p>One measure of mesh quality is y<sup>+</sup>, which indicates how well the mesh resolves flow near the aircraft surface. Typically, a y<sup>+</sup> of around 1 is desired. Results from 15° AoA are shown on the right.</p>
+                <p>Each setup used steady-state RANS with the k–ω SST turbulence model.</p>
+              </div>
+              <figure class="kwf-mesh-image"><img src="/images/eagle-ray-openfoam-y-plus-v5.png" alt="Eagle Ray OpenFOAM y-plus visualization with a color scale from 0 to 30" loading="lazy" /><figcaption><strong>OpenFOAM:</strong> Local hardware constraints limited mesh refinement, resulting in higher and more variable y<sup>+</sup>.</figcaption></figure>
+              <figure class="kwf-mesh-image"><img src="/images/eagle-ray-simscale-y-plus-v4.png" alt="Eagle Ray aircraft CFD surface y-plus visualization with color scale" loading="lazy" /><figcaption><strong>SimScale:</strong> Cloud computing enabled greater mesh refinement, producing lower and more uniform y<sup>+</sup>.</figcaption></figure>
             </article>
           </>
         ) : project.paragraphs[1] ? (
@@ -246,10 +251,10 @@ const project = projects[Astro.params.slug];
   .kwf-introduction{width:100%;max-width:1320px;margin:28px auto 18px;text-align:center;font-size:clamp(16px,1.4vw,21px);line-height:1.6;color:var(--ink)}
   .project-cu-boulder .kwf-mesh-row{width:100%;margin-inline:auto;border-top:1px solid var(--line);grid-template-columns:minmax(0,1fr) minmax(0,.95fr) minmax(0,.9fr);gap:28px}
   .kwf-mesh-image{margin:0;justify-self:center;width:100%}
-  .kwf-mesh-image:last-child{position:relative;top:-4px}
-  .kwf-mesh-image:last-child img{transform:scale(1.06)}
+  .kwf-mesh-image:last-child img{transform:translateY(-10px) scale(1.10)}
+  .kwf-mesh-image figcaption{margin-top:24px;color:var(--ink);font-size:clamp(14px,1.2vw,17px);line-height:1.6;text-align:center}
   .kwf-mesh-image img{display:block;width:100%;height:500px;object-fit:contain;mix-blend-mode:lighten}
-  .kwf-internship-title{margin:48px 0 24px;text-align:center;font:400 clamp(30px,3vw,44px)/1.1 "Instrument Serif",serif;letter-spacing:-.04em;color:var(--ink)}
+  .kwf-internship-title{margin:76px 0 24px;text-align:center;font:400 clamp(30px,3vw,44px)/1.1 "Instrument Serif",serif;letter-spacing:-.04em;color:var(--ink)}
   .analysis-number{transform:translateX(-8px);align-self:center;text-align:center;color:var(--teal);font-size:34px}
   .analysis-logos{width:100%;justify-self:start;display:grid}
   .analysis-logos>div{min-height:144px;display:grid;grid-template-columns:26px minmax(90px,1fr) minmax(0,1.2fr);align-items:center;gap:18px;padding:24px 0}
