@@ -100,7 +100,7 @@ const project = projects[Astro.params.slug];
         <h1>{project.title}</h1>
       </section>
       <section class="project-content" aria-label={`${project.title} project details`}>
-        {Astro.params.slug === "cu-boulder" && <p class="kwf-introduction">A nonprofit organization bringing together a global team to develop innovative solutions for wildlife conservation.</p>}
+        {Astro.params.slug === "cu-boulder" && <p class="kwf-introduction"><strong>A nonprofit organization bringing together a global team to develop innovative solutions for wildlife conservation.</strong></p>}
         {Astro.params.slug === "cu-boulder" ? (
           <article class="project-row kwf-aircraft-row">
             <div class="project-copy"><h2>Project Eagle Ray</h2><p>The Eagle Ray aircraft is a blended-wing body UAS designed to fly over the Himalayan Mountain Range at 20,000 feet. The goal is to monitor endangered snow leopard populations, eventually offering protective solutions to poaching, habitat destruction, and dwindling populations.</p></div>
