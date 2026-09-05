@@ -100,6 +100,7 @@ const project = projects[Astro.params.slug];
         <h1>{project.title}</h1>
       </section>
       <section class="project-content" aria-label={`${project.title} project details`}>
+        {Astro.params.slug === "cu-boulder" && <p class="kwf-introduction">A nonprofit organization bringing together a global team to develop innovative solutions for wildlife conservation.</p>}
         {Astro.params.slug === "cu-boulder" ? (
           <article class="project-row kwf-aircraft-row">
             <div class="project-copy"><h2>Project Eagle Ray</h2><p>The Eagle Ray aircraft is a blended-wing body UAS designed to fly over the Himalayan Mountain Range at 20,000 feet. The goal is to monitor endangered snow leopard populations, eventually offering protective solutions to poaching, habitat destruction, and dwindling populations.</p></div>
@@ -177,13 +178,17 @@ const project = projects[Astro.params.slug];
             </section>
             <article class="project-row kwf-snow-row">
               <div class="project-copy">
-                <p>To analyze the aerodynamic performance of the newest design, I cross-validated results across multiple analysis tools, prioritizing open-source software to support KWF's nonprofit mission.</p>
+                <p>To analyze the aerodynamic performance for the newest design of Eagle Ray, I cross-referenced results across multiple analysis tools, prioritizing open-source software to support KWF's nonprofit mission. I aimed to develop a CFD workflow using hardware readily accessible to my teammates—a standard laptop.</p>
               </div>
               <div class="analysis-logos" aria-label="Aerodynamic analysis tools">
-                <div><img src="/images/openvsp-logo.png" alt="OpenVSP" loading="lazy" /><p>1. Utilized the Vortex Lattice Method to provide a computationally efficient baseline.</p></div>
-                <div><img src="/images/openfoam-logo.png" alt="OpenFOAM" loading="lazy" /><p>2. Expanded the analysis to higher-fidelity CFD to capture viscous flow effects.</p></div>
-                <div><img src="/images/simscale-logo.svg" alt="SimScale" loading="lazy" /><p>3. Validated results through higher-resolution mesh refinement on a robust cloud-based platform.</p></div>
+                <div><span class="analysis-number">1</span><img src="/images/openvsp-logo.png" alt="OpenVSP" loading="lazy" /><p>Utilized the Vortex Lattice Method to provide a computationally efficient baseline.</p></div>
+                <div><span class="analysis-number">2</span><img src="/images/openfoam-logo.png" alt="OpenFOAM" loading="lazy" /><p>Expanded the analysis to higher-fidelity CFD to capture viscous flow effects.</p></div>
+                <div><span class="analysis-number">3</span><img src="/images/simscale-logo.svg" alt="SimScale" loading="lazy" /><p>Validated results through higher-resolution mesh refinement on a robust cloud-based platform.</p></div>
               </div>
+            </article>
+            <article class="project-row kwf-mesh-row">
+              <div class="project-copy"><p>In CFD, reliable solutions come from a well-defined domain and mesh. I set up both OpenFOAM and SimScale to use steady-state RANS with the k–ω SST turbulence model. Local hardware constraints limited the OpenFOAM mesh to approximately 3.2 million cells. SimScale's cloud-based resources enabled a substantially refined 80-million-cell mesh. Near-wall inflation layers and y<sup>+</sup> verification were used to ensure adequate resolution of the boundary layer.</p></div>
+              <figure class="kwf-mesh-image"><img src="/images/eagle-ray-y-plus.png" alt="Eagle Ray aircraft CFD surface y-plus visualization with color scale" loading="lazy" /></figure>
             </article>
           </>
         ) : project.paragraphs[1] ? (
@@ -241,8 +246,13 @@ const project = projects[Astro.params.slug];
   .project-cu-boulder .kwf-aircraft-row .second-media{justify-self:end}
   .project-cu-boulder .kwf-snow-row{width:min(1180px,100%);margin-inline:auto;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr)}
   .project-cu-boulder .second-media{width:min(100%,752px);height:auto;aspect-ratio:1815/867;justify-self:center}
+  .kwf-introduction{max-width:1000px;margin:28px auto 18px;text-align:center;font-size:clamp(18px,1.6vw,23px);line-height:1.6;color:var(--ink)}
+  .kwf-mesh-row{width:min(1180px,100%);margin-inline:auto;border-top:1px solid var(--line)}
+  .kwf-mesh-image{margin:0;justify-self:center;width:min(100%,350px)}
+  .kwf-mesh-image img{display:block;width:100%;height:auto;mix-blend-mode:lighten}
+  .analysis-number{align-self:center;text-align:center;color:var(--teal);font-size:22px}
   .analysis-logos{width:100%;justify-self:start;display:grid}
-  .analysis-logos>div{min-height:126px;display:grid;grid-template-columns:minmax(100px,.8fr) minmax(0,1.2fr);align-items:center;gap:24px;padding:22px 0}
+  .analysis-logos>div{min-height:126px;display:grid;grid-template-columns:20px minmax(80px,.8fr) minmax(0,1.2fr);align-items:center;gap:16px;padding:22px 0}
   .analysis-logos>div+div{border-top:1px solid var(--line)}
   .analysis-logos p{margin:0;color:var(--ink);font-size:clamp(15px,1.15vw,18px);line-height:1.6}
   .analysis-logos img{display:block;width:100%;max-width:320px;max-height:80px;object-fit:contain}
