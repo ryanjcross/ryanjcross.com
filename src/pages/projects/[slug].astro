@@ -102,7 +102,7 @@ const project = projects[Astro.params.slug];
       <section class="project-content" aria-label={`${project.title} project details`}>
         {Astro.params.slug === "cu-boulder" ? (
           <article class="project-row kwf-aircraft-row">
-            <div class="project-copy"><h2>Project Eagle Ray</h2><p>The Eagle Ray aircraft is a blended-wing body UAS designed to fly over the Himalayan Mountain Range at 20,000 feet. The goal is to monitor endangered snow leopard populations, eventually offering protective solutions to poaching and habitat destruction.</p></div>
+            <div class="project-copy"><h2>Project Eagle Ray</h2><p>The Eagle Ray aircraft is a blended-wing body UAS designed to fly over the Himalayan Mountain Range at 20,000 feet. The goal is to monitor endangered snow leopard populations, eventually offering protective solutions to poaching, habitat destruction, and dwindling populations.</p></div>
             <figure class="project-media second-media dimensioned-media">
               <img src={project.secondImage} alt={project.secondImageAlt} />
               <svg class="wingspan-dimension" viewBox="0 0 1815 867" role="img" aria-label="Wingspan: 6 meters">
@@ -190,7 +190,7 @@ const project = projects[Astro.params.slug];
                 </svg>
               )}
             </figure>
-            <div class="project-copy"><h2>Project Eagle Ray</h2><p>The Eagle Ray aircraft is a blended-wing body UAS designed to fly over the Himalayan Mountain Range at 20,000 feet. The goal is to monitor endangered snow leopard populations, eventually offering protective solutions to poaching and habitat destruction.</p></div>
+            <div class="project-copy"><p>{project.paragraphs[1]}</p></div>
           </article>
         ) : null}
       </section>
@@ -217,7 +217,7 @@ const project = projects[Astro.params.slug];
   .project-hero{position:relative;height:clamp(300px,38svh,470px);overflow:hidden;background:#17201c}
   .project-hero>img{width:100%;height:100%;object-fit:cover;object-position:var(--hero-position);filter:saturate(.88)}
   .project-kairos-power .project-hero{background:#0d191b}
-  .project-kairos-power .project-hero>img{object-fit:contain;object-position:center;filter:none}
+  .project-kairos-power .project-hero>img{object-fit:cover;object-position:center;filter:none}
   .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,8,.18),rgba(7,9,8,.68))}
   h1{position:absolute;z-index:2;top:50%;left:50%;width:min(92%,1100px);margin:0;transform:translate(-50%,-50%);color:var(--ink);font:400 clamp(48px,6.5vw,92px)/.9 "Instrument Serif",serif;letter-spacing:-.055em;text-align:center;text-shadow:0 4px 26px rgba(0,0,0,.75)}
   .project-content{width:min(1200px,calc(100% - 48px));margin:0 auto;padding:8px 0 clamp(38px,5vw,72px)}
