@@ -178,12 +178,11 @@ const project = projects[Astro.params.slug];
             <article class="project-row kwf-snow-row">
               <div class="project-copy">
                 <p>To analyze the aerodynamic performance of the newest design, I cross-validated results across multiple analysis tools, prioritizing open-source software to support KWF's nonprofit mission.</p>
-                <p><strong>OpenVSP's</strong> Vortex Lattice Method provided a computationally efficient baseline, with <strong>OpenFOAM</strong> serving as a higher-fidelity CFD benchmark. <strong>SimScale</strong>, a robust cloud-based CFD platform offered through my university, enabled the highest-fidelity comparison and final validation of aerodynamic results.</p>
               </div>
               <div class="analysis-logos" aria-label="Aerodynamic analysis tools">
-                <div><img src="/images/openvsp-logo.png" alt="OpenVSP" loading="lazy" /></div>
-                <div><img src="/images/openfoam-logo.png" alt="OpenFOAM" loading="lazy" /></div>
-                <div><img src="/images/simscale-logo.svg" alt="SimScale" loading="lazy" /></div>
+                <div><img src="/images/openvsp-logo.png" alt="OpenVSP" loading="lazy" /><p>1. Utilized the Vortex Lattice Method to provide a computationally efficient baseline.</p></div>
+                <div><img src="/images/openfoam-logo.png" alt="OpenFOAM" loading="lazy" /><p>2. Expanded the analysis to higher-fidelity CFD to capture viscous flow effects.</p></div>
+                <div><img src="/images/simscale-logo.svg" alt="SimScale" loading="lazy" /><p>3. Validated results through higher-resolution mesh refinement on a robust cloud-based platform.</p></div>
               </div>
             </article>
           </>
@@ -242,9 +241,10 @@ const project = projects[Astro.params.slug];
   .project-cu-boulder .kwf-aircraft-row .second-media{justify-self:end}
   .project-cu-boulder .kwf-snow-row{width:min(1180px,100%);margin-inline:auto;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr)}
   .project-cu-boulder .second-media{width:min(100%,752px);height:auto;aspect-ratio:1815/867;justify-self:center}
-  .analysis-logos{width:min(100%,420px);justify-self:center;display:grid}
-  .analysis-logos>div{height:126px;display:grid;place-items:center;padding:22px 30px}
+  .analysis-logos{width:100%;justify-self:start;display:grid}
+  .analysis-logos>div{min-height:126px;display:grid;grid-template-columns:minmax(100px,.8fr) minmax(0,1.2fr);align-items:center;gap:24px;padding:22px 0}
   .analysis-logos>div+div{border-top:1px solid var(--line)}
+  .analysis-logos p{margin:0;color:var(--ink);font-size:clamp(15px,1.15vw,18px);line-height:1.6}
   .analysis-logos img{display:block;width:100%;max-width:320px;max-height:80px;object-fit:contain}
   .analysis-logos>div:nth-child(2) img{filter:brightness(0) invert(1);max-width:285px}
   .dimensioned-media{position:relative}
