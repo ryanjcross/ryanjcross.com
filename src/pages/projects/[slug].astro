@@ -196,6 +196,9 @@ const project = projects[Astro.params.slug];
               <figure class="kwf-mesh-image"><img src="/images/eagle-ray-openfoam-y-plus-v5.png" alt="Eagle Ray OpenFOAM y-plus visualization with a color scale from 0 to 30" loading="lazy" /><figcaption><strong>OpenFOAM:</strong> Local hardware constraints limited mesh refinement, resulting in higher and more variable y<sup>+</sup>.</figcaption></figure>
               <figure class="kwf-mesh-image"><img src="/images/eagle-ray-simscale-y-plus-v4.png" alt="Eagle Ray aircraft CFD surface y-plus visualization with color scale" loading="lazy" /><figcaption><strong>SimScale:</strong> Cloud computing enabled greater mesh refinement, producing lower and more uniform y<sup>+</sup>.</figcaption></figure>
             </article>
+            <section class="kwf-results" aria-labelledby="kwf-results-title">
+              <h2 id="kwf-results-title">Results</h2>
+            </section>
           </>
         ) : project.paragraphs[1] ? (
           <article class="project-row">
@@ -251,8 +254,11 @@ const project = projects[Astro.params.slug];
   .kwf-introduction{width:100%;max-width:1320px;margin:28px auto 18px;text-align:center;font-size:clamp(16px,1.4vw,21px);line-height:1.6;color:var(--ink)}
   .project-cu-boulder .kwf-mesh-row{width:100%;margin-inline:auto;border-top:1px solid var(--line);grid-template-columns:minmax(0,1fr) minmax(0,.95fr) minmax(0,.9fr);gap:28px}
   .kwf-mesh-image{margin:0;justify-self:center;width:100%}
-  .kwf-mesh-image:last-child img{transform:translateY(-10px) scale(1.10)}
-  .kwf-mesh-image figcaption{margin-top:24px;color:var(--ink);font-size:clamp(14px,1.2vw,17px);line-height:1.6;text-align:center}
+  .kwf-mesh-image:last-child img{transform:translateY(-18px) scale(1.10)}
+  .kwf-mesh-image figcaption{margin-top:0;color:var(--ink);font-size:clamp(14px,1.2vw,17px);line-height:1.6;text-align:center}
+  .kwf-mesh-image:last-child figcaption{transform:translateX(12px)}
+  .kwf-results{margin-top:32px;padding:44px 0 60px;border-top:1px solid var(--line)}
+  .kwf-results h2{text-align:center;font:400 clamp(30px,3vw,44px)/1.1 "Instrument Serif",serif;letter-spacing:-.04em;color:var(--ink)}
   .kwf-mesh-image img{display:block;width:100%;height:500px;object-fit:contain;mix-blend-mode:lighten}
   .kwf-internship-title{margin:76px 0 24px;text-align:center;font:400 clamp(30px,3vw,44px)/1.1 "Instrument Serif",serif;letter-spacing:-.04em;color:var(--ink)}
   .analysis-number{transform:translateX(-8px);align-self:center;text-align:center;color:var(--teal);font-size:34px}
