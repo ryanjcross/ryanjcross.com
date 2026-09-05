@@ -186,7 +186,7 @@ const project = projects[Astro.params.slug];
             </article>
             <article class="project-row kwf-mesh-row">
               <div class="project-copy"><p>In CFD, reliable solutions come from a well-defined domain and mesh. I set up both OpenFOAM and SimScale to use steady-state RANS with the k–ω SST turbulence model. Local hardware constraints limited the OpenFOAM mesh to approximately 3.2 million cells. SimScale's cloud-based resources enabled a substantially refined 80-million-cell mesh. Near-wall inflation layers and y<sup>+</sup> verification were used to ensure adequate resolution of the boundary layer.</p></div>
-              <figure class="kwf-mesh-image"><img src="/images/eagle-ray-openfoam-y-plus-v2.png" alt="Eagle Ray OpenFOAM y-plus visualization with a color scale from 0 to 30" loading="lazy" /></figure>
+              <figure class="kwf-mesh-image"><img src="/images/eagle-ray-openfoam-y-plus-v3.png" alt="Eagle Ray OpenFOAM y-plus visualization with a color scale from 0 to 30" loading="lazy" /></figure>
               <figure class="kwf-mesh-image"><img src="/images/eagle-ray-y-plus.png" alt="Eagle Ray aircraft CFD surface y-plus visualization with color scale" loading="lazy" /></figure>
             </article>
           </>
@@ -245,13 +245,13 @@ const project = projects[Astro.params.slug];
   .project-cu-boulder .kwf-mesh-row{width:100%;margin-inline:auto;border-top:1px solid var(--line);grid-template-columns:minmax(0,1fr) minmax(0,1.05fr) minmax(0,.8fr);gap:28px}
   .kwf-mesh-image{margin:0;justify-self:center;width:100%}
   .kwf-mesh-image img{display:block;width:100%;height:500px;object-fit:contain;mix-blend-mode:lighten}
-  .analysis-number{align-self:center;text-align:center;color:var(--teal);font-size:30px}
+  .analysis-number{align-self:center;text-align:center;color:var(--teal);font-size:34px}
   .analysis-logos{width:100%;justify-self:start;display:grid}
-  .analysis-logos>div{min-height:126px;display:grid;grid-template-columns:20px minmax(80px,.8fr) minmax(0,1.2fr);align-items:center;gap:16px;padding:22px 0}
+  .analysis-logos>div{min-height:144px;display:grid;grid-template-columns:26px minmax(90px,1fr) minmax(0,1.2fr);align-items:center;gap:18px;padding:24px 0}
   .analysis-logos>div+div{border-top:1px solid var(--line)}
-  .analysis-logos p{margin:0;color:var(--ink);font-size:clamp(15px,1.15vw,18px);line-height:1.6}
-  .analysis-logos img{display:block;width:100%;max-width:320px;max-height:80px;object-fit:contain}
-  .analysis-logos>div:nth-child(2) img{filter:brightness(0) invert(1);max-width:285px}
+  .analysis-logos p{margin:0;color:var(--ink);font-size:clamp(16px,1.3vw,20px);line-height:1.6}
+  .analysis-logos img{display:block;width:100%;max-width:360px;max-height:96px;object-fit:contain}
+  .analysis-logos>div:nth-child(2) img{filter:brightness(0) invert(1);max-width:330px}
   .dimensioned-media{position:relative}
   .project-cu-boulder .dimensioned-media{background:transparent;border:0}
   .project-cu-boulder .dimensioned-media>img{mix-blend-mode:lighten}
