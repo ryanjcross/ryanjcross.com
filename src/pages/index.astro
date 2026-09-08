@@ -31,14 +31,14 @@ const projects = [
         const photoTimeline = document.createElement("div");
         photoTimeline.className = "photo-timeline";
         photoTimeline.innerHTML = `
-          <figure class="photo-milestone"><div class="moment-year"><span>2012</span></div><img src="/images/arizona-cardinals-fan.jpg" alt="Ryan attending an Arizona Cardinals game as a child" /><figcaption><span class="moment-number">01</span><h3>Arizona Cardinals Fan</h3><p>Hardest job I've ever had</p></figcaption></figure>
-          <figure class="photo-milestone"><div class="moment-year"><span>2021</span></div><div class="moment-photo-placeholder" aria-label="Photo placeholder"></div><figcaption><span class="moment-number">02</span><h3>CU Boulder</h3><p>An aerospace engineering foundation.</p></figcaption></figure>
-          <figure class="photo-milestone"><div class="moment-year"><span>2023</span></div><div class="moment-photo-placeholder" aria-label="Photo placeholder"></div><figcaption><span class="moment-number">03</span><h3>Design, Build, Fly</h3><p>Hands-on engineering and leadership.</p></figcaption></figure>
-          <figure class="photo-milestone"><div class="moment-year"><span>2024</span></div><div class="moment-photo-placeholder" aria-label="Photo placeholder"></div><figcaption><span class="moment-number">04</span><h3>Sierra Space</h3><p>Systems engineering in aerospace.</p></figcaption></figure>
-          <figure class="photo-milestone"><div class="moment-year"><span>2025</span></div><div class="moment-photo-placeholder" aria-label="Photo placeholder"></div><figcaption><span class="moment-number">05</span><h3>Kairos Power</h3><p>Turning clear data into useful decisions.</p></figcaption></figure>
-          <figure class="photo-milestone"><div class="moment-year"><span>2025</span></div><div class="moment-photo-placeholder" aria-label="Photo placeholder"></div><figcaption><span class="moment-number">06</span><h3>College Graduation</h3><p>Years of hard work, growth, and teamwork.</p></figcaption></figure>
-          <figure class="photo-milestone graduate-milestone"><div class="moment-year"><span>2025</span></div><div class="moment-photo-placeholder" aria-label="Photo placeholder"></div><figcaption><span class="moment-number">07</span><h3>First Day of Graduate School</h3><p>Ready to deepen my understanding of fluid analysis.</p></figcaption></figure>
-          <figure class="photo-milestone future-photo-milestone"><div class="moment-year"><span>Future</span></div><div class="moment-photo-placeholder" aria-label="Photo placeholder"></div><figcaption><span class="moment-number">08</span><h3>Whatever Comes Next</h3><p>Excited for the journey ahead.</p></figcaption></figure>`;
+          <figure class="photo-milestone"><div class="moment-year"><span>2012</span></div><img src="/images/arizona-cardinals-fan.jpg" alt="Ryan attending an Arizona Cardinals game as a child" loading="lazy" decoding="async" /><figcaption><span class="moment-number">01</span><h3>Arizona Cardinals Fan</h3><p>Hardest job I've ever had</p></figcaption></figure>
+          <figure class="photo-milestone marching-band-milestone"><div class="moment-year"><span>2018</span></div><img src="/images/summary-marching-band.jpg" alt="Ryan performing with his marching band" loading="lazy" decoding="async" /><figcaption><span class="moment-number">02</span><h3>Marching Band</h3><p>Following in the footsteps of my sister</p></figcaption></figure>
+          <figure class="photo-milestone home-depot-milestone"><div class="moment-year"><span>2020</span></div><img src="/images/summary-home-depot.jpg" alt="Ryan working at a Home Depot checkout during COVID-19" loading="lazy" decoding="async" /><figcaption><span class="moment-number">03</span><h3>Home Depot</h3><p>Even in the peak of COVID-19 I worked—I was a doer.</p></figcaption></figure>
+          <figure class="photo-milestone ultimate-frisbee-milestone"><div class="moment-year"><span>2022</span></div><img src="/images/summary-ultimate-frisbee.jpg" alt="Ryan running with a disc during an ultimate frisbee game" loading="lazy" decoding="async" /><figcaption><span class="moment-number">04</span><h3>Ultimate Frisbee</h3><p>The start of my frisbee career, continuing play into college.</p></figcaption></figure>
+          <figure class="photo-milestone paddleboard-milestone"><div class="moment-year"><span>2023</span></div><img src="/images/summary-rocky-mountain-paddleboard.jpg" alt="Ryan leading a paddleboard group on a lake" loading="lazy" decoding="async" /><figcaption><span class="moment-number">05</span><h3>Rocky Mountain Paddleboard</h3><p>Meeting faces I'll never forget</p></figcaption></figure>
+          <figure class="photo-milestone dbf-summary-milestone"><div class="moment-year"><span>2025</span></div><img src="/images/summary-dbf-test-stand.jpg" alt="Ryan beside a Design Build Fly propulsion test stand" loading="lazy" decoding="async" /><figcaption><span class="moment-number">06</span><h3>Design Build Fly</h3><p>Propulsion team lead</p></figcaption></figure>
+          <figure class="photo-milestone graduation-milestone"><div class="moment-year"><span>2026</span></div><img src="/images/summary-graduation-with-mom.jpg" alt="Ryan celebrating graduation with his mother" loading="lazy" decoding="async" /><figcaption><span class="moment-number">07</span><h3>Graduation</h3><p>Doing it with the ones who support me the most</p></figcaption></figure>
+          <figure class="photo-milestone graduate-school-milestone"><div class="moment-year"><span>2026</span></div><img src="/images/summary-first-day-graduate-school.jpg" alt="Ryan on his first day of graduate school" loading="lazy" decoding="async" /><figcaption><span class="moment-number">08</span><h3>First Day of Graduate School</h3><p>Excited to see where I can go from here</p></figcaption></figure>`;
         timelineHost.insertBefore(photoTimeline, timelineSvg);
       }
       const sixthArtwork = timelineSvg?.querySelector(".timeline-hexes rect");
@@ -522,9 +522,13 @@ const projects = [
       box-shadow: 0 15px 34px rgba(0, 0, 0, .42) !important;
     }
   }
-  .summary-timeline .graduate-milestone > img {
-    object-position: center 38% !important;
-  }
+  .summary-timeline .marching-band-milestone > img { object-position: center 45% !important; }
+  .summary-timeline .home-depot-milestone > img { object-position: center 42% !important; }
+  .summary-timeline .ultimate-frisbee-milestone > img { object-position: 55% center !important; }
+  .summary-timeline .paddleboard-milestone > img { object-position: 58% 58% !important; }
+  .summary-timeline .dbf-summary-milestone > img { object-position: 58% center !important; }
+  .summary-timeline .graduation-milestone > img { object-position: center 42% !important; }
+  .summary-timeline .graduate-school-milestone > img { object-position: center 43% !important; }
   .summary-timeline .photo-milestone figcaption {
     padding: 15px 4px 0 !important;
   }
