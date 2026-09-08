@@ -74,6 +74,11 @@ export function getStaticPaths() {
 }
 
 const project = projects[Astro.params.slug];
+const ndaCompany = Astro.params.slug === "stampede-sky"
+  ? "Sierra Space"
+  : Astro.params.slug === "kairos-power"
+    ? "Kairos Power"
+    : null;
 ---
 
 <!doctype html>
@@ -99,6 +104,9 @@ const project = projects[Astro.params.slug];
         <div class="hero-shade" aria-hidden="true"></div>
         <h1>{project.title}</h1>
       </section>
+      {ndaCompany && (
+        <p class="nda-notice"><em>Non-Disclosure Agreement: I will only disclose non-proprietary information regarding my work at {ndaCompany}. All images are public knowledge.</em></p>
+      )}
       <section class="project-content" aria-label={`${project.title} project details`}>
         {Astro.params.slug === "cu-boulder" && <p class="kwf-introduction"><strong>A nonprofit organization bringing together a global team to develop innovative solutions for wildlife conservation.</strong></p>}
         {Astro.params.slug === "cu-boulder" ? (
@@ -230,12 +238,13 @@ const project = projects[Astro.params.slug];
   .site-header nav{grid-column:2;justify-self:center;display:flex;gap:clamp(15px,2.3vw,30px);font-size:14px}
   .site-header nav a:hover,.site-header nav a[aria-current="page"]{color:var(--teal)}
 
-  .project-hero{position:relative;height:clamp(300px,38svh,470px);overflow:hidden;background:#17201c}
+  .project-hero{position:relative;height:clamp(270px,34.2svh,423px);overflow:hidden;background:#17201c}
   .project-hero>img{width:100%;height:100%;object-fit:cover;object-position:var(--hero-position);filter:saturate(.88)}
   .project-kairos-power .project-hero{background:#0d191b}
   .project-kairos-power .project-hero>img{object-fit:cover;object-position:center;filter:none}
   .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,8,.18),rgba(7,9,8,.68))}
   h1{position:absolute;z-index:2;top:50%;left:50%;width:min(92%,1100px);margin:0;transform:translate(-50%,-50%);color:var(--ink);font:400 clamp(48px,6.5vw,92px)/.9 "Instrument Serif",serif;letter-spacing:-.055em;text-align:center;text-shadow:0 4px 26px rgba(0,0,0,.75)}
+  .nda-notice{width:min(1200px,calc(100% - 48px));margin:clamp(18px,2.5vw,30px) auto 0;color:var(--muted);font-size:14px;line-height:1.55;text-align:left}
   .project-content{width:min(1200px,calc(100% - 48px));margin:0 auto;padding:8px 0 clamp(38px,5vw,72px)}
   .project-row{display:grid;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr);gap:clamp(32px,6vw,82px);align-items:center;padding:clamp(24px,3.5vw,44px) 0}
   .project-row:first-child{padding-top:clamp(18px,2.5vw,30px)}
@@ -299,7 +308,8 @@ const project = projects[Astro.params.slug];
   @media(max-width:720px){
     .project-cu-boulder .kwf-mesh-row{grid-template-columns:1fr}.kwf-mesh-image{max-width:400px}.kwf-mesh-image img{height:auto;max-height:500px}
     .site-header{height:68px;padding:0 18px}.brand-mark{width:34px;height:32px}.brand-mark b,.brand-mark i{top:7px}.brand-mark b{left:5px}.brand-mark i{left:15px}.site-header nav{gap:10px;font-size:11px}
-    .project-hero{height:clamp(260px,38svh,360px)}h1{font-size:clamp(42px,13vw,65px)}
+    .project-hero{height:clamp(234px,34.2svh,324px)}h1{font-size:clamp(42px,13vw,65px)}
+    .nda-notice{width:min(100% - 36px,620px);margin-top:18px;font-size:13px}
     .project-content{width:min(100% - 36px,620px);padding:8px 0 34px}.project-row,.project-cu-boulder .kwf-aircraft-row,.project-cu-boulder .kwf-snow-row{grid-template-columns:1fr;gap:22px;padding:30px 0}.project-row:first-child{padding-top:18px}.project-media{height:240px}.project-project-04 .project-row:first-child{grid-template-columns:1fr}.project-project-04 .project-row:first-child .project-media{width:86%;height:220px}.dbf-story{gap:28px;padding-top:10px}.dbf-year-section{gap:18px;padding-top:18px}.dbf-pair{grid-template-columns:1fr;gap:18px}
     .snow-leopard-reveal{height:clamp(169px,24.7svh,234px);margin-top:8px;margin-bottom:8px}
     .site-footer{grid-template-columns:1fr;gap:14px;text-align:center}.site-footer .footer-socials,.site-footer p{grid-column:1;justify-self:center}.site-footer .footer-socials{gap:18px;font-size:13px}.footer-linkedin-logo{width:20px;height:20px;font-size:13px}

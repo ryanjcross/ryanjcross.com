@@ -7,7 +7,7 @@ import CloudflareAnalytics from "../components/CloudflareAnalytics.astro";
   <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width" /><meta name="description" content="Ryan Cross resume." /><link rel="icon" href="/favicon.svg" /><title>Resume | Ryan Cross</title></head>
   <body>
     <header><a class="brand" href="/" aria-label="Home"><span><b>R</b><i>C</i></span></a><nav aria-label="Primary navigation"><a href="/">Home</a><a href="/projects">Projects</a><a href="/resume" aria-current="page">Resume</a><a href="/about">About</a><a href="/contact">Contact</a></nav></header>
-    <main><img class="resume-image" src="/images/ryan-cross-resume.png" alt="Ryan Cross résumé" /><div class="resume-actions"><a class="resume-action-button" href="/">Home</a><a class="resume-action-button" href="/Ryan-Cross-Resume.pdf" download>Download PDF</a></div></main><footer class="site-footer"><div></div><div class="footer-socials"><a href="https://www.linkedin.com/in/ryan-cross-/" target="_blank" rel="noreferrer"><span class="footer-linkedin-logo">in</span> LinkedIn</a><a href="mailto:ryanc31415@gmail.com">ryanc31415@gmail.com</a></div><p>© {new Date().getFullYear()} Ryan Cross</p></footer>
+    <main><div class="resume-download-row"><a class="resume-action-button" href="/Ryan-Cross-Resume.pdf" download>Download Resume PDF</a></div><img class="resume-image" src="/images/ryan-cross-resume.png" alt="Ryan Cross résumé" /><div class="resume-actions"><a class="resume-action-button" href="/">Home</a></div></main><footer class="site-footer"><div></div><div class="footer-socials"><a href="https://www.linkedin.com/in/ryan-cross-/" target="_blank" rel="noreferrer"><span class="footer-linkedin-logo">in</span> LinkedIn</a><a href="mailto:ryanc31415@gmail.com">ryanc31415@gmail.com</a></div><p>© {new Date().getFullYear()} Ryan Cross</p></footer>
     <CloudflareAnalytics />
   </body>
 </html>
@@ -30,4 +30,7 @@ import CloudflareAnalytics from "../components/CloudflareAnalytics.astro";
   .resume-action-button{display:flex;align-items:center;justify-content:center;gap:18px;width:max-content;min-width:160px;padding:17px 23px;border:1px solid var(--teal);color:var(--ink);font-size:13px;font-weight:600;transition:background .2s,color .2s}.resume-action-button span{color:var(--teal);font-size:18px}.resume-action-button:hover{background:var(--teal);color:var(--bg)}.resume-action-button:hover span{color:inherit}@media(max-width:600px){.resume-action-button{min-width:0;padding:15px 18px;font-size:12px}}
   body,main{background:#202421}
   html,body{overflow-x:clip}
+  main::before{margin-bottom:0}
+  .resume-download-row{display:flex;justify-content:center;margin:55px auto}
+  @media(max-width:600px){main::before{margin-bottom:0}.resume-download-row{margin:38px auto}}
 </style>
