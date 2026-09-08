@@ -12,11 +12,12 @@ import CloudflareAnalytics from "../components/CloudflareAnalytics.astro";
   .about-layout{display:grid;grid-template-columns:minmax(280px,.82fr) minmax(420px,1.18fr);gap:clamp(52px,8vw,130px);width:min(1400px,calc(100% - 48px));margin:0 auto;padding:clamp(24px,3vw,42px) 0 clamp(70px,8vw,110px);align-items:start}
   .about-copy{width:100%;max-width:600px;padding-top:clamp(18px,4vw,60px)}
   .about-photo-stack{display:flex;flex-direction:column;width:100%;padding:20px 0 50px}
-  .about-photo-stack figure{position:relative;width:min(78%,520px);aspect-ratio:4/5;margin:0;overflow:hidden;border:1px solid var(--line);border-radius:24px;background:#17201c;box-shadow:0 22px 46px rgba(0,0,0,.34)}
+  .about-photo-stack figure{position:relative;width:min(52%,300px);aspect-ratio:4/5;margin:0;overflow:hidden;border:1px solid var(--line);border-radius:24px;background:#17201c;box-shadow:0 22px 46px rgba(0,0,0,.34)}
   .about-photo-stack figure+figure{margin-top:-64px}
   .about-photo-stack figure:nth-child(odd){align-self:flex-end}
   .about-photo-stack figure:nth-child(even){align-self:flex-start}
   .about-photo-stack figure:nth-child(1){z-index:1}.about-photo-stack figure:nth-child(2){z-index:2}.about-photo-stack figure:nth-child(3){z-index:3}.about-photo-stack figure:nth-child(4){z-index:4}
   .about-photo-stack img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
-  @media(max-width:850px){.about-layout{grid-template-columns:1fr;gap:34px;width:min(100% - 36px,680px);padding-top:20px}.about-copy{max-width:none;padding-top:0}.about-photo-stack{width:min(100%,560px);margin-inline:auto}.about-photo-stack figure{width:84%;border-radius:20px}.about-photo-stack figure+figure{margin-top:-38px}}
+  .about-photo-stack figure:nth-child(3) img{transform:scale(1.07);transform-origin:left center}
+  @media(max-width:850px){.about-layout{grid-template-columns:1fr;gap:34px;width:min(100% - 36px,680px);padding-top:20px}.about-copy{max-width:none;padding-top:0}.about-photo-stack{width:min(100%,480px);margin-inline:auto}.about-photo-stack figure{width:min(62%,300px);border-radius:20px}.about-photo-stack figure+figure{margin-top:-46px}}
 </style>
