@@ -41,7 +41,7 @@ body:has(.project-grid) .page-heading::before {
 body:has(.about-page) .page-heading::before {
   content: "About Me";
   background-image: linear-gradient(rgba(7, 9, 8, .18), rgba(7, 9, 8, .5)), url("/images/about-wind-river.jpg");
-  background-position: center 65%;
+  background-position: center 60%;
 }
 
 .page-heading > h1 {
@@ -74,6 +74,7 @@ body:has(.about-page) .page-heading::before {
 .contact-page {
   background-color: #252729;
   background-image:
+    radial-gradient(ellipse at 110% 105%, transparent 48%, rgba(184, 197, 192, .025) 54%, transparent 61%),
     radial-gradient(ellipse at 95% 5%, rgba(134, 153, 148, .07), transparent 65%),
     radial-gradient(ellipse at 5% 95%, rgba(136, 140, 161, .055), transparent 65%),
     linear-gradient(135deg, rgba(255, 255, 255, .015), transparent 55%);
