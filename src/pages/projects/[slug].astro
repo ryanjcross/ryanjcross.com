@@ -225,7 +225,7 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
 </html>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=Instrument+Serif:ital@0;1&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Montserrat:ital,wght@0,400;1,400&family=Instrument+Serif:ital@0;1&display=swap");
 
   :root{--bg:#0e100f;--surface:#171a18;--ink:#f2f0e8;--muted:#a7aaa0;--line:rgba(242,240,232,.18);--teal:#6be6d3}
   *{box-sizing:border-box}
@@ -244,12 +244,12 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
   /* Center the circle at source x=800 without changing the cover scale. */
   .project-kairos-power .project-hero>img{object-fit:cover;object-position:center;filter:none;transform:translateX(min(-16.666667cqw,-33.333333cqh))}
   .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,8,.18),rgba(7,9,8,.68))}
-  h1{position:absolute;z-index:2;top:50%;left:50%;width:min(92%,1100px);margin:0;transform:translate(-50%,-50%);color:var(--ink);font:400 clamp(48px,6.5vw,92px)/.9 "DM Serif Display",serif;letter-spacing:-.055em;text-align:center;text-shadow:0 4px 26px rgba(0,0,0,.75)}
+  h1{position:absolute;z-index:2;top:50%;left:50%;width:min(92%,1100px);margin:0;transform:translate(-50%,-50%);color:var(--ink);font:400 clamp(48px,6.5vw,92px)/.9 "Montserrat",sans-serif;letter-spacing:-.055em;text-align:center;text-shadow:0 4px 26px rgba(0,0,0,.75)}
   .nda-notice{width:min(1200px,calc(100% - 48px));margin:clamp(18px,2.5vw,30px) auto 0;color:var(--muted);font-size:14px;line-height:1.55;text-align:left}
   .project-content{width:min(1200px,calc(100% - 48px));margin:0 auto;padding:8px 0 clamp(38px,5vw,72px)}
   .project-row{display:grid;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr);gap:clamp(32px,6vw,82px);align-items:center;padding:clamp(24px,3.5vw,44px) 0}
   .project-row:first-child{padding-top:clamp(18px,2.5vw,30px)}
-  .project-copy h2{margin:0 0 20px;font:400 clamp(30px,3vw,44px)/1.1 "DM Serif Display",serif;letter-spacing:-.04em}
+  .project-copy h2{margin:0 0 20px;font:400 clamp(30px,3vw,44px)/1.1 "Montserrat",sans-serif;letter-spacing:-.04em}
   .project-copy p{margin:0;color:var(--ink);font-size:clamp(16px,1.35vw,20px);line-height:1.62}
   .project-copy p+p{margin-top:16px}
   .project-media{height:clamp(230px,27vw,360px);margin:0;overflow:hidden;background:#222925;border:1px solid var(--line)}
@@ -268,9 +268,9 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
   .kwf-mesh-image figcaption{margin-top:0;color:var(--ink);font-size:clamp(14px,1.2vw,17px);line-height:1.6;text-align:center}
   .kwf-mesh-image:last-child figcaption{transform:translateX(12px)}
   .kwf-results{margin-top:32px;padding:44px 0 60px;border-top:1px solid var(--line)}
-  .kwf-results h2{text-align:center;font:400 clamp(30px,3vw,44px)/1.1 "DM Serif Display",serif;letter-spacing:-.04em;color:var(--ink)}
+  .kwf-results h2{text-align:center;font:400 clamp(30px,3vw,44px)/1.1 "Montserrat",sans-serif;letter-spacing:-.04em;color:var(--ink)}
   .kwf-mesh-image img{display:block;width:100%;height:500px;object-fit:contain;mix-blend-mode:lighten}
-  .kwf-internship-title{margin:76px 0 24px;text-align:center;font:400 clamp(30px,3vw,44px)/1.1 "DM Serif Display",serif;letter-spacing:-.04em;color:var(--ink)}
+  .kwf-internship-title{margin:76px 0 24px;text-align:center;font:400 clamp(30px,3vw,44px)/1.1 "Montserrat",sans-serif;letter-spacing:-.04em;color:var(--ink)}
   .analysis-number{transform:translateX(-8px);align-self:center;text-align:center;color:var(--teal);font-size:34px}
   .analysis-logos{width:100%;justify-self:start;display:grid}
   .analysis-logos>div{min-height:144px;display:grid;grid-template-columns:26px minmax(90px,1fr) minmax(0,1.2fr);align-items:center;gap:18px;padding:24px 0}
