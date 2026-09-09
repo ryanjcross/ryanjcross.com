@@ -26,7 +26,7 @@
   background-position: center;
   background-size: cover;
   color: var(--ink);
-  font: 400 clamp(48px, 6.5vw, 92px)/.9 "Montserrat", sans-serif;
+  font: 400 clamp(48px, 6.5vw, 92px)/.9 "Instrument Serif", serif;
   letter-spacing: -.055em;
   text-align: center;
   text-shadow: 0 4px 26px rgba(0, 0, 0, .75);
@@ -40,8 +40,8 @@ body:has(.project-grid) .page-heading::before {
 
 body:has(.about-page) .page-heading::before {
   content: "About Me";
-  background-image: linear-gradient(rgba(7, 9, 8, .18), rgba(7, 9, 8, .5)), url("/images/about-las-vegas.jpeg");
-  background-position: center 52%;
+  background-image: linear-gradient(rgba(7, 9, 8, .18), rgba(7, 9, 8, .5)), url("/images/about-wind-river.jpg");
+  background-position: center 65%;
 }
 
 .page-heading > h1 {
