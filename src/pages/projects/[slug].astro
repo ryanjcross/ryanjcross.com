@@ -233,7 +233,7 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
               <div class="project-copy"><p>update</p></div>
               <div class="kairos-chart-pair">
                 <figure class="kairos-chart"><img src="/images/kairos-optimization-2d.png" alt="Two-dimensional optimization heatmap with redacted axes" loading="lazy" /></figure>
-                <figure class="kairos-chart"><img src="/images/kairos-optimization-3d.png" alt="Three-dimensional log-error optimization surface with redacted axes" loading="lazy" /></figure>
+                <figure class="kairos-chart"><img src="/images/kairos-optimization-3d-v2.png" alt="Three-dimensional log-error optimization surface with redacted axes" loading="lazy" /></figure>
               </div>
             </section>
           </>
@@ -298,7 +298,7 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
   .kairos-chart img{display:block;width:100%;height:auto}
   .kairos-optimization{padding:clamp(24px,3.5vw,44px) 0}
   .kairos-optimization>.project-copy{text-align:center;margin-bottom:32px}
-  .kairos-chart-pair{display:grid;grid-template-columns:minmax(0,1.43558952fr) minmax(0,2.05fr);gap:28px;align-items:center}
+  .kairos-chart-pair{display:grid;grid-template-columns:minmax(0,1.43558952fr) minmax(0,2.0140647fr);gap:28px;align-items:center}
   @media(max-width:720px){.kairos-chart-pair,.project-row.kairos-replication-row{grid-template-columns:1fr}.kairos-chart-pair img{height:240px;object-fit:contain}}
   .project-cu-boulder .project-content{width:min(1320px,calc(100% - 32px))}
   .project-cu-boulder .kwf-aircraft-row{width:100%;margin-inline:auto;grid-template-columns:minmax(300px,1fr) minmax(0,752px)}
