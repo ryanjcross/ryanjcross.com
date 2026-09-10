@@ -214,13 +214,20 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
             <article class="project-row">
               <div class="project-copy">
                 <p>A key parameter for flow characterization is <strong>void fraction percentage:</strong> the ratio of air to volume. A larger void fraction will decrease the heat transfer coefficient of molten salt, degrading the coolant's ability to remove heat from the fuel rods.</p>
-                <p>The Nuclear Regulatory Commission (NRC) requires a limit on the amount of void fraction present in the coolant for safety precautions. It was my job to develop a method to infer the void fraction within the coolant of Kairos Power's Hermes Test Unit Reactor.</p>
+                <p>The Nuclear Regulatory Commission (NRC) requires a limit on the amount of void fraction present in the coolant. It was my job to develop a method to infer the void fraction within the coolant of Kairos Power's Hermes Test Unit Reactor.</p>
               </div>
-              <figure class="project-media kairos-flow-media"><img src={project.secondImage} alt={project.secondImageAlt} loading="lazy" /></figure>
+              <figure class="kairos-flow-figure">
+                <div class="project-media kairos-flow-media"><img src={project.secondImage} alt={project.secondImageAlt} loading="lazy" /></div>
+                <figcaption><em>Photo by Ryan Cross - A depiction of void fraction</em></figcaption>
+              </figure>
+            </article>
+            <article class="project-row kairos-replication-row">
+              <figure class="kairos-chart"><img src="/images/kairos-flow-replication-v2.png" alt="Theoretical data compared with MATLAB reproduction, with redacted axes" loading="lazy" /></figure>
+              <div class="project-copy"><p>I replicated methods from a verified source to predict two-phase flow behavior with non-fluid properties, pictured on the left. The replication was accurate, and therefore I could apply such methods in the context of my experiment.</p></div>
             </article>
             <article class="project-row">
-              <div class="project-copy"><p>I replicated methods from a verified source to predict two-phase flow behavior with non-fluid properties, pictured on the right. The replication was accurate, and therefore I could apply such methods in the context of my experiment.</p></div>
-              <figure class="kairos-chart"><img src="/images/kairos-flow-replication.png" alt="Source graph and replicated two-phase flow prediction with redacted labels" loading="lazy" /></figure>
+              <div class="project-copy"><p>Text coming soon.</p></div>
+              <div class="kairos-image-placeholder">Image coming soon</div>
             </article>
             <section class="kairos-optimization" aria-label="Two-dimensional and three-dimensional analysis">
               <div class="project-copy"><p>update</p></div>
@@ -281,14 +288,18 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
   .project-kairos-power .project-row:first-of-type .project-media{height:auto;background:#fff}
   .project-kairos-power .project-row:first-of-type .project-media img{display:block;height:auto;object-fit:contain}
   .kairos-bay-reveal-frame{width:100%;height:100%;background-image:url("/images/kairos-san-francisco-bay.jpeg");background-position:center;background-size:cover;background-attachment:fixed;background-repeat:no-repeat}
-  .project-kairos-power .kairos-flow-media{position:relative;height:auto;aspect-ratio:1149/791.2}
-  .project-kairos-power .kairos-flow-media img{position:absolute;bottom:0;display:block;width:100%;height:125%;object-fit:cover}
+  .kairos-flow-figure{margin:0}
+  .kairos-flow-figure figcaption{margin-top:10px;text-align:center;font-size:13px;line-height:1.5;color:var(--muted)}
+  .project-kairos-power .kairos-flow-media{position:relative;height:auto;aspect-ratio:1149/741.75}
+  .project-kairos-power .kairos-flow-media img{position:absolute;bottom:0;display:block;width:100%;height:133.333333%;object-fit:cover}
+  .project-row.kairos-replication-row{grid-template-columns:minmax(340px,1.15fr) minmax(0,.85fr)}
+  .kairos-image-placeholder{display:grid;place-items:center;min-height:280px;border:1px dashed var(--line);color:var(--muted);font-size:14px}
   .kairos-chart{margin:0}
   .kairos-chart img{display:block;width:100%;height:auto}
   .kairos-optimization{padding:clamp(24px,3.5vw,44px) 0}
   .kairos-optimization>.project-copy{text-align:center;margin-bottom:32px}
-  .kairos-chart-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:center}
-  @media(max-width:720px){.kairos-chart-pair{grid-template-columns:1fr}}
+  .kairos-chart-pair{display:grid;grid-template-columns:minmax(0,1.43558952fr) minmax(0,2.05fr);gap:28px;align-items:center}
+  @media(max-width:720px){.kairos-chart-pair,.project-row.kairos-replication-row{grid-template-columns:1fr}.kairos-chart-pair img{height:240px;object-fit:contain}}
   .project-cu-boulder .project-content{width:min(1320px,calc(100% - 32px))}
   .project-cu-boulder .kwf-aircraft-row{width:100%;margin-inline:auto;grid-template-columns:minmax(300px,1fr) minmax(0,752px)}
   .project-cu-boulder .kwf-aircraft-row .second-media{justify-self:end}
