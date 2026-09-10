@@ -6,13 +6,12 @@ const projects = {
     title: "Sierra Space",
     paragraphs: [
       "During my systems engineering internship at Sierra Space, I supported aerospace work through structured analysis, cross-functional coordination, and clear technical communication.",
-      "The experience strengthened my ability to understand complex systems, connect subsystem work to program-level goals, and help engineering teams make well-supported decisions.",
     ],
     heroImage: "/images/sierra-space-dream-chaser.jpg",
     heroAlt: "Sierra Space Dream Chaser spacecraft",
     heroPosition: "center",
-    image: "/images/sierra-space-dream-chaser.jpg",
-    imageAlt: "Sierra Space Dream Chaser spacecraft",
+    image: "/images/ryan-sierra-space.jpeg",
+    imageAlt: "Ryan Cross standing in front of Sierra Space's Dream Chaser spacecraft",
     imagePosition: "center",
     secondImage: "/images/sierra-space-dream-chaser.jpg",
     secondImageAlt: "Sierra Space Dream Chaser spacecraft",
@@ -226,9 +225,10 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
               <div class="project-copy"><p>I replicated methods from a verified source to predict two-phase flow behavior with non-fluid properties, pictured on the left. The replication was accurate, and therefore I could apply such methods in the context of my experiment.</p></div>
             </article>
             <article class="project-row">
-              <div class="project-copy"><p>Text coming soon.</p></div>
-              <div class="kairos-image-placeholder">Image coming soon</div>
+              <div class="project-copy"><p>To validate the results of the theoretical calculation, I switched the fluid properties to that of water, and created an experimental setup that I could physically extract the void fraction data from. I generated bubbles in a tube of water to simulate the coolant, surrounding it with a rectangular prism of water to reduce light refraction.</p></div>
+              <figure class="kairos-chart kairos-experiment-photo"><img src="/images/kairos-physical-tube.png" alt="Water-filled tube with bubbles and a camera used to measure void fraction" loading="lazy" /></figure>
             </article>
+            <figure class="kairos-chart kairos-processing-chart"><img src="/images/kairos-void-fraction-processing.png" alt="Original bubble photograph, image processing with detected bubbles, and a histogram of void fraction parameters" loading="lazy" /></figure>
             <section class="kairos-optimization" aria-label="Two-dimensional and three-dimensional analysis">
               <div class="project-copy"><p>update</p></div>
               <div class="kairos-chart-pair">
@@ -284,6 +284,8 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
   .project-media{height:clamp(230px,27vw,360px);margin:0;overflow:hidden;background:#222925;border:1px solid var(--line)}
   .project-media img{width:100%;height:100%;object-fit:cover;object-position:var(--project-position)}
   .second-media img{object-position:var(--second-position)}
+  .project-stampede-sky .project-media{width:min(100%,400px);height:auto;justify-self:center}
+  .project-stampede-sky .project-media img{display:block;height:auto}
   .project-cu-boulder,.project-kairos-power{overflow:clip}
   .project-kairos-power .project-row:first-of-type .project-media{height:auto;background:#fff}
   .project-kairos-power .project-row:first-of-type .project-media img{display:block;height:auto;object-fit:contain}
@@ -293,7 +295,8 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
   .project-kairos-power .kairos-flow-media{position:relative;height:auto;aspect-ratio:1149/741.75}
   .project-kairos-power .kairos-flow-media img{position:absolute;bottom:0;display:block;width:100%;height:133.333333%;object-fit:cover}
   .project-row.kairos-replication-row{grid-template-columns:minmax(340px,1.15fr) minmax(0,.85fr)}
-  .kairos-image-placeholder{display:grid;place-items:center;min-height:280px;border:1px dashed var(--line);color:var(--muted);font-size:14px}
+  .kairos-experiment-photo{width:min(100%,460px);justify-self:center}
+  .kairos-processing-chart{padding:20px 0 32px}
   .kairos-chart{margin:0}
   .kairos-chart img{display:block;width:100%;height:auto}
   .kairos-optimization{padding:clamp(24px,3.5vw,44px) 0}
