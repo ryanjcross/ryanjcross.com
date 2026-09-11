@@ -32,6 +32,10 @@
   text-shadow: 0 4px 26px rgba(0, 0, 0, .75);
 }
 
+body:has(.project-grid) .page-heading {
+  padding-bottom: clamp(48px, 6vw, 90px);
+}
+
 body:has(.project-grid) .page-heading::before {
   content: "Projects";
   margin-bottom: clamp(32px, 4vw, 46px);
