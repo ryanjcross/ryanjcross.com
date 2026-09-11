@@ -226,12 +226,13 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
             </article>
             <article class="project-row">
               <div class="project-copy">
-                <p>For validation of the theoretical calculation, I switched the fluid properties to that of water, and created an experimental setup that I could physically extract the void fraction data from.</p>
-                <p>For this experiment, I generated bubbles in a tube of water to simulate the coolant, surrounding it with a rectangular prism of water to reduce light refraction.</p>
+                <p>For validation of the theoretical calculation, I created an experimental setup that I could physically extract the void fraction data from.</p>
+                <p>Doing a test with water allowed me to visualize the flow and take pictures to get the true void fraction parameters of this experiment. I performed calculations to map the experimental data of water back to the conditions of molten salt.</p>
+                <p>To simulate the coolant pipes, I generated the void fraction in a tube, but surrounded it with a rectangular prism of water to reduce light refraction. It was a challenge to make the large assembly completely watertight.</p>
               </div>
               <figure class="kairos-chart kairos-experiment-photo"><img src="/images/kairos-physical-tube.png" alt="Water-filled tube with bubbles and a camera used to measure void fraction" loading="lazy" /></figure>
             </article>
-            <div class="project-copy kairos-wide-copy"><p>To gather useable data from this experiment, I needed to take images of the flow with proper background, lighting, and camera settings. I processed the images of the fluid and calculated the true values for the void fraction parameters from the experiment.</p></div>
+            <div class="project-copy kairos-wide-copy"><p>Once I had taken the photos, I used an image processing software to determine key characteristics of the flow. I could then use this data, correlated with additional non-fluid properties, to validate the prediction that was made with the model that I adapted.</p></div>
             <figure class="kairos-chart kairos-processing-chart"><img src="/images/kairos-void-fraction-processing-dark.png" alt="Original bubble photograph, image processing with detected bubbles, and a histogram of void fraction parameters" loading="lazy" /></figure>
             <section class="kairos-optimization" aria-label="Two-dimensional and three-dimensional analysis">
               <div class="project-copy kairos-wide-copy"><p>For the final step, I computed the error between the theoretical model and experimental data to find the most likely case of parameters. I could compare these results to other sets of data to predict the two parameters relating to void fraction.</p></div>
@@ -291,6 +292,8 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
   main:not(.project-project-04) .project-content>.project-row{border-top:1px solid rgba(167,170,160,.38)}
   .project-kairos-power .project-content>.kairos-wide-copy,.project-kairos-power .kairos-optimization{border-top:1px solid rgba(167,170,160,.38);padding-top:32px}
   .project-return{margin-top:28px;padding-top:28px;border-top:1px solid rgba(167,170,160,.38)}
+  .project-kairos-power .project-content,.project-cu-boulder .project-content{padding-bottom:0}
+  .project-kairos-power .project-return,.project-cu-boulder .project-return{padding-block:calc((28px + clamp(38px,5vw,72px))/2)}
   .project-copy h2{margin:0 0 20px;font:400 clamp(30px,3vw,44px)/1.1 "Instrument Serif",serif;letter-spacing:-.04em}
   .project-copy p{margin:0;color:var(--ink);font-size:clamp(16px,1.35vw,20px);line-height:1.62}
   .project-copy p+p{margin-top:16px}
