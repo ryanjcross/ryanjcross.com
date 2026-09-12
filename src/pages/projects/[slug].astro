@@ -203,6 +203,28 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
               <figure class="kwf-mesh-image"><img src="/images/eagle-ray-openfoam-y-plus-v5.png" alt="Eagle Ray OpenFOAM y-plus visualization with a color scale from 0 to 30" loading="lazy" /><figcaption><strong>OpenFOAM:</strong> Local hardware constraints limited mesh refinement, resulting in higher and more variable y<sup>+</sup>.</figcaption></figure>
               <figure class="kwf-mesh-image"><img src="/images/eagle-ray-simscale-y-plus-v4.png" alt="Eagle Ray aircraft CFD surface y-plus visualization with color scale" loading="lazy" /><figcaption><strong>SimScale:</strong> Cloud computing enabled greater mesh refinement, producing lower and more uniform y<sup>+</sup>.</figcaption></figure>
             </article>
+            <section class="kwf-results" aria-labelledby="kwf-results-title">
+              <h2 id="kwf-results-title">Results</h2>
+              <div class="kwf-results-grid">
+                <figure class="kwf-result-plot">
+                  <figcaption>Coefficient of Lift vs. Angle of Attack</figcaption>
+                  <div class="kwf-plot-axes"><span class="kwf-y-label">C<sub>L</sub></span><img src="/images/kwf-results-lift.png" alt="Lift coefficient versus angle of attack for OpenVSP, OpenFOAM, and SimScale" loading="lazy" /><span class="kwf-x-label">AoA [deg]</span></div>
+                </figure>
+                <figure class="kwf-result-plot">
+                  <figcaption>Coefficient of Drag vs. Angle of Attack</figcaption>
+                  <div class="kwf-plot-axes"><span class="kwf-y-label">C<sub>D</sub></span><img src="/images/kwf-results-drag.png" alt="Drag coefficient versus angle of attack for OpenVSP, OpenFOAM, and SimScale" loading="lazy" /><span class="kwf-x-label">AoA [deg]</span></div>
+                </figure>
+                <figure class="kwf-result-plot">
+                  <figcaption>Lift over Drag vs. Angle of Attack</figcaption>
+                  <div class="kwf-plot-axes"><span class="kwf-y-label">L/D</span><img src="/images/kwf-results-lift-drag.png" alt="Lift-to-drag ratio versus angle of attack for OpenVSP, OpenFOAM, and SimScale" loading="lazy" /><span class="kwf-x-label">AoA [deg]</span></div>
+                </figure>
+              </div>
+              <ul class="kwf-results-legend" aria-label="Legend for all three plots">
+                <li><span style="--series-color:#268fce" aria-hidden="true"></span>OpenVSP Vortex Lattice Method</li>
+                <li><span style="--series-color:#ff7925" aria-hidden="true"></span>OpenFOAM CFD</li>
+                <li><span style="--series-color:#ffeb5c" aria-hidden="true"></span>SimScale CFD</li>
+              </ul>
+            </section>
           </>
         ) : Astro.params.slug === "kairos-power" ? (
           <>
@@ -334,6 +356,19 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
   .kwf-mesh-image img{display:block;width:100%;height:500px;object-fit:contain;mix-blend-mode:lighten}
   .project-content>.snow-leopard-reveal{margin-bottom:0}
   .kwf-internship-title{margin:0;padding:50px 0;text-align:center;font:400 clamp(30px,3vw,44px)/1.1 "Instrument Serif",serif;letter-spacing:-.04em;color:var(--ink)}
+  .kwf-results{padding:36px 0 20px;border-top:1px solid rgba(167,170,160,.38)}
+  .kwf-results>h2{margin:0 0 32px;text-align:center;font:400 clamp(30px,3vw,44px)/1.1 "Instrument Serif",serif;letter-spacing:-.04em}
+  .kwf-results-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+  .kwf-result-plot{margin:0;min-width:0;font-family:"DM Sans",sans-serif}
+  .kwf-result-plot figcaption{min-height:3em;margin-bottom:12px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:clamp(15px,1.35vw,19px);line-height:1.5;font-weight:500}
+  .kwf-plot-axes{display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;align-items:center;font-size:14px}
+  .kwf-plot-axes img{display:block;width:100%;height:auto}
+  .kwf-y-label{justify-self:center;white-space:nowrap;transform:rotate(-90deg)}
+  .kwf-x-label{grid-column:2;text-align:center}
+  .kwf-results-legend{display:flex;justify-content:center;flex-wrap:wrap;gap:18px 32px;margin:28px 0 0;padding:0;list-style:none;font-size:14px}
+  .kwf-results-legend li{display:flex;align-items:center;gap:10px}
+  .kwf-results-legend li>span{width:30px;height:3px;background:var(--series-color)}
+  @media(max-width:850px){.kwf-results-grid{grid-template-columns:1fr;gap:28px}.kwf-result-plot{width:min(100%,600px);margin-inline:auto}.kwf-result-plot figcaption{min-height:0}.kwf-results-legend{gap:14px 24px}}
   .analysis-number{transform:translateX(-8px);align-self:center;text-align:center;color:var(--teal);font-size:34px}
   .analysis-logos{width:100%;justify-self:start;display:grid}
   .analysis-logos>div{min-height:144px;display:grid;grid-template-columns:26px minmax(90px,1fr) minmax(0,1.2fr);align-items:center;gap:18px;padding:24px 0}
