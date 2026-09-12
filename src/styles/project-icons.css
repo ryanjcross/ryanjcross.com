@@ -36,28 +36,28 @@
 }
 
 .project-card[href="/projects/kairos-power"] .project-image::before,
-.project-card[href="/projects/stampede-sky"] .project-image::before,
-.project-card[href="/projects/cu-boulder"] .project-image::before {
+.project-card[href="/projects/sierra-space"] .project-image::before,
+.project-card[href="/projects/kashmir-world-foundation"] .project-image::before {
   display: none;
 }
 
-.project-card[href="/projects/stampede-sky"] .project-image {
+.project-card[href="/projects/sierra-space"] .project-image {
   background: url("/images/sierra-space-icon.png") center / cover no-repeat;
 }
 
-.project-card[href="/projects/cu-boulder"] .project-image {
+.project-card[href="/projects/kashmir-world-foundation"] .project-image {
   background: url("/images/kashmir-aircraft-concept.png") center / cover no-repeat;
 }
 
-.project-card[href="/projects/project-04"] .project-image {
+.project-card[href="/projects/design-build-fly"] .project-image {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.project-card[href="/projects/project-04"] .project-image { background-image: url("/images/design-build-fly-01.webp"); }
+.project-card[href="/projects/design-build-fly"] .project-image { background-image: url("/images/design-build-fly-01.webp"); }
 
-.project-card[href="/projects/project-04"] .project-image::before {
+.project-card[href="/projects/design-build-fly"] .project-image::before {
   display: none;
 }
 

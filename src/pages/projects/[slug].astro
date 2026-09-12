@@ -2,7 +2,7 @@
 import CloudflareAnalytics from "../../components/CloudflareAnalytics.astro";
 
 const projects = {
-  "stampede-sky": {
+  "sierra-space": {
     title: "Sierra Space",
     paragraphs: [
       "During my systems engineering internship at Sierra Space, I supported aerospace work through structured analysis, cross-functional coordination, and clear technical communication.",
@@ -32,7 +32,7 @@ const projects = {
     secondImageAlt: "Bubbles illustrating two-phase flow",
     secondImagePosition: "center top",
   },
-  "cu-boulder": {
+  "kashmir-world-foundation": {
     title: "Kashmir World Foundation",
     paragraphs: [
       "During my aerodynamics internship with Kashmir World Foundation, I applied aerospace fundamentals to practical engineering questions and supported technical work through analysis and clear communication.",
@@ -48,7 +48,7 @@ const projects = {
     secondImageAlt: "Aerodynamic aircraft concept for Kashmir World Foundation",
     secondImagePosition: "center",
   },
-  "project-04": {
+  "design-build-fly": {
     title: "Design Build Fly",
     paragraphs: [
       "Every year, AIAA challenges students to show their creativity and technical expertise through the Design Build Fly competition. Rules are released in September with competition taking place in April.",
@@ -67,12 +67,12 @@ const projects = {
 };
 
 export function getStaticPaths() {
-  return ["stampede-sky", "kairos-power", "cu-boulder", "project-04"]
+  return ["sierra-space", "kairos-power", "kashmir-world-foundation", "design-build-fly"]
     .map((slug) => ({ params: { slug } }));
 }
 
 const project = projects[Astro.params.slug];
-const ndaCompany = Astro.params.slug === "stampede-sky"
+const ndaCompany = Astro.params.slug === "sierra-space"
   ? "Sierra Space"
   : Astro.params.slug === "kairos-power"
     ? "Kairos Power"
@@ -107,8 +107,8 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
       )}
       <section class="project-content" aria-label={`${project.title} project details`}>
         {Astro.params.slug === "kairos-power" && <p class="kwf-introduction"><strong>Enabling the world's clean energy transition to improve people's quality of life while protecting the environment.</strong></p>}
-        {Astro.params.slug === "cu-boulder" && <p class="kwf-introduction"><strong>A nonprofit organization bringing together a global team to develop innovative solutions for wildlife conservation.</strong></p>}
-        {Astro.params.slug === "cu-boulder" ? (
+        {Astro.params.slug === "kashmir-world-foundation" && <p class="kwf-introduction"><strong>A nonprofit organization bringing together a global team to develop innovative solutions for wildlife conservation.</strong></p>}
+        {Astro.params.slug === "kashmir-world-foundation" ? (
           <article class="project-row kwf-aircraft-row">
             <div class="project-copy"><h2>Project Eagle Ray</h2><p>The Eagle Ray aircraft is a blended-wing body UAS designed to fly over the Himalayan Mountain Range at 20,000 feet. The goal is to monitor endangered snow leopard populations, eventually offering protective solutions to poaching, habitat destruction, and dwindling populations.</p></div>
             <figure class="project-media second-media dimensioned-media">
@@ -120,13 +120,13 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
           <article class="project-row">
             <div class="project-copy">
               <p>{project.paragraphs[0]}</p>
-              {Astro.params.slug === "project-04" && <p>{project.paragraphs[1]}</p>}
+              {Astro.params.slug === "design-build-fly" && <p>{project.paragraphs[1]}</p>}
             </div>
             <figure class="project-media"><img src={project.image} alt={project.imageAlt} /></figure>
           </article>
         )}
 
-        {Astro.params.slug === "project-04" ? (
+        {Astro.params.slug === "design-build-fly" ? (
           <>
             <section class="dbf-story" aria-label="Design Build Fly experience by year">
               <section class="dbf-year-section" aria-labelledby="dbf-year-2025">
@@ -136,7 +136,7 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
                     <div class="year-image"><img src="/images/dbf-2025-design.png" alt="2025 Design Build Fly aircraft model" /></div>
                   </figure>
                   <div class="dbf-copy">
-                    <p><strong>Goal:</strong> Design an aircraft, incorporated with removeable fuel tanks, to launch an X-1 test vehicle.</p>
+                    <p><strong>Goal: Design an aircraft, incorporated with removeable fuel tanks, to launch an X-1 test vehicle.</strong></p>
                     <p>When I first started, I didn’t know the first thing about RC aircraft design. Terms like <em>ESC</em> and <em>receiver</em> frightened me.</p>
                     <p>So I learned.</p>
                   </div>
@@ -144,7 +144,7 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
                 <div class="dbf-pair">
                   <div class="dbf-copy">
                     <p>I helped configure the avionics for our first prototype—now I know that an ESC regulates the power to the motor. I developed the tail block and sections of the fuselage in OnShape—now I can navigate CAD. I fabricated components using 3D printers, laser cutters, and CNC machines, bringing design to life with CAM.</p>
-                    <p>My first year on CU DBF was also my first exposure to applied, real world engineering. Following competition, I was left wanting more.</p>
+                    <p>My first year on CU DBF was my first exposure to applied, real world engineering. Following competition, I was left wanting more.</p>
                   </div>
                   <figure class="team-feature"><img src={project.secondImage} alt={project.secondImageAlt} /></figure>
                 </div>
@@ -156,7 +156,7 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
                     <div class="year-image"><img src="/images/dbf-2026-design.png" alt="2026 Design Build Fly aircraft model" /></div>
                   </figure>
                   <div class="dbf-copy">
-                    <p><strong>Goal:</strong> Design a banner-towing bush plane fitted with rubber duck passengers and hockey puck payloads.</p>
+                    <p><strong>Goal: Design a banner-towing bush plane fitted with rubber duck passengers and hockey puck payloads.</strong></p>
                     <p>Becoming a leader in engineering can be daunting: one must have technical <em>and</em> interpersonal skills to succeed. In learning and applying both skillsets through DBF, the club I had developed a passion for over the last year, I became energized.</p>
                   </div>
                 </div>
@@ -176,13 +176,14 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
               <a class="back-to-projects" href="/projects">Back to Projects</a>
             </section>
           </>
-        ) : Astro.params.slug === "cu-boulder" ? (
+        ) : Astro.params.slug === "kashmir-world-foundation" ? (
           <>
             <section class="snow-leopard-reveal" aria-label="Snow leopard conservation image reveal">
               <div class="snow-leopard-reveal-frame" aria-hidden="true"></div>
             </section>
             <h2 class="kwf-internship-title">Aerodynamics Internship</h2>
             <article class="project-row kwf-snow-row">
+              <h2 class="kwf-section-title">Approach</h2>
               <div class="project-copy">
                 <p>To analyze the aerodynamic performance for the newest design of Eagle Ray, I cross-referenced results across multiple analysis tools, prioritizing open-source software to support KWF's nonprofit mission.</p>
                 <p>I aimed to develop a CFD workflow using hardware readily accessible to my teammates—a standard laptop.</p>
@@ -194,6 +195,7 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
               </div>
             </article>
             <article class="project-row kwf-mesh-row">
+              <h2 class="kwf-section-title">Setup</h2>
               <div class="project-copy">
                 <p>In CFD, reliable solutions come from a well-defined domain and mesh.</p>
                 <p>To speed up the solver, I modeled half of the aircraft with a symmetry boundary condition along the x-z plane.</p>
@@ -204,26 +206,39 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
               <figure class="kwf-mesh-image"><img src="/images/eagle-ray-simscale-y-plus-v4.png" alt="Eagle Ray aircraft CFD surface y-plus visualization with color scale" loading="lazy" /><figcaption><strong>SimScale:</strong> Cloud computing enabled greater mesh refinement, producing lower and more uniform y<sup>+</sup>.</figcaption></figure>
             </article>
             <section class="kwf-results" aria-labelledby="kwf-results-title">
-              <h2 id="kwf-results-title">Results</h2>
+              <h2 class="kwf-section-title" id="kwf-results-title">Results</h2>
               <div class="kwf-results-grid">
                 <figure class="kwf-result-plot">
-                  <figcaption>Coefficient of Lift vs. Angle of Attack</figcaption>
+                  <figcaption>Lift Coefficient vs. Angle of Attack</figcaption>
                   <div class="kwf-plot-axes"><span class="kwf-y-label">C<sub>L</sub></span><img src="/images/kwf-results-lift.png" alt="Lift coefficient versus angle of attack for OpenVSP, OpenFOAM, and SimScale" loading="lazy" /><span class="kwf-x-label">AoA [deg]</span></div>
                 </figure>
                 <figure class="kwf-result-plot">
-                  <figcaption>Coefficient of Drag vs. Angle of Attack</figcaption>
+                  <figcaption>Drag Coefficient vs. Angle of Attack</figcaption>
                   <div class="kwf-plot-axes"><span class="kwf-y-label">C<sub>D</sub></span><img src="/images/kwf-results-drag.png" alt="Drag coefficient versus angle of attack for OpenVSP, OpenFOAM, and SimScale" loading="lazy" /><span class="kwf-x-label">AoA [deg]</span></div>
                 </figure>
                 <figure class="kwf-result-plot">
-                  <figcaption>Lift over Drag vs. Angle of Attack</figcaption>
-                  <div class="kwf-plot-axes"><span class="kwf-y-label">L/D</span><img src="/images/kwf-results-lift-drag.png" alt="Lift-to-drag ratio versus angle of attack for OpenVSP, OpenFOAM, and SimScale" loading="lazy" /><span class="kwf-x-label">AoA [deg]</span></div>
+                  <figcaption>Pitching Moment Coefficient vs. Angle of Attack</figcaption>
+                  <div class="kwf-plot-axes"><span class="kwf-y-label">C<sub>M</sub></span><img src="/images/kwf-results-pitching-moment.png" alt="Pitching moment coefficient versus angle of attack for OpenVSP, OpenFOAM, and SimScale" loading="lazy" /><span class="kwf-x-label">AoA [deg]</span></div>
                 </figure>
               </div>
-              <ul class="kwf-results-legend" aria-label="Legend for all three plots">
+              <ul class="kwf-results-legend" aria-label="Shared legend for the results plots">
                 <li><span style="--series-color:#268fce" aria-hidden="true"></span>OpenVSP Vortex Lattice Method</li>
                 <li><span style="--series-color:#ff7925" aria-hidden="true"></span>OpenFOAM CFD</li>
                 <li><span style="--series-color:#ffeb5c" aria-hidden="true"></span>SimScale CFD</li>
               </ul>
+              <div class="kwf-results-grid kwf-results-lower">
+                <figure class="kwf-result-plot">
+                  <figcaption>Lift-to-Drag Ratio vs. Angle of Attack</figcaption>
+                  <div class="kwf-plot-axes"><span class="kwf-y-label">L/D</span><img src="/images/kwf-results-lift-drag.png" alt="Lift-to-drag ratio versus angle of attack for OpenVSP, OpenFOAM, and SimScale" loading="lazy" /><span class="kwf-x-label">AoA [deg]</span></div>
+                </figure>
+                <figure class="kwf-result-plot">
+                  <figcaption>Lift-to-Drag Model Error</figcaption>
+                  <div class="kwf-plot-axes"><span class="kwf-y-label">Difference from SimScale [%]</span><img src="/images/kwf-results-model-error.png" alt="Percentage difference from SimScale in lift-to-drag ratio for OpenVSP and OpenFOAM" loading="lazy" /><span class="kwf-x-label">AoA [deg]</span></div>
+                </figure>
+              </div>
+            </section>
+            <section class="kwf-conclusion" aria-labelledby="kwf-conclusion-title">
+              <h2 class="kwf-section-title" id="kwf-conclusion-title">Conclusion</h2>
             </section>
           </>
         ) : Astro.params.slug === "kairos-power" ? (
@@ -267,14 +282,14 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
           </>
         ) : project.paragraphs[1] ? (
           <article class="project-row">
-            <figure class={`project-media second-media ${Astro.params.slug === "cu-boulder" ? "dimensioned-media" : ""}`}>
+            <figure class={`project-media second-media ${Astro.params.slug === "kashmir-world-foundation" ? "dimensioned-media" : ""}`}>
               <img src={project.secondImage} alt={project.secondImageAlt} />
               
             </figure>
             <div class="project-copy"><p>{project.paragraphs[1]}</p></div>
           </article>
         ) : null}
-        {Astro.params.slug !== "project-04" && (
+        {Astro.params.slug !== "design-build-fly" && (
           <div class="project-return">
             <a class="back-to-projects" href="/projects">Back to Projects</a>
           </div>
@@ -311,20 +326,20 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
   .project-content{width:min(1200px,calc(100% - 48px));margin:0 auto;padding:8px 0 clamp(38px,5vw,72px)}
   .project-row{display:grid;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr);gap:clamp(32px,6vw,82px);align-items:center;padding:clamp(24px,3.5vw,44px) 0}
   .project-row:first-child{padding-top:clamp(18px,2.5vw,30px)}
-  main:not(.project-project-04) .project-content>.project-row{border-top:1px solid rgba(167,170,160,.38)}
+  main:not(.project-design-build-fly) .project-content>.project-row{border-top:1px solid rgba(167,170,160,.38)}
   .project-kairos-power .project-content>.kairos-wide-copy,.project-kairos-power .kairos-optimization{border-top:1px solid rgba(167,170,160,.38);padding-top:32px}
   .project-return{margin-top:28px;padding-top:28px;border-top:1px solid rgba(167,170,160,.38)}
-  .project-kairos-power .project-content,.project-cu-boulder .project-content,.project-stampede-sky .project-content{padding-bottom:0}
-  .project-kairos-power .project-return,.project-cu-boulder .project-return,.project-stampede-sky .project-return{padding-block:calc((28px + clamp(38px,5vw,72px))/2)}
+  .project-kairos-power .project-content,.project-kashmir-world-foundation .project-content,.project-sierra-space .project-content{padding-bottom:0}
+  .project-kairos-power .project-return,.project-kashmir-world-foundation .project-return,.project-sierra-space .project-return{padding-block:calc((28px + clamp(38px,5vw,72px))/2)}
   .project-copy h2{margin:0 0 20px;font:400 clamp(30px,3vw,44px)/1.1 "Instrument Serif",serif;letter-spacing:-.04em}
   .project-copy p{margin:0;color:var(--ink);font-size:clamp(16px,1.35vw,20px);line-height:1.62}
   .project-copy p+p{margin-top:16px}
   .project-media{height:clamp(230px,27vw,360px);margin:0;overflow:hidden;background:#222925;border:1px solid var(--line)}
   .project-media img{width:100%;height:100%;object-fit:cover;object-position:var(--project-position)}
   .second-media img{object-position:var(--second-position)}
-  .project-stampede-sky .project-media{width:min(100%,400px);height:auto;justify-self:center}
-  .project-stampede-sky .project-media img{display:block;height:auto}
-  .project-cu-boulder,.project-kairos-power{overflow:clip}
+  .project-sierra-space .project-media{width:min(92%,368px);height:auto;aspect-ratio:69/94;justify-self:center}
+  .project-sierra-space .project-media img{display:block;width:108.695652%;max-width:none;height:auto}
+  .project-kashmir-world-foundation,.project-kairos-power{overflow:clip}
   .project-kairos-power .project-row:first-of-type .project-media{height:auto;background:transparent;border:0}
   .project-kairos-power .project-row:first-of-type .project-media img{display:block;height:auto;object-fit:contain}
   .kairos-bay-reveal-frame{width:100%;height:100%;background-image:url("/images/kairos-san-francisco-bay.jpeg");background-position:center;background-size:cover;background-attachment:fixed;background-repeat:no-repeat}
@@ -342,13 +357,13 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
   .kairos-optimization>.project-copy{text-align:center;margin-bottom:32px}
   .kairos-chart-pair{display:grid;grid-template-columns:minmax(0,1.4355301fr) minmax(0,2.0135747fr);gap:28px;align-items:center}
   @media(max-width:720px){.kairos-chart-pair,.project-row.kairos-replication-row{grid-template-columns:1fr}.kairos-chart-pair img{height:240px;object-fit:contain}}
-  .project-cu-boulder .project-content{width:min(1320px,calc(100% - 32px))}
-  .project-cu-boulder .kwf-aircraft-row{width:100%;margin-inline:auto;grid-template-columns:minmax(300px,1fr) minmax(0,752px)}
-  .project-cu-boulder .kwf-aircraft-row .second-media{justify-self:end}
-  .project-cu-boulder .kwf-snow-row{width:100%;margin-inline:auto;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr)}
-  .project-cu-boulder .second-media{width:min(100%,752px);height:auto;aspect-ratio:1815/867;justify-self:center}
+  .project-kashmir-world-foundation .project-content{width:min(1320px,calc(100% - 32px))}
+  .project-kashmir-world-foundation .kwf-aircraft-row{width:100%;margin-inline:auto;grid-template-columns:minmax(300px,1fr) minmax(0,752px)}
+  .project-kashmir-world-foundation .kwf-aircraft-row .second-media{justify-self:end}
+  .project-kashmir-world-foundation .kwf-snow-row{width:100%;margin-inline:auto;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr)}
+  .project-kashmir-world-foundation .second-media{width:min(100%,752px);height:auto;aspect-ratio:1815/867;justify-self:center}
   .kwf-introduction{width:100%;max-width:1320px;margin:28px auto 18px;text-align:center;font-size:clamp(16px,1.4vw,21px);line-height:1.6;color:var(--ink)}
-  .project-cu-boulder .kwf-mesh-row{width:100%;margin-inline:auto;border-top:1px solid rgba(167,170,160,.38);grid-template-columns:minmax(0,1fr) minmax(0,.95fr) minmax(0,.9fr);gap:28px}
+  .project-kashmir-world-foundation .kwf-mesh-row{width:100%;margin-inline:auto;border-top:1px solid rgba(167,170,160,.38);grid-template-columns:minmax(0,1fr) minmax(0,.95fr) minmax(0,.9fr);gap:28px}
   .kwf-mesh-image{margin:0;justify-self:center;width:100%}
   .kwf-mesh-image:last-child img{transform:translateY(-18px) scale(1.15)}
   .kwf-mesh-image figcaption{margin-top:0;color:var(--ink);font-size:clamp(14px,1.2vw,17px);line-height:1.6;text-align:center}
@@ -357,8 +372,11 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
   .project-content>.snow-leopard-reveal{margin-bottom:0}
   .kwf-internship-title{margin:0;padding:50px 0;text-align:center;font:400 clamp(30px,3vw,44px)/1.1 "Instrument Serif",serif;letter-spacing:-.04em;color:var(--ink)}
   .kwf-results{padding:36px 0 20px;border-top:1px solid rgba(167,170,160,.38)}
-  .kwf-results>h2{margin:0 0 32px;text-align:center;font:400 clamp(30px,3vw,44px)/1.1 "Instrument Serif",serif;letter-spacing:-.04em}
+  .kwf-section-title{grid-column:1/-1;margin:0;text-align:center;font:400 clamp(26px,2.5vw,36px)/1.1 "Instrument Serif",serif;letter-spacing:-.04em}
+  .kwf-results>.kwf-section-title{margin-bottom:32px}
+  .kwf-conclusion{padding:36px 0;border-top:1px solid rgba(167,170,160,.38)}
   .kwf-results-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+  .kwf-results-lower{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:28px}
   .kwf-result-plot{margin:0;min-width:0;font-family:"DM Sans",sans-serif}
   .kwf-result-plot figcaption{min-height:3em;margin-bottom:12px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:clamp(15px,1.35vw,19px);line-height:1.5;font-weight:500}
   .kwf-plot-axes{display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;align-items:center;font-size:14px}
@@ -377,14 +395,14 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
   .analysis-logos img{display:block;width:100%;max-width:360px;max-height:96px;object-fit:contain}
   .analysis-logos>div:nth-child(2) img{filter:brightness(0) invert(1);max-width:330px}
   .dimensioned-media{position:relative}
-  .project-cu-boulder .dimensioned-media{background:transparent;border:0}
-  .project-cu-boulder .dimensioned-media>img{mix-blend-mode:lighten}
+  .project-kashmir-world-foundation .dimensioned-media{background:transparent;border:0}
+  .project-kashmir-world-foundation .dimensioned-media>img{mix-blend-mode:lighten}
   .snow-leopard-reveal{position:relative;width:100vw;height:clamp(195px,24.7svh,305.5px);margin:clamp(12px,2vw,28px) 0 clamp(12px,2vw,28px) calc(50% - 50vw);overflow:hidden;background:#e8ecec}
   .snow-leopard-reveal-frame{width:100%;height:100%;background-image:url("/images/kashmir-snow-leopard-mountain.jpg");background-position:center bottom;background-size:100% auto;background-attachment:fixed;background-repeat:no-repeat}
-  .project-project-04 .project-row:first-child{grid-template-columns:minmax(0,.95fr) minmax(340px,1.05fr);transform:translateY(6px)}
-  .project-project-04 .project-content{padding-bottom:12px}
-  .project-project-04 .project-row:first-child .project-media{width:78%;height:clamp(215px,24vw,325px);justify-self:center}
-  .project-project-04 .project-row:first-child .project-media img{transform:none}
+  .project-design-build-fly .project-row:first-child{grid-template-columns:minmax(0,.95fr) minmax(340px,1.05fr);transform:translateY(6px)}
+  .project-design-build-fly .project-content{padding-bottom:12px}
+  .project-design-build-fly .project-row:first-child .project-media{width:78%;height:clamp(215px,24vw,325px);justify-self:center}
+  .project-design-build-fly .project-row:first-child .project-media img{transform:none}
   .dbf-story{display:grid;gap:32px;padding:4px 0 28px}
   .dbf-year-section{display:grid;gap:24px;padding-top:20px;border-top:1px solid rgba(167,170,160,.38)}
   .dbf-year-title{margin:0;text-align:center;color:var(--ink);font:600 clamp(22px,2.2vw,30px)/1 "DM Sans",sans-serif}
@@ -398,18 +416,18 @@ const ndaCompany = Astro.params.slug === "stampede-sky"
   .dbf-testimonial p+p{margin-top:18px}
   .dbf-testimonial footer{margin-top:22px;color:var(--teal);font-size:14px;font-weight:600;letter-spacing:.04em}
   .back-to-projects{display:block;width:max-content;margin:0 auto;padding:12px 22px;border:1px solid var(--teal);color:var(--teal);font-size:14px;font-weight:600;transition:background .2s ease,color .2s ease}
-  .project-project-04 .back-to-projects{transform:translateY(2px)}
+  .project-design-build-fly .back-to-projects{transform:translateY(2px)}
   .back-to-projects:hover{background:var(--teal);color:var(--bg)}
   .site-footer{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:28px clamp(24px,4vw,72px);background:#080a09;color:var(--muted);font-size:11px}
   .site-footer .footer-socials{display:flex;grid-column:2;gap:28px;font-size:16px}.site-footer .footer-socials a{display:inline-flex;align-items:center;gap:9px}.site-footer p{grid-column:3;justify-self:end;margin:0}.footer-linkedin-logo{display:grid;place-items:center;width:23px;height:23px;background:#0a66c2;color:#fff;font:700 15px/1 "DM Sans",sans-serif;letter-spacing:-.08em}
 
-  @media(min-width:721px) and (max-width:1000px){.project-cu-boulder .kwf-mesh-row{grid-template-columns:1.05fr 1.1fr}.kwf-mesh-row .project-copy{grid-column:1/-1}.kwf-mesh-image img{height:440px}}
+  @media(min-width:721px) and (max-width:1000px){.project-kashmir-world-foundation .kwf-mesh-row{grid-template-columns:1.05fr 1.1fr}.kwf-mesh-row .project-copy{grid-column:1/-1}.kwf-mesh-image img{height:440px}}
   @media(max-width:720px){
-    .project-cu-boulder .kwf-mesh-row{grid-template-columns:1fr}.kwf-mesh-image{max-width:400px}.kwf-mesh-image img{height:auto;max-height:500px}
+    .project-kashmir-world-foundation .kwf-mesh-row{grid-template-columns:1fr}.kwf-mesh-image{max-width:400px}.kwf-mesh-image img{height:auto;max-height:500px}
     .site-header{height:68px;padding:0 18px}.brand-mark{width:34px;height:32px}.brand-mark b,.brand-mark i{top:7px}.brand-mark b{left:5px}.brand-mark i{left:15px}.site-header nav{gap:10px;font-size:11px}
     .project-hero{height:clamp(234px,34.2svh,324px)}h1{font-size:clamp(42px,13vw,65px)}
     .nda-notice{width:min(100% - 36px,620px);margin-top:18px;font-size:13px}
-    .project-content{width:min(100% - 36px,620px);padding:8px 0 34px}.project-row,.project-cu-boulder .kwf-aircraft-row,.project-cu-boulder .kwf-snow-row{grid-template-columns:1fr;gap:22px;padding:30px 0}.project-row:first-child{padding-top:18px}.project-media{height:240px}.project-project-04 .project-row:first-child{grid-template-columns:1fr}.project-project-04 .project-row:first-child .project-media{width:86%;height:220px}.dbf-story{gap:28px;padding-top:10px}.dbf-year-section{gap:18px;padding-top:18px}.dbf-pair{grid-template-columns:1fr;gap:18px}
+    .project-content{width:min(100% - 36px,620px);padding:8px 0 34px}.project-row,.project-kashmir-world-foundation .kwf-aircraft-row,.project-kashmir-world-foundation .kwf-snow-row{grid-template-columns:1fr;gap:22px;padding:30px 0}.project-row:first-child{padding-top:18px}.project-media{height:240px}.project-design-build-fly .project-row:first-child{grid-template-columns:1fr}.project-design-build-fly .project-row:first-child .project-media{width:86%;height:220px}.dbf-story{gap:28px;padding-top:10px}.dbf-year-section{gap:18px;padding-top:18px}.dbf-pair{grid-template-columns:1fr;gap:18px}
     .snow-leopard-reveal{height:clamp(169px,24.7svh,234px);margin-top:8px;margin-bottom:8px}
     .site-footer{grid-template-columns:1fr;gap:14px;text-align:center}.site-footer .footer-socials,.site-footer p{grid-column:1;justify-self:center}.site-footer .footer-socials{gap:18px;font-size:13px}.footer-linkedin-logo{width:20px;height:20px;font-size:13px}
   }
