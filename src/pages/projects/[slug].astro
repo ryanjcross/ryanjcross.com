@@ -106,6 +106,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
         <p class="nda-notice"><em>Non-Disclosure Agreement: I will only disclose non-proprietary information regarding my work at {ndaCompany}. All images are public knowledge.</em></p>
       )}
       <section class="project-content" aria-label={`${project.title} project details`}>
+        {Astro.params.slug === "sierra-space" && <p class="kwf-introduction"><strong>Aerospace leader building next-generation spacecraft and space infrastructure</strong></p>}
         {Astro.params.slug === "kairos-power" && <p class="kwf-introduction"><strong>Enabling the world's clean energy transition to improve people's quality of life while protecting the environment.</strong></p>}
         {Astro.params.slug === "kashmir-world-foundation" && <p class="kwf-introduction"><strong>A nonprofit organization bringing together a global team to develop innovative solutions for wildlife conservation.</strong></p>}
         {Astro.params.slug === "kashmir-world-foundation" ? (
@@ -217,7 +218,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
                   <div class="kwf-plot-axes"><span class="kwf-y-label">C<sub>D</sub></span><img src="/images/kwf-results-drag.png" alt="Drag coefficient versus angle of attack for OpenVSP, OpenFOAM, and SimScale" loading="lazy" /><span class="kwf-x-label">AoA [deg]</span></div>
                 </figure>
                 <figure class="kwf-result-plot">
-                  <figcaption>Pitching Moment Coefficient vs. Angle of Attack</figcaption>
+                  <figcaption>Moment Coefficient vs. Angle of Attack</figcaption>
                   <div class="kwf-plot-axes"><span class="kwf-y-label">C<sub>M</sub></span><img src="/images/kwf-results-pitching-moment.png" alt="Pitching moment coefficient versus angle of attack for OpenVSP, OpenFOAM, and SimScale" loading="lazy" /><span class="kwf-x-label">AoA [deg]</span></div>
                 </figure>
               </div>
@@ -239,6 +240,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
             </section>
             <section class="kwf-conclusion" aria-labelledby="kwf-conclusion-title">
               <h2 class="kwf-section-title" id="kwf-conclusion-title">Conclusion</h2>
+              <div class="project-copy"><p>The CFD analysis performed on the Eagle Ray blended-wing body aircraft produced aerodynamic coefficients that were in reasonable agreement between OpenFOAM and SimScale, with both platforms capturing stall onset around 15 degrees AoA. As expected, the VLM overpredicted lift and underpredicted drag post-stall, as it cannot model flow separation – this is clearly visible in the comparison plots. The particle trace figures confirm this behavior, showing pronounced flow separation at 20 degrees AoA that neither platform could capture with VLM alone. The y<sup>+</sup> verification across both platforms provided confidence in the near-wall resolution and the validity of the boundary layer treatment. Cross-referencing two independent CFD solvers was an incredibly valuable part of this process, as it allowed for the identification of discrepancies and built confidence in the results. Overall, this analysis provided a solid aerodynamic foundation for the Eagle Ray, yielding reliable coefficient data across a full range of angles of attack.</p></div>
             </section>
           </>
         ) : Astro.params.slug === "kairos-power" ? (
@@ -362,7 +364,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .project-kashmir-world-foundation .kwf-aircraft-row .second-media{justify-self:end}
   .project-kashmir-world-foundation .kwf-snow-row{width:100%;margin-inline:auto;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr)}
   .project-kashmir-world-foundation .second-media{width:min(100%,752px);height:auto;aspect-ratio:1815/867;justify-self:center}
-  .kwf-introduction{width:100%;max-width:1320px;margin:28px auto 18px;text-align:center;font-size:clamp(16px,1.4vw,21px);line-height:1.6;color:var(--ink)}
+  .kwf-introduction{width:100%;max-width:1320px;margin:28px auto 36px;text-align:center;font-size:clamp(16px,1.4vw,21px);line-height:1.6;color:var(--ink)}
   .project-kashmir-world-foundation .kwf-mesh-row{width:100%;margin-inline:auto;border-top:1px solid rgba(167,170,160,.38);grid-template-columns:minmax(0,1fr) minmax(0,.95fr) minmax(0,.9fr);gap:28px}
   .kwf-mesh-image{margin:0;justify-self:center;width:100%}
   .kwf-mesh-image:last-child img{transform:translateY(-18px) scale(1.15)}
@@ -375,18 +377,19 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .kwf-section-title{grid-column:1/-1;margin:0;text-align:center;font:400 clamp(26px,2.5vw,36px)/1.1 "Instrument Serif",serif;letter-spacing:-.04em}
   .kwf-results>.kwf-section-title{margin-bottom:32px}
   .kwf-conclusion{padding:36px 0;border-top:1px solid rgba(167,170,160,.38)}
+  .kwf-conclusion .project-copy{max-width:1000px;margin:28px auto 0}
   .kwf-results-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-  .kwf-results-lower{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:28px}
+  .kwf-results-lower{grid-template-columns:repeat(2,minmax(0,1fr));width:calc(66.666667% - 8px);margin:28px auto 0}
   .kwf-result-plot{margin:0;min-width:0;font-family:"DM Sans",sans-serif}
   .kwf-result-plot figcaption{min-height:3em;margin-bottom:12px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:clamp(15px,1.35vw,19px);line-height:1.5;font-weight:500}
   .kwf-plot-axes{display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;align-items:center;font-size:14px}
   .kwf-plot-axes img{display:block;width:100%;height:auto}
   .kwf-y-label{justify-self:center;white-space:nowrap;transform:rotate(-90deg)}
   .kwf-x-label{grid-column:2;text-align:center}
-  .kwf-results-legend{display:flex;justify-content:center;flex-wrap:wrap;gap:18px 32px;margin:28px 0 0;padding:0;list-style:none;font-size:14px}
+  .kwf-results-legend{display:flex;justify-content:center;flex-wrap:wrap;gap:18px 32px;width:fit-content;max-width:100%;margin:28px auto 0;padding:16px 24px;border:1px solid rgba(242,240,232,.45);list-style:none;font-size:14px}
   .kwf-results-legend li{display:flex;align-items:center;gap:10px}
   .kwf-results-legend li>span{width:30px;height:3px;background:var(--series-color)}
-  @media(max-width:850px){.kwf-results-grid{grid-template-columns:1fr;gap:28px}.kwf-result-plot{width:min(100%,600px);margin-inline:auto}.kwf-result-plot figcaption{min-height:0}.kwf-results-legend{gap:14px 24px}}
+  @media(max-width:850px){.kwf-results-grid{grid-template-columns:1fr;gap:28px}.kwf-results-lower{width:100%}.kwf-result-plot{width:min(100%,600px);margin-inline:auto}.kwf-result-plot figcaption{min-height:0}.kwf-results-legend{gap:14px 24px}}
   .analysis-number{transform:translateX(-8px);align-self:center;text-align:center;color:var(--teal);font-size:34px}
   .analysis-logos{width:100%;justify-self:start;display:grid}
   .analysis-logos>div{min-height:144px;display:grid;grid-template-columns:26px minmax(90px,1fr) minmax(0,1.2fr);align-items:center;gap:18px;padding:24px 0}
