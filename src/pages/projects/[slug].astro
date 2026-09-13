@@ -240,7 +240,11 @@ const ndaCompany = Astro.params.slug === "sierra-space"
             </section>
             <section class="kwf-conclusion" aria-labelledby="kwf-conclusion-title">
               <h2 class="kwf-section-title" id="kwf-conclusion-title">Conclusion</h2>
-              <div class="project-copy"><p>The CFD analysis performed on the Eagle Ray blended-wing body aircraft produced aerodynamic coefficients that were in reasonable agreement between OpenFOAM and SimScale, with both platforms capturing stall onset around 15 degrees AoA. As expected, the VLM overpredicted lift and underpredicted drag post-stall, as it cannot model flow separation – this is clearly visible in the comparison plots. The particle trace figures confirm this behavior, showing pronounced flow separation at 20 degrees AoA that neither platform could capture with VLM alone. The y<sup>+</sup> verification across both platforms provided confidence in the near-wall resolution and the validity of the boundary layer treatment. Cross-referencing two independent CFD solvers was an incredibly valuable part of this process, as it allowed for the identification of discrepancies and built confidence in the results. Overall, this analysis provided a solid aerodynamic foundation for the Eagle Ray, yielding reliable coefficient data across a full range of angles of attack.</p></div>
+              <div class="project-copy">
+                <p>The aerodynamic coefficients are in reasonable agreement between OpenFOAM and SimScale. The stall onset shown by SimScale around 15° AoA is not completely captured by OpenFOAM, showing where the model experiences limitations.</p>
+                <p>As expected, the VLM model underpredicts drag because of the attached and inviscid flow assumptions. The pressure distribution along the blended-wing body is highly dependent on flow separation, which is not captured by the VLM model.</p>
+                <p>Cross-referencing two independent CFD solvers was an incredibly valuable part of this process, as it allowed for the identification of discrepancies and built confidence in the results. Overall, this analysis provided a solid aerodynamic foundation for the Eagle Ray, yielding reliable coefficient data across a full range of angles of attack.</p>
+              </div>
             </section>
           </>
         ) : Astro.params.slug === "kairos-power" ? (
