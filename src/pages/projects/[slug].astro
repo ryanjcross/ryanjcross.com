@@ -289,6 +289,14 @@ const ndaCompany = Astro.params.slug === "sierra-space"
         ) : Astro.params.slug === "sierra-space" ? (
           <section class="project-row sierra-portrait-section" aria-label="Ryan at Sierra Space">
             <figure class="project-media sierra-portrait"><img src={project.secondImage} alt={project.secondImageAlt} loading="lazy" /></figure>
+            <div class="project-copy">
+              <p>I was tasked to protect expensive hardware that was susceptible to thermal stress and damage.</p>
+              <p>I set up thermocouples, then coded a monitoring setup for a user to see the exact temperature readings. To protect the hardware, I implemented thermal limits to shut off power if a certain temperature threshold was met.</p>
+              <p>I gained valuable experience testing my scripts with hardware in the loop. After multiple successful tests, I merged my code with the company code base for 24/7 hardware security.</p>
+            </div>
+            <div class="project-copy sierra-reflection">
+              <p>With such little guidance on my project, I learned the value of communicating with others and doing it with confidence. I found incredible success when reaching out to other subteams, improving my knowledge outside of the project I was working on and giving me an understanding of how everything fit into place. As I pursue my MS degree at CU Boulder, I am continuing to work at Sierra Space part time. I am working on MBSE models for preliminary programs that Sierra Space intends to develop over the next few years.</p>
+            </div>
           </section>
         ) : project.paragraphs[1] ? (
           <article class="project-row">
@@ -349,7 +357,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .second-media img{object-position:var(--second-position)}
   .project-sierra-space .project-media{width:100%;height:auto;justify-self:center}
   .project-sierra-space .project-media img{display:block;width:100%;height:auto}
-  .project-sierra-space .sierra-portrait-section{grid-template-columns:minmax(0,1fr)}
+  .sierra-reflection{grid-column:1/-1}
   .project-sierra-space .sierra-portrait{width:min(92%,368px);aspect-ratio:69/94}
   .project-sierra-space .sierra-portrait img{width:108.695652%;max-width:none}
   .project-kashmir-world-foundation,.project-kairos-power{overflow:clip}

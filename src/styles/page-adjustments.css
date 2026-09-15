@@ -154,3 +154,56 @@ body:has(.about-page) .page-heading::before {
     margin-bottom: 52px;
   }
 }
+
+/* Keep the contact form in normal flow, with a full-width photo banner. */
+.contact-page {
+  height: auto;
+  min-height: calc(100svh - 74px);
+  padding: 0;
+  overflow: visible;
+}
+.contact-hero {
+  position: relative;
+  container-type: size;
+  width: 100%;
+  height: clamp(300px, 38svh, 470px);
+  flex: none;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.contact-hero > img {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + clamp(0px, (75cqw - 100cqh) / 2, 12cqw));
+  width: max(100cqh, 75cqw);
+  height: max(133.333333cqh, 100cqw);
+  max-width: none;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  object-fit: cover;
+}
+.contact-hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(7,9,8,.16), rgba(7,9,8,.48));
+}
+.contact-hero h1 {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  color: var(--ink);
+  font: 400 clamp(48px,6.5vw,92px)/.9 "Instrument Serif", serif;
+  letter-spacing: -.055em;
+  text-align: center;
+  text-shadow: 0 4px 26px rgba(0,0,0,.75);
+}
+.contact-page .contact-grid {
+  flex: none;
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: clamp(42px,5vw,60px) 0 clamp(60px,7vw,90px);
+}
+@media (max-width: 850px) {
+  .contact-hero { height: clamp(260px,38svh,360px); }
+}
