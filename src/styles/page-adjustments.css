@@ -173,13 +173,12 @@ body:has(.about-page) .page-heading::before {
 }
 .contact-hero > img {
   position: absolute;
-  left: 50%;
-  top: calc(50% + clamp(0px, (75cqw - 100cqh) / 2, 12cqw));
-  width: max(100cqh, 75cqw);
-  height: max(133.333333cqh, 100cqw);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   max-width: none;
-  transform: translate(-50%, -50%) rotate(-90deg);
   object-fit: cover;
+  object-position: center;
 }
 .contact-hero-shade {
   position: absolute;
