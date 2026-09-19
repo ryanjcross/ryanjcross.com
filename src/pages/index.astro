@@ -300,6 +300,9 @@ const projects = [
   #projects .section-heading { max-width:none; text-align:center; }
   #projects h2 { font-size:clamp(38px,4vw,58px); line-height:1.1; }
   #projects .project-grid { width:min(1400px,100%); margin:40px auto 0; }
-  @media(min-width:851px){#projects .project-card:last-child{grid-column:2}}
+  #projects .project-card { min-height:0; padding-bottom:22px; }
+  #projects .project-image { height:225px; }
+  @media(min-width:851px) and (max-width:999px){#projects .project-card:last-child{grid-column:2}}
+  @media(min-width:1000px){#projects .project-card:last-child{grid-column:3 / span 2}}
   .site-footer { position:relative!important; top:auto!important; height:auto!important; padding:28px clamp(24px,4vw,72px)!important; }
 </style>
