@@ -1,21 +1,33 @@
 ---
-const streams = Array.from({ length: 17 }, (_, i) => {
-  const y = 12 + i * 14;
-  const bend = (i - 8) * 5;
-  return { d: `M-100 ${y} C250 ${y}, 420 ${y + bend}, 650 ${y + bend} S1000 ${y - bend}, 1250 ${y} S1500 ${y}, 1700 ${y}`, delay: `${-i * 0.63}s`, duration: `${12 + (i % 5)}s` };
+// A static dye-flow illustration: a narrow inlet breaks into downstream eddies.
+const streams = Array.from({ length: 140 }, (_, i) => {
+  const spread = (i - 69.5) / 69.5;
+  const points = Array.from({ length: 190 }, (_, j) => {
+    const x = j * 9 - 45;
+    const downstream = Math.max(0, Math.min(1, (x - 180) / 1150));
+    const phase = x / 113;
+    const center = 130 + Math.sin(phase) * 56 * downstream + Math.sin(x / 51) * 17 * downstream;
+    const width = 12 + downstream * 38 + 17 * Math.pow(Math.sin(x / 137), 2) * downstream;
+    const y = center + spread * width + Math.sin(x / 28 + i * .71) * (1 + 5 * downstream);
+    return `${j ? 'L' : 'M'}${x.toFixed(1)} ${y.toFixed(1)}`;
+  }).join(' ');
+  return { d: points, opacity: .09 + (i % 9) * .012 };
 });
+const vortices = [520, 790, 1080, 1390];
 ---
 <div class="project-flow" aria-hidden="true">
-  <svg viewBox="0 0 1600 250" preserveAspectRatio="none">
-    <defs><linearGradient id="flow-fade"><stop stop-color="#5be5cf" stop-opacity=".12"/><stop offset=".5" stop-color="#5be5cf" stop-opacity=".65"/><stop offset="1" stop-color="#91a8ff" stop-opacity=".18"/></linearGradient></defs>
-    {streams.map(({d, delay, duration}) => <g><path class="stream-bed" d={d}/><path class="stream-motion" d={d} style={`animation-delay:${delay};animation-duration:${duration}`}/></g>)}
+  <svg viewBox="0 0 1600 260" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="flow-dye"><stop stop-color="#b8a443"/><stop offset=".25" stop-color="#46845c"/><stop offset=".6" stop-color="#298f9b"/><stop offset="1" stop-color="#326d8f"/></linearGradient>
+      <filter id="flow-texture" x="-10%" y="-30%" width="120%" height="160%"><feTurbulence type="fractalNoise" baseFrequency=".014 .065" numOctaves="3" seed="14" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="14" xChannelSelector="R" yChannelSelector="G"/></filter>
+    </defs>
+    <g fill="none" stroke="url(#flow-dye)" filter="url(#flow-texture)">
+      {streams.map(({ d, opacity }) => <path d={d} stroke-width=".8" opacity={opacity}/>)}
+      {vortices.map((x, v) => Array.from({length:20},(_,i) => <ellipse cx={x} cy={125 + (v % 2 ? 42 : -40)} rx={20+i*2.4} ry={7+i*1.1} transform={`rotate(${v%2? -22:22} ${x} ${125+(v%2?42:-40)})`} stroke-width=".65" opacity=".14"/>))}
+    </g>
   </svg>
 </div>
 <style>
-  .project-flow{position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:.65;mask-image:linear-gradient(transparent,#000 20%,#000 80%,transparent)}
-  svg{width:100%;height:100%;display:block;fill:none;stroke:url(#flow-fade)}
-  .stream-bed{stroke-width:.7;opacity:.25}
-  .stream-motion{stroke-width:1.4;stroke-linecap:round;stroke-dasharray:100 340;animation:flow-left linear infinite}
-  @keyframes flow-left{from{stroke-dashoffset:0}to{stroke-dashoffset:-1760}}
-  @media(prefers-reduced-motion:reduce){.stream-motion{animation:none;opacity:.3}}
+.project-flow{position:absolute;inset:0;overflow:hidden;pointer-events:none;background:#0b100f;mask-image:linear-gradient(transparent,#000 16%,#000 84%,transparent)}
+svg{display:block;width:100%;height:100%}
 </style>
