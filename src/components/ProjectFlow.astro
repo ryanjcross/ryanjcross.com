@@ -16,6 +16,6 @@ const streams = Array.from({ length: 17 }, (_, i) => {
   svg{width:100%;height:100%;display:block;fill:none;stroke:url(#flow-fade)}
   .stream-bed{stroke-width:.7;opacity:.25}
   .stream-motion{stroke-width:1.4;stroke-linecap:round;stroke-dasharray:100 340;animation:flow-left linear infinite}
-  @keyframes flow-left{from{stroke-dashoffset:0}to{stroke-dashoffset:1760}}
+  @keyframes flow-left{from{stroke-dashoffset:0}to{stroke-dashoffset:-1760}}
   @media(prefers-reduced-motion:reduce){.stream-motion{animation:none;opacity:.3}}
 </style>

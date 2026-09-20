@@ -313,7 +313,7 @@ const projects = [
   /* Full original photo proportions, followed by the project collection. */
   .home { min-height:0!important; height:auto!important; padding:74px 0 0!important; }
   .home-photo { position:relative!important; inset:auto!important; display:block; width:100%; height:auto!important; min-height:0; }
-  .home-photo > img { display:block; width:100%; height:auto; object-fit:contain; }
+  .home-photo > img { position:relative; inset:auto; display:block; width:100%; height:auto; object-fit:contain; transform:none; }
   .home .intro { top:calc(50% + 37px)!important; left:50%; transform:translate(-50%,-50%); }
   .home::after { height:100%; }
   #projects { padding-top:0; }
