@@ -310,10 +310,10 @@ const projects = [
   .home-project-actions a { display:flex; align-items:center; justify-content:center; min-width:160px; padding:17px 23px; border:1px solid var(--teal); color:var(--ink); font-size:13px; font-weight:600; transition:background .2s,color .2s; }
   .home-project-actions a:hover { background:var(--teal); color:var(--bg); }
   @media(max-width:600px){.home-project-actions a{min-width:0;padding:15px 24px}}
-  /* Fixed banner height with the complete photograph fitted inside. */
+  /* Full-width photograph filling the fixed-height banner. */
   .home { min-height:0!important; height:auto!important; padding:74px 0 0!important; }
   .home-photo { position:relative!important; inset:auto!important; display:block; width:100%; height:calc(75svh - 74px)!important; min-height:0; background:#0d0f0e; }
-  .home-photo > img { position:relative; inset:auto; display:block; width:100%; height:100%; object-fit:contain; object-position:center; transform:none; }
+  .home-photo > img { position:relative; inset:auto; display:block; width:100%; height:100%; object-fit:cover; object-position:25% 56%; transform:none; }
   .home .intro { top:calc(50% + 37px)!important; left:50%; transform:translate(-50%,-50%); }
   .home::after { height:100%; }
   #projects { padding-top:0; }
