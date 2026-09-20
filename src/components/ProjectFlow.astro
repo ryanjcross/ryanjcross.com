@@ -1,0 +1,21 @@
+---
+const streams = Array.from({ length: 17 }, (_, i) => {
+  const y = 12 + i * 14;
+  const bend = (i - 8) * 5;
+  return { d: `M-100 ${y} C250 ${y}, 420 ${y + bend}, 650 ${y + bend} S1000 ${y - bend}, 1250 ${y} S1500 ${y}, 1700 ${y}`, delay: `${-i * 0.63}s`, duration: `${12 + (i % 5)}s` };
+});
+---
+<div class="project-flow" aria-hidden="true">
+  <svg viewBox="0 0 1600 250" preserveAspectRatio="none">
+    <defs><linearGradient id="flow-fade"><stop stop-color="#5be5cf" stop-opacity=".12"/><stop offset=".5" stop-color="#5be5cf" stop-opacity=".65"/><stop offset="1" stop-color="#91a8ff" stop-opacity=".18"/></linearGradient></defs>
+    {streams.map(({d, delay, duration}) => <g><path class="stream-bed" d={d}/><path class="stream-motion" d={d} style={`animation-delay:${delay};animation-duration:${duration}`}/></g>)}
+  </svg>
+</div>
+<style>
+  .project-flow{position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:.65;mask-image:linear-gradient(transparent,#000 20%,#000 80%,transparent)}
+  svg{width:100%;height:100%;display:block;fill:none;stroke:url(#flow-fade)}
+  .stream-bed{stroke-width:.7;opacity:.25}
+  .stream-motion{stroke-width:1.4;stroke-linecap:round;stroke-dasharray:100 340;animation:flow-left linear infinite}
+  @keyframes flow-left{from{stroke-dashoffset:0}to{stroke-dashoffset:1760}}
+  @media(prefers-reduced-motion:reduce){.stream-motion{animation:none;opacity:.3}}
+</style>

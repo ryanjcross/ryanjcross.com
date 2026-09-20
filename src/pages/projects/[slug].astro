@@ -90,9 +90,9 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   </head>
   <body>
     <header class="site-header">
-      <a href="/" aria-label="Home"><span class="brand-mark"><b>R</b><i>C</i></span></a>
+      <a href="/" aria-label="Projects"><span class="brand-mark"><b>R</b><i>C</i></span></a>
       <nav aria-label="Primary navigation">
-        <a href="/">Home</a><a href="/projects" aria-current="page">Projects</a><a href="/resume">Resume</a><a href="/about">About</a><a href="/contact">Contact</a>
+        <a href="/">Projects</a><a href="/resume">Resume</a><a href="/about">About</a><a href="/contact">Contact</a>
       </nav>
     </header>
 
@@ -174,7 +174,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
                 <p>Leadership isn’t about being perfect; it’s about showing up, communicating, and giving your team confidence—and you’re nailing that. So kudos to you for everything you’ve done and continue to do. We appreciate it.</p>
                 <footer>— Dinuka Hannadige, 2027 Test Lead</footer>
               </blockquote>
-              <a class="back-to-projects" href="/projects">Back to Projects</a>
+              <a class="back-to-projects" href="/#projects">Back to Projects</a>
             </section>
           </>
         ) : Astro.params.slug === "kashmir-world-foundation" ? (
@@ -309,7 +309,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
         ) : null}
         {Astro.params.slug !== "design-build-fly" && (
           <div class="project-return">
-            <a class="back-to-projects" href="/projects">Back to Projects</a>
+            <a class="back-to-projects" href="/#projects">Back to Projects</a>
           </div>
         )}
       </section>
