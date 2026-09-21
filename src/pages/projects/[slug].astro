@@ -1,4 +1,5 @@
 ---
+import "../../styles/header-wordmark.css";
 import CloudflareAnalytics from "../../components/CloudflareAnalytics.astro";
 
 const projects = {
@@ -90,9 +91,9 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   </head>
   <body>
     <header class="site-header">
-      <a href="/" aria-label="Projects"><span class="brand-mark"><b>R</b><i>C</i></span></a>
+      <a href="/" aria-label="Projects"><span class="brand-wordmark">Ryan Cross</span></a>
       <nav aria-label="Primary navigation">
-        <a href="/">Projects</a><a href="/resume">Resume</a><a href="/about">About</a><a href="/contact">Contact</a>
+        <a href="/#projects">Projects</a><a href="/resume">Resume</a><a href="/about">About</a><a href="/contact">Contact</a>
       </nav>
     </header>
 
