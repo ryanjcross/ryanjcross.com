@@ -1,10 +1,10 @@
-/* Center navigation on the viewport; center the wordmark in its left gutter. */
+/* Center the wordmark and navigation together with a generous separating gap. */
 header.site-header.site-header.site-header {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  display: flex !important;
+  justify-content: center;
   align-items: center;
-  gap: 0;
-  padding-inline: 0;
+  gap: clamp(56px, 8vw, 112px);
+  padding-inline: 20px;
 }
 header.site-header.site-header.site-header > a {
   grid-column: 1;
@@ -30,12 +30,12 @@ header.site-header.site-header.site-header nav {
   gap: clamp(18px, 2.3vw, 30px);
 }
 @media (max-width: 600px) {
-  header.site-header.site-header.site-header { display:flex!important; justify-content:center; gap:24px; padding-inline:14px; }
+  header.site-header.site-header.site-header { gap:32px; padding-inline:14px; }
   header.site-header.site-header.site-header .brand-wordmark { font-size: 19px; }
   header.site-header.site-header.site-header nav { gap: 12px; font-size: 12px; }
 }
 @media (max-width: 380px) {
-  header.site-header.site-header.site-header { gap: 16px; padding-inline: 10px; }
+  header.site-header.site-header.site-header { gap: 20px; padding-inline: 10px; }
   header.site-header.site-header.site-header .brand-wordmark { font-size: 17px; }
   header.site-header.site-header.site-header nav { gap: 9px; font-size: 11px; }
 }
