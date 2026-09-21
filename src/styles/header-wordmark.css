@@ -1,12 +1,14 @@
-/* Center the wordmark and navigation together as one balanced group. */
+/* Center navigation on the viewport; center the wordmark in its left gutter. */
 header.site-header.site-header.site-header {
-  display: flex !important;
-  justify-content: center;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  gap: clamp(40px, 6vw, 88px);
+  gap: 0;
+  padding-inline: 0;
 }
 header.site-header.site-header.site-header > a {
-  flex: 0 0 auto;
+  grid-column: 1;
+  justify-self: center;
 }
 header.site-header.site-header.site-header .brand-wordmark {
   display: block;
@@ -21,12 +23,14 @@ header.site-header.site-header.site-header .brand-wordmark {
   white-space: nowrap;
 }
 header.site-header.site-header.site-header nav {
+  grid-column: 2;
+  justify-self: center;
   display: flex !important;
   align-items: center;
   gap: clamp(18px, 2.3vw, 30px);
 }
 @media (max-width: 600px) {
-  header.site-header.site-header.site-header { gap: 24px; padding-inline: 14px; }
+  header.site-header.site-header.site-header { display:flex!important; justify-content:center; gap:24px; padding-inline:14px; }
   header.site-header.site-header.site-header .brand-wordmark { font-size: 19px; }
   header.site-header.site-header.site-header nav { gap: 12px; font-size: 12px; }
 }
