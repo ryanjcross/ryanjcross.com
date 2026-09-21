@@ -207,4 +207,4 @@ body:has(.about-page) .page-heading::before {
   .contact-hero { height: clamp(260px,38svh,360px); }
 }
 
-.contact-hero > img { object-position: center 58%; }
+.contact-hero > img { object-position: center 62%; }
