@@ -1,17 +1,28 @@
 /* Center the wordmark and navigation together with a generous separating gap. */
-header.site-header.site-header.site-header {
+#portfolio-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  box-sizing: border-box;
   display: flex !important;
   justify-content: center;
   align-items: center;
   gap: clamp(56px, 8vw, 112px);
   padding-inline: 20px;
+  height: 74px;
+  background: rgba(13, 15, 14, .86);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(242, 240, 232, .18);
 }
-header.site-header.site-header.site-header > a {
+#portfolio-header[data-overlay="true"] { position: fixed; }
+#portfolio-header > a {
   grid-column: 1;
   justify-self: center;
 }
-header.site-header.site-header.site-header .brand-wordmark {
+#portfolio-header .brand-wordmark {
   display: block;
+  position: static;
   width: auto;
   height: auto;
   padding: 0;
@@ -22,22 +33,34 @@ header.site-header.site-header.site-header .brand-wordmark {
   letter-spacing: -.055em;
   white-space: nowrap;
 }
-header.site-header.site-header.site-header nav {
+#portfolio-header nav {
   grid-column: 2;
   justify-self: center;
+  position: static;
+  width: auto;
+  box-sizing: border-box;
   display: flex !important;
   align-items: center;
   gap: clamp(18px, 2.3vw, 30px);
+  font: 400 14px/normal "DM Sans", sans-serif;
+  letter-spacing: normal;
+}
+#portfolio-header a { color:#f2f0e8; text-decoration:none; }
+#portfolio-header nav a { order:0!important; font:inherit; letter-spacing:inherit; padding:0; }
+#portfolio-header nav a:hover,
+#portfolio-header nav a[aria-current="page"] { color:#5be5cf; }
+@media (max-width: 850px) {
+  #portfolio-header { height: 68px; }
 }
 @media (max-width: 600px) {
-  header.site-header.site-header.site-header { gap:32px; padding-inline:14px; }
-  header.site-header.site-header.site-header .brand-wordmark { font-size: 19px; }
-  header.site-header.site-header.site-header nav { gap: 12px; font-size: 12px; }
+  #portfolio-header { gap:32px; padding-inline:14px; }
+  #portfolio-header .brand-wordmark { font-size: 19px; }
+  #portfolio-header nav { gap: 12px; font-size: 12px; }
 }
 @media (max-width: 380px) {
-  header.site-header.site-header.site-header { gap: 20px; padding-inline: 10px; }
-  header.site-header.site-header.site-header .brand-wordmark { font-size: 17px; }
-  header.site-header.site-header.site-header nav { gap: 9px; font-size: 11px; }
+  #portfolio-header { gap: 20px; padding-inline: 10px; }
+  #portfolio-header .brand-wordmark { font-size: 17px; }
+  #portfolio-header nav { gap: 9px; font-size: 11px; }
 }
 
 html { scroll-behavior: smooth; }

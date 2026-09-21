@@ -1,5 +1,5 @@
 ---
-import "../../styles/header-wordmark.css";
+import SiteHeader from "../../components/SiteHeader.astro";
 import CloudflareAnalytics from "../../components/CloudflareAnalytics.astro";
 
 const projects = {
@@ -90,12 +90,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
     <title>{project.title} | Ryan Cross</title>
   </head>
   <body>
-    <header class="site-header">
-      <a href="/" aria-label="Projects"><span class="brand-wordmark">Ryan Cross</span></a>
-      <nav aria-label="Primary navigation">
-        <a href="/#projects">Projects</a><a href="/resume">Resume</a><a href="/about">About</a><a href="/contact">Contact</a>
-      </nav>
-    </header>
+    <SiteHeader active="projects" />
 
     <main class={`project-${Astro.params.slug}`} style={`--hero-position:${project.heroPosition};--project-position:${project.imagePosition};--second-position:${project.secondImagePosition}`}>
       <section class="project-hero">

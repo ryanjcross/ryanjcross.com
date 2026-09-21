@@ -1,0 +1,16 @@
+---
+import "../styles/header-wordmark.css";
+const { active = "projects", overlay = false } = Astro.props;
+const links = [
+  { label: "Projects", href: "/#projects", key: "projects" },
+  { label: "Resume", href: "/resume", key: "resume" },
+  { label: "About", href: "/about", key: "about" },
+  { label: "Contact", href: "/contact", key: "contact" },
+];
+---
+<header id="portfolio-header" data-overlay={overlay ? "true" : undefined}>
+  <a href="/" aria-label="Ryan Cross, projects"><span class="brand-wordmark">Ryan Cross</span></a>
+  <nav aria-label="Primary navigation">
+    {links.map(({ label, href, key }) => <a href={href} aria-current={active === key ? "page" : undefined}>{label}</a>)}
+  </nav>
+</header>
