@@ -206,3 +206,5 @@ body:has(.about-page) .page-heading::before {
 @media (max-width: 850px) {
   .contact-hero { height: clamp(260px,38svh,360px); }
 }
+
+.contact-hero > img { object-position: center 58%; }
