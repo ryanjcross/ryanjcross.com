@@ -6,7 +6,7 @@ const projects = {
   "sierra-space": {
     title: "Sierra Space",
     paragraphs: [
-      "My summer at Sierra Space gave me exposure to a fast-paced industry environment. I was given more independence than I ever had before, allowing me to take complete ownership over the success of my project.",
+      "My summer at Sierra Space immersed me in a fast-paced industry environment where I was trusted with a high level of independence and responsibility. This gave me the opportunity to take full ownership of my project, from development through successful implementation.",
     ],
     heroImage: "/images/sierra-space-dream-chaser.jpg",
     heroAlt: "Sierra Space Dream Chaser spacecraft",
@@ -290,7 +290,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
             <figure class="project-media sierra-portrait"><img src={project.secondImage} alt={project.secondImageAlt} loading="lazy" /></figure>
             <div class="project-copy">
               <p>I developed a method to monitor the thermal state of flight-representative hardware and protect it from harmful thermal conditions. I programmed an automated monitoring system in OpenC3 COSMOS to track thermal behavior and provide continuous hardware protection. Then, I tested and validated my scripts using live telemetry from sensors I configured in a production floor environment. I merged my code with the company code base for 24/7 hardware security.</p>
-              <p>With such little guidance on my project, I learned the value of communicating with others and doing it with confidence. I found incredible success when reaching out to other subteams, improving my knowledge outside of the project I was working on and giving me an understanding of how everything fit into place.</p>
+              <p>With such little guidance on my project, I learned the value of communicating with others and doing it with confidence. I found incredible success when reaching out to other subteams, expanding knowledge beyond my own project and giving me an understanding of how different systems and teams fit into place.</p>
             </div>
           </section>
           <section class="project-row" aria-labelledby="sierra-coop-title">
@@ -356,7 +356,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .second-media img{object-position:var(--second-position)}
   .project-sierra-space .project-media{width:100%;height:auto;justify-self:center}
   .project-sierra-space .project-media img{display:block;width:100%;height:auto}
-  .project-sierra-space .project-content > .project-row.sierra-portrait-section{border-top:0;padding-top:clamp(8px,1.5vw,20px)}
+  .project-sierra-space .project-content > .project-row.sierra-portrait-section{border-top:0;padding-top:0}
   .project-sierra-space .project-row:first-of-type > .project-media{clip-path:inset(0 0 6% 0)}
   .sierra-reflection{grid-column:1/-1}
   .project-sierra-space .sierra-portrait{width:min(92%,368px);aspect-ratio:69/94}
