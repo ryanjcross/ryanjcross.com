@@ -289,9 +289,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
           <section class="project-row sierra-portrait-section" aria-label="Ryan at Sierra Space">
             <figure class="project-media sierra-portrait"><img src={project.secondImage} alt={project.secondImageAlt} loading="lazy" /></figure>
             <div class="project-copy">
-              <p>Sierra Space uses flight-representative hardware to support spacecraft testing and validation. During the summer, I developed a method to monitor the thermal state of this hardware and protect it from harmful thermal conditions. I programmed an automated monitoring system in OpenC3 COSMOS to track thermal behavior and provide continuous hardware protection. Then, I tested and validated my scripts using live telemetry from sensors I configured in a production floor environment. I merged my code with the company code base for 24/7 hardware security.</p>
-            </div>
-            <div class="project-copy sierra-reflection">
+              <p>I developed a method to monitor the thermal state of flight-representative hardware and protect it from harmful thermal conditions. I programmed an automated monitoring system in OpenC3 COSMOS to track thermal behavior and provide continuous hardware protection. Then, I tested and validated my scripts using live telemetry from sensors I configured in a production floor environment. I merged my code with the company code base for 24/7 hardware security.</p>
               <p>With such little guidance on my project, I learned the value of communicating with others and doing it with confidence. I found incredible success when reaching out to other subteams, improving my knowledge outside of the project I was working on and giving me an understanding of how everything fit into place.</p>
             </div>
           </section>
@@ -358,6 +356,8 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .second-media img{object-position:var(--second-position)}
   .project-sierra-space .project-media{width:100%;height:auto;justify-self:center}
   .project-sierra-space .project-media img{display:block;width:100%;height:auto}
+  .project-sierra-space .project-content > .project-row.sierra-portrait-section{border-top:0}
+  .project-sierra-space .project-row:first-of-type > .project-media{clip-path:inset(0 0 3% 0)}
   .sierra-reflection{grid-column:1/-1}
   .project-sierra-space .sierra-portrait{width:min(92%,368px);aspect-ratio:69/94}
   .project-sierra-space .sierra-portrait img{width:108.695652%;max-width:none}
