@@ -99,7 +99,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
         <h1>{project.title}</h1>
       </section>
       {ndaCompany && (
-        <p class="nda-notice"><em>Non-Disclosure Agreement: I will only disclose non-proprietary information regarding my work at {ndaCompany}. All images are public knowledge.</em></p>
+        <p class="nda-notice"><em>Non-Disclosure Agreement: I will only disclose non-proprietary information regarding my work at {ndaCompany}. All images are {Astro.params.slug === "sierra-space" ? "publicly available" : "public knowledge"}.</em></p>
       )}
       <section class="project-content" aria-label={`${project.title} project details`}>
         {Astro.params.slug === "sierra-space" && <p class="kwf-introduction"><strong>Aerospace leader building next-generation infrastructure for space exploration and commercialization</strong></p>}
@@ -115,6 +115,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
           </article>
         ) : (
           <article class="project-row">
+            {Astro.params.slug === "sierra-space" && <h2 class="kwf-section-title">Summer Internship</h2>}
             <div class="project-copy">
               <p>{project.paragraphs[0]}</p>
               {Astro.params.slug === "design-build-fly" && <p>{project.paragraphs[1]}</p>}
@@ -284,17 +285,20 @@ const ndaCompany = Astro.params.slug === "sierra-space"
             <div class="project-copy kairos-wide-copy"><p>Void fraction presence is undesirable in molten salt coolant, but is unavoidable due to gas entrainment and argon gas entering through a free-surface vortex in the pump. I developed a method to predict whether or not the void fraction is at a concerning percentage, leaving a detailed description of my work for the team to implement, test, and improve upon the model.</p></div>
           </>
         ) : Astro.params.slug === "sierra-space" ? (
+          <>
           <section class="project-row sierra-portrait-section" aria-label="Ryan at Sierra Space">
             <figure class="project-media sierra-portrait"><img src={project.secondImage} alt={project.secondImageAlt} loading="lazy" /></figure>
             <div class="project-copy">
-              <p>I was tasked to protect expensive hardware that was susceptible to thermal stress and damage.</p>
-              <p>I set up thermocouples, then coded a monitoring setup for a user to see the exact temperature readings. To protect the hardware, I implemented thermal limits to shut off power if a certain temperature threshold was met.</p>
-              <p>I gained valuable experience testing my scripts with hardware in the loop. After multiple successful tests, I merged my code with the company code base for 24/7 hardware security.</p>
+              <p>Sierra Space uses flight-representative hardware to support spacecraft testing and validation. During the summer, I developed a method to monitor the thermal state of this hardware and protect it from harmful thermal conditions. I programmed an automated monitoring system in OpenC3 COSMOS to track thermal behavior and provide continuous hardware protection. Then, I tested and validated my scripts using live telemetry from sensors I configured in a production floor environment. I merged my code with the company code base for 24/7 hardware security.</p>
             </div>
             <div class="project-copy sierra-reflection">
-              <p>With such little guidance on my project, I learned the value of communicating with others and doing it with confidence. I found incredible success when reaching out to other subteams, improving my knowledge outside of the project I was working on and giving me an understanding of how everything fit into place. As I pursue my MS degree at CU Boulder, I am continuing to work at Sierra Space part time. I am working on MBSE models for preliminary programs that Sierra Space intends to develop over the next few years.</p>
+              <p>With such little guidance on my project, I learned the value of communicating with others and doing it with confidence. I found incredible success when reaching out to other subteams, improving my knowledge outside of the project I was working on and giving me an understanding of how everything fit into place.</p>
             </div>
           </section>
+          <section class="project-row" aria-labelledby="sierra-coop-title">
+            <h2 class="kwf-section-title" id="sierra-coop-title">Part-Time Co-op</h2>
+          </section>
+          </>
         ) : project.paragraphs[1] ? (
           <article class="project-row">
             <figure class={`project-media second-media ${Astro.params.slug === "kashmir-world-foundation" ? "dimensioned-media" : ""}`}>
