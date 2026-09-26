@@ -102,7 +102,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
         <p class="nda-notice"><em>Non-Disclosure Agreement: I will only disclose non-proprietary information regarding my work at {ndaCompany}. All images are {Astro.params.slug === "sierra-space" ? "publicly available" : "public knowledge"}.</em></p>
       )}
       <section class="project-content" aria-label={`${project.title} project details`}>
-        {Astro.params.slug === "sierra-space" && <p class="kwf-introduction"><strong>Aerospace leader building next-generation infrastructure for space exploration and commercialization</strong></p>}
+        {Astro.params.slug === "sierra-space" && <p class="kwf-introduction"><strong>Aerospace leader building next-generation infrastructure for space exploration and commercialization.</strong></p>}
         {Astro.params.slug === "kairos-power" && <p class="kwf-introduction"><strong>Enabling the world's clean energy transition to improve people's quality of life while protecting the environment.</strong></p>}
         {Astro.params.slug === "kashmir-world-foundation" && <p class="kwf-introduction"><strong>A nonprofit organization bringing together a global team to develop innovative solutions for wildlife conservation.</strong></p>}
         {Astro.params.slug === "kashmir-world-foundation" ? (
@@ -295,7 +295,12 @@ const ndaCompany = Astro.params.slug === "sierra-space"
           </section>
           <section class="project-row" aria-labelledby="sierra-coop-title">
             <h2 class="kwf-section-title" id="sierra-coop-title">Part-Time Co-op</h2>
+            <div class="project-copy sierra-coop-copy"><p>Coming soon...</p></div>
           </section>
+          <blockquote class="dbf-testimonial">
+            <p>Ryan combines genuine technical curiosity with a deep sense of purpose — he approaches engineering problems not just to solve them, but to contribute to a safer, more sustainable future. He has a rare ability to pair rigorous analytical thinking with the kind of thoughtful, inclusive leadership that makes him someone teams want to work with.</p>
+            <footer>— Dr. Therese Suaris, Director of Systems Engineering</footer>
+          </blockquote>
           </>
         ) : project.paragraphs[1] ? (
           <article class="project-row">
@@ -359,6 +364,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .project-sierra-space .project-content > .project-row.sierra-portrait-section{border-top:0;padding-top:0}
   .project-sierra-space .project-row:first-of-type > .project-media{clip-path:inset(0 0 6% 0)}
   .sierra-reflection{grid-column:1/-1}
+  .sierra-coop-copy{grid-column:1/-1;text-align:center}
   .project-sierra-space .sierra-portrait{width:min(92%,368px);aspect-ratio:69/94}
   .project-sierra-space .sierra-portrait img{width:108.695652%;max-width:none}
   .project-kashmir-world-foundation,.project-kairos-power{overflow:clip}
