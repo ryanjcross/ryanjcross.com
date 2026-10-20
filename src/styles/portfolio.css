@@ -21,3 +21,20 @@ main{width:88%;max-width:1120px}
 .resume-image{background:#fff}
 @media(max-width:760px){.portrait{width:230px;height:230px}.portfolio-main .intro{gap:24px}.projects-section .card{gap:24px}}
 @media(max-width:520px){.portfolio-main .intro{flex-direction:column;align-items:flex-start;padding:28px 0 38px;gap:28px}.portrait{align-self:center;width:260px;height:260px}.projects-section{padding:36px 0 44px}.projects-section .card{grid-template-columns:1fr;gap:15px}}
+/* Inviting project cards and a closer portrait crop. */
+.portrait{width:330px;height:330px}
+.portrait img{transform:translateX(3%) scale(2.3)}
+.intro-copy{min-width:0;max-width:700px}
+.degree{font-size:16px;line-height:1.7;color:#647176;margin:20px 0 0;max-width:560px}
+.projects-section .card{background:#e4e9ec;color:#253551;border:1px solid #c8d2da;border-radius:20px;padding:18px;overflow:hidden;box-shadow:0 4px 16px #101f3412;transition:transform .22s,box-shadow .22s,background .22s}
+.projects-section .card:hover,.projects-section .card:focus-visible{background:#edf0f2;transform:translateY(-4px);box-shadow:0 12px 28px #101f342b}
+.projects-section .photo{border-radius:12px}
+.projects-section .caption{padding:12px 20px 12px 0}
+.projects-section .caption p{font-size:20px;line-height:1.5;color:#536878;margin-top:10px}
+.projects-section .arrow{color:#536878;font-size:29px;transition:transform .22s}
+.projects-section .card:hover .arrow{transform:translate(3px,-3px)}
+body>footer{position:relative;min-height:90px;padding-right:220px;padding-left:220px;align-items:center}
+body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap}
+@media(max-width:760px){.portrait{width:250px;height:250px}.degree{font-size:14px}.projects-section .caption p{font-size:17px}.projects-section .caption{padding-right:0}body>footer{padding:28px 6%;flex-wrap:wrap}body>footer .copyright{position:static;margin-left:auto}}
+@media(max-width:520px){.portrait{width:280px;height:280px}.projects-section .card{padding:14px}.projects-section .caption{padding:4px 8px 12px}.projects-section .caption p{font-size:18px}.projects-section .arrow{display:block}body>footer .copyright{width:100%;text-align:right}}
+@media(prefers-reduced-motion:reduce){.projects-section .card,.projects-section .arrow,.photo img{transition:none}}
