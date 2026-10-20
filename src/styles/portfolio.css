@@ -86,3 +86,7 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 .resume-main .download:hover{background:#354c6b;transform:translateY(-2px)}
 @media(max-width:760px){.portrait{width:285px}.projects-section{padding-bottom:24px}}
 @media(max-width:520px){.portrait{width:min(100%,325px)}.flatirons-horizon{width:100%}}
+/* Extended ink contours reach the horizon directly, without feathering. */
+.flatirons-horizon{mask-image:none;opacity:.6}
+.flatirons-horizon img{height:100%;object-fit:fill;object-position:center;clip-path:none;mask-image:none;filter:grayscale(1) contrast(1.4)}
+.flatirons-horizon img{height:110%}
