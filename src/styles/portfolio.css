@@ -38,3 +38,15 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 @media(max-width:760px){.portrait{width:250px;height:250px}.degree{font-size:14px}.projects-section .caption p{font-size:17px}.projects-section .caption{padding-right:0}body>footer{padding:28px 6%;flex-wrap:wrap}body>footer .copyright{position:static;margin-left:auto}}
 @media(max-width:520px){.portrait{width:280px;height:280px}.projects-section .card{padding:14px}.projects-section .caption{padding:4px 8px 12px}.projects-section .caption p{font-size:18px}.projects-section .arrow{display:block}body>footer .copyright{width:100%;text-align:right}}
 @media(prefers-reduced-motion:reduce){.projects-section .card,.projects-section .arrow,.photo img{transition:none}}
+/* Two-column cards keep the image and caption moving together. */
+.projects-section .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:30px}
+.projects-section .card{display:flex;flex-direction:column;align-items:stretch;gap:0}
+.projects-section .photo{height:auto;aspect-ratio:1.75}
+.projects-section .caption{flex:1;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 10px 14px}
+.projects-section .caption h2{font-size:29px}
+.projects-section .caption p{font-size:20px}
+.projects-section .card:hover img{transform:none}
+.photo img{transition:none}
+.portrait img{transform:translateX(1.5%) scale(2.15)}
+@media(max-width:760px){.projects-section .grid{gap:22px}.projects-section .caption{padding:18px 4px 10px}.projects-section .caption h2{font-size:24px}.projects-section .caption p{font-size:17px}}
+@media(max-width:600px){.projects-section .grid{grid-template-columns:1fr}.projects-section .caption h2{font-size:26px}.projects-section .caption p{font-size:18px}}
