@@ -91,7 +91,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
     <title>{project.title} | Ryan Cross</title>
   </head>
   <body>
-    <PortfolioHeader active="projects" />
+    <PortfolioHeader active="projects" overlay />
 
     <main class={`project-${Astro.params.slug}`} style={`--hero-position:${project.heroPosition};--project-position:${project.imagePosition};--second-position:${project.secondImagePosition}`}>
       <section class="project-hero">
@@ -105,7 +105,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
       <section class="project-content" aria-label={`${project.title} project details`}>
         {Astro.params.slug === "sierra-space" && <p class="kwf-introduction"><strong>Aerospace leader building next-generation infrastructure for space exploration and commercialization.</strong></p>}
         {Astro.params.slug === "kairos-power" && <p class="kwf-introduction"><strong>Enabling the world's clean energy transition to improve people's quality of life while protecting the environment.</strong></p>}
-        {Astro.params.slug === "kashmir-world-foundation" && <p class="kwf-introduction"><strong>A nonprofit organization bringing together a global team to develop innovative solutions for wildlife conservation.</strong></p>}
+        {Astro.params.slug === "kashmir-world-foundation" && <p class="kwf-introduction"><strong>Nonprofit organization bringing together a global team to develop innovative solutions for wildlife conservation.</strong></p>}
         {Astro.params.slug === "kashmir-world-foundation" ? (
           <article class="project-row kwf-aircraft-row">
             <div class="project-copy"><h2>Project Eagle Ray</h2><p>The Eagle Ray aircraft is a blended-wing body UAS designed to fly over the Himalayan Mountain Range at 20,000 feet. The goal is to monitor endangered snow leopard populations, eventually offering protective solutions to poaching, habitat destruction, and dwindling populations.</p></div>
@@ -338,12 +338,12 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .site-header nav{grid-column:2;justify-self:center;display:flex;gap:clamp(15px,2.3vw,30px);font-size:14px}
   .site-header nav a:hover,.site-header nav a[aria-current="page"]{color:var(--teal)}
 
-  .project-hero{position:relative;height:clamp(270px,34.2svh,423px);overflow:hidden;background:#17201c}
+  .project-hero{position:relative;height:clamp(472.5px,59.85svh,740.25px);overflow:hidden;background:#17201c}
   .project-hero>img{width:100%;height:100%;object-fit:cover;object-position:var(--hero-position);filter:saturate(.88)}
   .project-kairos-power .project-hero{background:#101a1c;container-type:size}
   /* Center the circle at source x=800 without changing the cover scale. */
   .project-kairos-power .project-hero>img{object-fit:cover;object-position:center;filter:none;transform:translateX(min(-16.666667cqw,-33.333333cqh))}
-  .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,8,.18),rgba(7,9,8,.68))}
+  .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,8,.5),rgba(7,9,8,.16) 35%,rgba(7,9,8,.68))}
   h1{position:absolute;z-index:2;top:50%;left:50%;width:min(92%,1100px);margin:0;transform:translate(-50%,-50%);color:#f7f6f2;font:400 clamp(48px,6.5vw,92px)/.9 Manrope,sans-serif;letter-spacing:-.055em;text-align:center;text-shadow:0 4px 26px rgba(0,0,0,.75)}
   .nda-notice{width:min(1200px,calc(100% - 48px));margin:clamp(18px,2.5vw,30px) auto 0;color:var(--muted);font-size:14px;line-height:1.55;text-align:center}
   .project-content{width:min(1200px,calc(100% - 48px));margin:0 auto;padding:8px 0 clamp(38px,5vw,72px)}
@@ -457,7 +457,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   @media(max-width:720px){
     .project-kashmir-world-foundation .kwf-mesh-row{grid-template-columns:1fr}.kwf-mesh-image{max-width:400px}.kwf-mesh-image img{height:auto;max-height:500px}
     .site-header{height:68px;padding:0 18px}.brand-mark{width:34px;height:32px}.brand-mark b,.brand-mark i{top:7px}.brand-mark b{left:5px}.brand-mark i{left:15px}.site-header nav{gap:10px;font-size:11px}
-    .project-hero{height:clamp(234px,34.2svh,324px)}h1{font-size:clamp(42px,13vw,65px)}
+    .project-hero{height:clamp(409.5px,59.85svh,567px)}h1{font-size:clamp(42px,13vw,65px)}
     .nda-notice{width:min(100% - 36px,620px);margin-top:18px;font-size:13px}
     .project-content{width:min(100% - 36px,620px);padding:8px 0 34px}.project-row,.project-kashmir-world-foundation .kwf-aircraft-row,.project-kashmir-world-foundation .kwf-snow-row{grid-template-columns:1fr;gap:22px;padding:30px 0}.project-row:first-child{padding-top:18px}.project-media{height:240px}.project-design-build-fly .project-row:first-child{grid-template-columns:1fr}.project-design-build-fly .project-row:first-child .project-media{width:86%;height:220px}.dbf-story{gap:28px;padding-top:10px}.dbf-year-section{gap:18px;padding-top:18px}.dbf-pair{grid-template-columns:1fr;gap:18px}
     .snow-leopard-reveal{height:clamp(169px,24.7svh,234px);margin-top:8px;margin-bottom:8px}
