@@ -1,5 +1,5 @@
 ---
-import SiteHeader from "../../components/SiteHeader.astro";
+import PortfolioHeader from "../../components/PortfolioHeader.astro";
 import CloudflareAnalytics from "../../components/CloudflareAnalytics.astro";
 
 const projects = {
@@ -90,7 +90,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
     <title>{project.title} | Ryan Cross</title>
   </head>
   <body>
-    <SiteHeader active="projects" />
+    <PortfolioHeader active="projects" />
 
     <main class={`project-${Astro.params.slug}`} style={`--hero-position:${project.heroPosition};--project-position:${project.imagePosition};--second-position:${project.secondImagePosition}`}>
       <section class="project-hero">
