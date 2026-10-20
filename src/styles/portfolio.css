@@ -59,3 +59,19 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 .flatirons-horizon img{display:block;width:min(620px,62%);height:100%;object-fit:fill}
 @media(max-width:760px){.flatirons-horizon{height:125px}.flatirons-horizon img{width:75%}.degree .cu-logo{width:30px;height:30px}}
 @media(max-width:520px){.flatirons-horizon{height:100px}.flatirons-horizon img{width:100%}.portfolio-main .intro{padding-bottom:24px}}
+/* Keep the portrait rectangular and the project horizon at the original height. */
+.portrait{border-radius:22px}
+.portrait img{border-radius:0}
+.portfolio-main .intro{position:relative;padding-bottom:56px}
+.flatirons-horizon{display:none}
+/* Existing Inktober artwork, positioned within the hero so the horizon stays put. */
+.portfolio-main .intro{isolation:isolate}
+.portfolio-main .intro::before{content:"";position:absolute;z-index:-1;inset:0 calc((100% - 100vw)/2);background:#f7f6f2}
+.intro-copy,.portrait{position:relative;z-index:1}
+.flatirons-horizon{position:absolute;display:block;left:0;bottom:0;width:480px;max-width:52%;height:185px;margin:0;overflow:hidden;mix-blend-mode:multiply;pointer-events:none;opacity:.6;z-index:0}
+.flatirons-horizon img{width:100%;height:215px;object-fit:cover;object-position:center 16%;filter:grayscale(1) contrast(1.4);clip-path:polygon(0 0,90% 0,90% 45%,100% 45%,100% 100%,0 100%);mask-image:linear-gradient(to bottom,transparent,#000 13%,#000 92%,transparent)}
+@media(min-width:761px){.intro-copy{transform:translateY(-35px)}}
+@media(min-width:521px) and (max-width:760px){.intro-copy{align-self:flex-start;padding-top:8px}.flatirons-horizon{height:145px;max-width:56%}.flatirons-horizon img{height:180px}}
+@media(max-width:520px){.portfolio-main .intro{padding-bottom:112px}.flatirons-horizon{max-width:none;width:100%;height:100px}.flatirons-horizon img{height:150px;object-position:center 12%}}
+.portfolio-main .intro{background:#f7f6f2}
+.portfolio-main .intro::before{display:none}
