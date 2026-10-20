@@ -103,3 +103,7 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 @media(max-width:520px){.portrait{width:min(100%,350px)}.flatirons-horizon{left:-17.5%;width:135%;height:100px;max-width:none}.flatirons-horizon img{width:100%;top:-39px}}
 .portfolio-main{overflow-x:clip}
 .portfolio-main .intro{isolation:auto}
+/* The revised supplied image has its tallest peak 15px higher in the source. */
+.flatirons-horizon img{top:-62px}
+@media(min-width:521px) and (max-width:760px){.flatirons-horizon img{top:-48.5px}}
+@media(max-width:520px){.flatirons-horizon img{top:-35px}}
