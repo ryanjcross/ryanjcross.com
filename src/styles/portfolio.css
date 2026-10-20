@@ -75,3 +75,14 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 @media(max-width:520px){.portfolio-main .intro{padding-bottom:112px}.flatirons-horizon{max-width:none;width:100%;height:100px}.flatirons-horizon img{height:150px;object-position:center 12%}}
 .portfolio-main .intro{background:#f7f6f2}
 .portfolio-main .intro::before{display:none}
+/* A wider portrait, feathered sketch edges, and compact page endings. */
+.portrait{width:380px}
+.flatirons-horizon{width:540px;mask-image:linear-gradient(to right,transparent,#000 10%,#000 82%,transparent)}
+.flatirons-horizon img{height:100%;mask-image:linear-gradient(to bottom,transparent,#000 13%,#000 92%,transparent)}
+.projects-section{padding-bottom:28px}
+.about-main{padding-bottom:28px}
+.resume-main{padding-bottom:28px}
+.resume-main .download{display:table;margin:0 auto 28px;padding:12px 26px;border-radius:999px;background:#253551;color:#f7f6f2;font-size:14px;line-height:1.6;transition:background .2s,transform .2s}
+.resume-main .download:hover{background:#354c6b;transform:translateY(-2px)}
+@media(max-width:760px){.portrait{width:285px}.projects-section{padding-bottom:24px}}
+@media(max-width:520px){.portrait{width:min(100%,325px)}.flatirons-horizon{width:100%}}
