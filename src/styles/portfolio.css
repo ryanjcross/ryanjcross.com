@@ -95,3 +95,11 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 .flatirons-horizon img{width:100%;height:100%;object-fit:fill;object-position:center;clip-path:none;mask-image:none;filter:grayscale(1) contrast(1.4)}
 @media(min-width:521px) and (max-width:760px){.flatirons-horizon{left:-30.74px;width:466.25px;height:145px;max-width:calc(100% + 30.74px)}}
 @media(max-width:520px){.flatirons-horizon{left:0;width:100%;height:100px;max-width:none}}
+/* Align the supplied landscape's main peaks to the previous sketch. */
+.portrait{width:440px}
+.flatirons-horizon{left:-144px;width:827px;height:185px;max-width:none}
+.flatirons-horizon img{position:absolute;left:0;top:-69px;width:827px;height:auto;object-fit:contain;clip-path:polygon(0 0,94% 0,94% 23%,100% 23%,100% 100%,0 100%)}
+@media(min-width:521px) and (max-width:760px){.portrait{width:310px}.flatirons-horizon{left:-113px;width:648px;height:145px;max-width:none}.flatirons-horizon img{width:648px;top:-54px}}
+@media(max-width:520px){.portrait{width:min(100%,350px)}.flatirons-horizon{left:-17.5%;width:135%;height:100px;max-width:none}.flatirons-horizon img{width:100%;top:-39px}}
+.portfolio-main{overflow-x:clip}
+.portfolio-main .intro{isolation:auto}
