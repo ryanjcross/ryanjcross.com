@@ -27,7 +27,7 @@ const projects = {
     heroImage: "/images/kairos-power-banner-clean.svg",
     heroAlt: "Kairos Power logo and blue circular dot pattern",
     heroPosition: "center top",
-    image: "/images/kairos-reactor-system-dark.png",
+    image: "/images/kairos-reactor-system.png",
     imageAlt: "Salt-cooled reactor system showing heat transport, steam generation, and electricity generation",
     imagePosition: "center top",
     secondImage: "/images/kairos-two-phase-flow.jpg",
@@ -56,8 +56,8 @@ const projects = {
       "Every year, AIAA challenges students to show their creativity and technical expertise through the Design Build Fly competition. Rules are released in September with competition taking place in April.",
       "I participated on the CU team for two years, joining as a member of the avionics team, then stepping up to lead the propulsion design and implementation team.",
     ],
-    heroImage: "/images/design-build-fly-tail-banner.jpg",
-    heroAlt: "Colorado Design Build Fly team preparing their aircraft, with the team logo on the tail",
+    heroImage: "/images/design-build-fly-runway-banner.jpg",
+    heroAlt: "Colorado Design Build Fly aircraft on the runway",
     heroPosition: "center 62%",
     image: "/images/design-build-fly-outreach.webp",
     imageAlt: "Ryan Cross explaining Design Build Fly at a student outreach event",
@@ -263,7 +263,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
               </figure>
             </article>
             <article class="project-row kairos-replication-row">
-              <figure class="kairos-chart"><img src="/images/kairos-flow-replication-dark.png" alt="Theoretical data compared with MATLAB reproduction, with redacted axes" loading="lazy" /></figure>
+              <figure class="kairos-chart"><img src="/images/kairos-flow-replication-v2.png" alt="Theoretical data compared with MATLAB reproduction, with redacted axes" loading="lazy" /></figure>
               <div class="project-copy"><p>Pictured left, I replicated methods from a verified source to predict two-phase flow behavior with non-fluid properties. The replication was accurate, and therefore I could apply such methods in the context of my experiment.</p><p><strong>I had a theoretical method to infer the void fraction, but I needed to validate it...</strong></p></div>
             </article>
             <article class="project-row">
@@ -275,12 +275,12 @@ const ndaCompany = Astro.params.slug === "sierra-space"
               <figure class="kairos-chart kairos-experiment-photo"><img src="/images/kairos-physical-tube.png" alt="Water-filled tube with bubbles and a camera used to measure void fraction" loading="lazy" /></figure>
             </article>
             <div class="project-copy kairos-wide-copy"><p>Once I had taken the photos, I used an image processing software to determine key characteristics of the flow. I could then use this data, correlated with additional non-fluid properties, to validate the prediction that was made with the model that I adapted.</p></div>
-            <figure class="kairos-chart kairos-processing-chart"><img src="/images/kairos-void-fraction-processing-dark.png" alt="Original bubble photograph, image processing with detected bubbles, and a histogram of void fraction parameters" loading="lazy" /></figure>
+            <figure class="kairos-chart kairos-processing-chart"><img src="/images/kairos-void-fraction-processing.png" alt="Original bubble photograph, image processing with detected bubbles, and a histogram of void fraction parameters" loading="lazy" /></figure>
             <section class="kairos-optimization" aria-label="Two-dimensional and three-dimensional analysis">
               <div class="project-copy kairos-wide-copy"><p>For the final step, I computed the error between the theoretical model and experimental data to find the most likely case of parameters. I could compare these results to other sets of data to predict the two parameters relating to void fraction.</p></div>
               <div class="kairos-chart-pair">
-                <figure class="kairos-chart"><img src="/images/kairos-optimization-2d-dark.png" alt="Two-dimensional optimization heatmap with redacted axes" loading="lazy" /></figure>
-                <figure class="kairos-chart"><img src="/images/kairos-optimization-3d-dark.png" alt="Three-dimensional log-error optimization surface with redacted axes" loading="lazy" /></figure>
+                <figure class="kairos-chart"><img src="/images/kairos-optimization-2d.png" alt="Two-dimensional optimization heatmap with redacted axes" loading="lazy" /></figure>
+                <figure class="kairos-chart"><img src="/images/kairos-optimization-3d-v2.png" alt="Three-dimensional log-error optimization surface with redacted axes" loading="lazy" /></figure>
               </div>
             </section>
             <div class="project-copy kairos-wide-copy"><p>Void fraction presence is undesirable in molten salt coolant, but is unavoidable due to gas entrainment and argon gas entering through a free-surface vortex in the pump. I developed a method to predict whether or not the void fraction is at a concerning percentage, leaving a detailed description of my work for the team to implement, test, and improve upon the model.</p></div>
@@ -475,4 +475,8 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .project-kairos-power .project-hero>img{transform:translateX(calc(-1 * min(16.666667cqw,33.333333cqh)))}
   .project-design-build-fly .project-hero>img{object-fit:cover;object-position:center 52%;filter:none;transform:none}
   .project-design-build-fly .hero-shade{display:none}
+  .project-kairos-power .project-hero>img{transform:translateX(calc(-1.08 * min(16.666667cqw,33.333333cqh))) scale(1.08)}
+  .project-design-build-fly .dbf-testimonial{width:min(940px,100%)}
+  .project-design-build-fly .project-hero>img{object-position:center 61%}
+  .project-kairos-power .kairos-chart:not(.kairos-experiment-photo) img,.project-kairos-power .project-row:first-of-type .project-media img{mix-blend-mode:multiply}
 </style>
