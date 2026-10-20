@@ -109,3 +109,6 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 @media(max-width:520px){.flatirons-horizon img{top:-35px}}
 .projects-section .projects-title{width:88%;max-width:1120px;margin:0 auto 30px;font:500 clamp(30px,3.4vw,42px)/1.2 Manrope,sans-serif;letter-spacing:-1px;color:#f7f6f2}
 .about-layout>img{border-radius:18px;object-position:center}
+/* Center the section title with equal space before the heading and first row. */
+.projects-section{padding-top:28px}
+.projects-section .projects-title{text-align:center;margin-bottom:28px}
