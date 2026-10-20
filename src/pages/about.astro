@@ -1,28 +1,6 @@
 ---
-import SiteHeader from "../components/SiteHeader.astro";
-import "../styles/site.css";
-import "../styles/refinements.css";
-import "../styles/footer.css";
-import "../styles/nav-order.css";
-import "../styles/page-adjustments.css";
-
+import PortfolioHeader from "../components/PortfolioHeader.astro";
 import CloudflareAnalytics from "../components/CloudflareAnalytics.astro";
+import "../styles/portfolio.css";
 ---
-<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width" /><title>About | Ryan Cross</title></head><body><SiteHeader active="about" /><main class="page page-heading about-page"><h1>About Me</h1><div class="about-layout"><div class="copy about-copy"><p>Hello there! My name is Ryan Cross and I am pursuing my M.S. in Aerospace Engineering from CU Boulder. At the moment I am working as an intern at Sierra Space, working as a teaching assistant, and volunteering as a student leader.</p><p>I love to spend time outside, getting involved with ultimate frisbee, skiing, running, swimming, and many other activities. I love making my morning espresso to ensure I start my day off right. If you want to learn more about my work, check out my resume:</p></div><a class="about-action-button about-resume-button" href="/resume">Resume</a><div class="about-photo-stack" aria-label="Photos from Ryan's travels and interests"><figure><img src="/images/about-discovery.jpg" alt="Ryan at the Smithsonian with Space Shuttle Discovery" loading="lazy" decoding="async" /></figure><figure><img src="/images/about-chicago-river.jpg" alt="Ryan beside the Chicago River" loading="lazy" decoding="async" /></figure><figure><img src="/images/about-skiing.jpg" alt="Ryan skiing in a snowy forest" loading="lazy" decoding="async" /></figure></div></div><div class="about-home-actions"><a class="about-action-button" href="/">Projects</a></div></main><footer class="footer site-footer"><div></div><div class="footer-socials"><a href="https://www.linkedin.com/in/ryan-cross-/" target="_blank" rel="noreferrer"><span class="footer-linkedin-logo">in</span> LinkedIn</a><a href="mailto:ryanc31415@gmail.com">ryanc31415@gmail.com</a></div><p>© {new Date().getFullYear()} Ryan Cross</p></footer><CloudflareAnalytics /></body></html>
-
-<style>
-  .about-page{padding-bottom:55px}
-  .about-layout{display:grid;grid-template-columns:minmax(280px,.9fr) minmax(0,1.1fr);gap:clamp(32px,4vw,64px);width:min(1400px,calc(100% - 48px));margin:0 auto;padding:clamp(24px,3vw,42px) 0;align-items:center}
-  .about-copy{width:100%;max-width:600px;color:var(--ink);font:400 clamp(16px,1.35vw,20px)/1.62 "DM Sans",sans-serif}
-  .about-copy p{margin:0 0 16px}
-  .about-photo-stack{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;width:100%}
-  .about-photo-stack figure{min-width:0;aspect-ratio:4/5;margin:0;overflow:hidden;border:1px solid var(--line);border-radius:20px;background:#17201c;box-shadow:0 22px 46px rgba(0,0,0,.34)}
-  .about-photo-stack img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
-  .about-photo-stack figure:nth-child(1) img{transform:scale(1.07);transform-origin:left center}
-  @media(min-width:851px){.about-layout{row-gap:8px}.about-copy{grid-column:1;grid-row:1}.about-photo-stack{grid-column:2;grid-row:1;align-self:center}.about-resume-button{grid-column:1;grid-row:2}}
-  .about-action-button{display:flex;align-items:center;justify-content:center;gap:18px;width:max-content;min-width:160px;margin-inline:auto;padding:17px 23px;border:1px solid var(--teal);color:var(--ink);font-size:13px;font-weight:600;line-height:normal;transition:background .2s,color .2s}
-  .about-action-button:hover{background:var(--teal);color:var(--bg)}
-  .about-home-actions{display:flex;justify-content:center;margin:55px auto 0}
-  @media(max-width:850px){.about-layout{grid-template-columns:1fr;gap:34px;width:min(100% - 36px,680px);padding-top:20px}.about-copy{max-width:none}.about-photo-stack{width:100%;margin-inline:auto}}
-  @media(max-width:600px){.about-page{padding-bottom:35px}.about-action-button{min-width:0;padding:15px 18px;font-size:12px}.about-home-actions{margin-top:35px}.about-photo-stack{gap:10px}.about-photo-stack figure{border-radius:14px}}
-</style>
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width"/><title>About | Ryan Cross</title><link rel="icon" href="/favicon.svg"/></head><body class=""><PortfolioHeader active="about"/><main class="about-main"><h1>About me</h1><div class="about-layout"><div><p>I’m pursuing my M.S. in Aerospace Engineering at CU Boulder. My experience includes systems engineering at Sierra Space, aerodynamics at Kashmir World Foundation, test engineering at Kairos Power, and propulsion with Design Build Fly.</p><p>Outside engineering, I enjoy ultimate frisbee, skiing, running, swimming, and making espresso.</p><a href="/resume">View my resume ↗</a></div><img src="/images/about-discovery.jpg" alt="Ryan with Space Shuttle Discovery"/></div></main><footer><a href="mailto:ryanc31415@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/ryan-cross-/">LinkedIn ↗</a></footer><CloudflareAnalytics/></body></html>
