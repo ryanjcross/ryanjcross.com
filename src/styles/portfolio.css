@@ -82,8 +82,8 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 .projects-section{padding-bottom:28px}
 .about-main{padding-bottom:28px}
 .resume-main{padding-bottom:28px}
-.resume-main .download{display:table;margin:0 auto 28px;padding:12px 26px;border-radius:999px;background:#253551;color:#f7f6f2;font-size:14px;line-height:1.6;transition:background .2s,transform .2s}
-.resume-main .download:hover{background:#354c6b;transform:translateY(-2px)}
+.resume-main .download{display:table;margin:0 auto 28px;padding:12px 26px;border-radius:999px;background:#253551;color:#f7f6f2;font-size:14px;line-height:1.6;transition:background .2s}
+.resume-main .download:hover{background:#354c6b}
 @media(max-width:760px){.portrait{width:285px}.projects-section{padding-bottom:24px}}
 @media(max-width:520px){.portrait{width:min(100%,325px)}.flatirons-horizon{width:100%}}
 /* Extended ink contours reach the horizon directly, without feathering. */
