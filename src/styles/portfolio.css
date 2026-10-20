@@ -50,3 +50,12 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 .portrait img{transform:translateX(1.5%) scale(2.15)}
 @media(max-width:760px){.projects-section .grid{gap:22px}.projects-section .caption{padding:18px 4px 10px}.projects-section .caption h2{font-size:24px}.projects-section .caption p{font-size:17px}}
 @media(max-width:600px){.projects-section .grid{grid-template-columns:1fr}.projects-section .caption h2{font-size:26px}.projects-section .caption p{font-size:18px}}
+/* The Flatirons meet the project background at the horizon. */
+.portrait img{transform:translateX(1.5%) scale(1.85)}
+.degree{display:flex;align-items:center;gap:13px}
+.degree .cu-logo{width:34px;height:34px;flex-shrink:0;object-fit:contain}
+.portfolio-main .intro{padding-bottom:18px}
+.flatirons-horizon{width:88%;max-width:1120px;margin:0 auto;height:170px;display:flex;align-items:flex-end}
+.flatirons-horizon img{display:block;width:min(620px,62%);height:100%;object-fit:fill}
+@media(max-width:760px){.flatirons-horizon{height:125px}.flatirons-horizon img{width:75%}.degree .cu-logo{width:30px;height:30px}}
+@media(max-width:520px){.flatirons-horizon{height:100px}.flatirons-horizon img{width:100%}.portfolio-main .intro{padding-bottom:24px}}
