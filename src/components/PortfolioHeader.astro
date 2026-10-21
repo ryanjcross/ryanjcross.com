@@ -11,7 +11,8 @@ const { active = "projects", overlay = false } = Astro.props;
 .portfolio-header nav a:hover,.portfolio-header nav a[aria-current]{color:#203d32}
 .portfolio-header nav a::after{display:none}
 .portfolio-header .social-links{display:flex;grid-column:3;justify-self:end;gap:19px;align-items:center}
-.portfolio-header .social-links a{display:flex}
+.portfolio-header .social-links a{display:flex;transition:color .2s}
+.portfolio-header .social-links a:hover{color:#536878}
 .portfolio-header svg{width:27px;height:27px}
 .portfolio-header a:focus-visible{outline:2px solid #597669;outline-offset:6px}
 @media(max-width:760px){.portfolio-header{display:flex;flex-wrap:wrap;gap:27px;padding:24px 5% 18px}.portfolio-header .brand{font-size:28px}.portfolio-header nav{width:100%;gap:25px}.portfolio-header .social-links{position:absolute;right:5%;top:29px}}
