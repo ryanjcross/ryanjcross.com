@@ -298,10 +298,16 @@ const ndaCompany = Astro.params.slug === "sierra-space"
             <h2 class="kwf-section-title" id="sierra-coop-title">Part-Time Co-op</h2>
             <div class="project-copy sierra-coop-copy"><p>Coming soon...</p></div>
           </section>
+          <div class="sierra-testimonials">
           <blockquote class="dbf-testimonial">
             <p>“Ryan combines genuine technical curiosity with a deep sense of purpose — he approaches engineering problems not just to solve them, but to contribute to a safer, more sustainable future. He has a rare ability to pair rigorous analytical thinking with the kind of thoughtful, inclusive leadership that makes him someone teams want to work with.”</p>
             <footer>— Dr. Therese Suaris, Director of Systems Engineering</footer>
           </blockquote>
+          <blockquote class="dbf-testimonial">
+            <p>“Ryan, aside from being a friend and a great coworker, became someone I looked up to at Sierra Space. He is a year older than I am, and over the summer, I learned from his work ethic and drew on his experience as a master’s student and a more experienced engineer to become a better engineer myself.”</p>
+            <footer>— Jack Lingbeck, 2026 Technical Intern</footer>
+          </blockquote>
+          </div>
           </>
         ) : project.paragraphs[1] ? (
           <article class="project-row">
@@ -447,6 +453,10 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .dbf-testimonial p{margin:0;color:var(--ink);font:400 clamp(19px,2vw,27px)/1.55 Manrope,sans-serif}
   .dbf-testimonial p+p{margin-top:18px}
   .dbf-testimonial footer{margin-top:22px;color:var(--teal);font-size:14px;font-weight:600;letter-spacing:.04em}
+  .sierra-testimonials{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;width:min(1200px,100%);margin:28px auto 0}
+  .sierra-testimonials .dbf-testimonial{display:flex;flex-direction:column;justify-content:center;width:100%;margin:0;padding:clamp(24px,3vw,40px)}
+  .sierra-testimonials .dbf-testimonial p{font-size:clamp(19px,1.65vw,24px)}
+  @media(max-width:720px){.sierra-testimonials{grid-template-columns:1fr;gap:24px}}
   .back-to-projects{display:table;width:max-content;margin:0 auto;padding:12px 26px;border:0;border-radius:999px;background:#253551;color:#f7f6f2;font:400 14px/1.6 Poppins,sans-serif;transition:background .2s}
 
   .back-to-projects:hover{background:#354c6b}
