@@ -113,9 +113,9 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 .about-photos{display:grid;gap:24px;min-width:0}
 .about-photos img{display:block;width:100%;height:auto;border-radius:18px}
 .about-main{padding-top:12px}
-.about-main .photo-name{margin:0 0 36px;border-radius:22px;overflow:hidden;font:800 clamp(100px,18vw,220px)/1 Manrope,sans-serif;letter-spacing:-.055em}
+.about-main .photo-name{width:min(100%,800px);margin:0 auto 36px;border-radius:22px;overflow:hidden;font:800 clamp(100px,16vw,190px)/1 Manrope,sans-serif;letter-spacing:-.055em}
 .photo-name-word{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
-.photo-name-letter{display:flex;align-items:center;justify-content:center;min-width:0;aspect-ratio:3/4;background-size:cover;background-repeat:no-repeat;background-clip:border-box;color:#fff;-webkit-text-fill-color:#fff;text-shadow:0 2px 18px #0005;box-shadow:inset 0 0 0 100vmax #00000018}
+.photo-name-letter{display:flex;align-items:center;justify-content:center;min-width:0;aspect-ratio:2/3;background-size:cover;background-repeat:no-repeat;background-clip:border-box;color:#fff;-webkit-text-fill-color:#fff;text-shadow:0 2px 18px #0005;box-shadow:inset 0 0 0 100vmax #00000018}
 @media(max-width:520px){.about-main .photo-name{font-size:clamp(64px,19vw,100px);border-radius:16px;margin-bottom:28px}}
 /* Center the section title with equal space before the heading and first row. */
 .projects-section{padding-top:28px}
