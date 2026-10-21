@@ -5,10 +5,10 @@ import CloudflareAnalytics from "../components/CloudflareAnalytics.astro";
 import "../styles/portfolio.css";
 const nameWords = [
   [
-    { letter: "r", photo: 5, position: "22% 53%" },
-    { letter: "y", photo: 6, position: "48% 64%" },
-    { letter: "a", photo: 2, position: "50% 36%" },
-    { letter: "n", photo: 7, position: "53% 40%" },
+    { letter: "r", photo: 7, position: "53% 100%", size: "auto 115%" },
+    { letter: "y", photo: 6, position: "48% 100%", size: "auto 115%" },
+    { letter: "a", photo: 2, position: "50% 36%", size: "cover" },
+    { letter: "n", photo: 5, position: "0% 65%", size: "133.333% auto" },
   ],
 ];
 ---
@@ -19,7 +19,7 @@ const nameWords = [
     <PortfolioHeader active="about"/>
     <main class="about-main">
       <h1 class="photo-name" aria-label="ryan">
-        {nameWords.map(word => <span class="photo-name-word" aria-hidden="true">{word.map(({ letter, photo, position }) => <span class="photo-name-letter" style={`background-image:url('/images/about-name-${photo}.jpg');background-position:${position}`}>{letter}</span>)}</span>)}
+        {nameWords.map(word => <span class="photo-name-word" aria-hidden="true">{word.map(({ letter, photo, position, size }) => <span class="photo-name-letter" style={`background-image:url('/images/about-name-${photo}.jpg');background-position:${position};background-size:${size}`}>{letter}</span>)}</span>)}
       </h1>
       <div class="about-layout">
         <div class="about-copy">
