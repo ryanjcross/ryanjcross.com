@@ -108,7 +108,7 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 @media(min-width:521px) and (max-width:760px){.flatirons-horizon img{top:-48.5px}}
 @media(max-width:520px){.flatirons-horizon img{top:-35px}}
 .projects-section .projects-title{width:88%;max-width:1120px;margin:0 auto 30px;font:500 clamp(30px,3.4vw,42px)/1.2 Manrope,sans-serif;letter-spacing:-1px;color:#f7f6f2}
-.about-layout{align-items:start}
+.about-layout{align-items:start;border:1px solid #000;border-radius:22px;padding:clamp(20px,3vw,36px)}
 .about-copy{font-size:16px;line-height:1.8}
 .about-photos{display:grid;gap:24px;min-width:0}
 .about-photos img{display:block;width:100%;height:auto;border-radius:18px}
