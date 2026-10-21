@@ -121,6 +121,8 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 .about-contact-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
 .about-contact button{padding:12px 30px;border:0;border-radius:999px;background:#253551;color:#f7f6f2;font:400 14px/1.6 Poppins,sans-serif;cursor:pointer;transition:background .2s}
 .about-contact button:hover{background:#354c6b}
+.about-contact button:disabled{opacity:.65;cursor:wait}
+.about-contact .contact-honeypot{display:none}
 .about-contact button:focus-visible{outline:2px solid #536878;outline-offset:4px}
 .about-contact-actions p{margin:0;color:#647176;font-size:12px}
 @media(max-width:520px){.about-contact-fields{grid-template-columns:1fr}}
