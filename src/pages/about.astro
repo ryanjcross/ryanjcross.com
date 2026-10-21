@@ -3,6 +3,21 @@ import PortfolioFooter from "../components/PortfolioFooter.astro";
 import PortfolioHeader from "../components/PortfolioHeader.astro";
 import CloudflareAnalytics from "../components/CloudflareAnalytics.astro";
 import "../styles/portfolio.css";
+const nameWords = [
+  [
+    { letter: "r", photo: 1, position: "50% 74%" },
+    { letter: "y", photo: 2, position: "50% 36%" },
+    { letter: "a", photo: 3, position: "50% 42%" },
+    { letter: "n", photo: 4, position: "50% 45%" },
+  ],
+  [
+    { letter: "c", photo: 5, position: "22% 53%" },
+    { letter: "r", photo: 6, position: "48% 64%" },
+    { letter: "o", photo: 7, position: "53% 40%" },
+    { letter: "s", photo: 2, position: "50% 30%" },
+    { letter: "s", photo: 3, position: "50% 40%" },
+  ],
+];
 ---
 <!doctype html>
 <html lang="en">
@@ -10,6 +25,9 @@ import "../styles/portfolio.css";
   <body>
     <PortfolioHeader active="about"/>
     <main class="about-main">
+      <h1 class="photo-name" aria-label="ryan cross">
+        {nameWords.map(word => <span class="photo-name-word" aria-hidden="true">{word.map(({ letter, photo, position }) => <span class="photo-name-letter" style={`background-image:url('/images/about-name-${photo}.jpg');background-position:${position}`}>{letter}</span>)}</span>)}
+      </h1>
       <div class="about-layout">
         <div class="about-copy">
           <p>Hi there, my name is Ryan and I am so glad you found my portfolio!</p>
