@@ -112,10 +112,10 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 .about-copy{font-size:16px;line-height:1.8}
 .about-photos{display:grid;gap:24px;min-width:0}
 .about-photos img{display:block;width:100%;height:auto;border-radius:18px}
-.about-main .photo-name{display:flex;justify-content:center;gap:.18em;margin:0 0 44px;font:800 clamp(64px,12vw,154px)/1.25 Manrope,sans-serif;letter-spacing:-.055em}
+.about-main .photo-name{display:flex;justify-content:center;margin:0 0 44px;font:800 clamp(140px,24vw,300px)/1.25 Manrope,sans-serif;letter-spacing:-.055em}
 .photo-name-word{display:flex}
 .photo-name-letter{display:inline-block;padding:0 .025em;background-size:auto 145%;background-repeat:no-repeat;background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
-@media(max-width:520px){.about-main .photo-name{flex-direction:column;align-items:center;gap:0;font-size:clamp(88px,25vw,130px);margin-bottom:28px}}
+@media(max-width:520px){.about-main .photo-name{font-size:clamp(110px,31vw,160px);margin-bottom:28px}}
 /* Center the section title with equal space before the heading and first row. */
 .projects-section{padding-top:28px}
 .projects-section .projects-title{text-align:center;margin-bottom:28px}

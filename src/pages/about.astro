@@ -10,13 +10,6 @@ const nameWords = [
     { letter: "a", photo: 3, position: "50% 42%" },
     { letter: "n", photo: 4, position: "50% 45%" },
   ],
-  [
-    { letter: "c", photo: 5, position: "22% 53%" },
-    { letter: "r", photo: 6, position: "48% 64%" },
-    { letter: "o", photo: 7, position: "53% 40%" },
-    { letter: "s", photo: 2, position: "50% 30%" },
-    { letter: "s", photo: 3, position: "50% 40%" },
-  ],
 ];
 ---
 <!doctype html>
@@ -25,7 +18,7 @@ const nameWords = [
   <body>
     <PortfolioHeader active="about"/>
     <main class="about-main">
-      <h1 class="photo-name" aria-label="ryan cross">
+      <h1 class="photo-name" aria-label="ryan">
         {nameWords.map(word => <span class="photo-name-word" aria-hidden="true">{word.map(({ letter, photo, position }) => <span class="photo-name-letter" style={`background-image:url('/images/about-name-${photo}.jpg');background-position:${position}`}>{letter}</span>)}</span>)}
       </h1>
       <div class="about-layout">
