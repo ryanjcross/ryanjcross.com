@@ -55,8 +55,8 @@ import traces from "../data/flatirons-traces.json";
   .flatirons-neon{visibility:hidden}
   html[data-theme="dark"] .flatirons-neon{visibility:visible}
   html[data-theme="dark"] .flatirons-base{filter:invert(1);opacity:.3}
-  .flatirons-pencil-stroke{stroke-dasharray:1;stroke-dashoffset:1}
+  .flatirons-pencil-stroke{stroke-dasharray:1;stroke-dashoffset:1;visibility:hidden}
   html[data-theme="dark"] .flatirons-artwork[data-ready="true"] .flatirons-pencil-stroke{animation:flatirons-pencil var(--stroke-duration) ease-in-out var(--stroke-delay) both}
-  @keyframes flatirons-pencil{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
-  @media(prefers-reduced-motion:reduce){html[data-theme="dark"] .flatirons-pencil-stroke{animation:none;stroke-dashoffset:0}}
+  @keyframes flatirons-pencil{0%{stroke-dashoffset:1;visibility:hidden}.1%{visibility:visible}100%{stroke-dashoffset:0;visibility:visible}}
+  @media(prefers-reduced-motion:reduce){html[data-theme="dark"] .flatirons-pencil-stroke{animation:none;stroke-dashoffset:0;visibility:visible}}
 </style>

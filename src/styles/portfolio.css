@@ -32,7 +32,7 @@ main{width:88%;max-width:1120px}
 .projects-section .photo{border-radius:12px}
 .projects-section .caption{padding:12px 20px 12px 0}
 .projects-section .caption p{font-size:20px;line-height:1.5;color:#536878;margin-top:10px}
-.projects-section .arrow{color:#536878;font-size:29px;transition:transform .22s}
+.projects-section .arrow{display:block;flex-shrink:0;width:28px;height:28px;color:#536878;transition:transform .22s}
 .projects-section .card:hover .arrow{transform:translate(3px,-3px)}
 body>footer{position:relative;min-height:90px;padding-right:220px;padding-left:220px;align-items:center}
 body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap}
