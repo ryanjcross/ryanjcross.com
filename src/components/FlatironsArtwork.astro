@@ -1,7 +1,7 @@
 ---
 import traces from "../data/flatirons-traces.json";
 ---
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1774 887" width="1774" height="887" aria-hidden="true" focusable="false">
+<svg class="flatirons-artwork" data-ready="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1774 887" width="1774" height="887" aria-hidden="true" focusable="false">
   <defs>
     <filter id="flatirons-transparent-paper" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
       <feColorMatrix type="saturate" values="0" />
@@ -30,11 +30,31 @@ import traces from "../data/flatirons-traces.json";
   <g class="flatirons-base"><image href="/images/flatirons-landscape-v2.png" width="1774" height="887" filter="url(#flatirons-transparent-paper)" /></g>
   <g mask="url(#flatirons-pencil-strokes)"><image href="/images/flatirons-landscape-v2.png" width="1774" height="887" filter="url(#flatirons-cyan-ink)" /></g>
 </svg>
+<script>
+  const artwork = document.querySelector<SVGSVGElement>('.flatirons-artwork');
+  if (artwork) {
+    const source = new Image();
+    source.src = '/images/flatirons-landscape-v2.png';
+    const prepareDrawing = async () => {
+      try {
+        await source.decode();
+        // Give the SVG's undrawn state a paint before starting, including cached
+        // image loads and refreshes that restore dark mode before hydration.
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          artwork.dataset.ready = 'true';
+        }));
+      } catch {
+        // The unmodified base artwork remains available if preloading fails.
+      }
+    };
+    prepareDrawing();
+  }
+</script>
 <style is:global>
   .flatirons-base{opacity:.6}
   html[data-theme="dark"] .flatirons-base{filter:invert(1);opacity:.3}
   .flatirons-pencil-stroke{stroke-dasharray:1;stroke-dashoffset:1}
-  html[data-theme="dark"] .flatirons-pencil-stroke{animation:flatirons-pencil var(--stroke-duration) ease-in-out var(--stroke-delay) both}
+  html[data-theme="dark"] .flatirons-artwork[data-ready="true"] .flatirons-pencil-stroke{animation:flatirons-pencil var(--stroke-duration) ease-in-out var(--stroke-delay) both}
   @keyframes flatirons-pencil{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
   @media(prefers-reduced-motion:reduce){html[data-theme="dark"] .flatirons-pencil-stroke{animation:none;stroke-dashoffset:0}}
 </style>
