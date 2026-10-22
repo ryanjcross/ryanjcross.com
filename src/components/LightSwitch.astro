@@ -2,7 +2,12 @@
 import "../styles/theme.css";
 ---
 <script is:inline>
-  try { document.documentElement.dataset.theme = localStorage.getItem('portfolio-light-switch') === 'off' ? 'dark' : 'light'; } catch {}
+  (() => {
+    let saved = null;
+    try { saved = localStorage.getItem('portfolio-light-switch'); } catch {}
+    const dark = saved === 'off' || (saved !== 'on' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  })();
 </script>
 <button class="light-switch" type="button" role="switch" aria-checked="true" aria-label="Light mode" title="Switch between light and dark mode">
   <span class="switch-sun" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
@@ -27,8 +32,11 @@ import "../styles/theme.css";
   const lightSwitch = document.querySelector<HTMLButtonElement>('.light-switch');
   if (lightSwitch) {
     const storageKey = 'portfolio-light-switch';
-    let isOn = true;
-    try { isOn = localStorage.getItem(storageKey) !== 'off'; } catch {}
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+    let saved: string | null = null;
+    try { saved = localStorage.getItem(storageKey); } catch {}
+    let hasManualPreference = saved === 'on' || saved === 'off';
+    let isOn = hasManualPreference ? saved === 'on' : !systemTheme.matches;
     const render = () => {
       document.documentElement.dataset.theme = isOn ? 'light' : 'dark';
       lightSwitch.setAttribute('aria-checked', String(isOn));
@@ -36,9 +44,23 @@ import "../styles/theme.css";
     };
     render();
     lightSwitch.addEventListener('click', () => {
+      hasManualPreference = true;
       isOn = !isOn;
       render();
       try { localStorage.setItem(storageKey, isOn ? 'on' : 'off'); } catch {}
+    });
+    systemTheme.addEventListener('change', () => {
+      if (!hasManualPreference) {
+        isOn = !systemTheme.matches;
+        render();
+      }
+    });
+    window.addEventListener('storage', (event) => {
+      if (event.key !== storageKey && event.key !== null) return;
+      const preference = event.key === null ? null : event.newValue;
+      hasManualPreference = preference === 'on' || preference === 'off';
+      isOn = hasManualPreference ? preference === 'on' : !systemTheme.matches;
+      render();
     });
     const positionSwitch = () => {
       const intro = document.querySelector<HTMLElement>('.portfolio-main .intro');
