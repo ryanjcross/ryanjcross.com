@@ -4,15 +4,16 @@ import math
 from pathlib import Path
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw
 
 root = Path(__file__).resolve().parents[1]
-image = Image.open(root / 'public/images/flatirons-landscape-v2.png').convert('RGBA')
+original = Image.open(root / 'public/images/flatirons-landscape-v2.png').convert('RGBA')
+image = original.copy()
 image.thumbnail((887, 444))
 rgba = np.asarray(image)
-ink = (rgba[:, :, :3].mean(axis=2) < 190) & (rgba[:, :, 3] > 128)
+ink = (rgba[:, :, :3].mean(axis=2) < 219) & (rgba[:, :, 3] > 128)
 # The red artist stamp is already excluded by the page's existing clip.
-ink[:110, 830:] = False
+ink[:103, 834:] = False
 
 def neighbors(a):
     p = np.pad(a, 1)
@@ -59,8 +60,8 @@ for y, x in pixels:
     adjacency[(y, x)] = adjacent
 
 visited = set()
-paths = []
-starts = sorted(pixels, key=lambda p: (len(adjacency[p]) == 2, p[1], p[0]))
+chains = []
+starts = sorted(pixels, key=lambda p: (len(adjacency[p]) != 1, p[1], p[0]))
 for start in starts:
     for second in adjacency[start]:
         edge = tuple(sorted((start, second)))
@@ -68,15 +69,22 @@ for start in starts:
             continue
         chain = [start, second]
         visited.add(edge)
-        while len(adjacency[chain[-1]]) == 2:
+        length = math.dist(start, second)
+        while length < 180:
             choices = [q for q in adjacency[chain[-1]] if tuple(sorted((chain[-1], q))) not in visited]
             if not choices:
                 break
-            q = choices[0]
+            # Continue along a pen line through junctions instead of lighting up
+            # every tiny branch at the same horizontal position.
+            previous, current = chain[-2:]
+            direction = (current[0] - previous[0], current[1] - previous[1])
+            def straightness(q):
+                dy, dx = q[0] - current[0], q[1] - current[1]
+                return (dy * direction[0] + dx * direction[1]) / math.hypot(dy, dx)
+            q = max(choices, key=straightness)
             visited.add(tuple(sorted((chain[-1], q))))
             chain.append(q)
-        if len(chain) < 3:
-            continue
+            length += math.dist(current, q)
         if chain[-1][1] < chain[0][1]:
             chain.reverse()
         # Keep corners but remove redundant collinear points.
@@ -86,17 +94,73 @@ for start in starts:
             if (b[0] - a[0], b[1] - a[1]) != (c[0] - b[0], c[1] - b[1]):
                 simplified.append(b)
         simplified.append(chain[-1])
-        xs = [p[1] for p in chain]
-        left = min(xs) / 887
-        right = max(xs) / 887
-        ease_time = lambda p: math.acos(1 - 2 * min(1, max(0, p))) / math.pi
-        delay = 4.5 * ease_time(left)
-        duration = min(5 - delay, max(.16, 4.5 * (ease_time(right) - ease_time(left)) + .3))
-        paths.append({
-            'd': 'M' + ' '.join(f'{int(x)*2},{int(y)*2}' for y, x in simplified),
-            'width': int(max(distance[y, x] for y, x in chain)) * 4 + 8,
-            'delay': round(delay, 3), 'duration': round(duration, 3),
-        })
+        chains.append(([(int(x)*2, int(y)*2) for y, x in simplified],
+                       int(max(distance[y, x] for y, x in chain)) * 4 + 4))
+
+# Include isolated dots too; no original pen marks are dropped.
+for y, x in pixels:
+    if not adjacency[(y, x)]:
+        chains.append(([(int(x)*2, int(y)*2), (int(x)*2 + 1, int(y)*2)], int(distance[y, x]) * 4 + 4))
+
+coverage = Image.new('L', original.size)
+draw = ImageDraw.Draw(coverage)
+def cover(points, width):
+    draw.line(points, fill=255, width=width, joint='curve')
+    radius = width / 2
+    for x, y in points:
+        draw.ellipse((x-radius, y-radius, x+radius, y+radius), fill=255)
+for points, width in chains:
+    cover(points, width)
+
+# Check against the full-resolution artwork, including antialiased edges.
+# Any small disconnected marks join the normal stroke sequence, never an end fill.
+full = np.asarray(original)
+luminance = full[:, :, :3] @ np.array([.2126, .7152, .0722])
+target = (luminance < 219) & (full[:, :, 3] > 128)
+target[:204, 1667:] = False
+missing = set(zip(*np.where(target & (np.asarray(coverage) == 0))))
+while missing:
+    seed = min(missing)
+    missing.remove(seed)
+    component = [seed]
+    frontier = [seed]
+    while frontier:
+        y, x = frontier.pop()
+        for dy, dx in [(-1,0),(1,0),(0,-1),(0,1),(-1,-1),(-1,1),(1,-1),(1,1)]:
+            q = (y+dy, x+dx)
+            if q in missing:
+                missing.remove(q)
+                component.append(q)
+                frontier.append(q)
+    ys, xs = zip(*component)
+    cx, cy = (min(xs)+max(xs))//2, (min(ys)+max(ys))//2
+    width = math.ceil(math.hypot(max(xs)-min(xs), max(ys)-min(ys))) + 6
+    points = [(cx, cy), (cx+1, cy)]
+    chains.append((points, width))
+    cover(points, width)
+
+uncovered = int(np.count_nonzero(target & (np.asarray(coverage) == 0)))
+assert uncovered == 0, f'{uncovered} original ink pixels remain uncovered'
+
+# Stagger actual pen trajectories, rather than exposing a moving rectangle.
+# A sinusoidal clock gives the entire drawing a slow-fast-slow five-second pace.
+chains.sort(key=lambda item: (min(p[0] for p in item[0]) // 180, item[0][0][1], item[0][0][0]))
+lengths = [sum(math.dist(a,b) for a,b in zip(points,points[1:])) for points,_ in chains]
+weights = [max(8, length) for length in lengths]
+total = sum(weights)
+elapsed = 0
+paths = []
+ease_time = lambda p: math.acos(1 - 2 * min(1, max(0, p))) / math.pi
+for (points, width), weight in zip(chains, weights):
+    start = elapsed / total
+    elapsed += weight
+    finish = elapsed / total
+    delay = 4.6 * ease_time(start)
+    duration = max(.06, 5 * ease_time(finish) - delay)
+    paths.append({
+        'd': 'M' + ' '.join(f'{x},{y}' for x,y in points),
+        'width': width, 'delay': round(delay,3), 'duration': round(duration,3),
+    })
 
 (root / 'src/data/flatirons-traces.json').write_text(json.dumps(paths, separators=(',', ':')), encoding='utf-8')
-print(f'Created {len(paths)} pen-stroke animation masks.')
+print(f'Created {len(paths)} continuous pen strokes. Full-resolution uncovered ink pixels: {uncovered}.')
