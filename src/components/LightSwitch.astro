@@ -1,0 +1,75 @@
+---
+import "../styles/theme.css";
+---
+<script is:inline>
+  try { document.documentElement.dataset.theme = localStorage.getItem('portfolio-light-switch') === 'off' ? 'dark' : 'light'; } catch {}
+</script>
+<button class="light-switch" type="button" role="switch" aria-checked="true" aria-label="Light mode" title="Switch between light and dark mode">
+  <svg viewBox="0 0 60 94" width="60" height="94" aria-hidden="true">
+    <path d="M4 3 56 2 57 91 3 92Z" fill="#e6e4df" stroke="#202e32" stroke-width="2" stroke-linejoin="round" />
+    <path d="m4 3 6 7 40-1 6-7M56 2l-6 7 1 75 6 7M3 92l7-8 41 0" fill="#b8b9b5" stroke="#202e32" stroke-width="1.5" stroke-linejoin="round" />
+    <path d="m10 10 40-1 1 75-41 0Z" fill="#f7f6f2" stroke="#202e32" stroke-width="1.5" />
+    <g fill="#e6e4df" stroke="#202e32" stroke-width="1.7"><circle cx="30" cy="17" r="3"/><path d="m28 15 4 4"/><circle cx="30" cy="78" r="3"/><path d="m27.5 77 5 2"/></g>
+    <path d="M23 34h14v30H23z" fill="#253551" stroke="#202e32" stroke-width="1.5" />
+    <g class="light-switch-lever" stroke="#202e32" stroke-width="1.8" stroke-linejoin="round">
+      <path d="m23 51 2-18 14-7-2 18Z" fill="#9fa29e"/>
+      <path d="m25 33 14-7 0 12-14 7Z" fill="#f7f6f2"/>
+      <path d="m23 51 14-7 2-6-14 7Z" fill="#b8b9b5"/>
+    </g>
+    <text class="light-switch-label" x="30" y="61" text-anchor="middle" fill="#f7f6f2" font-family="Manrope,sans-serif" font-size="7" font-weight="600">ON</text>
+  </svg>
+</button>
+<style>
+  .light-switch{position:fixed;z-index:30;top:var(--light-switch-top,430px);right:16px;display:block;width:54px;height:85px;padding:0;border:0;background:transparent;cursor:pointer;filter:drop-shadow(1px 3px 2px #202e3218);touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  .light-switch svg{display:block;width:100%;height:100%;overflow:visible}
+  .light-switch-lever{transform-origin:30px 47px;transition:transform .2s ease}
+  .light-switch[aria-checked="false"] .light-switch-lever{transform:rotate(180deg)}
+  .light-switch-label{pointer-events:none}
+  .light-switch:focus-visible{outline:2px solid #536878;outline-offset:5px;border-radius:5px}
+  @media(max-width:760px){.light-switch{width:44px;height:69px;top:var(--light-switch-top,540px);right:14px}}
+  @media(prefers-reduced-motion:reduce){.light-switch-lever{transition:none}}
+</style>
+<script>
+  const lightSwitch = document.querySelector<HTMLButtonElement>('.light-switch');
+  if (lightSwitch) {
+    const storageKey = 'portfolio-light-switch';
+    let isOn = true;
+    try { isOn = localStorage.getItem(storageKey) !== 'off'; } catch {}
+    const render = () => {
+      document.documentElement.dataset.theme = isOn ? 'light' : 'dark';
+      lightSwitch.setAttribute('aria-checked', String(isOn));
+      lightSwitch.title = isOn ? 'Switch to dark mode' : 'Switch to light mode';
+      const label = lightSwitch.querySelector('.light-switch-label');
+      if (label) {
+        label.textContent = isOn ? 'ON' : 'OFF';
+        label.setAttribute('y', isOn ? '61' : '39');
+      }
+    };
+    render();
+    lightSwitch.addEventListener('click', () => {
+      isOn = !isOn;
+      render();
+      try { localStorage.setItem(storageKey, isOn ? 'on' : 'off'); } catch {}
+    });
+    const positionSwitch = () => {
+      const intro = document.querySelector<HTMLElement>('.portfolio-main .intro');
+      const positionKey = `portfolio-switch-position-${window.innerWidth}`;
+      let top: number | undefined;
+      if (intro) {
+        top = intro.getBoundingClientRect().bottom + window.scrollY - lightSwitch.offsetHeight - 16;
+        try { sessionStorage.setItem(positionKey, String(top)); } catch {}
+      } else {
+        try {
+          const saved = sessionStorage.getItem(positionKey);
+          if (saved) top = Number(saved);
+        } catch {}
+      }
+      if (top !== undefined && Number.isFinite(top)) {
+        lightSwitch.style.setProperty('--light-switch-top', `${Math.max(150, Math.min(top, window.innerHeight - lightSwitch.offsetHeight - 16))}px`);
+      }
+    };
+    positionSwitch();
+    window.addEventListener('resize', positionSwitch);
+    window.addEventListener('load', positionSwitch, { once: true });
+  }
+</script>

@@ -1,4 +1,5 @@
 ---
+import LightSwitch from "./LightSwitch.astro";
 import "../styles/header-wordmark.css";
 const { active = "projects", overlay = false } = Astro.props;
 const links = [
@@ -14,3 +15,4 @@ const links = [
     {links.map(({ label, href, key }) => <a href={href} aria-current={active === key ? "page" : undefined}>{label}</a>)}
   </nav>
 </header>
+<LightSwitch/>

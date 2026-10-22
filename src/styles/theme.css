@@ -1,0 +1,25 @@
+html:root:root:root[data-theme="dark"]{color-scheme:dark;--bg:#141e2c;--surface:#253247;--ink:#eeeef0;--muted:#b2bdc9;--line:#75869c66;--teal:#a8c7d8;background:#141e2c}
+html:root:root:root[data-theme="dark"] body{background:#141e2c;color:#eeeef0}
+html:root:root:root[data-theme="dark"] .portfolio-header{color:#eeeef0}
+html:root:root:root[data-theme="dark"] .portfolio-header:not(.banner-overlay){background:#141e2c}
+html:root:root:root[data-theme="dark"] .portfolio-header nav a{color:#b2bdc9}
+html:root:root:root[data-theme="dark"] .portfolio-header nav a:hover,html:root:root:root[data-theme="dark"] .portfolio-header nav a[aria-current]{color:#fff}
+html:root:root:root[data-theme="dark"] .portfolio-header.banner-overlay nav a{color:#f7f6f2}
+html:root:root:root[data-theme="dark"] .portfolio-header .social-links a:hover,html:root:root:root[data-theme="dark"] .portfolio-header .social-links a:focus-visible,html:root:root:root[data-theme="dark"] .contact-footer .contact-links a:hover,html:root:root:root[data-theme="dark"] .contact-footer .contact-links a:focus-visible{color:#a8c7d8}
+html:root:root:root[data-theme="dark"] .portfolio-main .intro,html:root:root:root[data-theme="dark"] .portfolio-main .intro::before,html:root:root:root[data-theme="dark"] .flatirons-horizon{background:#141e2c}
+html:root:root:root[data-theme="dark"] .flatirons-horizon svg{filter:invert(1);opacity:.55}
+html:root:root:root[data-theme="dark"] .degree,html:root:root:root[data-theme="dark"] .about-contact-actions p{color:#b2bdc9}
+html:root:root:root[data-theme="dark"] .projects-section,html:root:root:root[data-theme="dark"] .contact-footer.blue-footer{background:#1c2c45}
+html:root:root:root[data-theme="dark"] .projects-section .card{background:#29394f;color:#eeeef0;border-color:#52647c}
+html:root:root:root[data-theme="dark"] .projects-section .card:hover,html:root:root:root[data-theme="dark"] .projects-section .card:focus-visible{background:#344760}
+html:root:root:root[data-theme="dark"] .projects-section .caption p,html:root:root:root[data-theme="dark"] .projects-section .arrow{color:#c5d1de}
+html:root:root:root[data-theme="dark"] .contact-footer{background:#141e2c;color:#eeeef0}
+html:root:root:root[data-theme="dark"] .about-layout,html:root:root:root[data-theme="dark"] .about-contact{border-color:#7187a3}
+html:root:root:root[data-theme="dark"] .about-copy .about-greeting{color:#c2d5eb}
+html:root:root:root[data-theme="dark"] .about-contact input,html:root:root:root[data-theme="dark"] .about-contact textarea{color:#eeeef0;border-color:#7187a3;background:#1c293b}
+html:root:root:root[data-theme="dark"] .about-contact button,html:root:root:root[data-theme="dark"] .resume-main .download,html:root:root:root[data-theme="dark"] .back-to-projects{background:#3a5376;color:#fff}
+html:root:root:root[data-theme="dark"] .about-contact button:hover,html:root:root:root[data-theme="dark"] .resume-main .download:hover,html:root:root:root[data-theme="dark"] .back-to-projects:hover{background:#496a94}
+/* Keep technical plots and CAD renders legible without recoloring their images. */
+html:root:root:root[data-theme="dark"] .project-kairos-power .kairos-chart:not(.kairos-experiment-photo),html:root:root:root[data-theme="dark"] .project-kairos-power .project-row:first-of-type .project-media,html:root:root:root[data-theme="dark"] .year-image{background:#f7f6f2;border-radius:12px;overflow:hidden}
+html:root:root:root[data-theme="dark"] .project-kairos-power .kairos-chart:not(.kairos-experiment-photo) img,html:root:root:root[data-theme="dark"] .project-kairos-power .project-row:first-of-type .project-media img{mix-blend-mode:normal}
+html:root:root:root[data-theme="dark"] .resume-image{background:#fff;color-scheme:light}
