@@ -22,4 +22,5 @@ html:root:root:root[data-theme="dark"] .about-contact button:hover,html:root:roo
 /* Keep technical plots and CAD renders legible without recoloring their images. */
 html:root:root:root[data-theme="dark"] .project-kairos-power .kairos-chart:not(.kairos-experiment-photo),html:root:root:root[data-theme="dark"] .project-kairos-power .project-row:first-of-type .project-media,html:root:root:root[data-theme="dark"] .year-image{background:#f7f6f2;border-radius:12px;overflow:hidden}
 html:root:root:root[data-theme="dark"] .project-kairos-power .kairos-chart:not(.kairos-experiment-photo) img,html:root:root:root[data-theme="dark"] .project-kairos-power .project-row:first-of-type .project-media img{mix-blend-mode:normal}
-html:root:root:root[data-theme="dark"] .resume-image{background:#fff;color-scheme:light}
+html:root:root:root[data-theme="dark"] .selectable-resume{background:#e0e0e0}
+html:root:root:root[data-theme="dark"] .resume-image{background:#fff;color-scheme:light;filter:brightness(.88)}
