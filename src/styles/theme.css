@@ -7,7 +7,7 @@ html:root:root:root[data-theme="dark"] .portfolio-header nav a:hover,html:root:r
 html:root:root:root[data-theme="dark"] .portfolio-header.banner-overlay nav a{color:#f7f6f2}
 html:root:root:root[data-theme="dark"] .portfolio-header .social-links a:hover,html:root:root:root[data-theme="dark"] .portfolio-header .social-links a:focus-visible,html:root:root:root[data-theme="dark"] .contact-footer .contact-links a:hover,html:root:root:root[data-theme="dark"] .contact-footer .contact-links a:focus-visible{color:#a8c7d8}
 html:root:root:root[data-theme="dark"] .portfolio-main .intro,html:root:root:root[data-theme="dark"] .portfolio-main .intro::before,html:root:root:root[data-theme="dark"] .flatirons-horizon{background:#141e2c}
-html:root:root:root[data-theme="dark"] .flatirons-horizon svg{filter:invert(1);opacity:.55}
+html:root:root:root[data-theme="dark"] .flatirons-horizon svg{filter:none;opacity:1}
 html:root:root:root[data-theme="dark"] .degree,html:root:root:root[data-theme="dark"] .about-contact-actions p{color:#b2bdc9}
 html:root:root:root[data-theme="dark"] .projects-section,html:root:root:root[data-theme="dark"] .contact-footer.blue-footer{background:#1c2c45}
 html:root:root:root[data-theme="dark"] .projects-section .card{background:#29394f;color:#eeeef0;border-color:#52647c}

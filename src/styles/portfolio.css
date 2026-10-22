@@ -112,7 +112,7 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 @media(max-width:520px){.flatirons-horizon svg{top:-35px}}
 /* The artwork filter removes the paper; no browser blend layers are needed. */
 .flatirons-horizon{background:#f7f6f2;isolation:isolate;mix-blend-mode:normal;opacity:1}
-.flatirons-horizon svg{display:block;mix-blend-mode:normal;filter:none;opacity:.6}
+.flatirons-horizon svg{display:block;mix-blend-mode:normal;filter:none;opacity:1}
 .projects-section .projects-title{width:88%;max-width:1120px;margin:0 auto 30px;font:500 clamp(30px,3.4vw,42px)/1.2 Manrope,sans-serif;letter-spacing:-1px;color:#f7f6f2}
 .about-main{max-width:1100px}
 .about-layout{align-items:start;border:1px solid #253551;border-radius:22px;padding:clamp(20px,3vw,36px)}
