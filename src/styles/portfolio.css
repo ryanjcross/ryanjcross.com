@@ -57,9 +57,9 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 .degree .cu-logo{width:34px;height:34px;flex-shrink:0;object-fit:contain}
 .portfolio-main .intro{padding-bottom:18px}
 .flatirons-horizon{width:88%;max-width:1120px;margin:0 auto;height:170px;display:flex;align-items:flex-end}
-.flatirons-horizon img{display:block;width:min(620px,62%);height:100%;object-fit:fill}
-@media(max-width:760px){.flatirons-horizon{height:125px}.flatirons-horizon img{width:75%}.degree .cu-logo{width:30px;height:30px}}
-@media(max-width:520px){.flatirons-horizon{height:100px}.flatirons-horizon img{width:100%}.portfolio-main .intro{padding-bottom:24px}}
+.flatirons-horizon svg{display:block;width:min(620px,62%);height:100%;object-fit:fill}
+@media(max-width:760px){.flatirons-horizon{height:125px}.flatirons-horizon svg{width:75%}.degree .cu-logo{width:30px;height:30px}}
+@media(max-width:520px){.flatirons-horizon{height:100px}.flatirons-horizon svg{width:100%}.portfolio-main .intro{padding-bottom:24px}}
 /* Keep the portrait rectangular and the project horizon at the original height. */
 .portrait{border-radius:22px}
 .portrait img{border-radius:0}
@@ -70,16 +70,16 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 .portfolio-main .intro::before{content:"";position:absolute;z-index:-1;inset:0 calc((100% - 100vw)/2);background:#f7f6f2}
 .intro-copy,.portrait{position:relative;z-index:1}
 .flatirons-horizon{position:absolute;display:block;left:0;bottom:0;width:480px;max-width:52%;height:185px;margin:0;overflow:hidden;mix-blend-mode:multiply;pointer-events:none;opacity:.6;z-index:0}
-.flatirons-horizon img{width:100%;height:215px;object-fit:cover;object-position:center 16%;filter:grayscale(1) contrast(1.4);clip-path:polygon(0 0,90% 0,90% 45%,100% 45%,100% 100%,0 100%);mask-image:linear-gradient(to bottom,transparent,#000 13%,#000 92%,transparent)}
+.flatirons-horizon svg{width:100%;height:215px;object-fit:cover;object-position:center 16%;filter:grayscale(1) contrast(1.4);clip-path:polygon(0 0,90% 0,90% 45%,100% 45%,100% 100%,0 100%);mask-image:linear-gradient(to bottom,transparent,#000 13%,#000 92%,transparent)}
 @media(min-width:761px){.intro-copy{transform:translateY(-35px)}}
-@media(min-width:521px) and (max-width:760px){.intro-copy{align-self:flex-start;padding-top:8px}.flatirons-horizon{height:145px;max-width:56%}.flatirons-horizon img{height:180px}}
-@media(max-width:520px){.portfolio-main .intro{padding-bottom:112px}.flatirons-horizon{max-width:none;width:100%;height:100px}.flatirons-horizon img{height:150px;object-position:center 12%}}
+@media(min-width:521px) and (max-width:760px){.intro-copy{align-self:flex-start;padding-top:8px}.flatirons-horizon{height:145px;max-width:56%}.flatirons-horizon svg{height:180px}}
+@media(max-width:520px){.portfolio-main .intro{padding-bottom:112px}.flatirons-horizon{max-width:none;width:100%;height:100px}.flatirons-horizon svg{height:150px;object-position:center 12%}}
 .portfolio-main .intro{background:#f7f6f2}
 .portfolio-main .intro::before{display:none}
 /* A wider portrait, feathered sketch edges, and compact page endings. */
 .portrait{width:380px}
 .flatirons-horizon{width:540px;mask-image:linear-gradient(to right,transparent,#000 10%,#000 82%,transparent)}
-.flatirons-horizon img{height:100%;mask-image:linear-gradient(to bottom,transparent,#000 13%,#000 92%,transparent)}
+.flatirons-horizon svg{height:100%;mask-image:linear-gradient(to bottom,transparent,#000 13%,#000 92%,transparent)}
 .projects-section{padding-bottom:28px}
 .about-main{padding-bottom:28px}
 .resume-main{padding-bottom:28px}
@@ -89,11 +89,11 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 @media(max-width:520px){.portrait{width:min(100%,325px)}.flatirons-horizon{width:100%}}
 /* Extended ink contours reach the horizon directly, without feathering. */
 .flatirons-horizon{mask-image:none;opacity:.6}
-.flatirons-horizon img{height:100%;object-fit:fill;object-position:center;clip-path:none;mask-image:none;filter:grayscale(1) contrast(1.4)}
-.flatirons-horizon img{height:110%}
+.flatirons-horizon svg{height:100%;object-fit:fill;object-position:center;clip-path:none;mask-image:none;filter:grayscale(1) contrast(1.4)}
+.flatirons-horizon svg{height:110%}
 /* Preserve the original artwork at its original scale; only its boundary is extended. */
 .flatirons-horizon{left:-39.18px;width:594.29px;max-width:none;height:185px;mask-image:none;opacity:.6;overflow:hidden}
-.flatirons-horizon img{width:100%;height:100%;object-fit:fill;object-position:center;clip-path:none;mask-image:none;filter:grayscale(1) contrast(1.4)}
+.flatirons-horizon svg{width:100%;height:100%;object-fit:fill;object-position:center;clip-path:none;mask-image:none;filter:grayscale(1) contrast(1.4)}
 @media(min-width:521px) and (max-width:760px){.flatirons-horizon{left:-30.74px;width:466.25px;height:145px;max-width:calc(100% + 30.74px)}}
 @media(max-width:520px){.flatirons-horizon{left:0;width:100%;height:100px;max-width:none}}
 /* Align the supplied landscape's main peaks to the previous sketch. */
@@ -101,18 +101,18 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 /* Render the original directly at its cropped size instead of scaling a smaller layer. */
 .portrait img{position:absolute;max-width:none;width:185%;height:185%;left:-40.15%;top:-39.1%;transform:none}
 .flatirons-horizon{left:-144px;width:827px;height:185px;max-width:none}
-.flatirons-horizon img{position:absolute;left:0;top:-69px;width:827px;height:auto;object-fit:contain;clip-path:polygon(0 0,94% 0,94% 23%,100% 23%,100% 100%,0 100%)}
-@media(min-width:521px) and (max-width:760px){.portrait{width:310px}.flatirons-horizon{left:-113px;width:648px;height:145px;max-width:none}.flatirons-horizon img{width:648px;top:-54px}}
-@media(max-width:520px){.portrait{width:min(100%,350px)}.flatirons-horizon{left:-17.5%;width:135%;height:100px;max-width:none}.flatirons-horizon img{width:100%;top:-39px}}
+.flatirons-horizon svg{position:absolute;left:0;top:-69px;width:827px;height:auto;object-fit:contain;clip-path:polygon(0 0,94% 0,94% 23%,100% 23%,100% 100%,0 100%)}
+@media(min-width:521px) and (max-width:760px){.portrait{width:310px}.flatirons-horizon{left:-113px;width:648px;height:145px;max-width:none}.flatirons-horizon svg{width:648px;top:-54px}}
+@media(max-width:520px){.portrait{width:min(100%,350px)}.flatirons-horizon{left:-17.5%;width:135%;height:100px;max-width:none}.flatirons-horizon svg{width:100%;top:-39px}}
 .portfolio-main{overflow-x:clip}
 .portfolio-main .intro{isolation:auto}
 /* The revised supplied image has its tallest peak 15px higher in the source. */
-.flatirons-horizon img{top:-62px}
-@media(min-width:521px) and (max-width:760px){.flatirons-horizon img{top:-48.5px}}
-@media(max-width:520px){.flatirons-horizon img{top:-35px}}
-/* Give mobile browsers an explicit paper surface for the artwork's blend. */
+.flatirons-horizon svg{top:-62px}
+@media(min-width:521px) and (max-width:760px){.flatirons-horizon svg{top:-48.5px}}
+@media(max-width:520px){.flatirons-horizon svg{top:-35px}}
+/* The artwork filter removes the paper; no browser blend layers are needed. */
 .flatirons-horizon{background:#f7f6f2;isolation:isolate;mix-blend-mode:normal;opacity:1}
-.flatirons-horizon img{mix-blend-mode:multiply;opacity:.6}
+.flatirons-horizon svg{display:block;mix-blend-mode:normal;filter:none;opacity:.6}
 .projects-section .projects-title{width:88%;max-width:1120px;margin:0 auto 30px;font:500 clamp(30px,3.4vw,42px)/1.2 Manrope,sans-serif;letter-spacing:-1px;color:#f7f6f2}
 .about-main{max-width:1100px}
 .about-layout{align-items:start;border:1px solid #253551;border-radius:22px;padding:clamp(20px,3vw,36px)}
