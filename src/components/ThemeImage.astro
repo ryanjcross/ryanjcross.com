@@ -1,0 +1,15 @@
+---
+interface Props {
+  src: string;
+  darkSrc: string;
+  alt: string;
+  loading?: "eager" | "lazy";
+}
+const { src, darkSrc, alt, loading = "lazy" } = Astro.props;
+---
+<img class="theme-image-light" src={src} alt={alt} loading={loading} />
+<img class="theme-image-dark" src={darkSrc} alt={alt} loading={loading} />
+<style>
+  .theme-image-light,.theme-image-dark{display:block;width:100%;height:auto}
+  .theme-image-light{mix-blend-mode:multiply}
+</style>

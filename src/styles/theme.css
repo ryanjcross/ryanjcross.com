@@ -19,8 +19,12 @@ html:root:root:root[data-theme="dark"] .about-copy .about-greeting{color:#c2d5eb
 html:root:root:root[data-theme="dark"] .about-contact input,html:root:root:root[data-theme="dark"] .about-contact textarea{color:#eeeef0;border-color:#7187a3;background:#1c293b}
 html:root:root:root[data-theme="dark"] .about-contact button,html:root:root:root[data-theme="dark"] .resume-main .download,html:root:root:root[data-theme="dark"] .back-to-projects{background:#3a5376;color:#fff}
 html:root:root:root[data-theme="dark"] .about-contact button:hover,html:root:root:root[data-theme="dark"] .resume-main .download:hover,html:root:root:root[data-theme="dark"] .back-to-projects:hover{background:#496a94}
-/* Keep technical plots and CAD renders legible without recoloring their images. */
-html:root:root:root[data-theme="dark"] .project-kairos-power .kairos-chart:not(.kairos-experiment-photo),html:root:root:root[data-theme="dark"] .project-kairos-power .project-row:first-of-type .project-media,html:root:root:root[data-theme="dark"] .year-image{background:#f7f6f2;border-radius:12px;overflow:hidden}
-html:root:root:root[data-theme="dark"] .project-kairos-power .kairos-chart:not(.kairos-experiment-photo) img,html:root:root:root[data-theme="dark"] .project-kairos-power .project-row:first-of-type .project-media img{mix-blend-mode:normal}
+/* Theme variants preserve plot colors and readable labels in either appearance. */
+html:root:root:root .theme-image-dark{display:none}
+html:root:root:root[data-theme="dark"] .theme-image-light{display:none}
+html:root:root:root[data-theme="dark"] .theme-image-dark{display:block}
+html:root:root:root[data-theme="dark"] .project-kairos-power .kairos-chart:not(.kairos-experiment-photo),html:root:root:root[data-theme="dark"] .project-kairos-power .project-row:first-of-type .project-media{background:#141e2c;border-radius:12px;overflow:hidden;isolation:isolate}
+html:root:root:root[data-theme="dark"] .project-kairos-power .theme-image-dark{mix-blend-mode:lighten}
+html:root:root:root[data-theme="dark"] .year-image{background:transparent}
 html:root:root:root[data-theme="dark"] .selectable-resume{background:#e0e0e0}
 html:root:root:root[data-theme="dark"] .resume-image{background:#fff;color-scheme:light;filter:brightness(.88)}
