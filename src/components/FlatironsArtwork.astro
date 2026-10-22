@@ -24,7 +24,7 @@ import traces from "../data/flatirons-traces.json";
       <feMerge><feMergeNode in="glow"/><feMergeNode in="cyan-ink"/></feMerge>
     </filter>
     <mask id="flatirons-pencil-strokes" maskUnits="userSpaceOnUse" x="0" y="0" width="1774" height="887" style="mask-type:luminance">
-      {traces.map(trace => <path class="flatirons-pencil-stroke" d={trace.d} pathLength="1" fill="none" stroke="white" stroke-width={trace.width} stroke-linecap="round" stroke-linejoin="round" style={`--stroke-delay:${trace.delay * .6}s;--stroke-duration:${trace.duration * .6}s`} />)}
+      {traces.map(trace => <path class="flatirons-pencil-stroke" d={trace.d} pathLength="1" fill="none" stroke="white" stroke-width={trace.width} stroke-linecap="round" stroke-linejoin="round" style={`--stroke-delay:${trace.delay * .4}s;--stroke-duration:${trace.duration * .4}s`} />)}
     </mask>
   </defs>
   <g class="flatirons-base"><image href="/images/flatirons-landscape-v2.png" width="1774" height="887" filter="url(#flatirons-transparent-paper)" /></g>
