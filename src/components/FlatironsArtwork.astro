@@ -28,7 +28,7 @@ import traces from "../data/flatirons-traces.json";
     </mask>
   </defs>
   <g class="flatirons-base"><image href="/images/flatirons-landscape-v2.png" width="1774" height="887" filter="url(#flatirons-transparent-paper)" /></g>
-  <g mask="url(#flatirons-pencil-strokes)"><image href="/images/flatirons-landscape-v2.png" width="1774" height="887" filter="url(#flatirons-cyan-ink)" /></g>
+  <g class="flatirons-neon" mask="url(#flatirons-pencil-strokes)"><image href="/images/flatirons-landscape-v2.png" width="1774" height="887" filter="url(#flatirons-cyan-ink)" /></g>
 </svg>
 <script>
   const artwork = document.querySelector<SVGSVGElement>('.flatirons-artwork');
@@ -52,6 +52,8 @@ import traces from "../data/flatirons-traces.json";
 </script>
 <style is:global>
   .flatirons-base{opacity:.6}
+  .flatirons-neon{visibility:hidden}
+  html[data-theme="dark"] .flatirons-neon{visibility:visible}
   html[data-theme="dark"] .flatirons-base{filter:invert(1);opacity:.3}
   .flatirons-pencil-stroke{stroke-dasharray:1;stroke-dashoffset:1}
   html[data-theme="dark"] .flatirons-artwork[data-ready="true"] .flatirons-pencil-stroke{animation:flatirons-pencil var(--stroke-duration) ease-in-out var(--stroke-delay) both}
