@@ -53,12 +53,12 @@ const nameWords = [
     <script>
       const panels = [...document.querySelectorAll<HTMLElement>('.photo-name-letter')];
       const photos = [
-        { src: '/images/about-rotation-1.jpg', position: '50% 50%' },
-        { src: '/images/about-rotation-2.jpg', position: '72% 50%' },
-        { src: '/images/about-rotation-3.jpg', position: '70% 55%' },
-        { src: '/images/about-rotation-4.jpg', position: '48% 65%' },
-        { src: '/images/about-rotation-5.jpg', position: '50% 80%' },
-        { src: '/images/about-rotation-6.jpg', position: '24% 50%' },
+        { src: '/images/about-rotation-1.jpg', position: '50% 70%', size: 'auto 125%' },
+        { src: '/images/about-rotation-2.jpg', position: '72% 50%', size: 'cover' },
+        { src: '/images/about-rotation-3.jpg', position: '70% 75%', size: 'auto 125%' },
+        { src: '/images/about-rotation-4.jpg', position: '48% 80%', size: 'auto 125%' },
+        { src: '/images/about-rotation-5.jpg', position: '50% 80%', size: 'cover' },
+        { src: '/images/about-rotation-6.jpg', position: '100% 50%', size: 'cover' },
       ];
       const displayed = new Map<HTMLElement, string>();
       let changing = false;
@@ -77,6 +77,7 @@ const nameWords = [
           overlay.className = 'photo-name-replacement';
           overlay.style.backgroundImage = `url('${photo.src}')`;
           overlay.style.backgroundPosition = photo.position;
+          overlay.style.backgroundSize = photo.size;
           panel.append(overlay);
           await overlay.animate([{ opacity: 0 }, { opacity: 1 }], {
             duration: matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 1200,
@@ -85,7 +86,7 @@ const nameWords = [
           }).finished;
           panel.style.backgroundImage = overlay.style.backgroundImage;
           panel.style.backgroundPosition = photo.position;
-          panel.style.backgroundSize = 'cover';
+          panel.style.backgroundSize = photo.size;
           displayed.set(panel, photo.src);
           overlay.remove();
         } catch {
