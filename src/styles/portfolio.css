@@ -133,7 +133,7 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 .about-contact-actions p{margin:0;color:#647176;font-size:12px}
 @media(max-width:520px){.about-contact-fields{grid-template-columns:1fr}}
 .about-copy{font-size:16px;line-height:1.8}
-.about-copy .about-greeting{margin:0 0 12px;color:#253551;font:400 clamp(32px,3.6vw,43px)/1.3 "Ocean Trace",cursive;letter-spacing:0}
+.about-copy .about-greeting{margin:0 0 12px;color:#253551;font:400 clamp(29px,3.25vw,39px)/1.3 "Ocean Trace",cursive;letter-spacing:0}
 .about-photos{display:grid;gap:24px;min-width:0}
 .about-photos img{display:block;width:100%;height:auto;border-radius:18px}
 .about-photos img:first-child{aspect-ratio:6048/4011;object-fit:cover;object-position:center bottom}
