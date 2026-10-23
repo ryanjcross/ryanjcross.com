@@ -1,4 +1,4 @@
-html:root:root:root[data-theme="dark"]{color-scheme:dark;--bg:#141e2c;--surface:#253247;--ink:#eeeef0;--muted:#b2bdc9;--line:#75869c66;--teal:#a8c7d8;background:#141e2c}
+html:root:root:root[data-theme="dark"]{color-scheme:dark;--bg:#141e2c;--surface:#253247;--ink:#eeeef0;--muted:#b2bdc9;--line:#75869c66;--teal:#a8c7d8;--project-outline:#7187a3;background:#141e2c}
 html:root:root:root[data-theme="dark"] body{background:#141e2c;color:#eeeef0}
 html:root:root:root[data-theme="dark"] .portfolio-header{color:#eeeef0}
 html:root:root:root[data-theme="dark"] .portfolio-header:not(.banner-overlay){background:#141e2c}

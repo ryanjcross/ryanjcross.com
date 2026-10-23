@@ -279,8 +279,10 @@ const ndaCompany = Astro.params.slug === "sierra-space"
               </div>
               <figure class="kairos-chart kairos-experiment-photo"><img src="/images/kairos-physical-tube.png" alt="Water-filled tube with bubbles and a camera used to measure void fraction" loading="lazy" /></figure>
             </article>
+            <section class="kairos-processing-section" aria-label="Image processing analysis">
             <div class="project-copy kairos-wide-copy"><p>Once I had taken the photos, I used an image processing software to determine key characteristics of the flow. I could then use this data, correlated with additional non-fluid properties, to validate the prediction that was made with the model that I adapted.</p></div>
             <figure class="kairos-chart kairos-processing-chart"><ThemeImage src="/images/kairos-void-fraction-processing.png" darkSrc="/images/kairos-void-fraction-processing-dark.png" alt="Original bubble photograph, image processing with detected bubbles, and a histogram of void fraction parameters" loading="lazy" /></figure>
+            </section>
             <section class="kairos-optimization" aria-label="Two-dimensional and three-dimensional analysis">
               <div class="project-copy kairos-wide-copy"><p>For the final step, I computed the error between the theoretical model and experimental data to find the most likely case of parameters. I could compare these results to other sets of data to predict the two parameters relating to void fraction.</p></div>
               <div class="kairos-chart-pair">
@@ -363,10 +365,9 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .project-content{width:min(1200px,calc(100% - 48px));margin:0 auto;padding:8px 0 clamp(38px,5vw,72px)}
   .project-row{display:grid;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr);gap:clamp(32px,6vw,82px);align-items:center;padding:clamp(24px,3.5vw,44px) 0}
   .project-row:first-child{padding-top:clamp(18px,2.5vw,30px)}
-  main:not(.project-design-build-fly) .project-content>.project-row{border-top:1px solid rgba(167,170,160,.38)}
-  main .project-content>.project-row:first-of-type{border-top:0}
-  .project-kairos-power .project-content>.kairos-wide-copy,.project-kairos-power .kairos-optimization{border-top:1px solid rgba(167,170,160,.38);padding-top:32px}
-  .project-return{margin-top:28px;padding-top:28px;border-top:1px solid rgba(167,170,160,.38)}
+
+  .project-kairos-power .project-content>.kairos-wide-copy,.project-kairos-power .kairos-optimization{padding-top:32px}
+  .project-return{margin-top:28px;padding-top:28px;}
   .project-kairos-power .project-content,.project-kashmir-world-foundation .project-content,.project-sierra-space .project-content{padding-bottom:0}
   .project-kairos-power .project-return,.project-kashmir-world-foundation .project-return,.project-sierra-space .project-return{padding-block:calc((28px + clamp(38px,5vw,72px))/2)}
   .project-copy h2{margin:0 0 20px;font:400 clamp(30px,3vw,44px)/1.1 Manrope,sans-serif;letter-spacing:-.04em}
@@ -377,7 +378,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .second-media img{object-position:var(--second-position)}
   .project-sierra-space .project-media{width:100%;height:auto;justify-self:center}
   .project-sierra-space .project-media img{display:block;width:100%;height:auto}
-  .project-sierra-space .project-content > .project-row.sierra-portrait-section{border-top:0;padding-top:0}
+  .project-sierra-space .project-content > .project-row.sierra-portrait-section{padding-top:0}
   .project-sierra-space .project-row:first-of-type > .project-media{clip-path:inset(0 0 6% 0)}
   .sierra-reflection{grid-column:1/-1}
   .sierra-coop-copy{grid-column:1/-1;text-align:center}
@@ -407,7 +408,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .project-kashmir-world-foundation .kwf-snow-row{width:100%;margin-inline:auto;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr)}
   .project-kashmir-world-foundation .second-media{width:min(100%,752px);height:auto;aspect-ratio:1815/867;justify-self:center}
   .kwf-introduction{width:100%;max-width:1320px;margin:28px auto 36px;text-align:center;font-size:clamp(16px,1.4vw,21px);line-height:1.6;color:var(--ink)}
-  .project-kashmir-world-foundation .kwf-mesh-row{width:100%;margin-inline:auto;border-top:1px solid rgba(167,170,160,.38);grid-template-columns:minmax(0,1fr) minmax(0,.95fr) minmax(0,.9fr);gap:28px}
+  .project-kashmir-world-foundation .kwf-mesh-row{width:100%;margin-inline:auto;grid-template-columns:minmax(0,1fr) minmax(0,.95fr) minmax(0,.9fr);gap:28px}
   .kwf-mesh-image{margin:0;justify-self:center;width:100%}
   .kwf-mesh-image:last-child img{transform:translateY(-18px) scale(1.15)}
   .kwf-mesh-image figcaption{margin-top:0;color:var(--ink);font-size:clamp(14px,1.2vw,17px);line-height:1.6;text-align:center}
@@ -415,10 +416,10 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .kwf-mesh-image img{display:block;width:100%;height:500px;object-fit:contain;mix-blend-mode:lighten}
   .project-content>.snow-leopard-reveal{margin-bottom:0}
   .kwf-internship-title{margin:0;padding:50px 0;text-align:center;font:400 clamp(30px,3vw,44px)/1.1 Manrope,sans-serif;letter-spacing:-.04em;color:var(--ink)}
-  .kwf-results{padding:36px 0 20px;border-top:1px solid rgba(167,170,160,.38)}
+  .kwf-results{padding:36px 0 20px;}
   .kwf-section-title{grid-column:1/-1;margin:0;text-align:center;font:400 clamp(26px,2.5vw,36px)/1.1 Manrope,sans-serif;letter-spacing:-.04em}
   .kwf-results>.kwf-section-title{margin-bottom:32px}
-  .kwf-conclusion{padding:36px 0;border-top:1px solid rgba(167,170,160,.38)}
+  .kwf-conclusion{padding:36px 0;}
   .kwf-conclusion .project-copy{max-width:1000px;margin:28px auto 0}
   .kwf-results-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
   .kwf-results-lower{grid-template-columns:repeat(2,minmax(0,1fr));width:calc(66.666667% - 8px);margin:28px auto 0}
@@ -451,18 +452,18 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .dbf-story{display:grid;gap:32px;padding:4px 0 28px}
   .dbf-website{margin:0;text-align:center;color:var(--ink);font-size:clamp(16px,1.35vw,20px);line-height:1.62}
   .dbf-website a{color:var(--teal);text-decoration:underline;text-underline-offset:4px}
-  .dbf-year-section{display:grid;gap:24px;padding-top:20px;border-top:1px solid rgba(167,170,160,.38)}
+  .dbf-year-section{display:grid;gap:24px;padding-top:20px;}
   .dbf-year-title{margin:0;text-align:center;color:var(--ink);font:600 clamp(22px,2.2vw,30px)/1 Poppins,sans-serif}
   .dbf-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:center}
   .dbf-copy p{margin:0;color:var(--ink);font-size:clamp(16px,1.35vw,20px);line-height:1.62}
   .dbf-copy p+p{margin-top:16px}
   .year-card{margin:0}.year-image{text-align:center}.year-image img{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:transparent}
   .team-feature{margin:0;overflow:hidden;background:#222925}.team-feature img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:var(--second-position)}
-  .dbf-testimonial{width:min(900px,100%);margin:28px auto 0;padding:clamp(26px,4vw,48px);border-top:1px solid rgba(167,170,160,.38);border-bottom:1px solid rgba(167,170,160,.38);text-align:left}
+  .dbf-testimonial{width:min(900px,100%);margin:28px auto 0;padding:clamp(26px,4vw,48px);text-align:left}
   .dbf-testimonial p{margin:0;color:var(--ink);font:italic 400 clamp(19px,2vw,27px)/1.55 Manrope,sans-serif}
   .dbf-testimonial p+p{margin-top:18px}
   .dbf-testimonial footer{margin-top:22px;color:var(--teal);font-size:14px;font-weight:600;letter-spacing:.04em}
-  .sierra-testimonials{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;width:min(1200px,100%);margin:28px auto 0;border-block:1px solid rgba(167,170,160,.38)}
+  .sierra-testimonials{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;width:min(1200px,100%);margin:28px auto 0;}
   .sierra-testimonials .dbf-testimonial{display:flex;flex-direction:column;justify-content:center;width:100%;margin:0;padding:clamp(24px,3vw,40px);border:0}
   .project-sierra-space .project-return{border-top:0}
   .sierra-testimonials .dbf-testimonial p{font-size:clamp(19px,1.65vw,24px)}
@@ -501,4 +502,21 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .project-design-build-fly .dbf-testimonial{width:min(940px,100%)}
   .project-design-build-fly .project-hero>img{object-position:center 61%}
   .project-kairos-power .kairos-chart:not(.kairos-experiment-photo) img,.project-kairos-power .project-row:first-of-type .project-media img{mix-blend-mode:multiply}
+
+  /* Match the rounded, fine outline used around the About content. */
+  main .project-content > :is(.project-row,.kwf-results,.kwf-conclusion,.kairos-wide-copy,.kairos-processing-section,.kairos-optimization,.sierra-testimonials),
+  main .dbf-year-section,main .dbf-story > .dbf-testimonial{
+    box-sizing:border-box;border:1px solid var(--project-outline,#253551);border-radius:22px;
+    padding:clamp(20px,3vw,36px);margin-top:24px;margin-bottom:24px;
+  }
+  main .sierra-testimonials .dbf-testimonial{border:0}
+  main .project-return{border:0}
+  main .analysis-logos>div+div{border:0}
+  .snow-leopard-reveal{width:calc(100% - clamp(24px,4vw,64px));margin-inline:auto;border-radius:22px}
+  .hero-description{margin-top:24px}
+  .project-sierra-space .hero-description{margin-top:32px}
+  @media(max-width:720px){
+    .hero-description{margin-top:20px}
+    .project-sierra-space .hero-description{margin-top:28px}
+  }
 </style>
