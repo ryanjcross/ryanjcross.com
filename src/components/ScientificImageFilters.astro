@@ -1,0 +1,21 @@
+<!-- Invert only neutral pixels for light surfaces; preserve scientific color scales. -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute;pointer-events:none">
+  <defs>
+    <filter id="scientific-light-neutral" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+      <feColorMatrix in="SourceGraphic" type="saturate" values="0" result="gray" />
+      <feComposite in="SourceGraphic" in2="gray" operator="arithmetic" k2="1" k3="-1" k4="1" result="color-difference" />
+      <feColorMatrix in="color-difference" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -10 -10 -10 0 30" result="saturation-mask" />
+      <feComponentTransfer in="saturation-mask" result="color-mask">
+        <feFuncA type="discrete" tableValues="0 0 1 1" />
+      </feComponentTransfer>
+      <feComponentTransfer in="SourceGraphic" result="inverted">
+        <feFuncR type="linear" slope="-1.15" intercept="1.15" />
+        <feFuncG type="linear" slope="-1.15" intercept="1.15" />
+        <feFuncB type="linear" slope="-1.15" intercept="1.15" />
+      </feComponentTransfer>
+      <feComposite in="inverted" in2="color-mask" operator="out" result="neutral-ink" />
+      <feComposite in="SourceGraphic" in2="color-mask" operator="in" result="original-colors" />
+      <feMerge><feMergeNode in="neutral-ink" /><feMergeNode in="original-colors" /></feMerge>
+    </filter>
+  </defs>
+</svg>
