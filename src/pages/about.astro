@@ -19,7 +19,7 @@ const nameWords = [
     <PortfolioHeader active="about"/>
     <main class="about-main">
       <h1 class="photo-name" aria-label="ryan">
-        {nameWords.map(word => <span class="photo-name-word" aria-hidden="true">{word.map(({ letter, photo, position, size }) => <span class="photo-name-letter" style={`background-image:url('/images/about-name-${photo}.jpg');background-position:${position};background-size:${size}`}>{letter}</span>)}</span>)}
+        {nameWords.map(word => <span class="photo-name-word" aria-hidden="true">{word.map(({ letter, photo, position, size }) => <span class="photo-name-letter" style={`background-image:url('/images/about-name-${photo}.jpg');background-position:${position};background-size:${size}`}><span class="photo-name-character">{letter}</span></span>)}</span>)}
       </h1>
       <div class="about-layout">
         <div class="about-copy">
@@ -51,6 +51,50 @@ const nameWords = [
       </section>
     </main>
     <script>
+      const panels = [...document.querySelectorAll<HTMLElement>('.photo-name-letter')];
+      const photos = [
+        { src: '/images/about-rotation-1.jpg', position: '50% 50%' },
+        { src: '/images/about-rotation-2.jpg', position: '72% 50%' },
+        { src: '/images/about-rotation-3.jpg', position: '70% 55%' },
+        { src: '/images/about-rotation-4.jpg', position: '48% 65%' },
+        { src: '/images/about-rotation-5.jpg', position: '50% 80%' },
+        { src: '/images/about-rotation-6.jpg', position: '24% 50%' },
+      ];
+      const displayed = new Map<HTMLElement, string>();
+      let changing = false;
+      window.setInterval(async () => {
+        if (document.hidden || changing || panels.length === 0) return;
+        changing = true;
+        const panel = panels[Math.floor(Math.random() * panels.length)];
+        const available = photos.filter(photo => ![...displayed.values()].includes(photo.src));
+        const photo = available[Math.floor(Math.random() * available.length)];
+        try {
+          const image = new Image();
+          image.src = photo.src;
+          await image.decode();
+          if (document.hidden || !panel.isConnected) return;
+          const overlay = document.createElement('span');
+          overlay.className = 'photo-name-replacement';
+          overlay.style.backgroundImage = `url('${photo.src}')`;
+          overlay.style.backgroundPosition = photo.position;
+          panel.append(overlay);
+          await overlay.animate([{ opacity: 0 }, { opacity: 1 }], {
+            duration: matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 1200,
+            easing: 'ease-in-out',
+            fill: 'forwards',
+          }).finished;
+          panel.style.backgroundImage = overlay.style.backgroundImage;
+          panel.style.backgroundPosition = photo.position;
+          panel.style.backgroundSize = 'cover';
+          displayed.set(panel, photo.src);
+          overlay.remove();
+        } catch {
+          // Keep the current photo if a replacement cannot load.
+        } finally {
+          changing = false;
+        }
+      }, 10000);
+
       document.querySelector('#about-contact-form')?.addEventListener('submit', async (event) => {
         event.preventDefault();
         const form = event.currentTarget as HTMLFormElement;
