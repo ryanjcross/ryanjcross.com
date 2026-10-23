@@ -7,6 +7,7 @@ import CloudflareAnalytics from "../../components/CloudflareAnalytics.astro";
 const projects = {
   "sierra-space": {
     title: "Sierra Space",
+    description: "Aerospace leader building next-generation infrastructure for space exploration and commercialization.",
     paragraphs: [
       "My summer at Sierra Space immersed me in a fast-paced industry environment where I was trusted with a high level of independence and responsibility. This gave me the opportunity to take full ownership of my project, from development through successful implementation.",
     ],
@@ -22,6 +23,7 @@ const projects = {
   },
   "kairos-power": {
     title: "Kairos Power",
+    description: "Enabling the world's clean energy transition to improve people's quality of life while protecting the environment.",
     paragraphs: [
       "Kairos Power is innovating the future by delivering a salt-cooled high-temperature nuclear reactor. During my Test Engineering internship, I completed an in-depth two-phase flow analysis on the molten salt coolant.",
     ],
@@ -37,6 +39,7 @@ const projects = {
   },
   "kashmir-world-foundation": {
     title: "Kashmir World Foundation",
+    description: "Nonprofit organization bringing together a global team to develop innovative solutions for wildlife conservation.",
     paragraphs: [
       "During my aerodynamics internship with Kashmir World Foundation, I applied aerospace fundamentals to practical engineering questions and supported technical work through analysis and clear communication.",
       "The experience strengthened my ability to connect aerodynamic theory with real project constraints while contributing within an interdisciplinary team.",
@@ -53,6 +56,7 @@ const projects = {
   },
   "design-build-fly": {
     title: "Design Build Fly",
+    description: "Every year, AIAA challenges students to show their creativity and technical expertise through the Design Build Fly competition. Rules are released in September with competition taking place in April.",
     paragraphs: [
       "Every year, AIAA challenges students to show their creativity and technical expertise through the Design Build Fly competition. Rules are released in September with competition taking place in April.",
       "I participated on the CU team for two years, joining as a member of the avionics team, then stepping up to lead the propulsion design and implementation team.",
@@ -98,15 +102,15 @@ const ndaCompany = Astro.params.slug === "sierra-space"
       <section class="project-hero">
         <img src={project.heroImage} alt={project.heroAlt} />
         <div class="hero-shade" aria-hidden="true"></div>
-        <h1>{project.title}</h1>
+        <div class="hero-heading">
+          <h1>{project.title}</h1>
+          <p class="hero-description">{project.description}</p>
+        </div>
+        {ndaCompany && (
+          <p class="nda-notice"><em>Non-Disclosure Agreement: I will only disclose non-proprietary information regarding my work at {ndaCompany}. All images are {Astro.params.slug === "sierra-space" ? "publicly available" : "public knowledge"}.</em></p>
+        )}
       </section>
-      {ndaCompany && (
-        <p class="nda-notice"><em>Non-Disclosure Agreement: I will only disclose non-proprietary information regarding my work at {ndaCompany}. All images are {Astro.params.slug === "sierra-space" ? "publicly available" : "public knowledge"}.</em></p>
-      )}
       <section class="project-content" aria-label={`${project.title} project details`}>
-        {Astro.params.slug === "sierra-space" && <p class="kwf-introduction"><strong>Aerospace leader building next-generation infrastructure for space exploration and commercialization.</strong></p>}
-        {Astro.params.slug === "kairos-power" && <p class="kwf-introduction"><strong>Enabling the world's clean energy transition to improve people's quality of life while protecting the environment.</strong></p>}
-        {Astro.params.slug === "kashmir-world-foundation" && <p class="kwf-introduction"><strong>Nonprofit organization bringing together a global team to develop innovative solutions for wildlife conservation.</strong></p>}
         {Astro.params.slug === "kashmir-world-foundation" ? (
           <article class="project-row kwf-aircraft-row">
             <div class="project-copy"><h2>Project Eagle Ray</h2><p>The Eagle Ray aircraft is a blended-wing body UAS designed to fly over the Himalayan Mountain Range at 20,000 feet. The goal is to monitor endangered snow leopard populations, eventually offering protective solutions to poaching, habitat destruction, and dwindling populations.</p></div>
@@ -119,7 +123,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
           <article class="project-row">
             {Astro.params.slug === "sierra-space" && <h2 class="kwf-section-title">Summer Internship</h2>}
             <div class="project-copy">
-              <p>{project.paragraphs[0]}</p>
+              {Astro.params.slug !== "design-build-fly" && <p>{project.paragraphs[0]}</p>}
               {Astro.params.slug === "design-build-fly" && <p>{project.paragraphs[1]}</p>}
             </div>
             <figure class="project-media">{Astro.params.slug === "kairos-power" ? <ThemeImage src={project.image} darkSrc="/images/kairos-reactor-system-dark.png" alt={project.imageAlt} loading="eager" /> : <img src={project.image} alt={project.imageAlt} />}</figure>
@@ -351,8 +355,10 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   /* Center the circle at source x=800 without changing the cover scale. */
   .project-kairos-power .project-hero>img{object-fit:cover;object-position:center;filter:none;transform:translateX(min(-16.666667cqw,-33.333333cqh))}
   .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,8,.5),rgba(7,9,8,.16) 35%,rgba(7,9,8,.68))}
-  h1{position:absolute;z-index:2;top:50%;left:50%;width:min(92%,1100px);margin:0;transform:translate(-50%,-50%);color:#f7f6f2;font:400 clamp(48px,6.5vw,92px)/.9 Manrope,sans-serif;letter-spacing:-.055em;text-align:center;text-shadow:0 4px 26px rgba(0,0,0,.75)}
-  .nda-notice{width:min(1200px,calc(100% - 48px));margin:clamp(18px,2.5vw,30px) auto 0;color:var(--muted);font-size:14px;line-height:1.55;text-align:center}
+  .hero-heading{position:absolute;z-index:2;top:50%;left:50%;width:min(92%,1100px);transform:translate(-50%,-50%);color:#f7f6f2;text-align:center;text-shadow:0 3px 14px #000c}
+  h1{margin:0;color:inherit;font:400 clamp(48px,6.5vw,92px)/1.05 Manrope,sans-serif;letter-spacing:-.055em}
+  .hero-description{max-width:780px;margin:18px auto 0;font-size:clamp(16px,1.6vw,21px);line-height:1.5}
+  .nda-notice{position:absolute;z-index:2;bottom:18px;left:50%;transform:translateX(-50%);width:min(1000px,calc(100% - 160px));margin:0;color:#f7f6f2;font-size:13px;line-height:1.55;text-align:center;text-shadow:0 2px 8px #000}
   .project-content{width:min(1200px,calc(100% - 48px));margin:0 auto;padding:8px 0 clamp(38px,5vw,72px)}
   .project-row{display:grid;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr);gap:clamp(32px,6vw,82px);align-items:center;padding:clamp(24px,3.5vw,44px) 0}
   .project-row:first-child{padding-top:clamp(18px,2.5vw,30px)}
@@ -470,7 +476,8 @@ const ndaCompany = Astro.params.slug === "sierra-space"
     .project-kashmir-world-foundation .kwf-mesh-row{grid-template-columns:1fr}.kwf-mesh-image{max-width:400px}.kwf-mesh-image img{height:auto;max-height:500px}
     .site-header{height:68px;padding:0 18px}.brand-mark{width:34px;height:32px}.brand-mark b,.brand-mark i{top:7px}.brand-mark b{left:5px}.brand-mark i{left:15px}.site-header nav{gap:10px;font-size:11px}
     .project-hero{height:clamp(409.5px,59.85svh,567px)}h1{font-size:clamp(42px,13vw,65px)}
-    .nda-notice{width:min(100% - 36px,620px);margin-top:18px;font-size:13px}
+    .hero-description{margin-top:14px;font-size:15px;line-height:1.45}
+    .nda-notice{width:min(100% - 36px,620px);bottom:14px;font-size:11px;line-height:1.45}
     .project-content{width:min(100% - 36px,620px);padding:8px 0 34px}.project-row,.project-kashmir-world-foundation .kwf-aircraft-row,.project-kashmir-world-foundation .kwf-snow-row{grid-template-columns:1fr;gap:22px;padding:30px 0}.project-row:first-child{padding-top:18px}.project-media{height:240px}.project-design-build-fly .project-row:first-child{grid-template-columns:1fr}.project-design-build-fly .project-row:first-child .project-media{width:86%;height:220px}.dbf-story{gap:28px;padding-top:10px}.dbf-year-section{gap:18px;padding-top:18px}.dbf-pair{grid-template-columns:1fr;gap:18px}
     .snow-leopard-reveal{height:clamp(169px,24.7svh,234px);margin-top:8px;margin-bottom:8px}
     .site-footer{grid-template-columns:1fr;gap:14px;text-align:center}.site-footer .footer-socials,.site-footer p{grid-column:1;justify-self:center}.site-footer .footer-socials{gap:18px;font-size:13px}.footer-linkedin-logo{width:20px;height:20px;font-size:13px}
