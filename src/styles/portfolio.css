@@ -138,8 +138,8 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 .about-photos img{display:block;width:100%;height:auto;border-radius:18px}
 .about-photos img:first-child{aspect-ratio:6048/4011;object-fit:cover;object-position:center bottom}
 .about-main{padding-top:12px}
-.about-main .photo-name{width:100%;margin:0 auto 46px;font:800 min(32.6vw,240px)/1.22 Manrope,sans-serif;letter-spacing:-.065em}
-.photo-name-word{display:flex;align-items:center;justify-content:center}
+.about-main .photo-name{container-type:inline-size;width:100%;margin:0 auto 46px;font:800 480px/1.22 Manrope,sans-serif;letter-spacing:-.065em}
+.photo-name-word{display:flex;align-items:center;justify-content:center;font-size:min(44cqw,480px);letter-spacing:-.065em}
 .photo-name-letter{display:block;padding:0 .018em;background-size:cover;background-repeat:no-repeat;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
 @media(max-width:520px){.about-main .photo-name{margin-bottom:36px}}
 /* Center the section title with equal space before the heading and first row. */
