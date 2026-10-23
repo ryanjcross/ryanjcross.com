@@ -123,6 +123,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
           <article class="project-row">
             {Astro.params.slug === "sierra-space" && <h2 class="kwf-section-title">Summer Internship</h2>}
             <div class="project-copy">
+              {Astro.params.slug === "kairos-power" && <h2>Nuclear Energy</h2>}
               <p>{project.paragraphs[0]}</p>
               {Astro.params.slug === "design-build-fly" && <p>{project.paragraphs[1]}</p>}
             </div>
