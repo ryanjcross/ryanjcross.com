@@ -535,7 +535,15 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   main.project-design-build-fly .project-row:first-child{transform:none}
   .project-kashmir-world-foundation .dimensioned-media img{mix-blend-mode:normal}
   .project-kashmir-world-foundation .dimensioned-media .theme-image{width:100%;height:100%}
-  .kwf-mesh-image img,.kwf-plot-axes img{filter:url(#scientific-light-neutral);mix-blend-mode:multiply}
+  .kwf-mesh-image img{filter:url(#scientific-light-neutral);mix-blend-mode:multiply}
+  /* Continuous color filters preserve the plots' antialiased line edges. */
+  .kwf-plot-axes img{filter:invert(1) hue-rotate(180deg) brightness(1.15);mix-blend-mode:multiply}
+  .kwf-results-legend li>span{filter:invert(1) hue-rotate(180deg) brightness(1.15)}
+  .project-kairos-power .kairos-flow-media,.kairos-experiment-photo,
+  .project-sierra-space .project-media,
+  .project-design-build-fly .project-media,.project-design-build-fly .team-feature{border-radius:18px;overflow:hidden}
+  .project-sierra-space .project-row:first-of-type>.project-media,
+  .sierra-summer-section>.project-row:first-of-type>.project-media{clip-path:inset(0 0 6% 0 round 18px)}
   .analysis-logos>div:nth-child(2) img,.analysis-logos>div:nth-child(3) img{filter:brightness(0)}
   .kwf-results-legend{border:1px solid var(--project-outline,#253551);border-radius:22px}
   .snow-leopard-reveal{width:100%;margin-inline:0;border-radius:22px}
