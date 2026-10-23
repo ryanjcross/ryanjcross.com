@@ -52,6 +52,12 @@ const nameWords = [
     </main>
     <script>
       const panels = [...document.querySelectorAll<HTMLElement>('.photo-name-letter')];
+      const originalPhotos = [
+        { src: '/images/about-name-7.jpg', position: '53% 100%', size: 'auto 115%' },
+        { src: '/images/about-name-6.jpg', position: '48% 100%', size: 'auto 150%' },
+        { src: '/images/about-name-2.jpg', position: '50% 36%', size: 'cover' },
+        { src: '/images/about-name-5.jpg', position: '0% 75%', size: '133.333% auto' },
+      ];
       const photos = [
         { src: '/images/about-rotation-1.jpg', position: '50% 70%', size: 'auto 125%' },
         { src: '/images/about-rotation-2.jpg', position: '72% 50%', size: 'cover' },
@@ -59,14 +65,21 @@ const nameWords = [
         { src: '/images/about-rotation-4.jpg', position: '48% 100%', size: 'auto 125%' },
         { src: '/images/about-rotation-5.jpg', position: '50% 100%', size: 'auto 180%' },
         { src: '/images/about-rotation-6.jpg', position: '100% 50%', size: 'cover' },
+        ...originalPhotos,
       ];
-      const displayed = new Map<HTMLElement, string>();
+      const displayed = new Map(panels.map((panel, index) => [panel, originalPhotos[index].src]));
+      const seen = new Set(displayed.values());
       let changing = false;
       window.setInterval(async () => {
         if (document.hidden || changing || panels.length === 0) return;
         changing = true;
         const panel = panels[Math.floor(Math.random() * panels.length)];
-        const available = photos.filter(photo => ![...displayed.values()].includes(photo.src));
+        let available = photos.filter(photo => !seen.has(photo.src) && ![...displayed.values()].includes(photo.src));
+        if (available.length === 0) {
+          seen.clear();
+          displayed.forEach(src => seen.add(src));
+          available = photos.filter(photo => !seen.has(photo.src));
+        }
         const photo = available[Math.floor(Math.random() * available.length)];
         try {
           const image = new Image();
@@ -88,6 +101,7 @@ const nameWords = [
           panel.style.backgroundPosition = photo.position;
           panel.style.backgroundSize = photo.size;
           displayed.set(panel, photo.src);
+          seen.add(photo.src);
           overlay.remove();
         } catch {
           // Keep the current photo if a replacement cannot load.
