@@ -185,8 +185,8 @@ const ndaCompany = Astro.params.slug === "sierra-space"
           <>
             <section class="snow-leopard-reveal" aria-label="Snow leopard conservation image reveal">
               <div class="snow-leopard-reveal-frame" aria-hidden="true"></div>
+              <h2 class="kwf-internship-title">Aerodynamics Internship</h2>
             </section>
-            <h2 class="kwf-internship-title">Aerodynamics Internship</h2>
             <article class="project-row kwf-snow-row">
               <h2 class="kwf-section-title">Approach</h2>
               <div class="project-copy">
@@ -255,8 +255,8 @@ const ndaCompany = Astro.params.slug === "sierra-space"
           <>
             <section class="snow-leopard-reveal kairos-bay-banner" aria-label="San Francisco Bay and the Bay Bridge">
               <div class="kairos-bay-reveal-frame" aria-hidden="true"></div>
+              <h2 class="kwf-internship-title">Test Engineering Internship</h2>
             </section>
-            <h2 class="kwf-internship-title">Test Engineering Internship</h2>
             <article class="project-row">
               <div class="project-copy">
                 <p>A key parameter for flow characterization is <strong>void fraction percentage:</strong> the ratio of air to volume. A larger void fraction will decrease the heat transfer coefficient of molten salt, degrading the coolant's ability to remove heat from the fuel rods.</p>
@@ -338,7 +338,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
 </html>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap");
 
   :root{--bg:#f7f6f2;--surface:#e8ecee;--ink:#202e32;--muted:#59666b;--line:rgba(37,53,81,.18);--teal:#365b70}
   *{box-sizing:border-box}
@@ -415,7 +415,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .kwf-mesh-image:last-child figcaption{transform:translateX(12px)}
   .kwf-mesh-image img{display:block;width:100%;height:500px;object-fit:contain;mix-blend-mode:lighten}
   .project-content>.snow-leopard-reveal{margin-bottom:0}
-  .kwf-internship-title{margin:0;padding:50px 0;text-align:center;font:400 clamp(30px,3vw,44px)/1.1 Manrope,sans-serif;letter-spacing:-.04em;color:var(--ink)}
+  .kwf-internship-title{position:absolute;inset:0;z-index:1;display:grid;place-items:center;margin:0;padding:20px;text-align:center;font:700 clamp(30px,3vw,44px)/1.15 Manrope,sans-serif;letter-spacing:-.04em;color:#fff;text-shadow:0 2px 12px #0009;background:#0003}
   .kwf-results{padding:36px 0 20px;}
   .kwf-section-title{grid-column:1/-1;margin:0;text-align:center;font:400 clamp(26px,2.5vw,36px)/1.1 Manrope,sans-serif;letter-spacing:-.04em}
   .kwf-results>.kwf-section-title{margin-bottom:32px}
