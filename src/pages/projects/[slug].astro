@@ -119,9 +119,23 @@ const ndaCompany = Astro.params.slug === "sierra-space"
 
             </figure>
           </article>
+        ) : Astro.params.slug === "sierra-space" ? (
+          <section class="sierra-summer-section" aria-labelledby="sierra-summer-title">
+            <h2 class="kwf-section-title" id="sierra-summer-title">Summer Internship</h2>
+            <div class="project-row">
+              <div class="project-copy"><p>{project.paragraphs[0]}</p></div>
+              <figure class="project-media"><img src={project.image} alt={project.imageAlt} /></figure>
+            </div>
+          <section class="project-row sierra-portrait-section" aria-label="Ryan at Sierra Space">
+            <figure class="project-media sierra-portrait"><img src={project.secondImage} alt={project.secondImageAlt} loading="lazy" /></figure>
+            <div class="project-copy">
+              <p>I developed a method to monitor the thermal state of flight-representative hardware and protect it from harmful thermal conditions. I programmed an automated monitoring system in OpenC3 COSMOS to track thermal behavior and provide continuous hardware protection. Then, I tested and validated my scripts using live telemetry from sensors I configured in a production floor environment. I merged my code with the company code base for 24/7 hardware security.</p>
+              <p>With such little guidance on my project, I learned the value of communicating with others and doing it with confidence. I found incredible success when reaching out to other subteams, expanding knowledge beyond my own project and giving me an understanding of how different systems and teams fit into place.</p>
+            </div>
+          </section>
+          </section>
         ) : (
           <article class="project-row">
-            {Astro.params.slug === "sierra-space" && <h2 class="kwf-section-title">Summer Internship</h2>}
             <div class="project-copy">
               {Astro.params.slug === "kairos-power" && <h2>Nuclear Energy</h2>}
               <p>{project.paragraphs[0]}</p>
@@ -295,13 +309,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
           </>
         ) : Astro.params.slug === "sierra-space" ? (
           <>
-          <section class="project-row sierra-portrait-section" aria-label="Ryan at Sierra Space">
-            <figure class="project-media sierra-portrait"><img src={project.secondImage} alt={project.secondImageAlt} loading="lazy" /></figure>
-            <div class="project-copy">
-              <p>I developed a method to monitor the thermal state of flight-representative hardware and protect it from harmful thermal conditions. I programmed an automated monitoring system in OpenC3 COSMOS to track thermal behavior and provide continuous hardware protection. Then, I tested and validated my scripts using live telemetry from sensors I configured in a production floor environment. I merged my code with the company code base for 24/7 hardware security.</p>
-              <p>With such little guidance on my project, I learned the value of communicating with others and doing it with confidence. I found incredible success when reaching out to other subteams, expanding knowledge beyond my own project and giving me an understanding of how different systems and teams fit into place.</p>
-            </div>
-          </section>
+
           <section class="project-row" aria-labelledby="sierra-coop-title">
             <h2 class="kwf-section-title" id="sierra-coop-title">Part-Time Co-op</h2>
             <div class="project-copy sierra-coop-copy"><p>Coming soon...</p></div>
@@ -505,7 +513,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .project-kairos-power .kairos-chart:not(.kairos-experiment-photo) img,.project-kairos-power .project-row:first-of-type .project-media img{mix-blend-mode:multiply}
 
   /* Match the rounded, fine outline used around the About content. */
-  main .project-content > :is(.project-row,.kwf-results,.kwf-conclusion,.kairos-wide-copy,.kairos-processing-section,.kairos-optimization,.sierra-testimonials),
+  main .project-content > :is(.project-row,.sierra-summer-section,.kwf-results,.kwf-conclusion,.kairos-wide-copy,.kairos-processing-section,.kairos-optimization,.sierra-testimonials),
   main .dbf-year-section,main .dbf-story > .dbf-testimonial{
     box-sizing:border-box;border:1px solid var(--project-outline,#253551);border-radius:22px;
     padding:clamp(20px,3vw,36px);margin-top:24px;margin-bottom:24px;
@@ -513,6 +521,10 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   main .sierra-testimonials .dbf-testimonial{border:0}
   main .project-return{border:0}
   main .analysis-logos>div+div{border:0}
+  .sierra-summer-section{display:grid;gap:24px}
+  .sierra-summer-section>.project-row{padding:0;row-gap:24px}
+  .sierra-summer-section>.project-row:first-of-type>.project-media{clip-path:inset(0 0 6% 0)}
+  .project-hero h1,.project-content h2{font-weight:700}
   .snow-leopard-reveal{width:100%;margin-inline:0;border-radius:22px}
   .hero-description{margin-top:24px}
   .project-sierra-space .hero-description{margin-top:32px}
