@@ -28,6 +28,7 @@ html:root:root:root[data-theme="dark"] .project-kairos-power .theme-image-dark{m
 html:root:root:root[data-theme="dark"] .year-image{background:transparent}
 html:root:root:root[data-theme="dark"] .kwf-mesh-image img,html:root:root:root[data-theme="dark"] .kwf-plot-axes img{filter:none;mix-blend-mode:lighten}
 html:root:root:root[data-theme="dark"] .kwf-results-legend li>span{filter:none}
+html:root:root:root[data-theme="dark"] .kairos-processing-visual{--processing-arrow-top:15%}
 html:root:root:root[data-theme="dark"] .analysis-logos>div:nth-child(2) img,html:root:root:root[data-theme="dark"] .analysis-logos>div:nth-child(3) img{filter:brightness(0) invert(1)}
 html:root:root:root[data-theme="dark"] .selectable-resume{background:#e0e0e0}
 html:root:root:root[data-theme="dark"] .resume-image{background:#fff;color-scheme:light;filter:brightness(.88)}

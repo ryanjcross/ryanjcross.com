@@ -274,6 +274,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
               <h2 class="kwf-internship-title">Test Engineering Internship</h2>
             </section>
             <article class="project-row">
+              <h2 class="kwf-section-title">Project</h2>
               <div class="project-copy">
                 <p>A key parameter for flow characterization is <strong>void fraction percentage:</strong> the ratio of air to volume. A larger void fraction will decrease the heat transfer coefficient of molten salt, degrading the coolant's ability to remove heat from the fuel rods.</p>
                 <p>The Nuclear Regulatory Commission (NRC) requires a limit on the amount of void fraction present in the coolant. It was my job to develop a method to infer the void fraction within the coolant of Kairos Power's Hermes Test Unit Reactor.</p>
@@ -284,10 +285,12 @@ const ndaCompany = Astro.params.slug === "sierra-space"
               </figure>
             </article>
             <article class="project-row kairos-replication-row">
+              <h2 class="kwf-section-title">Theoretical Model</h2>
               <figure class="kairos-chart"><ThemeImage src="/images/kairos-flow-replication-v2.png" darkSrc="/images/kairos-flow-replication-dark.png" alt="Theoretical data compared with MATLAB reproduction, with redacted axes" loading="lazy" /></figure>
               <div class="project-copy"><p>Pictured left, I replicated methods from a verified source to predict two-phase flow behavior with non-fluid properties. The replication was accurate, and therefore I could apply such methods in the context of my experiment.</p><p><strong>I had a theoretical method to infer the void fraction, but I needed to validate it...</strong></p></div>
             </article>
             <article class="project-row">
+              <h2 class="kwf-section-title">Experimental Setup</h2>
               <div class="project-copy">
                 <p>For validation of the theoretical calculation, I created an experimental setup that I could physically extract the void fraction data from.</p>
                 <p>Doing a test with water allowed me to visualize the flow and take pictures to get the true void fraction parameters of this experiment. I performed calculations to map the experimental data of water back to the conditions of molten salt.</p>
@@ -296,17 +299,29 @@ const ndaCompany = Astro.params.slug === "sierra-space"
               <figure class="kairos-chart kairos-experiment-photo"><img src="/images/kairos-physical-tube.png" alt="Water-filled tube with bubbles and a camera used to measure void fraction" loading="lazy" /></figure>
             </article>
             <section class="kairos-processing-section" aria-label="Image processing analysis">
-            <div class="project-copy kairos-wide-copy"><p>Once I had taken the photos, I used an image processing software to determine key characteristics of the flow. I could then use this data, correlated with additional non-fluid properties, to validate the prediction that was made with the model that I adapted.</p></div>
-            <figure class="kairos-chart kairos-processing-chart"><ThemeImage src="/images/kairos-void-fraction-processing.png" darkSrc="/images/kairos-void-fraction-processing-dark.png" alt="Original bubble photograph, image processing with detected bubbles, and a histogram of void fraction parameters" loading="lazy" /></figure>
+              <h2 class="kwf-section-title">Experimental Analysis</h2>
+              <div class="project-copy kairos-wide-copy"><p>Once I had taken the photos, I followed the data collection process shown below. I ran a chosen time-resolved image through multiple image processing programs to cross-verify results and retrieve key flow characteristics&mdash;bubble count and radius contributing to the void fraction. With this data, along with additional [redacted] non-fluid properties, I could move forward to the final step of inferring the void fraction inside the molten-salt coolant.</p></div>
+              <figure class="kairos-chart kairos-processing-chart">
+                <div class="kairos-processing-visual">
+                  <ThemeImage src="/images/kairos-void-fraction-processing.png" darkSrc="/images/kairos-void-fraction-processing-dark.png" alt="Data collection process: Original Photo, then Image Processing, then Void Fraction Parameters" loading="lazy" />
+                  <span class="processing-step-arrow processing-step-arrow-first" aria-hidden="true"></span>
+                  <span class="processing-step-arrow processing-step-arrow-second" aria-hidden="true"></span>
+                </div>
+              </figure>
             </section>
             <section class="kairos-optimization" aria-label="Two-dimensional and three-dimensional analysis">
-              <div class="project-copy kairos-wide-copy"><p>For the final step, I computed the error between the theoretical model and experimental data to find the most likely case of parameters. I could compare these results to other sets of data to predict the two parameters relating to void fraction.</p></div>
+              <h2 class="kwf-section-title">Results</h2>
+              <div class="project-copy kairos-wide-copy"><p>Bringing together the results, I now had a way to model the void fraction in the Hermes test unit reactor and provide experimental validation for that model. The figures below represent the error between the theoretical model and experimental data to pinpoint the most likely set of fluid parameters for a given scenario. Mapping these fluid parameters to the [redacted] data produced quantitative results on expected void fraction percentage.</p></div>
               <div class="kairos-chart-pair">
                 <figure class="kairos-chart"><ThemeImage src="/images/kairos-optimization-2d.png" darkSrc="/images/kairos-optimization-2d-dark.png" alt="Two-dimensional optimization heatmap with redacted axes" loading="lazy" /></figure>
                 <figure class="kairos-chart"><ThemeImage src="/images/kairos-optimization-3d-v2.png" darkSrc="/images/kairos-optimization-3d-dark.png" alt="Three-dimensional log-error optimization surface with redacted axes" loading="lazy" /></figure>
               </div>
             </section>
-            <div class="project-copy kairos-wide-copy"><p>Void fraction presence is undesirable in molten salt coolant, but is unavoidable due to gas entrainment and argon gas entering through a free-surface vortex in the pump. I developed a method to predict whether or not the void fraction is at a concerning percentage, leaving a detailed description of my work for the team to implement, test, and improve upon the model.</p></div>
+            <div class="project-copy kairos-wide-copy kairos-conclusion">
+              <h2 class="kwf-section-title">Conclusion</h2>
+              <p>Preceding the conclusion of my internship, I was able to run three tests with each part of the process included. While I am unable to provide quantitative analysis on the results of my experiments, I can say that I found success in many aspects of the model. The model had yet to be taken as solid proof, but I developed the foundation towards void fraction determination and analysis. I was happy to pass my results to the team, leaving my project in the hands of capable engineers that would go on to further analyze the feasibility of leveraging the model for requirement verification and closure.</p>
+              <p>Void fraction presence is due to argon gas entering through a free-surface vortex in the pump, and it is undesirable in molten salt coolant. To help Kairos Power establish information on this unavoidable phenomenon, I developed a method to predict whether or not the void fraction is at a concerning percentage.</p>
+            </div>
           </>
         ) : Astro.params.slug === "sierra-space" ? (
           <>
@@ -528,6 +543,15 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .sierra-summer-section>.project-row{padding:0;row-gap:24px}
   .sierra-summer-section>.project-row:first-of-type>.project-media{clip-path:inset(0 0 6% 0)}
   .project-hero h1,.project-content h2{font-weight:700}
+  .project-kairos-power .project-row{row-gap:24px}
+  .kairos-processing-section>.kwf-section-title,.kairos-optimization>.kwf-section-title{margin-bottom:24px}
+  .project-kairos-power .kairos-conclusion{max-width:none;width:100%;text-align:left}
+  .kairos-conclusion>.kwf-section-title{text-align:left}
+  .kairos-processing-visual{position:relative}
+  .processing-step-arrow{position:absolute;top:var(--processing-arrow-top,10.8%);height:2px;background:var(--teal);pointer-events:none}
+  .processing-step-arrow-first{left:25%;width:16%}
+  .processing-step-arrow-second{left:59%;width:14%}
+  .processing-step-arrow::after{content:"";position:absolute;right:0;top:50%;width:clamp(3px,.5vw,7px);height:clamp(3px,.5vw,7px);border-top:2px solid var(--teal);border-right:2px solid var(--teal);transform:translateY(-50%) rotate(45deg)}
   main .project-content{display:flex;flex-direction:column;gap:24px;padding-top:24px;padding-bottom:24px}
   main .project-content>*,main .dbf-story>*{margin-block:0}
   main .dbf-story{display:contents}
