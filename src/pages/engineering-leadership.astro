@@ -1,0 +1,36 @@
+---
+import PortfolioHeader from "../components/PortfolioHeader.astro";
+import PortfolioFooter from "../components/PortfolioFooter.astro";
+import CloudflareAnalytics from "../components/CloudflareAnalytics.astro";
+import "../styles/portfolio.css";
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Engineering Leadership Certificate | Ryan Cross</title>
+    <link rel="icon" href="/favicon.svg" />
+  </head>
+  <body>
+    <PortfolioHeader active="about" />
+    <main class="certificate-main" aria-label="Engineering Leadership certificate">
+      <a class="certificate-document" href="/engineering-leadership-certificate.pdf" target="_blank" rel="noopener" aria-label="Open the original Engineering Leadership certificate PDF">
+        <img src="/images/engineering-leadership-certificate.png" width="1980" height="1530" alt="University of Colorado Boulder undergraduate certificate in Engineering Leadership awarded to Ryan Joseph Cross on May 2, 2026" />
+        <img class="certificate-validation" src="/images/engineering-leadership-certificate-page-2.png" width="1530" height="1980" loading="lazy" alt="Page two of the certificate: secure credential validation and digital signature information" />
+      </a>
+      <a class="back-to-projects" href="/">back to portfolio</a>
+    </main>
+    <PortfolioFooter />
+    <CloudflareAnalytics />
+  </body>
+</html>
+<style>
+  .certificate-main{width:92%;max-width:1100px;margin:0 auto;padding:24px 0 28px}
+  .certificate-document{display:flex;flex-direction:column;align-items:center;gap:24px}
+  .certificate-document img{display:block;width:100%;height:auto;filter:none;mix-blend-mode:normal}
+  .certificate-document .certificate-validation{max-width:800px}
+  .back-to-projects{display:table;width:max-content;margin:24px auto 0;padding:12px 26px;border:0;border-radius:999px;background:#253551;color:#f7f6f2;font:400 14px/1.6 Poppins,sans-serif;text-decoration:none;transition:background .2s}
+  .back-to-projects:hover{background:#354c6b}
+  .back-to-projects:focus-visible,.certificate-document:focus-visible{outline:2px solid #536878;outline-offset:5px}
+</style>
