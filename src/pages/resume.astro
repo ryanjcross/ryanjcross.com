@@ -1,8 +1,9 @@
 ---
 import SelectableResume from "../components/SelectableResume.astro";
+import resume from "../data/resume-text.json";
 import PortfolioFooter from "../components/PortfolioFooter.astro";
 import PortfolioHeader from "../components/PortfolioHeader.astro";
 import CloudflareAnalytics from "../components/CloudflareAnalytics.astro";
 import "../styles/portfolio.css";
 ---
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width"/><title>Resume | Ryan Cross</title><link rel="icon" href="/favicon.svg"/></head><body class="resume-page"><PortfolioHeader active="resume"/><main class="resume-main"><a class="download" href="/Ryan-Cross-Resume.pdf" download>download resume PDF</a><SelectableResume/></main><PortfolioFooter/><CloudflareAnalytics/></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width"/><title>Resume | Ryan Cross</title><link rel="icon" href="/favicon.svg"/></head><body class="resume-page"><PortfolioHeader active="resume"/><main class="resume-main"><a class="download" href={`/Ryan-Cross-Resume.pdf?v=${resume.revision}`} download>download resume PDF</a><SelectableResume/></main><PortfolioFooter/><CloudflareAnalytics/></body></html>

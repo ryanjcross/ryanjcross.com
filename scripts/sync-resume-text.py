@@ -1,5 +1,6 @@
 """Regenerate the selectable overlay after replacing the resume PDF/image pair."""
 import json
+import hashlib
 from pathlib import Path
 import pdfplumber
 
@@ -8,6 +9,7 @@ with pdfplumber.open(root / "public/Ryan-Cross-Resume.pdf") as pdf:
     page = pdf.pages[0]
     words = page.extract_words(x_tolerance=1)
     data = {
+        "revision": hashlib.sha256((root / "public/Ryan-Cross-Resume.pdf").read_bytes()).hexdigest()[:12],
         "width": page.width,
         "height": page.height,
         "words": [

@@ -2,7 +2,7 @@
 import resume from "../data/resume-text.json";
 ---
 <div class="selectable-resume" role="document" aria-label="Ryan Cross resume">
-  <img class="resume-image" src="/images/ryan-cross-resume.png" alt="" aria-hidden="true" draggable="false" />
+  <img class="resume-image" src={`/images/ryan-cross-resume.png?v=${resume.revision}`} alt="" aria-hidden="true" draggable="false" />
   <svg class="resume-text-layer" viewBox={`0 0 ${resume.width} ${resume.height}`} xmlns="http://www.w3.org/2000/svg" aria-label="Selectable resume text">
     <text dominant-baseline="text-before-edge">{resume.words.map((word) => (
       <tspan x={word.x} y={word.y} font-size={word.size} textLength={word.width} lengthAdjust="spacingAndGlyphs" >{word.text}{" "}</tspan>
