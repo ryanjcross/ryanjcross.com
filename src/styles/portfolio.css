@@ -145,7 +145,7 @@ body>footer .copyright{position:absolute;right:5%;bottom:36px;white-space:nowrap
 .photo-name-character{position:relative;z-index:2}
 .photo-name-replacement{position:absolute;inset:0;z-index:1;background-size:cover;background-repeat:no-repeat;box-shadow:inset 0 0 0 100vmax #00000018}
 .certificate-link{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
-.certificate-link svg{display:inline-block;width:15px;height:15px;margin-left:5px;vertical-align:-2px}
+.certificate-link svg{display:inline-block;width:12px;height:12px;margin-left:4px;vertical-align:-1px}
 .certificate-link:hover{color:var(--teal,#536878)}
 @media(max-width:520px){.about-main .photo-name{font-size:clamp(64px,19vw,100px);border-radius:16px;margin-bottom:36px}}
 /* Center the section title with equal space before the heading and first row. */
