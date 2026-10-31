@@ -580,6 +580,17 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   main .dbf-story{display:contents}
   main .project-return{padding:0;margin:0}
   main.project-design-build-fly .project-row:first-child{transform:none}
+  /* Keep section headings and the start of their content aligned across projects. */
+  main{--section-heading-gap:24px}
+  main .project-row{row-gap:var(--section-heading-gap)}
+  main .project-row:has(>.kwf-section-title){align-items:start}
+  main .sierra-summer-section,main .dbf-year-section{row-gap:var(--section-heading-gap)}
+  main .sierra-summer-section>#sierra-summer-title{margin-bottom:0}
+  main .project-copy>h2{margin-bottom:var(--section-heading-gap)}
+  main :is(.kwf-results,.kairos-processing-section,.kairos-optimization,.kairos-conclusion)>.kwf-section-title{margin-bottom:var(--section-heading-gap)}
+  main .kwf-conclusion>.project-copy{margin-top:var(--section-heading-gap)}
+  main :is(.kairos-processing-section,.kairos-optimization)>.kairos-wide-copy{margin-top:0}
+  main :is(.kwf-snow-row,.kwf-mesh-row)>.project-copy>p{margin-block:0}
   .project-kashmir-world-foundation .dimensioned-media img{mix-blend-mode:normal}
   .project-kashmir-world-foundation .dimensioned-media .theme-image{width:100%;height:100%}
   .kwf-mesh-image img{filter:url(#scientific-light-neutral);mix-blend-mode:multiply}
