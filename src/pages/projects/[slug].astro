@@ -440,7 +440,9 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .project-kashmir-world-foundation .project-content{width:min(1320px,calc(100% - 32px))}
   .project-kashmir-world-foundation .kwf-aircraft-row{width:100%;margin-inline:auto;grid-template-columns:minmax(300px,1fr) minmax(0,752px)}
   .project-kashmir-world-foundation .kwf-aircraft-row .second-media{justify-self:end}
-  .project-kashmir-world-foundation .kwf-snow-row{width:100%;margin-inline:auto;grid-template-columns:minmax(0,.85fr) minmax(340px,1.15fr)}
+  .project-kashmir-world-foundation .kwf-snow-row{width:100%;margin-inline:auto;grid-template-columns:minmax(0,1fr)}
+  .kwf-snow-row>.project-copy{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;align-items:start}
+  .kwf-snow-row>.project-copy p{margin:0}
   .project-kashmir-world-foundation .second-media{width:min(100%,752px);height:auto;aspect-ratio:1815/867;justify-self:center}
   .kwf-introduction{width:100%;max-width:1320px;margin:28px auto 36px;text-align:center;font-size:clamp(16px,1.4vw,21px);line-height:1.6;color:var(--ink)}
   .project-kashmir-world-foundation .kwf-mesh-row{width:100%;margin-inline:auto;grid-template-columns:minmax(0,1fr) minmax(0,.95fr) minmax(0,.9fr);gap:28px}
@@ -468,12 +470,12 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .kwf-results-legend li{display:flex;align-items:center;gap:10px}
   .kwf-results-legend li>span{width:30px;height:3px;background:var(--series-color)}
   @media(max-width:850px){.kwf-results-grid{grid-template-columns:1fr;gap:28px}.kwf-results-lower{width:100%}.kwf-result-plot{width:min(100%,600px);margin-inline:auto}.kwf-result-plot figcaption{min-height:0}.kwf-results-legend{gap:14px 24px}}
-  .analysis-number{transform:translateX(-8px);align-self:center;text-align:center;color:var(--teal);font-size:34px}
-  .analysis-logos{width:100%;justify-self:start;display:grid}
-  .analysis-logos>div{min-height:144px;display:grid;grid-template-columns:26px minmax(90px,1fr) minmax(0,1.2fr);align-items:center;gap:18px;padding:24px 0}
-  .analysis-logos>div+div{border-top:1px solid var(--line)}
+  .analysis-number{text-align:center;color:var(--teal);font-size:34px}
+  .analysis-logos{width:100%;justify-self:start;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .analysis-logos>div{min-width:0;display:grid;grid-template-rows:auto 96px 1fr;justify-items:center;align-items:center;gap:20px;padding:12px 28px}
+  .analysis-logos>div p{align-self:start;text-align:center}
   .analysis-logos p{margin:0;color:var(--ink);font-size:clamp(16px,1.3vw,20px);line-height:1.6}
-  .analysis-logos img{display:block;width:100%;max-width:360px;max-height:96px;object-fit:contain}
+  .analysis-logos img{display:block;width:100%;max-width:280px;height:96px;object-fit:contain}
   .analysis-logos>div:nth-child(2) img{filter:brightness(0) invert(1);max-width:330px}
   .dimensioned-media{position:relative}
   .project-kashmir-world-foundation .dimensioned-media{background:transparent;border:0}
@@ -546,7 +548,13 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   }
   main .sierra-testimonials .dbf-testimonial{border:0}
   main .project-return{border:0}
-  main .analysis-logos>div+div{border-top:1px solid var(--project-outline)}
+  main .analysis-logos>div+div{border-inline-start:1px solid var(--project-outline,#253551)}
+  @media(max-width:600px){
+    .kwf-snow-row>.project-copy{grid-template-columns:1fr;gap:20px}
+    .analysis-logos{grid-template-columns:1fr}
+    .analysis-logos>div{padding:24px 12px}
+    main .analysis-logos>div+div{border-inline-start:0;border-top:1px solid var(--project-outline,#253551)}
+  }
   .sierra-summer-section{display:grid;gap:24px}
   .sierra-summer-section>#sierra-summer-title{margin-bottom:12px}
   .sierra-summer-section>.project-row{padding:0;row-gap:24px}
