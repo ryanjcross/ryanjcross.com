@@ -219,8 +219,8 @@ const ndaCompany = Astro.params.slug === "sierra-space"
               <h2 class="kwf-section-title">Setup</h2>
               <div class="project-copy">
                 <p>I modeled cruise conditions at 20,000 ft with a freestream velocity of 26.04 m/s and a chord-based Reynolds number of approximately 1.03 million. Both CFD configurations used steady-state, incompressible RANS with the k–ω SST turbulence model.</p>
-                <p>To reduce computational cost, I modeled half of the aircraft with a symmetry boundary condition along the x-z plane. Nested refinement regions concentrated cells around the aircraft and wake; the OpenFOAM mesh included 15 surface layers with a 1.2 expansion ratio for near-wall resolution.</p>
-                <p>The local OpenFOAM mesh contained approximately 3.17 million cells, while cloud computing enabled approximately 80 million cells in SimScale. I examined surface y<sup>+</sup> to assess near-wall resolution; the figures show the two configurations at 15° AoA. Because the meshes and domain sizes differed, this comparison was not a controlled mesh-convergence study.</p>
+                <p>To reduce computational cost, I modeled half of the aircraft with a symmetry boundary condition along the x-z plane. Cartesian refinement regions concentrated cells around the aircraft and wake; the OpenFOAM mesh was limited to ~3.5 million cells, while SimScale enabled up to 80 million cells.</p>
+                <p>I examined surface y<sup>+</sup> to assess near-wall resolution. The figures below highlight the more consistent distribution achieved in SimScale. Because the meshes and domain sizes differed, this comparison was not a controlled mesh-convergence study.</p>
               </div>
               <figure class="kwf-mesh-image"><img src="/images/eagle-ray-openfoam-y-plus-v5.png" alt="Eagle Ray OpenFOAM y-plus visualization with a color scale from 0 to 30" loading="lazy" /><figcaption><strong>OpenFOAM:</strong> Local hardware constraints limited mesh refinement, resulting in higher and more variable y<sup>+</sup>.</figcaption></figure>
               <figure class="kwf-mesh-image"><img src="/images/eagle-ray-simscale-y-plus-v4.png" alt="Eagle Ray aircraft CFD surface y-plus visualization with color scale" loading="lazy" /><figcaption><strong>SimScale:</strong> Cloud computing enabled greater mesh refinement, producing lower and more uniform y<sup>+</sup>.</figcaption></figure>
@@ -436,7 +436,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .kairos-optimization>.project-copy{text-align:center;margin-bottom:32px}
   .kairos-chart-pair{display:grid;grid-template-columns:minmax(0,1.4355301fr) minmax(0,2.0135747fr);gap:28px;align-items:center}
   @media(max-width:720px){.kairos-chart-pair,.project-row.kairos-replication-row{grid-template-columns:1fr}.kairos-chart-pair img{height:240px;object-fit:contain}}
-  .project-kashmir-world-foundation .project-content{width:min(1320px,calc(100% - 32px))}
+  .project-kashmir-world-foundation .project-content{width:min(1400px,calc(100% - 24px))}
   .project-kashmir-world-foundation .kwf-aircraft-row{width:100%;margin-inline:auto;grid-template-columns:minmax(300px,1fr) minmax(0,752px)}
   .project-kashmir-world-foundation .kwf-aircraft-row .second-media{justify-self:end}
   .project-kashmir-world-foundation .kwf-snow-row{width:100%;margin-inline:auto;grid-template-columns:minmax(0,1fr)}
@@ -444,7 +444,13 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .kwf-snow-row>.project-copy p{margin:0}
   .project-kashmir-world-foundation .second-media{width:min(100%,752px);height:auto;aspect-ratio:1815/867;justify-self:center}
   .kwf-introduction{width:100%;max-width:1320px;margin:28px auto 36px;text-align:center;font-size:clamp(16px,1.4vw,21px);line-height:1.6;color:var(--ink)}
-  .project-kashmir-world-foundation .kwf-mesh-row{width:100%;margin-inline:auto;grid-template-columns:minmax(0,1fr) minmax(0,.95fr) minmax(0,.9fr);gap:28px}
+  .project-kashmir-world-foundation .kwf-mesh-row{width:100%;margin-inline:auto;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+  .kwf-mesh-row>.project-copy{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;align-items:start}
+  .kwf-mesh-row>.project-copy p{margin:0}
+  @media(max-width:850px){
+    .kwf-mesh-row>.project-copy{grid-template-columns:1fr;gap:20px}
+    .project-kashmir-world-foundation .kwf-mesh-row{grid-template-columns:1fr}
+  }
   .kwf-mesh-image{margin:0;justify-self:center;width:100%}
   .kwf-mesh-image:last-child img{transform:translateY(-18px) scale(1.15)}
   .kwf-mesh-image figcaption{margin-top:0;color:var(--ink);font-size:clamp(14px,1.2vw,17px);line-height:1.6;text-align:center}
