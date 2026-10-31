@@ -258,10 +258,11 @@ const ndaCompany = Astro.params.slug === "sierra-space"
               </div>
             </section>
             <section class="kwf-conclusion" aria-labelledby="kwf-conclusion-title">
-              <h2 class="kwf-section-title" id="kwf-conclusion-title">Analysis and Conclusion</h2>
+              <h2 class="kwf-section-title" id="kwf-conclusion-title">Conclusion</h2>
               <div class="project-copy">
-                <p>Both CFD configurations predicted a peak lift-to-drag ratio of approximately 18 near 5° AoA, compared with approximately 30 near 4° from VLM. This difference highlights the importance of including viscous effects when estimating aerodynamic efficiency. The lift predictions diverged at higher angles: SimScale’s C<sub>L</sub> decreased from approximately 0.76 at 15° to 0.69 at 16°, while OpenFOAM’s continued to rise.</p>
-                <p>The study established a baseline comparison of Eagle Ray’s aerodynamic performance and identified higher-angle lift behavior as a priority for further investigation. Agreement in peak L/D did not establish physical accuracy; differing meshes and domains leave numerical sensitivity unresolved. A controlled mesh-convergence study and comparison with experimental data would be the next steps before using these predictions for design decisions.</p>
+                <p>The aerodynamic coefficients are in reasonable agreement between OpenFOAM and SimScale. The stall onset shown by SimScale around 15° AoA is not completely captured by OpenFOAM, showing where the model experiences limitations.</p>
+                <p>As expected, the VLM model underpredicts drag because of the attached and inviscid flow assumptions. The pressure distribution along the blended-wing body is highly dependent on flow separation, which is not captured by the VLM model.</p>
+                <p>Cross-referencing two independent CFD solvers was an incredibly valuable part of this process, as it allowed for the identification of discrepancies and built confidence in the results. Overall, this analysis provided a solid aerodynamic foundation for the Eagle Ray, yielding reliable coefficient data across a full range of angles of attack.</p>
               </div>
             </section>
           </>
