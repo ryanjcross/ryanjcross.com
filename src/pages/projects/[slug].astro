@@ -191,7 +191,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
               <blockquote class="dbf-testimonial">
                 <p>“<strong>Ryan Cross</strong>, I just wanted to add something real quick here. You mentioned that you’re ‘not perfect’ and that you sometimes struggle to keep everyone satisfied—but honestly, I think you’re doing a great job as Propulsion Lead. The support you give, the time you put in, and the friendly environment you create make a huge difference for all of us. It’s been really reassuring and motivating to work under someone who’s approachable and genuinely cares about keeping things moving in the right direction.</p>
                 <p>“Leadership isn’t about being perfect; it’s about showing up, communicating, and giving your team confidence—and you’re nailing that. So kudos to you for everything you’ve done and continue to do. We appreciate it.”</p>
-                <footer>— Dinuka Hannadige, 2027 Test Lead</footer>
+                <footer>— Dinuka Hannadige, <em>2027 Test Lead</em></footer>
               </blockquote>
               <p class="dbf-website">Check out the Colorado Design Build Fly website here: <a href="https://coloradodbf.org" target="_blank" rel="noopener noreferrer">coloradodbf.org</a></p>
               <a class="back-to-projects" href="/#projects">back to portfolio</a>
@@ -337,15 +337,15 @@ const ndaCompany = Astro.params.slug === "sierra-space"
           <div class="sierra-testimonials">
           <blockquote class="dbf-testimonial">
             <p>“Ryan combines genuine technical curiosity with a deep sense of purpose — he approaches engineering problems not just to solve them, but to contribute to a safer, more sustainable future. He has a rare ability to pair rigorous analytical thinking with the kind of thoughtful, inclusive leadership that makes him someone teams want to work with.”</p>
-            <footer>— Dr. Therese Suaris, Director of Systems Engineering</footer>
+            <footer>— Dr. Therese Suaris, <em>Director of Systems Engineering</em></footer>
           </blockquote>
           <blockquote class="dbf-testimonial">
             <p>“Aside from being a friend and a great coworker, Ryan became someone I looked up to at Sierra Space. He is a year older than I am, and over the summer, I learned from his work ethic and drew on his experience as a master’s student and a more experienced engineer to become a better engineer myself.”</p>
-            <footer>— Jack Lingbeck, 2026 Technical Intern</footer>
+            <footer>— Jack Lingbeck, <em>2026 Technical Intern</em></footer>
           </blockquote>
           <blockquote class="dbf-testimonial">
             <p>“Ryan is a hardworking and dependable teammate who consistently follows through on his commitments and can be counted on to deliver. Ryan excels at being positive and keeping morale high while working through tough challenges and projects. When faced with a problem, Ryan goes above and beyond to find a solution, and he approaches each challenge with creativity and a willingness to take initiative.”</p>
-            <footer>— Remy Allen, Test Engineer I</footer>
+            <footer>— Remy Allen, <em>Test Engineer I</em></footer>
           </blockquote>
           </div>
           </>
@@ -499,9 +499,9 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .dbf-testimonial{width:min(900px,100%);margin:28px auto 0;padding:clamp(26px,4vw,48px);text-align:left}
   .dbf-testimonial p{margin:0;color:var(--ink);font:italic 400 clamp(19px,2vw,27px)/1.55 Manrope,sans-serif}
   .dbf-testimonial p+p{margin-top:18px}
-  .dbf-testimonial footer{margin-top:22px;padding-inline-start:24px;color:var(--teal);font-size:14px;font-weight:600;letter-spacing:.04em}
-  .sierra-testimonials{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;width:min(1440px,calc(100vw - 48px));align-self:center;margin:28px auto 0;}
-  .sierra-testimonials .dbf-testimonial{display:flex;flex-direction:column;justify-content:center;width:100%;margin:0;padding:clamp(24px,3vw,40px);border:0}
+  .dbf-testimonial footer{margin-top:22px;color:var(--teal);font-size:14px;font-style:normal;font-weight:400;letter-spacing:.04em}
+  .sierra-testimonials{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;width:min(1440px,calc(100vw - 48px));align-self:center;margin:28px 0 0;}
+  .sierra-testimonials .dbf-testimonial{display:flex;flex-direction:column;justify-content:flex-start;width:100%;margin:0;padding:clamp(24px,3vw,40px);border:0}
   .project-sierra-space .project-return{border-top:0}
   .sierra-testimonials .dbf-testimonial p{font-size:clamp(19px,1.65vw,24px)}
   @media(max-width:1000px){.sierra-testimonials{grid-template-columns:1fr;gap:24px;width:100%}}
