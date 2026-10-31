@@ -206,13 +206,13 @@ const ndaCompany = Astro.params.slug === "sierra-space"
             <article class="project-row kwf-snow-row">
               <h2 class="kwf-section-title">Approach</h2>
               <div class="project-copy">
-                <p>To analyze the aerodynamic performance of Eagle Ray, I cross-referenced results across multiple analysis tools, prioritizing open-source software to support KWF's nonprofit mission.</p>
-                <p>I aimed to develop a CFD workflow using hardware readily accessible to my teammates—a standard laptop.</p>
+                <p>My objective was to characterize the baseline aerodynamic performance of Eagle Ray across a range of angles of attack. I compared lift, drag, pitching moment, and lift-to-drag ratio using methods with different modeling assumptions and computational requirements.</p>
+                <p>To keep the workflow accessible to KWF’s nonprofit team, I prioritized open-source tools and evaluated what could be achieved on a standard laptop. I supplemented the local analysis with cloud-based simulations to investigate differences between the approaches.</p>
               </div>
               <div class="analysis-logos" aria-label="Aerodynamic analysis tools">
-                <div><span class="analysis-number">1</span><img src="/images/openvsp-logo.png" alt="OpenVSP" loading="lazy" /><p>Utilized the Vortex Lattice Method to provide a computationally efficient baseline.</p></div>
-                <div><span class="analysis-number">2</span><img src="/images/openfoam-logo.png" alt="OpenFOAM" loading="lazy" /><p>Expanded the analysis to higher-fidelity CFD to capture viscous flow effects.</p></div>
-                <div><span class="analysis-number">3</span><img src="/images/simscale-logo.svg" alt="SimScale" loading="lazy" /><p>Validated results through higher-resolution mesh refinement on a robust cloud-based platform.</p></div>
+                <div><span class="analysis-number">1</span><img src="/images/openvsp-logo.png" alt="OpenVSP" loading="lazy" /><p>Established a computationally inexpensive baseline using the vortex lattice method to evaluate aerodynamic trends.</p></div>
+                <div><span class="analysis-number">2</span><img src="/images/openfoam-logo.png" alt="OpenFOAM" loading="lazy" /><p>Used steady-state RANS simulations to include viscous effects and compare results against the VLM baseline.</p></div>
+                <div><span class="analysis-number">3</span><img src="/images/simscale-logo.svg" alt="SimScale" loading="lazy" /><p>Used cloud computing to run a more refined mesh and compare the predicted aerodynamic coefficients with the local simulations.</p></div>
               </div>
             </article>
             <article class="project-row kwf-mesh-row">
@@ -546,7 +546,7 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   }
   main .sierra-testimonials .dbf-testimonial{border:0}
   main .project-return{border:0}
-  main .analysis-logos>div+div{border:0}
+  main .analysis-logos>div+div{border-top:1px solid var(--project-outline)}
   .sierra-summer-section{display:grid;gap:24px}
   .sierra-summer-section>#sierra-summer-title{margin-bottom:12px}
   .sierra-summer-section>.project-row{padding:0;row-gap:24px}
