@@ -218,10 +218,9 @@ const ndaCompany = Astro.params.slug === "sierra-space"
             <article class="project-row kwf-mesh-row">
               <h2 class="kwf-section-title">Setup</h2>
               <div class="project-copy">
-                <p>In CFD, reliable solutions come from a well-defined domain and mesh.</p>
-                <p>To speed up the solver, I modeled half of the aircraft with a symmetry boundary condition along the x-z plane.</p>
-                <p>One measure of mesh quality is y<sup>+</sup>, which indicates how well the mesh resolves flow near the aircraft surface. Typically, a y<sup>+</sup> of around 1 is desired. Results from 15° AoA are shown on the right.</p>
-                <p>Each setup used steady-state RANS with the k–ω SST turbulence model.</p>
+                <p>I modeled cruise conditions at 20,000 ft with a freestream velocity of 26.04 m/s and a chord-based Reynolds number of approximately 1.03 million. Both CFD configurations used steady-state, incompressible RANS with the k–ω SST turbulence model.</p>
+                <p>To reduce computational cost, I modeled half of the aircraft with a symmetry boundary condition along the x-z plane. Nested refinement regions concentrated cells around the aircraft and wake; the OpenFOAM mesh included 15 surface layers with a 1.2 expansion ratio for near-wall resolution.</p>
+                <p>The local OpenFOAM mesh contained approximately 3.17 million cells, while cloud computing enabled approximately 80 million cells in SimScale. I examined surface y<sup>+</sup> to assess near-wall resolution; the figures show the two configurations at 15° AoA. Because the meshes and domain sizes differed, this comparison was not a controlled mesh-convergence study.</p>
               </div>
               <figure class="kwf-mesh-image"><img src="/images/eagle-ray-openfoam-y-plus-v5.png" alt="Eagle Ray OpenFOAM y-plus visualization with a color scale from 0 to 30" loading="lazy" /><figcaption><strong>OpenFOAM:</strong> Local hardware constraints limited mesh refinement, resulting in higher and more variable y<sup>+</sup>.</figcaption></figure>
               <figure class="kwf-mesh-image"><img src="/images/eagle-ray-simscale-y-plus-v4.png" alt="Eagle Ray aircraft CFD surface y-plus visualization with color scale" loading="lazy" /><figcaption><strong>SimScale:</strong> Cloud computing enabled greater mesh refinement, producing lower and more uniform y<sup>+</sup>.</figcaption></figure>
