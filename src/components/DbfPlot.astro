@@ -1,0 +1,12 @@
+---
+interface Props { src: string; alt: string; width: number; height: number; heatmap?: boolean }
+const { src, alt, width, height, heatmap = false } = Astro.props;
+---
+<svg class="dbf-plot-light" viewBox={`0 0 ${width} ${height}`} role="img" aria-label={alt}>
+  <image href={src} width={width} height={height} filter="url(#scientific-light-neutral)" />
+  {heatmap && <>
+    <defs><clipPath id="dbf-heatmap-cells"><rect x="64" y="31" width="1235" height="792" /></clipPath></defs>
+    <image href={src} width={width} height={height} clip-path="url(#dbf-heatmap-cells)" />
+  </>}
+</svg>
+<img class="dbf-plot-dark" src={src} alt={alt} width={width} height={height} loading="lazy" />

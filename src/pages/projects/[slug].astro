@@ -1,5 +1,6 @@
 ---
 import ThemeImage from "../../components/ThemeImage.astro";
+import DbfPlot from "../../components/DbfPlot.astro";
 import ScientificImageFilters from "../../components/ScientificImageFilters.astro";
 import PortfolioFooter from "../../components/PortfolioFooter.astro";
 import PortfolioHeader from "../../components/PortfolioHeader.astro";
@@ -178,21 +179,23 @@ const ndaCompany = Astro.params.slug === "sierra-space"
                   <div class="dbf-copy">
                     <p><strong>Goal: Design a banner-towing bush plane fitted with rubber duck passengers and hockey puck payloads.</strong></p>
                     <p>Becoming a leader in engineering can be daunting: one must have technical <em>and</em> interpersonal skills to succeed. In learning and applying both skillsets through DBF, the club I had developed a passion for over the last year, I became energized.</p>
+                    <p>I improved upon a MATLAB optimization code, working with the aerodynamics team to compare motor and propeller combinations. I then compared model predictions with thrust test stand measurements, involving new members with the hands on setup and calibration. Examining the differences between predictions and measurements helped me assess the model’s limitations.</p>
                   </div>
                 </div>
                 <section class="dbf-propulsion-analysis" aria-labelledby="dbf-propulsion-title">
                   <h3 id="dbf-propulsion-title">Propulsion Modeling and Validation</h3>
                   <div class="dbf-copy"><p>I used APC propeller data and a motor model to compare candidate combinations at the target cruise condition. The figures below show the predicted efficiency across motor–propeller pairings and the relationship between propeller efficiency and required shaft power.</p></div>
                   <div class="dbf-model-plots">
-                    <figure class="dbf-analysis-figure"><a href="/images/dbf-2026-efficiency-heatmap.png" target="_blank" rel="noopener noreferrer" aria-label="Open motor and propeller efficiency heatmap at full size"><img src="/images/dbf-2026-efficiency-heatmap.png" alt="Heatmap of predicted system efficiency for 18 motor indices and 10 propeller candidates" loading="lazy" /></a><figcaption>Predicted system efficiency by motor (rows) and propeller (columns). Outputs require consistency checks before final selection.</figcaption></figure>
-                    <figure class="dbf-analysis-figure"><a href="/images/dbf-2026-power-tradeoff.png" target="_blank" rel="noopener noreferrer" aria-label="Open efficiency and power tradeoff plot at full size"><img src="/images/dbf-2026-power-tradeoff.png" alt="Propeller efficiency versus cruise shaft power, colored by predicted system efficiency" loading="lazy" /></a><figcaption>Propeller efficiency versus cruise shaft power. Color shows predicted system efficiency with the best motor pairing.</figcaption></figure>
+                    <figure class="dbf-analysis-figure"><a href="/images/dbf-2026-efficiency-heatmap.png" target="_blank" rel="noopener noreferrer" aria-label="Open motor and propeller efficiency heatmap at full size"><DbfPlot src="/images/dbf-2026-efficiency-heatmap.png" alt="Heatmap of predicted system efficiency by motor and propeller" width={1424} height={957} heatmap /></a><figcaption>Predicted system efficiency by motor (rows) and propeller (columns).</figcaption></figure>
+                    <figure class="dbf-analysis-figure"><a href="/images/dbf-2026-power-tradeoff.png" target="_blank" rel="noopener noreferrer" aria-label="Open efficiency and power tradeoff plot at full size"><DbfPlot src="/images/dbf-2026-power-tradeoff.png" alt="Propeller efficiency versus cruise shaft power, colored by system efficiency" width={1451} height={901} /></a><figcaption>Propeller efficiency versus cruise shaft power. Color shows predicted system efficiency with the best motor pairing.</figcaption></figure>
                   </div>
                   <div class="dbf-copy"><p>To assess the model against available hardware, I compared a Scorpion 4020 630 kV motor and 13 × 8E propeller with test stand measurements at 8,000 RPM under static conditions (V = 0 m/s). Results are shown below:</p></div>
-                  <figure class="dbf-analysis-figure dbf-validation-figure"><a href="/images/dbf-2026-static-comparison.png" target="_blank" rel="noopener noreferrer" aria-label="Open static propulsion test comparison at full size"><img src="/images/dbf-2026-static-comparison.png" alt="Model and static test measurements compared for thrust, torque, force coefficients, motor efficiency, and thrust per electrical watt at 8000 RPM" loading="lazy" /></a><figcaption>Static test comparison: differences of 38.50% in thrust, 12.58% in torque, and 26.31% in motor efficiency. This comparison does not establish cruise accuracy.</figcaption></figure>
+                  <figure class="dbf-analysis-figure dbf-validation-figure"><a href="/images/dbf-2026-static-comparison.png" target="_blank" rel="noopener noreferrer" aria-label="Open static propulsion test comparison at full size"><DbfPlot src="/images/dbf-2026-static-comparison.png" alt="Model and static test measurements compared at 8000 RPM" width={1555} height={968} /></a><figcaption>Model vs. experimental data for model validation at 8,000 RPM.</figcaption></figure>
+                  <div class="dbf-copy"><p>Blue bars show model predictions and orange bars show test stand measurements. The model overpredicted thrust by 38.50%, torque by 12.58%, and motor efficiency by 26.31%. Thrust and thrust coefficient have matching relative differences because they use the same reference conditions; the same applies to torque and power coefficient. Propeller data, motor-model assumptions, and test conditions are possible contributors, but this comparison alone does not identify the cause.</p></div>
                 </section>
                 <div class="dbf-pair">
                   <div class="dbf-copy">
-                    <p>I improved upon a MATLAB optimization code, working with the aerodynamics team to compare motor and propeller combinations. I then compared model predictions with thrust test stand measurements, involving new members with the hands on setup and calibration. Examining the differences between predictions and measurements helped me assess the model’s limitations.</p>
+                    <p>The test comparison reinforced the need to assess model predictions against hardware before relying on them for configuration selection. It also gave our team a concrete starting point for investigating the differences and refining the propulsion model.</p>
                     <p>Not only was I learning, but I was able to enhance the learning of other future engineers and leaders who would continue to build the team and beyond.</p>
                   </div>
                   <figure class="team-feature"><img src="/images/dbf-team-2026.webp" alt="Design Build Fly team gathered with their aircraft" /></figure>
@@ -509,17 +512,21 @@ const ndaCompany = Astro.params.slug === "sierra-space"
   .dbf-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:center}
   .dbf-copy p{margin:0;color:var(--ink);font-size:clamp(16px,1.35vw,20px);line-height:1.62}
   .dbf-copy p+p{margin-top:16px}
-  .dbf-propulsion-analysis{display:grid;gap:24px;min-width:0;padding-block:28px;border-block:1px solid var(--project-outline,#253551)}
+  .dbf-propulsion-analysis{display:grid;gap:24px;min-width:0;padding:28px clamp(16px,2vw,28px);border:0;border-radius:18px;background:#eceee9}
   .dbf-propulsion-analysis h3{margin:0;text-align:center;color:var(--ink);font:700 clamp(22px,2.2vw,30px)/1.3 Manrope,sans-serif}
   .dbf-model-plots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start}
   .dbf-analysis-figure{margin:0;min-width:0}
   .dbf-analysis-figure a{display:block}
   .dbf-model-plots>.dbf-analysis-figure a{display:flex;align-items:center;aspect-ratio:1.5}
-  .dbf-model-plots>.dbf-analysis-figure img{max-height:100%;object-fit:contain}
-  @media(min-width:851px){.dbf-model-plots>.dbf-analysis-figure:nth-child(2) img{transform:translateY(-10px)}}
-  .dbf-analysis-figure img{display:block;width:100%;height:auto;filter:invert(1) hue-rotate(180deg) brightness(1.15);mix-blend-mode:multiply}
+  .dbf-model-plots>.dbf-analysis-figure :is(img,svg){max-height:100%;object-fit:contain}
+  @media(min-width:851px){.dbf-model-plots>.dbf-analysis-figure:nth-child(2) :is(img,svg){transform:translateY(-10px)}}
+  .dbf-analysis-figure :global(.dbf-plot-light){display:block;width:96%;height:auto;margin-inline:auto;mix-blend-mode:multiply}
+  .dbf-analysis-figure :global(.dbf-plot-dark){display:none;width:96%;height:auto;margin-inline:auto}
+  .dbf-validation-figure{width:min(100%,1080px);justify-self:center}
   .dbf-analysis-figure figcaption{max-width:850px;margin:14px auto 0;text-align:center;text-wrap:balance;color:var(--muted);font-size:14px;line-height:1.6}
-  :global(html[data-theme="dark"]) .dbf-analysis-figure img{filter:none;mix-blend-mode:lighten}
+  :global(html[data-theme="dark"]) .dbf-propulsion-analysis{background:#1b293a}
+  :global(html[data-theme="dark"]) .dbf-analysis-figure :global(.dbf-plot-light){display:none}
+  :global(html[data-theme="dark"]) .dbf-analysis-figure :global(.dbf-plot-dark){display:block;mix-blend-mode:lighten}
   @media(max-width:850px){.dbf-model-plots{grid-template-columns:1fr}}
   .year-card{margin:0}.year-image{text-align:center}.year-image img{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:transparent}
   .team-feature{margin:0;overflow:hidden;background:#222925}.team-feature img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:var(--second-position)}
