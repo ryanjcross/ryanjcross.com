@@ -1,12 +1,51 @@
 ---
 interface Props { src: string; alt: string; width: number; height: number; heatmap?: boolean }
 const { src, alt, width, height, heatmap = false } = Astro.props;
+const tradeoff = src.includes('power-tradeoff');
+const labels = heatmap ? [
+  { x: 700, y: 941, text: 'Propeller', rotate: false, size: 30 },
+  { x: 16, y: 427, text: 'Motor Index', rotate: true, size: 30 },
+] : tradeoff ? [
+  { x: 700, y: 884, text: 'Cruise Shaft Power, Pᵣ [W]', rotate: false, size: 30 },
+  { x: 20, y: 450, text: 'Propeller Efficiency, ηprop', rotate: true, size: 30 },
+] : [
+  { x: 40, y: 280, text: 'Thrust (N)', rotate: true, size: 26 },
+  { x: 580, y: 280, text: 'Torque (N·m)', rotate: true, size: 26 },
+  { x: 1088, y: 280, text: 'Cₜ', rotate: true, size: 26 },
+  { x: 12, y: 750, text: 'Cₚ', rotate: true, size: 26 },
+  { x: 580, y: 750, text: 'Efficiency (%)', rotate: true, size: 26 },
+  { x: 1088, y: 750, text: 'Static Thrust per Power (gf/W)', rotate: true, size: 26 },
+];
+const masks = heatmap ? [
+  { x: 570, y: 923, width: 270, height: 34 },
+  { x: 0, y: 320, width: 31, height: 225 },
+] : tradeoff ? [
+  { x: 430, y: 867, width: 570, height: 34 },
+  { x: 0, y: 260, width: 37, height: 390 },
+] : [
+  { x: 22, y: 190, width: 34, height: 185 },
+  { x: 562, y: 190, width: 34, height: 185 },
+  { x: 1072, y: 230, width: 32, height: 90 },
+  { x: 0, y: 700, width: 27, height: 100 },
+  { x: 562, y: 640, width: 34, height: 225 },
+  { x: 1070, y: 570, width: 34, height: 365 },
+];
 ---
-<svg class="dbf-plot-light" viewBox={`0 0 ${width} ${height}`} role="img" aria-label={alt}>
-  <image href={src} width={width} height={height} filter="url(#scientific-light-neutral)" />
-  {heatmap && <>
+{['light', 'dark'].map(theme => (
+<svg class={`dbf-plot-${theme}`} viewBox={`0 0 ${width} ${height}`} role="img" aria-label={alt}>
+  <image href={src} width={width} height={height} filter={theme === 'light' ? 'url(#scientific-light-neutral)' : undefined} />
+  {heatmap && theme === 'light' && <>
     <defs><clipPath id="dbf-heatmap-cells"><rect x="64" y="31" width="1235" height="792" /></clipPath></defs>
     <image href={src} width={width} height={height} clip-path="url(#dbf-heatmap-cells)" />
   </>}
+  <g class="axis-labels">
+    {masks.map(mask => <rect {...mask} fill="var(--dbf-chart-paper)" />)}
+    {labels.map(label => <text x={label.x} y={label.y} text-anchor="middle" dominant-baseline="middle" transform={label.rotate ? `rotate(-90 ${label.x} ${label.y})` : undefined} font-size={label.size}>{label.text}</text>)}
+  </g>
 </svg>
-<img class="dbf-plot-dark" src={src} alt={alt} width={width} height={height} loading="lazy" />
+))}
+<style>
+  svg{--dbf-chart-paper:#eceee9}
+  .axis-labels text{font-family:Poppins,sans-serif;font-weight:400;fill:var(--ink)}
+  :global(html[data-theme="dark"]) svg{--dbf-chart-paper:#1b293a}
+</style>
